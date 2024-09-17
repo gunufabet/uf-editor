@@ -82,7 +82,7 @@ const props = defineProps({
 .open-link-btn {
     position: absolute;
     top: 0.5rem;
-    right: 0;
+    right: -2px;
     z-index: 1;
 }
 
