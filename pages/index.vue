@@ -4,9 +4,9 @@
 
 <script setup lang="ts">
 useHead({
-  title: 'TEST U',
+  title: 'UFABET',
   meta: [
-    { name: 'description', content: 'My amazing test U.' }
+    { name: 'description', content: 'My amazing UFABET.' }
   ],
   bodyAttrs: {
     class: 'test'

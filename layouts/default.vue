@@ -9,12 +9,12 @@
 // useAsyncData('sports', async () => await useSportStore().fetchSportCateogry())
 
 useHead({
-  title: 'TEST U',
+  title: 'UFABET',
   meta: [
     {
       hid: 'description',
       name: 'description',
-      content: 'Welcome to TEST U'
+      content: 'Welcome to UFABET'
     }
   ]
 })
