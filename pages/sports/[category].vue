@@ -1,0 +1,31 @@
+<template>
+  <div>
+    <main-content :main-title-text="route.params.category" :main-content-text="mainContentText"></main-content>
+    <div class="break-space"></div>
+  </div>
+</template>
+
+<script setup lang="ts">
+const route = useRoute()
+const pageTitle = 'U'
+const pageDescription = 'Welcome to U'
+const mainContentText = ref('Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa  veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur');
+
+useHead({
+  title: pageTitle,
+  meta: [
+    {
+      hid: 'description',
+      name: 'description',
+      content: pageDescription
+    }
+  ],
+  link: [
+    {
+      hid: "canonical",
+      rel: "canonical",
+      href: `/${route.params}`
+    },
+  ]
+})
+</script>

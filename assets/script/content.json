@@ -1,0 +1,537 @@
+{
+  "Sport": {
+    "Soccer": {
+      "main": {
+        "title": "UFABET",
+        "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa  veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur"
+      },
+      "advertisementBanner": [
+        {
+          "imgSrc": "/img/sport-banner/sport-banner-1.png",
+          "imgAlt": "ufabet promo 1"
+        },
+        {
+          "imgSrc": "/img/sport-banner/sport-banner-2.png",
+          "imgAlt": "ufabet promo 2"
+        }
+      ],
+      "section1": {
+        "title": "Ufabet Direct Website",
+        "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad.",
+        "section1a": [
+          {
+            "title": "Lorem ipsum dolor sit amet, consectetur elit, sed do eiusmod tempor incididunt?",
+            "content": "Epcot is a theme park at Walt Disney World Resort featuring exciting attractions, international pavilions, award-winning fireworks and seasonal special events."
+          },
+          {
+            "title": "Lorem ipsum dolor sit amet, consectetur elit, sed do eiusmod tempor incididunt?",
+            "content": "Epcot is a theme park at Walt Disney World Resort featuring exciting attractions, international pavilions, award-winning fireworks and seasonal special events."
+          },
+          {
+            "title": "Lorem ipsum dolor sit amet, consectetur elit, sed do eiusmod tempor incididunt?",
+            "content": "Epcot is a theme park at Walt Disney World Resort featuring exciting attractions, international pavilions, award-winning fireworks and seasonal special events."
+          }
+        ]
+      },
+      "hotMatchList": [
+        {
+          "tournamentText": "UEFA Champions Leagua",
+          "matchRunningTime": "56’",
+          "isRunningMatch": true,
+          "homeName": "Chelsea",
+          "homeScore": "1",
+          "homeIcon": "/img/team-flag/chelsea.png",
+          "homeIconAlt": "Chelsea",
+          "awayName": "Mancity",
+          "awayScore": "0",
+          "awayIcon": "/img/team-flag/mancity.png",
+          "awayIconAlt": "Mancity",
+          "homeOdds": "2.05",
+          "awayOdds": "3.44",
+          "drawOdds": "2"
+        },
+        {
+          "tournamentText": "UEFA Champions Leagua",
+          "matchRunningTime": "56’",
+          "isRunningMatch": true,
+          "homeName": "Chelsea",
+          "homeScore": "1",
+          "homeIcon": "/img/team-flag/chelsea.png",
+          "homeIconAlt": "Chelsea",
+          "awayName": "Mancity",
+          "awayScore": "0",
+          "awayIcon": "/img/team-flag/mancity.png",
+          "awayIconAlt": "Mancity",
+          "homeOdds": "2.05",
+          "awayOdds": "3.44",
+          "drawOdds": "2"
+        }
+      ],
+      "eventMatchList": [
+        {
+          "eventTitle": "Olympic 2024",
+          "eventLogo": "/img/soccer/event-logo.png",
+          "eventLogoAlt": "eventLogoAlt",
+          "tournamentIcon": "/img/soccer/icn-soccer.svg",
+          "tournamentIconAlt": "Soccer",
+          "tournamentText": "Men’s Soccer Semi-Final",
+          "matchRunningTime": "87’",
+          "isRunningMatch": true,
+          "homeName": "Morocco",
+          "homeScore": "1",
+          "homeIcon": "/img/team-flag/morocco.png",
+          "homeIconAlt": "Morocco",
+          "awayName": "Spain",
+          "awayScore": "0",
+          "awayIcon": "/img/team-flag/spain.png",
+          "awayIconAlt": "Spain",
+          "homeOdds": "2.05",
+          "awayOdds": "3.44",
+          "drawOdds": "2"
+        }
+      ],
+      "newsList": [
+        {
+          "newsId": "1",
+          "newsImg": "/img/sample-data/sample-article-1.png",
+          "newsAlt": "ufabet football news",
+          "newsShortDescription": "Real Madrid launch £100m Kane bid amid Man Utd",
+          "dateDisplay": "13 mins ago",
+          "createdDate": ""
+        },
+        {
+          "newsId": "2",
+          "newsImg": "/img/sample-data/sample-article-3.png",
+          "newsAlt": "ufabet football news",
+          "newsShortDescription": "Ireland vs lorem ipsum dolor sit testings delighted on the match ",
+          "dateDisplay": "2 hours ago",
+          "createdDate": ""
+        }
+      ],
+      "sectionLiveSoccerMatch": {
+        "title": "UFABET Live Soccer Matches",
+        "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "liveMatchCount": {
+          "live": 6,
+          "today": 41,
+          "early": 122,
+          "outright": 22
+        },
+        "liveMatchList": [
+          {
+            "title": "LIGA PORTUGAL 3",
+            "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo ",
+            "matchDetail": [
+              {
+                "score": "1 - 2",
+                "time": "2H 19’",
+                "homeName": "Lusitania Acores",
+                "awayName": "Academica Coimbra",
+                "hasLiveStream": true,
+                "hasStatistic": true,
+                "hasMoreBetOption": true,
+                "homeOdd_FT_HDP_1": "0",
+                "homeOdd_FT_HDP_2": "0.88",
+                "homeOdd_FT_OU_1": "o2.25",
+                "homeOdd_FT_OU_2": "0.79",
+                "homeOdd_FT_1X2_1": "Home",
+                "homeOdd_FT_1X2_2": "2.35",
+                "awayOdd_FT_HDP_1": "0",
+                "awayOdd_FT_HDP_2": "0.97",
+                "awayOdd_FT_OU_1": "o2.25",
+                "awayOdd_FT_OU_2": "1.04",
+                "awayOdd_FT_1X2_1": "Away",
+                "awayOdd_FT_1X2_2": "2.63",
+                "odd_FT_1X2_Draw_1": "Draw",
+                "odd_FT_1X2_Draw_2": "3.13"
+              }
+            ]
+          },
+          {
+            "title": "NETHERLANDS EREDIVISIE",
+            "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo ",
+            "matchDetail": [
+              {
+                "score": "LIVE",
+                "time": "20:00",
+                "homeName": "Go Ahead Eagles",
+                "awayName": "Fortuna Sittard",
+                "hasLiveStream": true,
+                "hasStatistic": true,
+                "hasMoreBetOption": false,
+                "homeOdd_FT_HDP_1": "0",
+                "homeOdd_FT_HDP_2": "1.02",
+                "homeOdd_FT_OU_1": "o2.25",
+                "homeOdd_FT_OU_2": "0.92",
+                "homeOdd_FT_1X2_1": "Home",
+                "homeOdd_FT_1X2_2": "2.05",
+                "awayOdd_FT_HDP_1": "0",
+                "awayOdd_FT_HDP_2": "0.87",
+                "awayOdd_FT_OU_1": "o2.25",
+                "awayOdd_FT_OU_2": "0.97",
+                "awayOdd_FT_1X2_1": "Away",
+                "awayOdd_FT_1X2_2": "3.34",
+                "odd_FT_1X2_Draw_1": "Draw",
+                "odd_FT_1X2_Draw_2": "3.34"
+              },
+              {
+                "score": "LIVE",
+                "time": "20:00",
+                "homeName": "FC Utrecht",
+                "awayName": "PEC Zwolle",
+                "hasLiveStream": true,
+                "hasStatistic": true,
+                "hasMoreBetOption": false,
+                "homeOdd_FT_HDP_1": "0",
+                "homeOdd_FT_HDP_2": "1.01",
+                "homeOdd_FT_OU_1": "o3",
+                "homeOdd_FT_OU_2": "0.97",
+                "homeOdd_FT_1X2_1": "Home",
+                "homeOdd_FT_1X2_2": "1.44",
+                "awayOdd_FT_HDP_1": "0",
+                "awayOdd_FT_HDP_2": "0.90",
+                "awayOdd_FT_OU_1": "u3",
+                "awayOdd_FT_OU_2": "0.88",
+                "awayOdd_FT_1X2_1": "Away",
+                "awayOdd_FT_1X2_2": "5.98",
+                "odd_FT_1X2_Draw_1": "Draw",
+                "odd_FT_1X2_Draw_2": "4.47"
+              }
+            ]
+          }
+        ]
+      },
+      "sectionWithMenu1": {
+        "menuTab": [
+          { "id": "account", "text": "UFABET Account", "menuTabOrder": 1 },
+          { "id": "deposit", "text": "UFABET Deposit", "menuTabOrder": 2 },
+          { "id": "sport", "text": "UFABET Sports", "menuTabOrder": 3 }
+        ],
+        "menuContent": [
+          {
+            "menuTabId": "account",
+            "title": "How to Open an Ufabet Account?",
+            "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad.",
+            "contentList": [
+              {
+                "title": "Lorem ipsum dolor sit amet?",
+                "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercita ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehend in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+              },
+              {
+                "title": "Lorem ipsum dolor sit amet?",
+                "content": "Epcot is a theme park at Walt Disney World Resort featuring exciting attractions, international pavilions, award-winning fireworks and seasonal special events."
+              },
+              {
+                "title": "Lorem ipsum dolor sit amet, consectetur elit, sed do eiusmod tempor incididunt?",
+                "content": "Epcot is a theme park at Walt Disney World Resort featuring exciting attractions, international pavilions, award-winning fireworks and seasonal special events."
+              }
+            ],
+            "titleH3": "What languages are Ufabet available for?",
+            "contentH3": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad.",
+            "contentListH3": [
+              {
+                "title": "Lorem ipsum dolor sit amet?",
+                "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercita ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehend in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+              },
+              {
+                "title": "Lorem ipsum dolor sit amet?",
+                "content": "Epcot is a theme park at Walt Disney World Resort featuring exciting attractions, international pavilions, award-winning fireworks and seasonal special events."
+              }
+            ],
+            "titleH4": "How do I place a bet on football through Ufabet?",
+            "contentH4": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad.",
+            "contentListH4": [
+              {
+                "title": "Lorem ipsum dolor sit amet?",
+                "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercita ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehend in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+              },
+              {
+                "title": "Lorem ipsum dolor sit amet?",
+                "content": "Epcot is a theme park at Walt Disney World Resort featuring exciting attractions, international pavilions, award-winning fireworks and seasonal special events."
+              }
+            ]
+          },
+          {
+            "menuTabId": "deposit",
+            "title": "What are the Ufabet Deposit Methods?",
+            "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad.",
+            "contentList": [
+              {
+                "title": "Lorem ipsum dolor sit amet?",
+                "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercita ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehend in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+              },
+              {
+                "title": "Lorem ipsum dolor sit amet?",
+                "content": "Epcot is a theme park at Walt Disney World Resort featuring exciting attractions, international pavilions, award-winning fireworks and seasonal special events."
+              },
+              {
+                "title": "Lorem ipsum dolor sit amet, consectetur elit, sed do eiusmod tempor incididunt?",
+                "content": "Epcot is a theme park at Walt Disney World Resort featuring exciting attractions, international pavilions, award-winning fireworks and seasonal special events."
+              }
+            ],
+            "titleH3": "What is the Ufabet Withdrawal Conditions?",
+            "contentH3": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad.",
+            "contentListH3": [
+              {
+                "title": "Lorem ipsum dolor sit amet?",
+                "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercita ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehend in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+              },
+              {
+                "title": "Lorem ipsum dolor sit amet?",
+                "content": "Epcot is a theme park at Walt Disney World Resort featuring exciting attractions, international pavilions, award-winning fireworks and seasonal special events."
+              }
+            ],
+            "titleH4": "What are the Ufabet Payment Options?",
+            "contentH4": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad.",
+            "contentListH4": [
+              {
+                "title": "Lorem ipsum dolor sit amet?",
+                "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercita ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehend in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+              },
+              {
+                "title": "Lorem ipsum dolor sit amet?",
+                "content": "Epcot is a theme park at Walt Disney World Resort featuring exciting attractions, international pavilions, award-winning fireworks and seasonal special events."
+              }
+            ]
+          },
+          {
+            "menuTabId": "sport",
+            "title": "What Sports are Available for Betting on Ufabet?",
+            "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad.",
+            "contentList": [
+              {
+                "title": "Lorem ipsum dolor sit amet?",
+                "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercita ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehend in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+              },
+              {
+                "title": "Lorem ipsum dolor sit amet?",
+                "content": "Epcot is a theme park at Walt Disney World Resort featuring exciting attractions, international pavilions, award-winning fireworks and seasonal special events."
+              },
+              {
+                "title": "Lorem ipsum dolor sit amet, consectetur elit, sed do eiusmod tempor incididunt?",
+                "content": "Epcot is a theme park at Walt Disney World Resort featuring exciting attractions, international pavilions, award-winning fireworks and seasonal special events."
+              }
+            ],
+            "titleH3": "Football (Soccerr) on Ufabet",
+            "contentH3": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad.",
+            "contentListH3": [
+              {
+                "title": "Lorem ipsum dolor sit amet?",
+                "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercita ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehend in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+              },
+              {
+                "title": "Lorem ipsum dolor sit amet?",
+                "content": "Epcot is a theme park at Walt Disney World Resort featuring exciting attractions, international pavilions, award-winning fireworks and seasonal special events."
+              }
+            ]
+          }
+        ]
+      },
+      "sectionWithMenu2": {
+        "menuTab": [
+          { "id": "football", "text": "UFABET Football", "menuTabOrder": 1 },
+          { "id": "slot", "text": "UFABET Slot", "menuTabOrder": 2 },
+          { "id": "gambling", "text": "UFABET Gambling", "menuTabOrder": 3 }
+        ],
+        "menuContent": [
+          {
+            "menuTabId": "football",
+            "showBetBoost": true,
+            "title": "UFABET Football Bet Boost",
+            "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad."
+          },
+          {
+            "menuTabId": "slot",
+            "showBetBoost": false,
+            "title": "UFABET Slot",
+            "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad."
+          },
+          {
+            "menuTabId": "gambling",
+            "showBetBoost": false,
+            "title": "UFABET Gambling",
+            "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad."
+          }
+        ]
+      },
+      "betBoostList": [
+        {
+          "leagueName": "English Premier League",
+          "homeName": "Manchester United",
+          "awayName": "Manchester City",
+          "homeScore": 2,
+          "awayScore": 1,
+          "odds": "@6.12"
+        },
+        {
+          "leagueName": "UAE Pro League U21",
+          "homeName": "Al Bataeh Club U21",
+          "awayName": "Al Dhafra U21",
+          "homeScore": 0,
+          "awayScore": 0,
+          "odds": "@4.6"
+        },
+        {
+          "leagueName": "UAE Pro League U21",
+          "homeName": "Al Nasr Dubai U21",
+          "awayName": "Bani Yas Vlus Test Long U21",
+          "homeScore": 2,
+          "awayScore": 1,
+          "odds": "@8.4"
+        }
+      ],
+      "sectionNewsEvents": {
+        "buttonOption": [
+          { "id": "news", "text": "UFABET Football News", "buttonOrder": 1 },
+          { "id": "events", "text": "UFABET Football Events", "buttonOrder": 2 }
+        ],
+        "buttonOptionContent": [
+          {
+            "buttonOptionId": "news",
+            "title": "Latest Ufabet Football News",
+            "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad.",
+            "showNews": true
+          },
+          {
+            "buttonOptionId": "events",
+            "title": "Latest Ufabet Football Events",
+            "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad.",
+            "showNews": false
+          }
+        ]
+      },
+      "sectionBonus": {
+        "title": "UFABET Bonus",
+        "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et.",
+        "imgSrc": "/img/sample-data/sample-bonus-1.png",
+        "imgAlt": "ufabet promo 1"
+      },
+      "sectionGameAvailable": {
+        "title": "What Casino Games are Available for Betting on Ufabet?",
+        "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et.",
+        "menuTab": [
+          { "id": "slot", "text": "UFABET Slot", "menuTabOrder": 1 },
+          {
+            "id": "livecasino",
+            "text": "UFABET Live Casino",
+            "menuTabOrder": 2
+          },
+          { "id": "gambling", "text": "UFABET Gambling", "menuTabOrder": 3 }
+        ],
+        "menuContent": [
+          {
+            "menuTabId": "slot",
+            "title": "Slot Games In UFABET",
+            "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad.",
+            "buttonDesign": "1",
+            "buttonList": [
+              {
+                "id": "x-slot-game",
+                "text": "X Slot",
+                "text2": "Game",
+                "buttonOrder": 1
+              },
+              {
+                "id": "y-slot-game",
+                "text": "Y Slot",
+                "text2": "Game",
+                "buttonOrder": 2
+              },
+              {
+                "id": "z-slot-game",
+                "text": "Z Slot",
+                "text2": "Game",
+                "buttonOrder": 1
+              },
+              {
+                "id": "d-slot-game",
+                "text": "D Slot",
+                "text2": "Game",
+                "buttonOrder": 1
+              },
+              {
+                "id": "e-slot-game",
+                "text": "E Slot",
+                "text2": "Game",
+                "buttonOrder": 1
+              },
+              {
+                "id": "f-slot-game",
+                "text": "F Slot",
+                "text2": "Game",
+                "buttonOrder": 1
+              }
+            ]
+          },
+          {
+            "menuTabId": "livecasino",
+            "title": "UFABET Casino",
+            "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad.",
+            "buttonDesign": "2",
+            "buttonList": [
+              {
+                "id": "x-casino-game",
+                "text": "UFABET X Casino Game",
+                "buttonOrder": 1
+              },
+              {
+                "id": "y-casino-game",
+                "text": "UFABET Y Casino Game",
+                "buttonOrder": 2
+              }
+            ]
+          },
+          {
+            "menuTabId": "gambling",
+            "title": "UFABET Gambling",
+            "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad.",
+            "buttonDesign": "2",
+            "buttonList": [
+              {
+                "id": "x-gambling-game",
+                "text": "UFABET X Gambling Game",
+                "buttonOrder": 1
+              },
+              {
+                "id": "y-gambling-game",
+                "text": "UFABET Y Gambling Game",
+                "buttonOrder": 2
+              }
+            ]
+          }
+        ]
+      },
+      "sectionSportsButton": {
+        "buttonOption": [
+          {
+            "id": "btn-boxing",
+            "text": "UFABET",
+            "text2": "Boxing",
+            "iconSrc": "/img/soccer/icn-boxing.svg",
+            "iconAlt": "Boxing",
+            "buttonOrder": 1
+          },
+          {
+            "id": "btn-tennis",
+            "text": "UFABET",
+            "text2": "Tennis",
+            "iconSrc": "/img/soccer/icn-tennis.svg",
+            "iconAlt": "Tennis",
+            "buttonOrder": 2
+          },
+          {
+            "id": "btn-basketball",
+            "text": "UFABET",
+            "text2": "Basketball",
+            "iconSrc": "/img/soccer/icn-basketball.svg",
+            "iconAlt": "Basketball",
+            "buttonOrder": 3
+          }
+        ]
+      }
+    }
+  },
+  "footer": {
+    "socialMedia": [{ "socialMediaApp": "" }]
+  }
+}

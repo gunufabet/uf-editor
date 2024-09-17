@@ -1,0 +1,32 @@
+{
+  "layout": {
+    "header": {
+      "menu": {
+        "index": "Home"
+      },
+      "language": {
+        "title": "Language",
+        "en": "English",
+        "th": "ไทย"
+      },
+      "button": {
+        "login": "Login",
+        "register": "Login/Sign up"
+      }
+    }
+  },
+  "sport": {
+    "button": {
+      "viewMore": "View More",
+      "viewMoreFootballNews": "View More Football News",
+      "ufFootballNews": "UFABET Football News",
+      "ufFootballEvents": "UFABET Football Events"
+    },
+    "news": {
+      "happening": "HAPPENING ",
+      "now": "NOW ",
+      "hot": "HOT ",
+      "matches": "MATCHES "
+    }
+  }
+}

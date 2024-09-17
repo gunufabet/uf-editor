@@ -1,0 +1,61 @@
+html {
+  background: #000;
+  color: #ebc76e;
+
+  body {
+    margin: 0px;
+  }
+
+  button {
+    border: none;
+    cursor: pointer;
+    appearance: none;
+    background-color: inherit;
+    transition: transform 0.3s ease-in-out;
+  }
+
+  button:hover {
+    transform: scale(1.1);
+  }
+
+  @media (hover: none) {
+    button:hover {
+      transform: scale(1);
+    }
+  }
+
+  section {
+    margin: 0 1rem 0 1rem;
+  }
+
+  p {
+    // margin: 0.3rem;
+    margin: 0;
+  }
+
+  h1,
+  h2 {
+    margin: 0;
+  }
+
+  h1 {
+    font-size: 32px;
+  }
+
+  h2 {
+    font-size: 24px;
+  }
+}
+
+* {
+  font-family: "Prompt", sans-serif;
+}
+
+*:focus {
+  outline: none;
+  border-color: inherit;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  background-color: inherit;
+  background: inherit;
+}

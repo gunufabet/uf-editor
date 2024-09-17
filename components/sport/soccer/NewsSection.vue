@@ -1,0 +1,84 @@
+<template>
+    <div class="btn-wrapper">
+        <custom-button-3 v-for="(button, index) in buttonOption" :key="index" :label="button.text" :id="button.id"
+            :isSelected="button.id === selectedBtnId" @click="selectButton(button)"></custom-button-3>
+    </div>
+    <aside-content :aside-title-text="asideTitleText" :aside-content-text="asideContentText"></aside-content>
+
+    <div v-if="showNews">
+        <div style="margin: 1rem;">
+            <img style="margin-right: 0.3rem;" src="/img/soccer/icn-happening-now.svg" alt="soccer happening now">
+            <span class="happening-now-text-1">{{ $t('sport.news.happening') }} </span><span
+                class="happening-now-text-2">{{ $t('sport.news.now') }}</span>
+        </div>
+
+        <div class="btn-wrapper">
+            <sport-soccer-article-container v-for="(news, index) in newsList" :key="index" :newsId="news.newsId"
+                :newsTime="news.dateDisplay" :newsImgSrc="news.newsImg" :newsImgAlt="news.newsAlt"
+                :newsContent="news.newsShortDescription">
+            </sport-soccer-article-container>
+        </div>
+
+        <custom-button-1 :label="$t('sport.button.viewMoreFootballNews')"></custom-button-1>
+
+        <div class="btn-wrapper">
+            <custom-button-4 v-for="(button, index) in sportsButtonList" :key="index" :id="button.id"
+                :label="button.text" :label2="button.text2" :iconSrc="button.iconSrc" :iconAlt="button.iconAlt">
+            </custom-button-4>
+        </div>
+    </div>
+</template>
+
+<script setup lang="ts">
+import content from '~/assets/script/content.json'
+const buttonOption = ref(content.Sport.Soccer.sectionNewsEvents.buttonOption);
+const selectedBtnId = ref(content.Sport.Soccer.sectionNewsEvents.buttonOption[0].id);
+const asideTitleText = ref('');
+const asideContentText = ref('');
+const showNews = ref(false);
+const newsList = ref(content.Sport.Soccer.newsList);
+const sportsButtonList = ref(content.Sport.Soccer.sectionSportsButton.buttonOption);
+
+onMounted(() => {
+    selectButton(null)
+})
+
+function selectButton(value: any) {
+    if (!value) {
+        selectedBtnId.value = content.Sport.Soccer.sectionNewsEvents.buttonOption[0].id
+    } else {
+        selectedBtnId.value = value.id;
+    }
+
+    const selectedButton = content.Sport.Soccer.sectionNewsEvents.buttonOptionContent.find(
+        (content) => content.buttonOptionId === selectedBtnId.value
+    );
+
+    asideTitleText.value = selectedButton?.title || '';
+    asideContentText.value = selectedButton?.content || '';
+    showNews.value = selectedButton?.showNews || false;
+}
+</script>
+
+<style lang="scss" scoped>
+.btn-wrapper {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    // padding: 1rem;
+    gap: 0.5rem;
+    margin: 0 1rem 0 1rem;
+}
+
+.happening-now-text-1 {
+    color: #EBC76E;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.happening-now-text-2 {
+    color: #FFF;
+    font-size: 12px;
+    font-weight: 500;
+}
+</style>
