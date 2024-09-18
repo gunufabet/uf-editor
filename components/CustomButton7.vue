@@ -2,7 +2,8 @@
     <div class="btn-wrapper">
         <button class="custom-btn" :class="designType === '1' ? 'btn-design-1' : 'btn-design-2'">
             <div class="btn-content-wrapper">
-                <div class="label-text-1">{{ props.label }}</div>
+                <div class="label-text-1" :class="labelDisable ? 'custom-button-7-label-disabled' : ''">{{ props.label }}
+                </div>
                 <div class="label-text-2">
                     <span><img :src="props.oddsIcon" :alt="props.oddsIconAlt"></span>
                     <span>{{ props.label2 }}</span>
@@ -17,6 +18,10 @@ const props = defineProps({
     label: {
         type: String,
         default: ''
+    },
+    labelDisable: {
+        type: Boolean,
+        default: false
     },
     label2: {
         type: String,
@@ -59,7 +64,7 @@ const props = defineProps({
     flex-shrink: 0;
     // padding: 1rem;
     color: #EBC76E;
-    min-width: 103px;
+    min-width: 83px;
     min-height: 37px;
     border-radius: 8px;
     border: 1px solid #584F4F;
@@ -98,5 +103,9 @@ const props = defineProps({
     display: block;
     max-width: 1rem;
     height: auto;
+}
+
+.custom-button-7-label-disabled {
+    opacity: 0.5;
 }
 </style>

@@ -1,43 +1,50 @@
 <template>
-    <div style="margin: 1rem;">
+    <div style="margin: 1rem 1rem 0.5rem 1rem;">
         <img class="bet-boost-img" src="/img/bet-boost.png" alt="">
     </div>
 
-    <div class="bet-boost-container">
-        <div class="item-container" v-for="(content, index) in betBoostList" :key="index">
-            <div v-if="index === 0" style="margin-top: 0.4rem;"></div>
-            <div class="item-container-league-name">{{ content.leagueName }}</div>
-            <div class="item-container-team-match">{{ content.homeName }}<span
-                    class="item-container-team-match-vs">vs</span>{{ content.awayName }}</div>
-            <div style="display: flex; flex-flow: row;">
-                <div style="display: flex; " class="item-container-match-score">{{ content.homeScore }} - {{
+    <div class="bet-boost-wrapper">
+        <div class="bet-boost-container" v-for="(list, betBoostListIndex) in betBoostList" :key="betBoostListIndex">
+            <div class="item-container" v-for="(content, index) in list.betList" :key="index">
+                <div v-if="index === 0" style="margin-top: 0.4rem;"></div>
+                <div class="item-container-league-name">{{ content.leagueName }}</div>
+                <div class="item-container-team-match">{{ content.homeName }}<span
+                        class="item-container-team-match-vs">vs</span>{{ content.awayName }}</div>
+                <div style="display: flex; flex-flow: row;">
+                    <div style="display: flex; " class="item-container-match-score">{{ content.homeScore }} - {{
             content.awayScore }}</div>
-                <div class="item-container-match-odds">{{ content.odds }}</div>
+                    <div class="item-container-match-odds">{{ content.odds }}</div>
+                </div>
+
+                <div v-if="index < list.betList.length - 1" class="break-line"></div>
             </div>
 
-            <div v-if="index < betBoostList.length - 1" class="break-line"></div>
-        </div>
-
-        <div style="display: flex; justify-content: center; align-content: center; text-align: center; margin: 1rem;">
-            <button class="bet-boost-btn">Odds</button>
+            <div
+                style="display: flex; justify-content: center; align-content: center; text-align: center; margin: 1rem;">
+                <button class="bet-boost-btn">Odds : <span class="bet-boost-odds-from-text">{{ list.betBoostOddFrom
+                        }}</span><img class="bet-boost-odds-img" src="/img/soccer/icn-bet-boots-odds-to.svg"
+                        alt=""><span class="bet-boost-odds-to-text">{{ list.betBoostOddTo }}</span></button>
+            </div>
         </div>
     </div>
 </template>
 
 <script setup lang="ts">
-import type { BetBoost } from "~/types/strapi-model";
-
-const betBoostList: BetBoost[] = [
-    { leagueName: 'English Premier League', homeName: 'Manchester United', awayName: 'Manchester City', homeScore: 2, awayScore: 1, odds: '@6.12' },
-    { leagueName: 'UAE Pro League U21', homeName: 'Al Bataeh Club U21', awayName: 'Al Dhafra U21', homeScore: 0, awayScore: 0, odds: '@4.6' },
-    { leagueName: 'UAE Pro League U21', homeName: 'Al Nasr Dubai U21', awayName: 'Bani Yas Vlus Test Long U21', homeScore: 2, awayScore: 1, odds: '@8.4' },
-];
-
+import content from '~/assets/script/betboost.json'
+const betBoostList = ref(content.betBoostList);
 </script>
 
 <style lang="scss" scoped>
+.bet-boost-wrapper {
+    display: flex;
+    flex-wrap: nowrap;    
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding-bottom: 1rem;
+}
+
 .bet-boost-container {
-    margin: 0.5rem 1rem 1rem 1rem;
+    margin: 0 1rem 1rem 1rem;
     max-width: 319px;
     min-height: 279px;
     flex-shrink: 0;
@@ -53,6 +60,7 @@ const betBoostList: BetBoost[] = [
     background-repeat: no-repeat;
     background-size: cover;
     // padding: 30%;
+    border-radius: 0 8px 8px 0;
 }
 
 .item-container {
@@ -114,7 +122,9 @@ const betBoostList: BetBoost[] = [
 }
 
 .bet-boost-btn {
-    align-content: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 90%;
     height: 40px;
     flex-shrink: 0;
@@ -132,5 +142,23 @@ const betBoostList: BetBoost[] = [
 .bet-boost-img {
     width: 95px;
     height: 29.9px;
+}
+
+.bet-boost-odds-from-text {
+    text-decoration: line-through;
+    margin-left: 0.3rem;
+}
+
+.bet-boost-odds-to-text {
+    color: #FFF;
+    text-align: center;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.bet-boost-odds-img {
+    margin: 0 0.4rem 0 0.4rem;
 }
 </style>

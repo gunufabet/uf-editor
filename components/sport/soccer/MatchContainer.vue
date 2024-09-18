@@ -55,17 +55,19 @@
 
         <div class="match-footer-container">
             <div class="match-content-wrapper-3">
-                <custom-button-7 :label="`1`" :label2="`2.05`" :designType="`1`"
+                <custom-button-7 :label="`1`" :label2="homeOdds" :designType="`1`"
                     :oddsIcon="`/img/soccer/icn-odds-up.svg`"></custom-button-7>
-                <custom-button-7 :label="`X`" :label2="`3.44`" :designType="`1`"
+                <custom-button-7 :label="`X`" :label2="awayOdds" :designType="`1`"
                     :oddsIcon="`/img/soccer/icn-odds-down.svg`"></custom-button-7>
+                <custom-button-7 :label="drawOdds" :labelDisable="true" :designType="`1`"
+                    :oddsIcon="`/img/soccer/icn-odds-lock.svg`"></custom-button-7>
             </div>
         </div>
     </div>
 </template>
 
 <script setup lang="ts">
-const props = defineProps({    
+const props = defineProps({
     tournamentText: {
         type: String,
         default: ''
@@ -158,7 +160,7 @@ const props = defineProps({
 .match-content-wrapper-base {
     display: flex;
     flex-direction: column;
-    justify-content: center;    
+    justify-content: center;
 }
 
 .match-content-wrapper-2 {
