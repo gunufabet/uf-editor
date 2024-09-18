@@ -1,9 +1,9 @@
 <template>
     <div style="margin: 1rem;">
-        <img src="/img/bet-boost.svg" alt="">
+        <img class="bet-boost-img" src="/img/bet-boost.png" alt="">
     </div>
 
-    <div class="bet-boost-container">        
+    <div class="bet-boost-container">
         <div class="item-container" v-for="(content, index) in betBoostList" :key="index">
             <div v-if="index === 0" style="margin-top: 0.4rem;"></div>
             <div class="item-container-league-name">{{ content.leagueName }}</div>
@@ -37,7 +37,7 @@ const betBoostList: BetBoost[] = [
 
 <style lang="scss" scoped>
 .bet-boost-container {
-    margin: 1rem;
+    margin: 0.5rem 1rem 1rem 1rem;
     max-width: 319px;
     min-height: 279px;
     flex-shrink: 0;
@@ -113,7 +113,7 @@ const betBoostList: BetBoost[] = [
     margin: 0.5rem 0 0.3rem 0;
 }
 
-.bet-boost-btn {    
+.bet-boost-btn {
     align-content: center;
     width: 90%;
     height: 40px;
@@ -127,5 +127,10 @@ const betBoostList: BetBoost[] = [
     font-style: normal;
     font-weight: 400;
     line-height: normal;
+}
+
+.bet-boost-img {
+    width: 95px;
+    height: 29.9px;
 }
 </style>
