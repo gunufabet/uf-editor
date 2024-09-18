@@ -2,38 +2,40 @@
     <section class="section-content">
         <!-- h2 -->
         <h2 v-if="props.sectionTitle" class="subTitle">{{ props.sectionTitle }}</h2>
-        <p v-if="props.sectionContent" class="section-content-detail section-content-title-detail">
-            {{ props.sectionContent }}
+        <p v-if="props.sectionContent" class="section-content-detail section-content-title-detail"
+            v-html="props.sectionContent">
         </p>
 
         <details class="section-content-detail section-content-detail-wrapper"
             v-for="(content, index) in props.sectionSubContent" :key="index">
             <summary class="section-content-detail-h3-title">{{ content.title }}</summary>
-            <p class="section-content-detail-h3-content">{{ content.content }}</p>
+            <p class="section-content-detail-h3-content" v-html="content.content"></p>
         </details>
 
         <!-- h3 -->
         <h3 v-if="props.sectionTitleH3" class="subTitleH3">{{ props.sectionTitleH3 }}</h3>
-        <p v-if="props.sectionContentH3" class="section-content-detail section-content-title-detail subTitleH3DetailSpace">
-            {{ props.sectionContentH3 }}
+        <p v-if="props.sectionContentH3"
+            class="section-content-detail section-content-title-detail subTitleH3DetailSpace"
+            v-html="props.sectionContentH3">
         </p>
 
         <details class="section-content-detail section-content-detail-wrapper subTitleH3DetailSpace"
             v-for="(content, index) in props.sectionSubContentH3" :key="index">
             <summary class="section-content-detail-h3-title">{{ content.title }}</summary>
-            <p class="section-content-detail-h3-content">{{ content.content }}</p>
+            <p class="section-content-detail-h3-content" v-html="content.content"></p>
         </details>
 
         <!-- h4 -->
         <h4 v-if="props.sectionTitleH4" class="subTitleH4">{{ props.sectionTitleH4 }}</h4>
-        <p v-if="props.sectionContentH4" class="section-content-detail section-content-title-detail subTitleH4DetailSpace">
-            {{ props.sectionContentH4 }}
+        <p v-if="props.sectionContentH4"
+            class="section-content-detail section-content-title-detail subTitleH4DetailSpace"
+            v-html="props.sectionContentH4">
         </p>
 
         <details class="section-content-detail section-content-detail-wrapper subTitleH4DetailSpace"
             v-for="(content, index) in props.sectionSubContentH4" :key="index">
             <summary class="section-content-detail-h3-title">{{ content.title }}</summary>
-            <p class="section-content-detail-h3-content">{{ content.content }}</p>
+            <p class="section-content-detail-h3-content" v-html="content.content"></p>
         </details>
     </section>
 </template>
@@ -134,7 +136,7 @@ const props = defineProps({
     left: 0;
     width: 4px;
     height: 18px;
-    background-image: linear-gradient(180deg, #EBC76E 0%, #85713E 100%);    
+    background-image: linear-gradient(180deg, #EBC76E 0%, #85713E 100%);
 }
 
 .subTitleH3 {
@@ -153,7 +155,7 @@ const props = defineProps({
     left: 0;
     width: 4px;
     height: 15px;
-    background-image: linear-gradient(180deg, #EBC76E 0%, #85713E 100%);    
+    background-image: linear-gradient(180deg, #EBC76E 0%, #85713E 100%);
 }
 
 .subTitleH4 {
@@ -172,7 +174,7 @@ const props = defineProps({
     left: 0;
     width: 4px;
     height: 14px;
-    background-image: linear-gradient(180deg, #EBC76E 0%, #85713E 100%);    
+    background-image: linear-gradient(180deg, #EBC76E 0%, #85713E 100%);
 }
 
 .subTitleH3DetailSpace {

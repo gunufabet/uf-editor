@@ -2,8 +2,7 @@
     <header>
         <main class="main-content">
             <h1 class="main-content-title">{{ props.mainTitleText }}</h1>
-            <p class="main-content-detail">
-                {{ props.mainContentText }}
+            <p class="main-content-detail" v-html="props.mainContentText">
             </p>
         </main>
     </header>
