@@ -51,7 +51,7 @@ const icons = ref([
 
 <style lang="scss" scoped>
 .footer {
-    padding: 20px 10px 10px 10px;
+    padding: 20px 10px 100px 10px;
 
     &-icn {
         width: 24px;
