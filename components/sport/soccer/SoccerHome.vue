@@ -24,7 +24,13 @@
         :section-sub-content="subContentDataTabMenuSelected" :section-title-h3="sectionTitleTabMenuSelectedH3"
         :section-content-h3="sectionContentTabMenuSelectedH3" :section-sub-content-h3="subContentDataTabMenuSelectedH3"
         :section-title-h4="sectionTitleTabMenuSelectedH4" :section-content-h4="sectionContentTabMenuSelectedH4"
-        :section-sub-content-h4="subContentDataTabMenuSelectedH4"></sub-main-content>
+        :section-sub-content-h4="subContentDataTabMenuSelectedH4"
+        :section-content-h2-table-header="sectionContentH2TableHeader"
+        :section-content-h2-table-content="sectionContentH2TableContent"
+        :section-content-h3-table-header="sectionContentH3TableHeader"
+        :section-content-h3-table-content="sectionContentH3TableContent"
+        :section-content-h4-table-header="sectionContentH4TableHeader"
+        :section-content-h4-table-content="sectionContentH4TableContent"></sub-main-content>
 
     <tab-menu @select-tab-menu="selectTabMenu2" :tab-menu-list="tabMenuList2"></tab-menu>
     <aside-content :aside-title-text="asideTitleText" :aside-content-text="asideContentText"></aside-content>
@@ -71,6 +77,13 @@ const sectionTitleTabMenuSelectedH4 = ref('');
 const sectionContentTabMenuSelectedH4 = ref('');
 const subContentDataTabMenuSelectedH4 = ref<SportSubContent[]>([]);
 
+const sectionContentH2TableHeader = ref([]);
+const sectionContentH2TableContent = ref([]);
+const sectionContentH3TableHeader = ref([]);
+const sectionContentH3TableContent = ref([]);
+const sectionContentH4TableHeader = ref([]);
+const sectionContentH4TableContent = ref([]);
+
 function selectTabMenu(value: string) {
     if (!value) {
         value = content.Sport.Soccer.sectionWithMenu1.menuTab[0].id;
@@ -112,6 +125,13 @@ function selectTabMenu(value: string) {
     } else {
         subContentDataTabMenuSelectedH4.value = selectedMenu?.contentListH4 || [];
     }
+
+    sectionContentH2TableHeader.value = selectedMenu?.contentH2Table?.header || [];
+    sectionContentH2TableContent.value = selectedMenu?.contentH2Table?.content || [];
+    sectionContentH3TableHeader.value = selectedMenu?.contentH3Table?.header || [];
+    sectionContentH3TableContent.value = selectedMenu?.contentH3Table?.content || [];
+    sectionContentH4TableHeader.value = selectedMenu?.contentH4Table?.header || [];
+    sectionContentH4TableContent.value = selectedMenu?.contentH4Table?.content || [];
 }
 
 function selectTabMenu2(value: string) {

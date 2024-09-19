@@ -6,6 +6,9 @@
             v-html="props.sectionContent">
         </p>
 
+        <table-summary :tableHeader="sectionContentH2TableHeader"
+            :tableContent="sectionContentH2TableContent"></table-summary>
+
         <details class="section-content-detail section-content-detail-wrapper"
             v-for="(content, index) in props.sectionSubContent" :key="index">
             <summary class="section-content-detail-h3-title">{{ content.title }}</summary>
@@ -19,6 +22,9 @@
             v-html="props.sectionContentH3">
         </p>
 
+        <table-summary :tableHeader="sectionContentH3TableHeader"
+            :tableContent="sectionContentH3TableContent"></table-summary>
+
         <details class="section-content-detail section-content-detail-wrapper subTitleH3DetailSpace"
             v-for="(content, index) in props.sectionSubContentH3" :key="index">
             <summary class="section-content-detail-h3-title">{{ content.title }}</summary>
@@ -31,6 +37,9 @@
             class="section-content-detail section-content-title-detail subTitleH4DetailSpace"
             v-html="props.sectionContentH4">
         </p>
+
+        <table-summary :tableHeader="sectionContentH4TableHeader"
+            :tableContent="sectionContentH4TableContent"></table-summary>
 
         <details class="section-content-detail section-content-detail-wrapper subTitleH4DetailSpace"
             v-for="(content, index) in props.sectionSubContentH4" :key="index">
@@ -80,6 +89,30 @@ const props = defineProps({
     sectionSubContentH4: {
         type: Array as PropType<SportSubContent[]>,
         default: () => []
+    },
+    sectionContentH2TableHeader: {
+        type: Array,
+        default: []
+    },
+    sectionContentH2TableContent: {
+        type: Array,
+        default: []
+    },
+    sectionContentH3TableHeader: {
+        type: Array,
+        default: []
+    },
+    sectionContentH3TableContent: {
+        type: Array,
+        default: []
+    },
+    sectionContentH4TableHeader: {
+        type: Array,
+        default: []
+    },
+    sectionContentH4TableContent: {
+        type: Array,
+        default: []
     }
 });
 </script>

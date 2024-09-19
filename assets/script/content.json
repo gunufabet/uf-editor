@@ -274,6 +274,28 @@
             ],
             "titleH4": "What are the Ufabet Payment Options?",
             "contentH4": "The Ufabet payment options are listed in the table below.",
+            "contentH4Table": {
+              "header": [
+                "Payment Method",
+                "Availability",
+                "Processing Time",
+                "Fees"
+              ],
+              "content": [
+                [
+                  "Bank Transfer",
+                  "Widely Available",
+                  "1 - 3 Business days",
+                  "Usually None"
+                ],
+                [
+                  "Bank Transfer",
+                  "Widely Available",
+                  "1 - 3 Business days",
+                  "Usually None"
+                ]
+              ]
+            },
             "contentListH4": [
               {
                 "title": "Lorem ipsum dolor sit amet?",
