@@ -1,9 +1,9 @@
 <template>
-    <section class="section-content">
+    <section :id="props.sectionTitle" class="section-content">
         <!-- h2 -->
-        <h2 v-if="props.sectionTitle" class="subTitle">{{ props.sectionTitle }}</h2>
-        <p v-if="props.sectionContent" class="section-content-detail section-content-title-detail"
-            v-html="props.sectionContent">
+        <h2 v-if="props.sectionTitle" class="subTitle" @click="clickSectionTitle">{{ props.sectionTitle }}</h2>
+        <p v-if="props.sectionContent" @click="clickSectionTitle" :class="sectionContentDetailTruncate ? 'section-content-detail-truncate' : ''"
+            class="section-content-detail section-content-title-detail" v-html="props.sectionContent">
         </p>
 
         <table-summary :tableHeader="sectionContentH2TableHeader"
@@ -52,6 +52,8 @@
 <script setup lang="ts">
 import { type PropType } from "@vue/runtime-core";
 import type { SportSubContent } from "~/types/strapi-model";
+
+const sectionContentDetailTruncate = ref(true);
 
 const props = defineProps({
     sectionTitle: {
@@ -115,6 +117,10 @@ const props = defineProps({
         default: []
     }
 });
+
+function clickSectionTitle() {
+    sectionContentDetailTruncate.value = !sectionContentDetailTruncate.value;
+}
 </script>
 
 <style lang="scss" scoped>
@@ -259,6 +265,13 @@ const props = defineProps({
 /* Rotate the icon when the details are open */
 .section-content-detail-wrapper[open] summary::before {
     transform: rotate(90deg);
+}
+
+.section-content-detail-truncate {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
 }
 
 @media only screen and (max-width:475px) {

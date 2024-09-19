@@ -12,7 +12,7 @@
     <sport-soccer-hot-match-section></sport-soccer-hot-match-section>
 
     <!-- livescore -->
-    <aside-content :aside-title-text="asideTitleTextLiveMatch"
+    <aside-content :key="asideTitleTextLiveMatch" :aside-title-text="asideTitleTextLiveMatch"
         :aside-content-text="asideContentTextLiveMatch"></aside-content>
     <sport-soccer-live-score-tab-menu></sport-soccer-live-score-tab-menu>
     <div class="break-space"></div>
@@ -33,7 +33,7 @@
         :section-content-h4-table-content="sectionContentH4TableContent"></sub-main-content>
 
     <tab-menu @select-tab-menu="selectTabMenu2" :tab-menu-list="tabMenuList2"></tab-menu>
-    <aside-content :aside-title-text="asideTitleText" :aside-content-text="asideContentText"></aside-content>
+    <aside-content :key="asideTitleText" :aside-title-text="asideTitleText" :aside-content-text="asideContentText"></aside-content>
 
     <sport-soccer-bet-boost v-if="asideContentShowBetBoost"></sport-soccer-bet-boost>
 

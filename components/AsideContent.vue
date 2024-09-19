@@ -1,13 +1,16 @@
 <template>
     <aside class="aside-content">
         <h2 class="aside-content-title">{{ props.asideTitleText }}</h2>
-        <p class="aside-content-detail">
+        <p class="aside-content-detail"
+            :class="sectionContentDetailTruncate ? 'aside-content-detail-truncate' : ''" @click="clickDetail">
             {{ props.asideContentText }}
         </p>
     </aside>
 </template>
 
 <script setup lang="ts">
+const sectionContentDetailTruncate = ref(true);
+
 const props = defineProps({
     asideTitleText: {
         type: String,
@@ -18,6 +21,10 @@ const props = defineProps({
         default: ''
     }
 });
+
+function clickDetail() {
+    sectionContentDetailTruncate.value = !sectionContentDetailTruncate.value;
+}
 </script>
 
 <style lang="scss" scoped>
@@ -46,26 +53,33 @@ const props = defineProps({
         color: #D9D9D9;
         text-align: left;
         /* Limit the height to 320px */
-        max-height: 320px;
+        // max-height: 320px;
         /* Hide content that exceeds the max-height */
         overflow: hidden;
         /* Position relative for the pseudo-element */
         position: relative;
     }
 
-    &-detail::after {
-        /* Required for pseudo-element */
-        content: '';
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        /* Height of the fade effect */
-        height: 40px;
-        /* Adjust color to match background */
-        background: linear-gradient(rgba(0, 0, 0, 0), #000);
-        /* Ensure the overlay does not interfere with text selection */
-        pointer-events: none;
-    }
+    // &-detail::after {
+    //     /* Required for pseudo-element */
+    //     content: '';
+    //     position: absolute;
+    //     bottom: 0;
+    //     left: 0;
+    //     width: 100%;
+    //     /* Height of the fade effect */
+    //     height: 40px;
+    //     /* Adjust color to match background */
+    //     background: linear-gradient(rgba(0, 0, 0, 0), #000);
+    //     /* Ensure the overlay does not interfere with text selection */
+    //     pointer-events: none;
+    // }
+}
+
+.aside-content-detail-truncate {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
 }
 </style>

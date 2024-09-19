@@ -1,5 +1,5 @@
 <template>
-    <aside-content :aside-title-text="asideTitleText" :aside-content-text="asideContentText"></aside-content>
+    <aside-content :key="asideTitleText" :aside-title-text="asideTitleText" :aside-content-text="asideContentText"></aside-content>
 
     <div class="img-wrapper">
         <bonus-banner :img-src="bonusImgSrc" :img-alt="bonusImgAlt"></bonus-banner>

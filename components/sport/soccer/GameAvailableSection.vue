@@ -1,8 +1,8 @@
 <template>
-    <aside-content :aside-title-text="asideTitleText" :aside-content-text="asideContentText"></aside-content>
+    <aside-content :key="asideTitleText" :aside-title-text="asideTitleText" :aside-content-text="asideContentText"></aside-content>
     <tab-menu @select-tab-menu="selectTabMenu" :tab-menu-list="tabMenuList"></tab-menu>
     <div class="break-space"></div>
-    <aside-content :aside-title-text="asideTitleText_SelectedTab"
+    <aside-content :key="asideTitleText_SelectedTab" :aside-title-text="asideTitleText_SelectedTab"
         :aside-content-text="asideContentText_SelectedTab"></aside-content>
 
     <div class="btn-wrapper">

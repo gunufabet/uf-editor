@@ -194,8 +194,7 @@ async function menuMainOnClick(menu: any) {
     bindCategory(menu.menuRoute)
 }
 
-async function bindCategory(routeName: string) {
-    console.log('routeName', routeName)
+async function bindCategory(routeName: string) {    
     if (routeName === '' || routeName === 'index' || routeName === 'sports') {
         categoryItems.value = categoryItemsSoccer.value;
     } else {

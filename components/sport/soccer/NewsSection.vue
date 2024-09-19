@@ -3,7 +3,7 @@
         <custom-button-3 v-for="(button, index) in buttonOption" :key="index" :label="button.text" :id="button.id"
             :isSelected="button.id === selectedBtnId" @click="selectButton(button)"></custom-button-3>
     </div>
-    <aside-content :aside-title-text="asideTitleText" :aside-content-text="asideContentText"></aside-content>
+    <aside-content :key="asideTitleText" :aside-title-text="asideTitleText" :aside-content-text="asideContentText"></aside-content>
 
     <div v-if="showNews">
         <div style="margin: 1rem;">
