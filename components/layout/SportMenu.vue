@@ -1,29 +1,49 @@
 <template>
-    <!-- category -->
-    <div class="category-container">
-        <nuxt-link v-for="(category, index) in categoryItems" :key="index"
-            :to="localePath({ name: routeName, params: { category: category.url } })" :style="{
-            textDecoration: 'none',
-            color: 'inherit',
-            opacity: (route.params.category || defaultCategoryId) === category.url ? '1' : '0.5',            
-        }">
-            <div class="category-item">
-                <div><img class="sub-category-icn" :src="category.src" :alt="category.alt"></div>
-                <div style="text-align: center;">{{ category.text }}</div>
-            </div>
-        </nuxt-link>
+    <div>
+        <!-- main menu -->
+        <div class="menu-container">
+            <nuxt-link v-for="(menu, index) in menuItems" :key="index" @click="menuMainOnClick(menu)"
+                :to="localePath({ name: menu.menuRoute })" :style="{
+                textDecoration: 'none',
+                color: 'inherit',
+                opacity: (routeName === menu.menuRoute || routeName === menu.menuRouteHome) ? '1' : '0.5',
+            }">
+                <div class="category-item"
+                    :class="(routeName === menu.menuRoute || routeName === menu.menuRouteHome) ? 'menu-container-selected' : 'menu-container-not-selected'">
+                    <div :class="(routeName === menu.menuRoute || routeName === menu.menuRouteHome) ? 'main-menu-selected-text' : 'main-menu-not-selected-text'"
+                        style="text-align: center; cursor: pointer;">{{ menu.text }}</div>
+                </div>
+            </nuxt-link>
+        </div>
+        <!-- category -->
+        <div class="category-container">
+            <nuxt-link v-for="(category, index) in categoryItems" :key="index"
+                :to="localePath({ name: category.menuRoute, params: { category: category.url } })" :style="{
+                textDecoration: 'none',
+                color: 'inherit',
+                opacity: route.params.category === category.url ? '1' : '0.5',
+            }">
+                <div class="category-item">
+                    <div><img class="sub-category-icn" :src="category.src" :alt="category.alt"></div>
+                    <div style="text-align: center;">{{ category.text }}</div>
+                </div>
+            </nuxt-link>
+        </div>
     </div>
+    <div></div>
 </template>
 
 <script setup lang="ts">
 const route = useRoute()
-const localePath = useLocalePath()
-const routeName = ref('sports-category')
+const router = useRouter()
 
-const defaultCategoryId = ref('soccer');
-// if (!route.params.category) {
-//     selectedCategoryId.value = route.params.category
-// }
+const routeName = computed(() => {
+    const getRouteName = String(route?.name).split('__')[0].split('-')[0]
+    bindCategory(getRouteName)
+    return getRouteName
+})
+
+const localePath = useLocalePath()
 
 const footballIcon = ref('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNyIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDE3IDE2IiBmaWxsPSJub25lIj4KICA8cGF0aCBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGNsaXAtcnVsZT0iZXZlbm9kZCIgZD0iTTkuNzQ2NDIgMC4xMjY2ODFDOC43NjM3NiAtMC4wNDMzOTU2IDcuNzg3MzMgLTAuMDQxMDU0NiA2LjgyMzg4IDAuMTI2NjgxTDguMjgzODUgMS4wNjg3OEw5Ljc0NjQyIDAuMTI2NjgxWk00LjQ3MDQzIDYuNTQyNDVMNy45MDcwOSA0LjMyNjYyVjEuNzAwNjhMNS44MzI0OSAwLjM2MjE2NUM0LjA5NTk0IDAuODc4ODI0IDIuNTc4MTQgMS45NDMzNCAxLjUyMjIgMy4zODQ2N0wyLjIwMTAzIDUuNzE5MzdMNC40NzA0MyA2LjU0MjQ1Wk0xMi4wOTcgNi41NDI0N0w4LjY2MDMxIDQuMzI2NjNWMS43MDA5NEwxMC43Mzg4IDAuMzYyMDI2QzEyLjQ3NDMgMC44Nzc5NzMgMTMuOTkyNyAxLjk0MjgzIDE1LjA0OTEgMy4zODQ3MUwxNC4zNzA1IDUuNzE5MTRMMTIuMDk3IDYuNTQyNDdaTTQuODY2NzEgNy4xNjIyTDYuMTU4NiAxMC42ODk0SDEwLjQwODlMMTEuNzAwNyA3LjE2MjJMOC4yODM3MiA0Ljk1ODg0TDQuODY2NzEgNy4xNjIyWk0xNS4xMTIgNS44NjAwMkwxNS41ODc1IDQuMjI0NDdDMTYuMDU3NSA1LjA3MTIgMTYuMzU0OCA1Ljk1ODQ2IDE2LjQ4ODQgNi45MDk2OEwxNS4xMTIgNS44NjAwMlpNNS40OTczNyAxMS4wNjU5TDQuMDcyMzkgNy4xNzUzN0wxLjk1NjYgNi40MDc5OUwwLjAwMDY1ODA3NiA3Ljg5OTQyQzAuMDAwMjIxMjEyIDcuOTM0OTYgMS40NDAyNGUtMDUgNy45Njk4NSAxLjQ0MDI0ZS0wNSA4LjAwMzk5QzEuNDQwMjRlLTA1IDkuNzUxODkgMC41NzQ2OTYgMTEuNDAyMyAxLjY1NTA1IDEyLjc5MjJMNC4xNDQxNCAxMi44ODdMNS40OTczNyAxMS4wNjU5Wk0wLjA4MzU4MDIgNi45MDkwOEMwLjIxNzQ3NSA1Ljk1MjkxIDAuNTAxODA5IDUuMDg5MTEgMC45ODM1MDkgNC4yMjI4N0wxLjQ1OTQ2IDUuODYwMDFMMC4wODM1ODAyIDYuOTA5MDhaTTE2LjU2ODcgNy44OTc5NkwxNC42MTQ4IDYuNDA3OTlMMTIuNDk0OSA3LjE3NTcxTDExLjA3MTQgMTEuMDYyM0wxMi40MjcxIDEyLjg4N0wxNC45MTYxIDEyLjc5MjJDMTUuOTk2OSAxMS40MDE4IDE2LjU3MTQgOS43NTE2OSAxNi41NzE0IDguMDAzOTlDMTYuNTcxNCA3Ljk4NDU3IDE2LjU3MDcgNy45NjUxNCAxNi41NyA3Ljk0NTdMMTYuNTcgNy45NDU1NEMxNi41Njk0IDcuOTI5NjggMTYuNTY4OSA3LjkxMzgxIDE2LjU2ODcgNy44OTc5NlpNMTQuMjU1IDEzLjU0NTZDMTMuNTIxMyAxNC4yODQ0IDEyLjc3MjcgMTQuNzkzIDExLjg5NDUgMTUuMjAzTDEyLjUwNSAxMy42MTIzTDE0LjI1NSAxMy41NDU2Wk02LjE2MzY0IDExLjQxNzFMNC43NTQ0OCAxMy4zMTM0TDUuNjIwMDIgMTUuNTc2OUM3LjMzNDggMTYuMTQxMiA5LjIzNDg2IDE2LjE0MDggMTAuOTQ3NiAxNS41NzY4TDExLjgxNjUgMTMuMzEzMkwxMC40MDc3IDExLjQxNzFINi4xNjM2NFpNNC42NzQ0MSAxNS4yMDM4QzMuNzM1MDIgMTQuNzY1MyAzLjAwMDU3IDE0LjIzNzkgMi4zMTQ0NyAxMy41NDU2TDQuMDY1OCAxMy42MTIzTDQuNjc0NDEgMTUuMjAzOFoiIGZpbGw9InVybCgjcGFpbnQwX2xpbmVhcl8yMDRfMTUzOCkiLz4KICA8ZGVmcz4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0icGFpbnQwX2xpbmVhcl8yMDRfMTUzOCIgeDE9IjE0LjQwOTkiIHkxPSIxLjk3MTAxIiB4Mj0iMi4wOTIxIiB5Mj0iMTMuODc0NSIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiPgogICAgICA8c3RvcCBzdG9wLWNvbG9yPSIjOEI2ODMyIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iMC41MTU2MjUiIHN0b3AtY29sb3I9IiNGQ0REOUEiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjOTY2QjJBIi8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogIDwvZGVmcz4KPC9zdmc+');
 const basketballIcon = ref('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxOCIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDE4IDE2IiBmaWxsPSJub25lIj4KICA8cGF0aCBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGNsaXAtcnVsZT0iZXZlbm9kZCIgZD0iTTkuMzU4MzcgMC4wOTUwODI2QzkuMzg1ODQgMC41NDM4NTMgOS40MTY4OCAxLjA1MjU5IDkuMjIzODUgMS4yOTI0NEM5LjA2MjEzIDEuNDkzNjMgOC43NjU4NiAxLjc4NjIxIDguMzczMDIgMi4xMDMxNEM3LjIyMTY3IDEuMzM2NDMgNi4xODU4NSAwLjgxNzUxNCA1LjUxNjY4IDAuNTE2MDMyQzYuNDU0NzUgMC4xODM0NTUgNy40NzExMyAwIDguNTMzMzQgMEM4LjgxMDU1IDAgOS4wODQ0NCAwLjAxMzM4NjggOS4zNTUwMSAwLjAzNzYwNzZMOS4zNTgzNyAwLjA5NTA4MjZaTTEyLjQ2ODggNi4wNTczM0MxMi43NzIyIDUuOTY2NTcgMTMuMTI2OSA1LjkwMTg2IDEzLjU0NzUgNS44NTczMkMxNC43NTY4IDUuNzI4NzIgMTYuMDY4MiA3LjE3OTI0IDE3LjA1ODEgOC4zMTk5N0MxNi45NzE4IDEwLjM3NDkgMTYuMDU5NCAxMi4yMzAxIDE0LjYyMjggMTMuNjAyNUMxNC40ODQ0IDExLjQyOTkgMTMuOTE5IDguNDMxMDMgMTIuNDY4OCA2LjA1NzMzWk00LjkyNjQ5IDMuODA4NEM1Ljk0NTQxIDMuNjA5NjIgNi45MDI2OSAzLjEyODg0IDcuNjY1OTUgMi42MjEzNUM2LjA3MzY1IDEuNTkzMjIgNC43NDU1NyAxLjA1OTY0IDQuNDgxMzggMC45NTgwNzhDMi44Mjk0MiAxLjc5NTMgMS41MDc0OCAzLjEyOTIzIDAuNzM4NDI2IDQuNzQ1NTFDMS43MzgwNSA0LjM3MjEyIDIuODIwNjYgNC4xODIxNSAzLjg4Mzk5IDMuOTk3MDZMMy44ODcgMy45OTY1M0M0LjIzMDA2IDMuOTM2OCA0LjU4NDU3IDMuODc1MDcgNC45MjY0OSAzLjgwODRaTTExLjA5NjQgNC4zMDI2NUMxMS4wMDYzIDQuMjEzODUgMTAuOTE1NiA0LjEyNjY5IDEwLjgyNDYgNC4wNDFDMTEuNjk0NiAzLjUyODM3IDEyLjQyNjggMy4xNzg2MSAxMi44ODY1IDMuMDQ5ODlDMTMuNTg3MyAyLjg1MzgzIDE0LjI3NDkgMi43MzU3NyAxNC44OTE3IDIuNjY2MDlDMTYuMDIxNiAzLjg0OTI3IDE2Ljc4IDUuMzQ5NTQgMTYuOTk4OCA3LjAwNzE5QzE1Ljk3ODEgNS45MTM3MiAxNC43ODg5IDQuOTIwNTEgMTMuNDUxNSA1LjA2MjMzQzEyLjg4MzkgNS4xMjI0OSAxMi40MDk3IDUuMjIzNiAxMi4wMDcgNS4zNjYxN0MxMS43MzA0IDQuOTg3NjEgMTEuNDI4OCA0LjYyOTggMTEuMDk2NCA0LjMwMjY1Wk05LjcwMTc5IDguMTcyNUMxMC4wNTE4IDcuMDYxMTMgMTAuNDU3MiA2LjI1OTk4IDExLjI0MjcgNS43Mzk5NUMxMS4wMDY5IDUuNDIyNyAxMC43NTMzIDUuMTI0OTUgMTAuNDc4NSA0Ljg1NDQ2QzEwLjM1MTMgNC43MjkzIDEwLjIyMjggNC42MDg0MiAxMC4wOTM3IDQuNDg5NjhDNi45NDIzNiA2LjUwMDYyIDIuNjI1NjUgMTAuMTk0NiAyLjIzMzEyIDEzLjM5NTJDMy41NDM0IDE0LjczOTIgNS4zMzY1OSAxNS42NjA5IDcuMzU1MjQgMTUuOTIyNEM4LjA5MDI2IDE0LjU1MDUgOC43ODIwNSAxMS43NjE1IDkuMTkzMjYgMTAuMTAyOUw5LjE5NDc4IDEwLjA5NjdDOS4zOTE3IDkuMzAyNjIgOS41NjE3IDguNjE3MTEgOS43MDE3OSA4LjE3MjVaTTkuNDQ5MiAzLjkyNTU0QzguMzg3ODkgNC42MDk2NSA3LjIyNzUzIDUuNDYwODQgNi4xMjg3NiA2LjQxMDA2QzQuMjk2MDkgNy45OTMyOCAyLjE1NDgyIDEwLjI1MjEgMS41MzA1NCAxMi41Njk0QzAuNTY2OTE4IDExLjI3MzcgNC45NDM1MWUtMDYgOS42OTkzIDQuOTQzNTFlLTA2IDguMDAwMDJDNC45NDM1MWUtMDYgNy4yNDA0MSAwLjExNTM5MSA2LjUwNjM5IDAuMzI2MzY5IDUuODEwMThDMS40MDk3MSA1LjI0MzUxIDIuNjk3OTIgNS4wMTcyNCA0LjAzOTkgNC43ODM2MUM0LjM4ODE5IDQuNzIyOTkgNC43NDg0NSA0LjY2MDI1IDUuMTAwMjcgNC41OTE2MUM2LjM1NjU2IDQuMzQ2NjYgNy41MTA3MSAzLjczNDc5IDguMzkyMjIgMy4xMTM1NkM4Ljc0MDU4IDMuMzYxNjMgOS4wOTU0MyAzLjYzMjExIDkuNDQ5MiAzLjkyNTU0Wk0xMC4xODQzIDMuNDY4NjhDMTEuMTk5NSAyLjg2MTkyIDEyLjA3NDcgMi40NDIzNyAxMi42NDI2IDIuMjgzNDdDMTMuMTUyNSAyLjE0MDcgMTMuNjUyNyAyLjAzNjcxIDE0LjEyNjQgMS45NjA4N0MxMy4wMzE4IDEuMDY5MTMgMTEuNjkzOCAwLjQzMzU2MSAxMC4yMTY3IDAuMTU2NTI5QzEwLjI0OTQgMC43MTUyNDIgMTAuMjYzNyAxLjMyODY1IDkuOTA1MTggMS43NzQzMUM5LjczNDg0IDEuOTg1OTQgOS40NDY2OCAyLjI3NjIgOS4wNzE3MSAyLjU5MTFDOS40Mzg5MiAyLjg1OTA3IDkuODEyMTEgMy4xNTEyOSAxMC4xODQzIDMuNDY4NjhaTTEwLjAyNDQgMTAuMjgzOUMxMC4yMTg5IDkuNDk5NTMgMTAuMzg2OSA4LjgyMjExIDEwLjUyMDIgOC4zOTg5NkMxMC44MjQ0IDcuNDMzMTUgMTEuMTMwMSA2LjgxMDU4IDExLjY5ODEgNi40MTQ4M0MxMy4xNjI1IDguODAxOTggMTMuNzQzOSAxMi4wMTc3IDEzLjgwMTIgMTQuMjkxMkMxMi4zNTAzIDE1LjM2MDUgMTAuNTIyMSAxNiA4LjUzMzM1IDE2QzguNDYxOCAxNiA4LjM5MDcxIDE1Ljk5NzcgOC4zMTk2OSAxNS45OTU0QzguMjk5NiAxNS45OTQ3IDguMjc5NTEgMTUuOTk0MSA4LjI1OTQyIDE1Ljk5MzVDOC45MDA5OCAxNC42NzIgOS40NTAzMyAxMi41OTk3IDEwLjAyNDQgMTAuMjgzOVoiIGZpbGw9InVybCgjcGFpbnQwX2xpbmVhcl8yMDRfMTUyOCkiLz4KICA8ZGVmcz4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0icGFpbnQwX2xpbmVhcl8yMDRfMTUyOCIgeDE9IjE0LjgzMzEiIHkxPSIxLjk3MTAxIiB4Mj0iMi41MDgyMyIgeTI9IjE0LjIzMTEiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIj4KICAgICAgPHN0b3Agc3RvcC1jb2xvcj0iIzhCNjgzMiIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjAuNTE1NjI1IiBzdG9wLWNvbG9yPSIjRkNERDlBIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzk2NkIyQSIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICA8L2RlZnM+Cjwvc3ZnPg==');
@@ -36,13 +56,16 @@ const badmintonIcon = ref('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d
 const americanFootballIcon = ref('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNyIgdmlld0JveD0iMCAwIDE2IDE3IiBmaWxsPSJub25lIj4KICA8cGF0aCBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGNsaXAtcnVsZT0iZXZlbm9kZCIgZD0iTTE1Ljk5OTQgMy43NzczOEMxNS45OTI2IDMuMDk2MTIgMTUuOTAzMyAxLjQzOTI4IDE1LjIyMjEgMC43NjkwODZDMTQuNTA1MiAwLjA2MzgxODkgMTIuNDczMSAtMC4xOTA4OSAxMC4yODAyIDAuMTQ5NzczQzkuOTczMzIgMC4xOTc0MzIgOS42MTE5MyAwLjI2NTMzMyA5LjIxMTcgMC4zNjE4NDJDOS4xMDIxMyAwLjM4ODI2MiA5LjA2MzIgMC41Mjc4MjkgOS4xNDI5MSAwLjYwOTI3OEwxNS40MDA0IDcuMDA0N0MxNS40Nzk4IDcuMDg1ODYgMTUuNjE1NyA3LjA0NjQ0IDE1LjY0MTQgNi45MzQ1OEMxNS45MDEgNS44MDY1NSAxNi4wMDg4IDQuNzIwMzcgMTUuOTk5NCAzLjc3NzM4Wk02LjUyNzU5IDE1LjkxMjhMMC41MDUyNTQgOS43NTc2OEMwLjQyNDIyMiA5LjY3NDg1IDAuMjg2MTEzIDkuNzE3OTcgMC4yNjMyODggOS44MzI5MkMwLjIxMjYxNiAxMC4wODgxIDAuMTczMjE0IDEwLjMyMzIgMC4xNDI2MDQgMTAuNTMzMkMtMC4xNzgwMDggMTIuNzM1NiAwLjA1NTE2NyAxNC44MjEzIDAuNzA5NzAyIDE1LjYwNTRDMS4yNzg4NyAxNi4yODcyIDIuNjIyNDIgMTYuNDM5MSAzLjM3MjU4IDE2LjQ2OUMzLjQ5NyAxNi40NzM5IDMuNjI0NTYgMTYuNDc2NCAzLjc1NTU1IDE2LjQ3NjRDNC41NjE4OCAxNi40NzY0IDUuNDg2NyAxNi4zODAyIDYuNDU3MjMgMTYuMTYwOEM2LjU2NzkgMTYuMTM1OCA2LjYwNzgzIDE1Ljk5NDggNi41Mjc1OSAxNS45MTI4Wk03Ljk5NzQxIDAuODAxODc4TDE1LjIxMTYgOC4xNzUxM0MxNS4yNTA2IDguMjE0OTcgMTUuMjY0MiA4LjI3NDIyIDE1LjI0NjEgOC4zMjc1MUMxNC43MDAzIDkuOTMzMTkgMTMuODI3OSAxMS41Mzk5IDEyLjUzMiAxMi44NjgyQzExLjE1MDEgMTQuMjg0NiA5LjQ3NjUxIDE1LjIxMTggNy44MzUwNiAxNS43NzE0QzcuNzgzNiAxNS43ODg5IDcuNzI2OTMgMTUuNzc0OSA3LjY4ODU3IDE1LjczNTdMMC42NTk4NzkgOC41NTIxQzAuNjIxOTg1IDguNTEzMzUgMC42MDgwNDUgOC40NTYzNiAwLjYyNDE1MSA4LjQwNDA3QzEuMDkxMzggNi44ODg2NSAxLjkyOTM5IDUuMDgwNCAzLjQzMTcgMy41NDA1M0M0LjgyMjgxIDIuMTE0NjUgNi40NDAyOCAxLjI2ODU2IDcuODQ5NDEgMC43NjY4MzNDNy45MDEyMSAwLjc0ODQyNiA3Ljk1ODYgMC43NjIyMzEgNy45OTc0MSAwLjgwMTg3OFpNMTAuODcyNSA3LjE4MzJDMTAuOTkzNyA3LjE4MzIgMTEuMTE0OSA3LjEzNTU0IDExLjIwNyA3LjA0MDIzQzExLjM5MTIgNi44NDk3MiAxMS4zODA2IDYuNTM4NDcgMTEuMTk1NCA2LjM0ODc5TDEwLjkzMTYgNi4wNzgzNUMxMC44NzU2IDYuMDIwOTQgMTAuODc1NiA1LjkyNzgxIDEwLjkzMTYgNS44NzA0TDExLjA5MzYgNS43MDQzOEMxMS4yODI5IDUuNTEwMzYgMTEuMjc3NCA1LjE5MjM2IDExLjA3NzEgNS4wMDU1NUMxMC44ODk2IDQuODMwNTggMTAuNTk3NCA0Ljg0NzQ4IDEwLjQxODEgNS4wMzEyOUwxMC4yNjU1IDUuMTg3NjlDMTAuMjA5NSA1LjI0NTEgMTAuMTE4NiA1LjI0NTEgMTAuMDYyNiA1LjE4NzY5TDkuNzg4ODQgNC45MDcwNEM5LjU5OTU4IDQuNzEzMDMgOS4yODkzIDQuNzE4NjYgOS4xMDcwNSA0LjkyMzk0QzguOTM2MzUgNS4xMTYyMiA4Ljk1Mjg3IDUuNDE1NjYgOS4xMzIyIDUuNTk5NDdMOS4zOTY1OCA1Ljg3MDQzQzkuNDUyNTkgNS45Mjc4NCA5LjQ1MjU5IDYuMDIwOTcgOS4zOTY1OCA2LjA3ODM4TDkuMDg0MDEgNi4zOTg3N0M5LjAyOCA2LjQ1NjE4IDguOTM3MTQgNi40NTYxOCA4Ljg4MTEzIDYuMzk4NzdMOC42MDczMyA2LjExODEyQzguNDE4MDcgNS45MjQxMSA4LjEwNzc5IDUuOTI5NzQgNy45MjU1NCA2LjEzNTAyQzcuNzU0ODQgNi4zMjczIDcuNzcxMzYgNi42MjY3NCA3Ljk1MDY5IDYuODEwNTVMOC4yMTUwNCA3LjA4MTUxQzguMjcxMDUgNy4xMzg5MiA4LjI3MTA1IDcuMjMyMDUgOC4yMTUwNCA3LjI4OTQ2TDcuODgxNjIgNy42MzEyMkM3LjgyNTYxIDcuNjg4NjMgNy43MzQ3NSA3LjY4ODYzIDcuNjc4NzQgNy42MzEyMkw3LjM5MzgzIDcuMzM5MThDNy4yMDQ1NyA3LjE0NTE2IDYuODk0MjkgNy4xNTA4IDYuNzEyMDQgNy4zNTYwOEM2LjU0MTM0IDcuNTQ4MzUgNi41NTc4NSA3Ljg0Nzc5IDYuNzM3MTkgOC4wMzE2MUw3LjAxMjY1IDguMzEzOTZDNy4wNjg2NiA4LjM3MTM3IDcuMDY4NjYgOC40NjQ1IDcuMDEyNjUgOC41MjE5MUw2LjcwMDA4IDguODQyM0M2LjY0NDA3IDguODk5NzEgNi41NTMyMSA4Ljg5OTcxIDYuNDk3MiA4Ljg0MjNMNi4yMTIyOCA4LjU1MDI2QzYuMDIzMDMgOC4zNTYyNSA1LjcxMjc1IDguMzYxODggNS41MzA1IDguNTY3MTZDNS4zNTk4IDguNzU5NDMgNS4zNzYzMSA5LjA1ODg3IDUuNTU1NjQgOS4yNDI2OUw1LjgzMTExIDkuNTI1MDRDNS44ODcxMiA5LjU4MjQ1IDUuODg3MTIgOS42NzU1OCA1LjgzMTExIDkuNzMyOTlMNS41NDA3MyAxMC4wMzA2QzUuNDg0NzIgMTAuMDg4IDUuMzkzODYgMTAuMDg4IDUuMzM3ODUgMTAuMDMwNkw1LjA2NDA1IDkuNzQ5OThDNC44NzQ4IDkuNTU1OTcgNC41NjQ1MiA5LjU2MTYgNC4zODIyNyA5Ljc2Njg4QzQuMjExNTcgOS45NTkxNiA0LjIyODA4IDEwLjI1ODYgNC40MDc0MSAxMC40NDI0TDQuNjcxNzYgMTAuNzEzNEM0LjcyNzc3IDEwLjc3MDggNC43Mjc3NyAxMC44NjM5IDQuNjcxNzYgMTAuOTIxM0M0LjQ5NDY2IDExLjEwMjggNC40NzUwNCAxMS4zOTc3IDQuNjQwMjQgMTEuNTkwNkM0LjczNDQzIDExLjcwMDcgNC44NjQ2MyAxMS43NTU3IDQuOTk0ODYgMTEuNzU1N0M1LjExNTM4IDExLjc1NTcgNS4yMzU5NCAxMS43MDg1IDUuMzI3OSAxMS42MTQyTDUuMzQxNCAxMS42MDA0QzUuMzk1NDYgMTEuNTQ1IDUuNDgzMTIgMTEuNTQ1IDUuNTM3MTggMTEuNjAwNEw1LjgxNDUzIDExLjg4NDdDNS45MDY0OSAxMS45NzkgNi4wMjcwMiAxMi4wMjYxIDYuMTQ3NTggMTIuMDI2MUM2LjI2ODggMTIuMDI2MSA2LjM5MDAxIDExLjk3ODQgNi40ODIxNiAxMS44ODMxQzYuNjY2MzMgMTEuNjkyNyA2LjY1NTY4IDExLjM4MTQgNi40NzA3IDExLjE5MThMNi4yMDY4NSAxMC45MjEzQzYuMTUwODQgMTAuODYzOSA2LjE1MDg0IDEwLjc3MDggNi4yMDY4NSAxMC43MTM0TDYuNDk3MjMgMTAuNDE1N0M2LjU1MzI0IDEwLjM1ODMgNi42NDQxIDEwLjM1ODMgNi43MDAxMSAxMC40MTU3TDYuOTYyNzkgMTAuNjg1QzcuMDU0NzUgMTAuNzc5MyA3LjE3NTI4IDEwLjgyNjQgNy4yOTU4NCAxMC44MjY0QzcuNDE3MDMgMTAuODI2NCA3LjUzODI0IDEwLjc3ODggNy42MzAzOSAxMC42ODM0QzcuODE0NTYgMTAuNDkzIDcuODAzOTEgMTAuMTgxNyA3LjYxODkzIDkuOTkyMDhMNy4zNjYyIDkuNzMyOTlDNy4zMTAxOSA5LjY3NTU4IDcuMzEwMTkgOS41ODI0NSA3LjM2NjIgOS41MjUwNEw3Ljc4MDI0IDkuMTAwNjVMOC4xNDQzNCA5LjQ3Mzg3QzguMjM2MjkgOS41NjgxOSA4LjM1NjgyIDkuNjE1MzEgOC40NzczOCA5LjYxNTMxQzguNTk4NiA5LjYxNTMxIDguNzE5ODIgOS41Njc2NSA4LjgxMTk2IDkuNDcyMzNDOC45OTYxMyA5LjI4MTg1IDguOTg1NDkgOC45NzA1NyA4LjgwMDUgOC43ODA5Nkw4LjU0Nzc3IDguNTIxOTFDOC40OTE3NiA4LjQ2NDUgOC40OTE3NiA4LjM3MTM3IDguNTQ3NzcgOC4zMTM5Nkw4Ljg4MTE5IDcuOTcyMkM4LjkzNzIgNy45MTQ3OSA5LjAyODA2IDcuOTE0NzkgOS4wODQwNyA3Ljk3MjJMOS4zNTc4NyA4LjI1Mjg1QzkuNDQ5OCA4LjM0NzE3IDkuNTcwMzIgOC4zOTQyOCA5LjY5MDg4IDguMzk0MjhDOS44MTIxIDguMzk0MjggOS45MzMzMiA4LjM0NjYyIDEwLjAyNTUgOC4yNTEzQzEwLjIwOTYgOC4wNjA4MyAxMC4xOTkgNy43NDk1NSAxMC4wMTQgNy41NTk5NEw5Ljc1MDE2IDcuMjg5NDlDOS42OTQxNSA3LjIzMjA4IDkuNjk0MTUgNy4xMzg5NSA5Ljc1MDE2IDcuMDgxNTRMMTAuMDYyOCA2Ljc2MTEyQzEwLjExODggNi43MDM3MSAxMC4yMDk2IDYuNzAzNzEgMTAuMjY1NiA2Ljc2MTEyTDEwLjUzOTQgNy4wNDE3N0MxMC42MzE0IDcuMTM2MDkgMTAuNzUxOSA3LjE4MzIgMTAuODcyNSA3LjE4MzJaIiBmaWxsPSJ1cmwoI3BhaW50MF9saW5lYXJfMjA0XzE1NjkpIi8+CiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9InBhaW50MF9saW5lYXJfMjA0XzE1NjkiIHgxPSIxMy45MTMiIHkxPSIyLjAyOTcxIiB4Mj0iMS4yODI0NSIgeTI9IjEzLjQ3MzciIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIj4KICAgICAgPHN0b3Agc3RvcC1jb2xvcj0iIzhCNjgzMiIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjAuNTE1NjI1IiBzdG9wLWNvbG9yPSIjRkNERDlBIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzk2NkIyQSIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICA8L2RlZnM+Cjwvc3ZnPg==');
 const motorsIcon = ref('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNyIgaGVpZ2h0PSIxOCIgdmlld0JveD0iMCAwIDE3IDE4IiBmaWxsPSJub25lIj4KICA8cGF0aCBkPSJNMTYuNjEwNCAxLjMyNDg1QzE2LjQ5MTcgMS4yNjY1NiAxNi4zNTk3IDEuMjQyNTQgMTYuMjI4NyAxLjI1NTM2QzE2LjA5NzcgMS4yNjgxOSAxNS45NzI2IDEuMzE3MzcgMTUuODY2NyAxLjM5NzY2QzEzLjM2MDkgMy4zMjczMiAxMS4yMzU5IDIuMzk4OSA4Ljc4MzMzIDEuMzE1NzRDNi4zMzA3MyAwLjIzMjU4OSAzLjQ0NDI3IC0xLjA0MTcxIDAuMjgzMzMzIDEuMzk3NjZDMC4xOTUzNTggMS40NjU0OSAwLjEyMzk1OCAxLjU1MzQ1IDAuMDc0Nzc4NiAxLjY1NDU1QzAuMDI1NTk5MSAxLjc1NTY3IDAgMS44NjcxNiAwIDEuOTgwMlYxNy4yNzE4QzAgMTcuNDY0OSAwLjA3NDYzMDEgMTcuNjUwMSAwLjIwNzQ2NCAxNy43ODY3QzAuMzQwMzA1IDE3LjkyMzMgMC41MjA0NjkgMTggMC43MDgzMzMgMThDMC44OTYxOTcgMTggMS4wNzYzNiAxNy45MjMzIDEuMjA5MiAxNy43ODY3QzEuMzQyMDQgMTcuNjUwMSAxLjQxNjY3IDE3LjQ2NDkgMS40MTY2NyAxNy4yNzE4VjEzLjI3NkMzLjc5ODQ0IDExLjYyODUgNS44NTI2IDEyLjUyOTYgOC4yMTY2NyAxMy41NzY0QzkuNjU5OSAxNC4yMDQ0IDExLjIwOTQgMTQuODg3MSAxMi44NzQgMTQuODg3MUMxNC4wOTU4IDE0Ljg4NzEgMTUuMzc5NyAxNC41MjMgMTYuNzE2NyAxMy40ODUzQzE2LjgwNDEgMTMuNDE3IDE2Ljg3NTIgMTMuMzI4OSAxNi45MjQzIDEzLjIyNzlDMTYuOTczNCAxMy4xMjY5IDE2Ljk5OTMgMTMuMDE1NyAxNyAxMi45MDI4VjEuOTgwMkMxNi45OTg5IDEuODQ0OTMgMTYuOTYyMSAxLjcxMjQ5IDE2Ljg5MzUgMS41OTcwNkMxNi44MjQ5IDEuNDgxNjMgMTYuNzI3IDEuMzg3NTMgMTYuNjEwNCAxLjMyNDg1Wk0xMC45NzkyIDEzLjExMjJWOC4yNDI1MUM5LjMwNTczIDcuNzUwOTkgNy42OTQyNyA2Ljc5NTI3IDYuMDIwODMgNi4zMDM3NVYxMS4xODI1QzQuNTc3NiAxMC44MDAyIDMuMDQ1ODMgMTAuNzQ1NiAxLjQxNjY3IDExLjU5MjFWNi43ODYxNkMzLjAzNjk4IDUuODIxMzQgNC41NTEwNCA1Ljg3NTk1IDYuMDIwODMgNi4zMDM3NVYxLjc3MDg1QzYuNzY3OTEgMi4wMjM3MyA3LjUwMDk3IDIuMzE4NDcgOC4yMTY2NyAyLjY1Mzc2QzkuMTAyMDggMy4wMzYwNSAxMC4wMjI5IDMuNDQ1NjQgMTAuOTc5MiAzLjcwMDVWOC4yNDI1MUMxMi40NDkgOC42NzAzMSAxMy45NjMgOC43MjQ5MiAxNS41ODMzIDcuNzYwMDlWMTIuNTI5NkMxMy45NjMgMTMuNjQ5MiAxMi40OTMyIDEzLjU5NDYgMTAuOTc5MiAxMy4xMTIyWiIgZmlsbD0idXJsKCNwYWludDBfbGluZWFyXzIwNF8xNTY4KSIvPgogIDxkZWZzPgogICAgPGxpbmVhckdyYWRpZW50IGlkPSJwYWludDBfbGluZWFyXzIwNF8xNTY4IiB4MT0iMTQuNzgyNiIgeTE9IjIuMjE3MzkiIHgyPSIxLjAyNzA3IiB5Mj0iMTQuMzM4OCIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiPgogICAgICA8c3RvcCBzdG9wLWNvbG9yPSIjOEI2ODMyIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iMC41MTU2MjUiIHN0b3AtY29sb3I9IiNGQ0REOUEiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjOTY2QjJBIi8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogIDwvZGVmcz4KPC9zdmc+');
 
-const categoryItems = ref([
+const categoryItems = ref([]);
+const categoryItemsSoccer = ref([
     {
         id: 'soccer',
         src: footballIcon,
         alt: 'Soccer',
         text: 'Soccer',
         url: 'soccer',
+        mainMenuRoute: 'sports',
+        menuRoute: 'sports-category',
     },
     {
         id: 'basketball',
@@ -50,6 +73,8 @@ const categoryItems = ref([
         alt: 'Basketball',
         text: 'Basketball',
         url: 'basketball',
+        mainMenuRoute: 'sports',
+        menuRoute: 'sports-category',
     },
     {
         id: 'volleyball',
@@ -57,63 +82,143 @@ const categoryItems = ref([
         alt: 'Volleyball',
         text: 'Volleyball',
         url: 'volleyball',
+        mainMenuRoute: 'sports',
+        menuRoute: 'sports-category',
     },
     {
         id: 'tennis',
         src: tennisIcon,
         alt: 'Tennis',
         text: 'Tennis',
-        url: 'tennis'
+        url: 'tennis',
+        mainMenuRoute: 'sports',
+        menuRoute: 'sports-category',
     },
     {
         id: 'eSport',
         src: eSportIcon,
         alt: 'eSport',
         text: 'eSport',
-        url: 'esport'
+        url: 'esport',
+        mainMenuRoute: 'sports',
+        menuRoute: 'sports-category',
     },
     {
         id: 'ice-hockey',
         src: iceHockeyIcon,
         alt: 'Ice hockey',
         text: 'Ice hockey',
-        url: 'ice-hockey'
+        url: 'ice-hockey',
+        mainMenuRoute: 'sports',
+        menuRoute: 'sports-category',
     },
     {
         id: 'baseball',
         src: baseballIcon,
         alt: 'Baseball',
         text: 'Baseball',
-        url: 'baseball'
+        url: 'baseball',
+        mainMenuRoute: 'sports',
+        menuRoute: 'sports-category',
     },
     {
         id: 'badminton',
         src: badmintonIcon,
         alt: 'Badminton',
         text: 'Badminton',
-        url: 'badminton'
+        url: 'badminton',
+        mainMenuRoute: 'sports',
+        menuRoute: 'sports-category',
     },
     {
         id: 'american-football',
         src: americanFootballIcon,
         alt: 'American Football',
         text: 'American Football',
-        url: 'american-football'
+        url: 'american-football',
+        mainMenuRoute: 'sports',
+        menuRoute: 'sports-category',
     },
     {
         id: 'motors',
         src: motorsIcon,
         alt: 'Motors',
         text: 'Motors',
-        url: 'motors'
+        url: 'motors',
+        mainMenuRoute: 'sports',
+        menuRoute: 'sports-category',
     },
 ]);
+
+const menuItems = ref([
+    {
+        id: 'sports',
+        menuRoute: 'sports',
+        menuRouteHome: 'index',
+        text: 'Sports Bettings',
+        url: 'sports',
+    },
+    {
+        id: 'livecasino',
+        menuRoute: 'livecasino',
+        text: 'Live Casino',
+        url: 'livecasino',
+    },
+    {
+        id: 'slot',
+        menuRoute: 'slot',
+        text: 'Slot',
+        url: 'slot',
+    },
+    {
+        id: 'games',
+        menuRoute: 'games',
+        text: 'Games',
+        url: 'games',
+    },
+    {
+        id: 'poker',
+        menuRoute: 'poker',
+        text: 'Poker',
+        url: 'poker',
+    },
+    {
+        id: 'virtuals',
+        menuRoute: 'virtuals',
+        text: 'Virtuals',
+        url: 'virtuals',
+    }
+]);
+
+async function menuMainOnClick(menu: any) {
+    bindCategory(menu.menuRoute)
+}
+
+async function bindCategory(routeName: string) {
+    console.log('routeName', routeName)
+    if (routeName === '' || routeName === 'index' || routeName === 'sports') {
+        categoryItems.value = categoryItemsSoccer.value;
+    } else {
+        categoryItems.value = null;
+    }
+}
 </script>
 
 <style lang="scss" scoped>
 .sub-category-icn {
     width: 20px;
     height: 20px;
+}
+
+.menu-container {
+    width: 100%;
+    // height: 52px;
+    display: flex;
+    align-items: center;
+    background: linear-gradient(90deg, #0C0C0C 0%, #222225 100%);
+    // overflow: hidden;
+    overflow-x: scroll;
+    text-wrap: nowrap;
 }
 
 .category-container {
@@ -124,6 +229,15 @@ const categoryItems = ref([
     background: linear-gradient(90deg, #2B2B32 0%, #484141 100%);
     // overflow: hidden;
     overflow-x: scroll;
+}
+
+.menu-container-selected {
+    background: linear-gradient(90deg, #2B2B32 0%, #484141 100%);
+}
+
+.menu-container-not-selected {
+    // background: linear-gradient(90deg, #0C0C0C 0%, #222225 100%);
+    background: transparent;
 }
 
 .category-item {
@@ -146,5 +260,21 @@ const categoryItems = ref([
     /* Resets all styles */
     display: inline;
     /* Set the display to inline */
+}
+
+.main-menu-selected-text {
+    color: #EBC76E;
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.main-menu-not-selected-text {
+    color: #EBC76E;
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
 }
 </style>

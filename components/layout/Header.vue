@@ -28,8 +28,8 @@ function clickLogin() {
     showModal.value = !showModal.value;
 }
 
-function goToMain() {
-    return router.push(localePath({ name: routeName.value }));
+async function goToMain() {    
+    await router.push('/')
 }
 </script>
 
