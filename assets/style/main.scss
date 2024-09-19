@@ -59,3 +59,12 @@ html {
   background-color: inherit;
   background: inherit;
 }
+
+::-webkit-scrollbar {
+  width: 0;
+  background: transparent;
+}
+
+* {
+  scrollbar-width: none;
+}

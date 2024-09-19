@@ -1,5 +1,5 @@
 <template>
-    <header>
+    <header class="header-sticky">
         <div class="header-layout">
             <div class="header-layout-logo">
                 <img class="header-layout-logo-img" src="/img/ubet-logo.png" alt="" @click="goToMain">
@@ -14,7 +14,7 @@
         <login-modal v-if="showModal" @close="showModal = false"></login-modal>
 
         <layout-sport-menu></layout-sport-menu>
-    </header>
+        </header>
 </template>
 
 <script setup lang="ts">
@@ -28,12 +28,19 @@ function clickLogin() {
     showModal.value = !showModal.value;
 }
 
-async function goToMain() {    
+async function goToMain() {
     await router.push('/')
 }
 </script>
 
 <style lang="scss" scoped>
+.header-sticky {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: #000;
+}
+
 .header-layout-logo {
     padding: 10px;
     display: flex;

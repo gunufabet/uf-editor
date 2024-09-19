@@ -216,6 +216,7 @@ async function bindCategory(routeName: string) {
     display: flex;
     align-items: center;
     background: linear-gradient(90deg, #0C0C0C 0%, #222225 100%);
+    // background: #29272A;    
     // overflow: hidden;
     overflow-x: scroll;
     text-wrap: nowrap;
@@ -226,17 +227,22 @@ async function bindCategory(routeName: string) {
     // height: 52px;
     display: flex;
     align-items: center;
-    background: linear-gradient(90deg, #2B2B32 0%, #484141 100%);
+    // background: linear-gradient(90deg, #2B2B32 0%, #484141 100%);
+    background: #29272A;
     // overflow: hidden;
     overflow-x: scroll;
+    // border-bottom: 1px;
+    // border-color: #CCAB67;
+    // border-bottom-style: solid;
+    border-bottom: 1px solid rgba(204, 171, 103, 0.5);
 }
 
 .menu-container-selected {
-    background: linear-gradient(90deg, #2B2B32 0%, #484141 100%);
+    // background: linear-gradient(90deg, #2B2B32 0%, #484141 100%);
+    background: #29272A;
 }
 
 .menu-container-not-selected {
-    // background: linear-gradient(90deg, #0C0C0C 0%, #222225 100%);
     background: transparent;
 }
 
