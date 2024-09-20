@@ -84,5 +84,6 @@ function clickDetail() {
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 2;
     overflow: hidden;
+    padding-top: 0.5rem;
 }
 </style>

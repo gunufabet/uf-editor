@@ -2,7 +2,8 @@
     <section :id="props.sectionTitle" class="section-content">
         <!-- h2 -->
         <h2 v-if="props.sectionTitle" class="subTitle" @click="clickSectionTitle">{{ props.sectionTitle }}</h2>
-        <p v-if="props.sectionContent" @click="clickSectionTitle" :class="sectionContentDetailTruncate ? 'section-content-detail-truncate' : ''"
+        <p v-if="props.sectionContent" @click="clickSectionTitle"
+            :class="sectionContentDetailTruncate ? 'section-content-detail-truncate' : ''"
             class="section-content-detail section-content-title-detail" v-html="props.sectionContent">
         </p>
 
@@ -135,14 +136,17 @@ function clickSectionTitle() {
 
     &-detail {
         text-align: left;
-        padding: 0 1.2rem 0 1.2rem;
+        // padding: 0 1.2rem 0 1.2rem;
+        padding: 0 0 0 1.2rem;
         color: #D9D9D9;
         font-size: 12px;
         font-weight: 300;
-        line-height: 16px;
+        // line-height: 16px;
+        line-height: 24px;
 
         &-h3-title {
-            padding: 0.5rem 0.5rem 0.5rem 1.3em;
+            // padding: 0.5rem 0.5rem 0.5rem 1.3em;
+            padding: 0.5rem 0 0.5rem 1.3em;
             color: #CCAB67;
             font-size: 14px;
             font-weight: 500;
@@ -155,7 +159,8 @@ function clickSectionTitle() {
             margin-bottom: 0.5rem;
             font-size: 12px;
             font-weight: 300;
-            line-height: 18px;
+            // line-height: 18px;
+            line-height: 24px;
         }
     }
 }
