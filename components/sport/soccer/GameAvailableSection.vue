@@ -1,5 +1,26 @@
 <template>
-    <aside-content :key="asideTitleText" :aside-title-text="asideTitleText" :aside-content-text="asideContentText"></aside-content>
+    <aside-content :key="asideTitleText" :aside-title-text="asideTitleText"
+        :aside-content-text="asideContentText"></aside-content>
+
+    <table-summary :tableHeader="title_contentH2Table.header"
+        :tableContent="title_contentH2Table.content"></table-summary>
+
+    <accordion-h3 v-for="(item, index) in title_contentH3Expand" :key="index" :section-title="item.title"
+        :section-content="item.content">
+    </accordion-h3>
+
+    <aside-content :key="asideTitleText2" :aside-title-text="asideTitleText2"
+        :aside-content-text="asideContentText2"></aside-content>
+    <accordion-h4 v-for="(item, index) in title2_contentH4Expand" :key="index" :section-title="item.title"
+        :section-content="item.content">
+    </accordion-h4>
+
+    <aside-content :key="asideTitleText3" :aside-title-text="asideTitleText3"
+        :aside-content-text="asideContentText3"></aside-content>
+    <accordion-h4 v-for="(item, index) in title3_contentH4Expand" :key="index" :section-title="item.title"
+        :section-content="item.content">
+    </accordion-h4>
+
     <tab-menu @select-tab-menu="selectTabMenu" :tab-menu-list="tabMenuList"></tab-menu>
     <div class="break-space"></div>
     <aside-content :key="asideTitleText_SelectedTab" :aside-title-text="asideTitleText_SelectedTab"
@@ -20,12 +41,20 @@ import content from '~/assets/script/content.json'
 const gameSection = ref(content.Sport.Soccer.sectionGameAvailable);
 const asideTitleText = ref(gameSection.value.title);
 const asideContentText = ref(gameSection.value.content);
+const asideTitleText2 = ref(gameSection.value.title2);
+const asideContentText2 = ref(gameSection.value.content2);
+const asideTitleText3 = ref(gameSection.value.title3);
+const asideContentText3 = ref(gameSection.value.content3);
 
 const tabMenuList = ref(gameSection.value.menuTab);
 const asideTitleText_SelectedTab = ref('');
 const asideContentText_SelectedTab = ref('');
 const gameListButton_SelectedTab = ref([]);
 const buttonDesign_SelectedTab = ref('1');
+const title_contentH2Table = ref(content.Sport.Soccer.sectionGameAvailable.title_contentH2Table)
+const title_contentH3Expand = ref(content.Sport.Soccer.sectionGameAvailable.title_contentH3Expand)
+const title2_contentH4Expand = ref(content.Sport.Soccer.sectionGameAvailable.title2_contentH4Expand)
+const title3_contentH4Expand = ref(content.Sport.Soccer.sectionGameAvailable.title3_contentH4Expand)
 
 function selectTabMenu(value: string) {
     if (!value) {

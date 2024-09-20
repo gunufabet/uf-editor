@@ -203,10 +203,10 @@
           {
             "menuTabId": "account",
             "title": "How to Open an Account on Ufabet?",
-            "content": "To open an account on Ufabet, follow the four steps listed below.",
+            "content": "To open an account on Ufabet, follow the four steps listed below. <br><br><b><p>1. Enter a desired username and password</b>, followed by the phone number. <br>2. Wait for the OTP (One-Time Password) to be received, then click to proceed with the registration as a member. <br> 3. Input the bank account or TrueMoney wallet number for verification purposes. <br>4. Make the initial deposit according to the decimal amount indicated on the website. Proceed to start playing immediately upon completion.<p>",
             "contentList": [
               {
-                "title": "Enter a desired username and password",
+                "title": "Enter a desired username and password<",
                 "content": "followed by the phone number"
               },
               {
@@ -304,13 +304,11 @@
               {
                 "title": "Lorem ipsum dolor sit amet?",
                 "content": "Epcot is a theme park at Walt Disney World Resort featuring exciting attractions, international pavilions, award-winning fireworks and seasonal special events."
-              }
-              ,
+              },
               {
                 "title": "Lorem ipsum dolor sit amet?",
                 "content": "Epcot is a theme park at Walt Disney World Resort featuring exciting attractions, international pavilions, award-winning fireworks and seasonal special events."
-              }
-              ,
+              },
               {
                 "title": "Lorem ipsum dolor sit amet?",
                 "content": "Epcot is a theme park at Walt Disney World Resort featuring exciting attractions, international pavilions, award-winning fireworks and seasonal special events."
@@ -440,6 +438,51 @@
       "sectionGameAvailable": {
         "title": "What Casino Games are Available for Betting on Ufabet?",
         "content": "The Casino Games available for betting on Ufabet are listed in the table below.",
+        "title2": "How can users track their betting history on Ufabet?",
+        "content2": "Users can track their betting history on UFABET by logging into their account and navigating to the 'Transaction History' or 'Betting History' section. The transaction history feature allows users to view detailed records of their past bets, including the outcomes, amounts wagered, and dates of the bets. Users monitor their activity and keep track of their betting patterns by selecting such an option. The functionality is crucial for players who want to manage their gambling habits and review their past decisions.<br><br>Tracking betting activity and analyzing records of wins, losses, and bet types offers valuable insights into overall performance. It becomes possible to make well-informed decisions on future wagers by identifying trends through such an analysis. The strategic approach to monitoring betting history enhances the overall experience in online football betting, allowing for more calculated and potentially successful outcomes.",
+        "title3": "What measures does Ufabet take to promote responsible gambling?",
+        "content3": "Ufabet takes several measures to promote responsible gambling, demonstrating a strong commitment to player safety and well-being. The platform provides tools that help players manage and control their gambling activities, ensuring they enjoy betting without it negatively impacting their lives. It includes providing clear information about the risks associated with gambling and offering assistance for patrons who are experiencing difficulties. Ufabet’s approach has set new standards in the online gambling industry, encouraging other platforms to prioritize player safety. Ufabet is licensed by the Gambling Commission, ensuring it operates under strict regulations designed to protect players and promote fair play. These efforts make Ufabet one of the most trusted and secure online betting platforms.",
+        "title_contentH2Table": {
+          "header": ["Casino Game", "Description", "Betting Options"],
+          "content": [
+            [
+              "Slot Games",
+              "Wide variety of themed slot machines",
+              "Paylines, Bonus Features"
+            ],
+            [
+              "Live Casino",
+              "Real-time games with live dealers",
+              "Blackjack, Roulette, Baccarat, and Poker"
+            ]
+          ]
+        },
+        "title_contentH3Expand": [
+          {
+            "title": "1. Slot Games on Ufabet",
+            "content": "UFABET’s slot games are a platform highlight, offering a diverse selection that appeals to many players. The platform features a variety of themes, from adventure to classic fruit slots, and ensures high-quality graphics and engaging gameplay. Players enjoy modern video slots with multiple pay lines, interactive bonus features, and progressive jackpots, leading to substantial winnings. Slot games on Ufabet are purely depending on chance. They have a set of reels with different symbols and pay lines. Players place a bet and then spin the reels to play. Players receive a payout if the symbols form a winning combination on an active pay line. UFABET enhances the experience with tailored bonuses and promotions, a user-friendly interface, and mobile compatibility, making it easy to play on the go. "
+          },
+          {
+            "title": "2. Live Casino on Ufabet",
+            "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad."
+          }
+        ],
+        "title2_contentH4Expand": [
+          {
+            "title": "How does Ufabet ensure the security of user transactions?",
+            "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad."
+          }
+        ],
+        "title3_contentH4Expand": [
+          {
+            "title": "Does Ufabet provide any educational resources for new bettors?",
+            "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad."
+          },
+          {
+            "title": "How can users contact Ufabet customer support?",
+            "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad."
+          }
+        ],
         "menuTab": [
           { "id": "slot", "text": "UFABET Slot", "menuTabOrder": 1 },
           {
