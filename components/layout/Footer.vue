@@ -3,6 +3,9 @@
         <button v-for="(icon, index) in icons" :key="index" type="submit">
             <img class="footer-icn" :src="icon.src" :alt="icon.alt">
         </button>
+        <div class="img-wrapper">
+            <img class="img-age" src="/img/icn-age18.svg" alt="age 18">
+        </div>
         <p class="copyright">Copyright UFABET © 2024. All rights reserved.</p>
     </footer>
 </template>
@@ -62,7 +65,17 @@ const icons = ref([
 .copyright {
     color: rgba(226, 226, 226, 0.51);
     font-size: 16px;
-    margin: 0.5rem 0 1rem 0.5rem;
+    margin: 1rem 0 1rem 0.5rem;
+}
+
+.img-wrapper {
+    display: flex;
+    float: right;
+}
+
+.img-age {
+    width: 24px;
+    height: 24px;
 }
 
 @media only screen and (max-width:475px) {
