@@ -142,7 +142,7 @@ function clickSectionTitle() {
         font-size: 12px;
         font-weight: 300;
         // line-height: 16px;
-        line-height: 24px;
+        line-height: normal;        
 
         &-h3-title {
             // padding: 0.5rem 0.5rem 0.5rem 1.3em;
@@ -160,7 +160,7 @@ function clickSectionTitle() {
             font-size: 12px;
             font-weight: 300;
             // line-height: 18px;
-            line-height: 24px;
+            line-height: normal;
         }
     }
 }
