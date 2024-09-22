@@ -49,7 +49,7 @@ const props = defineProps({
     border-bottom-color: rgba(132, 107, 45, 0.52);
 
     color: #D9D9D9;
-    font-size: 10px;
+    font-size: 14px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
@@ -57,7 +57,7 @@ const props = defineProps({
 
 .summary-table th {
     color: #EBC76E;
-    font-size: 10px;
+    font-size: 14px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
@@ -65,7 +65,7 @@ const props = defineProps({
 
 .summary-table td {
     color: #D9D9D9;
-    font-size: 10px;
+    font-size: 14px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
