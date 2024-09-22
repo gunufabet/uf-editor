@@ -2,7 +2,7 @@
     <div class="accordion-wrapper">
         <h3 class="accordion" @click="clickPanel">
             <span class="accordion-text">{{ props.sectionTitle }}</span>
-            <span class="accordion-icn" :class="openPanel ? 'flip-vertical' : ''">
+            <span class="accordion-icn" :class="openPanel ? 'flip-vertical' : 'flip-vertical-transition'">
                 <svg xmlns="http://www.w3.org/2000/svg" width="12" height="13" viewBox="0 0 12 13" fill="none">
                     <path
                         d="M10.8483 7.27735L2.18804 12.2327C1.34807 12.7127 0.361876 11.884 0.691872 10.9747L2.35491 6.37368L0.691872 1.77261C0.361876 0.861353 1.34807 0.0345403 2.18804 0.514507L10.8483 5.46991C11.5495 5.86927 11.5476 6.87798 10.8483 7.27735Z"
@@ -85,7 +85,12 @@ function clickPanel() {
 }
 
 .flip-vertical {
+    transition: transform 0.3s ease;
     transform: rotate(90deg);
+}
+
+.flip-vertical-transition {
+    transition: transform 0.3s ease;
 }
 
 .accordion-panel {

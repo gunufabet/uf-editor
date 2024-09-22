@@ -19,8 +19,8 @@
 
     <tab-menu @select-tab-menu="selectTabMenu" :tab-menu-list="tabMenuList"></tab-menu>
     <div class="break-space"></div>
-
-    <sub-main-content :section-title="sectionTitleTabMenuSelected" :section-content="sectionContentTabMenuSelected"
+    <sport-soccer-menu-tab-bet-sports v-if="selectedMenuId === 'sport'"></sport-soccer-menu-tab-bet-sports>
+    <sub-main-content v-else :section-title="sectionTitleTabMenuSelected" :section-content="sectionContentTabMenuSelected"
         :section-sub-content="subContentDataTabMenuSelected" :section-title-h3="sectionTitleTabMenuSelectedH3"
         :section-content-h3="sectionContentTabMenuSelectedH3" :section-sub-content-h3="subContentDataTabMenuSelectedH3"
         :section-title-h4="sectionTitleTabMenuSelectedH4" :section-content-h4="sectionContentTabMenuSelectedH4"
@@ -33,7 +33,8 @@
         :section-content-h4-table-content="sectionContentH4TableContent"></sub-main-content>
 
     <tab-menu @select-tab-menu="selectTabMenu2" :tab-menu-list="tabMenuList2"></tab-menu>
-    <aside-content :key="asideTitleText" :aside-title-text="asideTitleText" :aside-content-text="asideContentText"></aside-content>
+    <aside-content :key="asideTitleText" :aside-title-text="asideTitleText"
+        :aside-content-text="asideContentText"></aside-content>
 
     <sport-soccer-bet-boost v-if="asideContentShowBetBoost"></sport-soccer-bet-boost>
 
@@ -52,6 +53,7 @@ import content from '~/assets/script/content.json'
 const mainTitleText = ref(content.Sport.Soccer.main.title);
 const mainContentText = ref(content.Sport.Soccer.main.content);
 
+const selectedMenuId = ref('');
 const tabMenuList = ref(content.Sport.Soccer.sectionWithMenu1.menuTab);
 const tabMenuList2 = ref(content.Sport.Soccer.sectionWithMenu2.menuTab);
 
@@ -87,11 +89,14 @@ const sectionContentH4TableContent = ref([]);
 function selectTabMenu(value: string) {
     if (!value) {
         value = content.Sport.Soccer.sectionWithMenu1.menuTab[0].id;
+        selectedMenuId.value = value;
     }
 
     const selectedMenu = content.Sport.Soccer.sectionWithMenu1.menuContent.find(
         (content) => content.menuTabId === value
     );
+
+    selectedMenuId.value = selectedMenu?.menuTabId || '';
 
     sectionTitleTabMenuSelected.value = selectedMenu?.title || '';
     sectionContentTabMenuSelected.value = selectedMenu?.content || '';

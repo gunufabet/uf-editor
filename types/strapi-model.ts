@@ -16,6 +16,13 @@ export interface SportSubContent {
   content: string;
 }
 
+
+export interface SportSubContentList {
+  title: string;
+  content: string;
+  contentList: SportSubContent[];
+}
+
 export interface TabMenu {
   id: string;
   text: string;
