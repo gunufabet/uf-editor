@@ -1,16 +1,64 @@
 <template>
     <footer class="footer">
-        <button v-for="(icon, index) in icons" :key="index" type="submit">
-            <img class="footer-icn" :src="icon.src" :alt="icon.alt">
-        </button>
-        <div class="img-wrapper">
-            <img class="img-age" src="/img/icn-age18.svg" alt="age 18">
+        <br>
+        <div class="about-football-bet-container">
+            <div class="about-football-bet-title">{{ contentAboutFooterBetInfo.title }}</div>
+            <div class="about-football-bet-content">{{ contentAboutFooterBetInfo.content }}</div>
+            <div class="about-football-bet-link"><span style="margin-right: 0.5rem; cursor: pointer;">View More</span> <svg style="margin-top: 0.1rem;" xmlns="http://www.w3.org/2000/svg" width="5" height="8"
+                    viewBox="0 0 5 8" fill="none">
+                    <path d="M0.791748 7L3.54175 4L0.791748 1" stroke="#EBC76E" stroke-width="1.5"
+                        stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+                </svg></div>
         </div>
-        <p class="copyright">Copyright UFABET © 2024. All rights reserved.</p>
+
+        <div class="footer-padding">
+            <!-- footerMenuLinkList -->
+            <div v-for="(menu, index) in footerMenuLinkList.sections" :key="index">
+                <span class="footer-menu-header">{{ menu.header }}</span>
+                <div class="grid-container-footer">
+                    <div v-for="(item, menuItemIndex) in menu.items" :key="menuItemIndex"
+                        class="grid-item-footer footer-menu-item">
+                        {{ item }}
+                    </div>
+                </div>
+                <br>
+            </div>
+
+            <!-- gameLicenseImgList -->
+            <div class="grid-container-license-footer">
+                <div v-for="(game, index) in gameLicenseImgList" :key="index">
+                    <img :src="game.src" :alt="game.alt">
+                </div>
+            </div>
+            <!-- contentFooterInfo -->
+            <div class="footer-container">
+                <div><img class="footer-logo" src="/UFABET-LOGO.png" alt="ufabet logo"></div>
+                <div class="footer-info-text" v-html="contentFooterInfo"></div>
+            </div>
+
+            <!-- footerGameLinkList -->
+            <div class="grid-container-footer">
+                <div v-for="(game, index) in footerGameLinkList" :key="index" class="grid-item-footer">{{ game.text }}
+                </div>
+            </div>
+
+            <!-- social media -->
+            <button v-for="(icon, index) in socialMediaIcons" :key="index" type="submit">
+                <img class="footer-icn" :src="icon.src" :alt="icon.alt">
+            </button>
+            <div class="img-wrapper">
+                <img class="img-age" src="/img/icn-age18.svg" alt="age 18">
+            </div>
+            <p class="copyright">Copyright UFABET © 2024. All rights reserved.</p>
+        </div>
     </footer>
 </template>
 
 <script setup lang="ts">
+import content from '~/assets/script/content.json'
+
+const contentAboutFooterBetInfo = ref(content.footer.aboutFooterBet);
+const contentFooterInfo = ref(content.footer.siteFooterInfo);
 const fbIcon = ref('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIj4KICA8ZyBjbGlwLXBhdGg9InVybCgjY2xpcDBfMzlfMjYzKSI+CiAgICA8cGF0aCBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGNsaXAtcnVsZT0iZXZlbm9kZCIgZD0iTTExLjk2MTcgMC4zNjMyODFDMTQuMTI1MSAwLjM4Nzk2OSAxNi4wNzk2IDAuOTE5Njc3IDE3LjgyNSAxLjk1ODRDMTkuNTQ5NyAyLjk3NjQgMjAuOTg0MyA0LjQxOTgyIDIxLjk5MTggNi4xNTA2NUMyMy4wMjQyIDcuOTA2NjMgMjMuNTUyNyA5Ljg3MjkzIDIzLjU3NzMgMTIuMDQ5NUMyMy41MTYgMTUuMDI3NyAyMi41NzY3IDE3LjU3MTMgMjAuNzU5MyAxOS42ODA0QzE4Ljk0MiAyMS43ODk1IDE2LjYxNDQgMjMuMDk0MyAxNC4yMDQ5IDIzLjU5NDVWMTUuMjQ0N0gxNi40ODI5TDE2Ljk5ODEgMTEuOTYzNUgxMy41NDg3VjkuODE0MzZDMTMuNTI5NSA5LjM2ODgzIDEzLjY3MDQgOC45MzExNSAxMy45NDU5IDguNTgwNDZDMTQuMjIxOCA4LjIyODgxIDE0LjcwNzUgOC4wNDM5OSAxNS40MDMyIDguMDI1OTlIMTcuNDg2MlY1LjE1MTY5QzE3LjQ1NjMgNS4xNDIwNyAxNy4xNzI3IDUuMTA0MDUgMTYuNjM1NCA1LjAzNzYxQzE2LjAyNjEgNC45NjYzMiAxNS40MTMzIDQuOTI4MjQgMTQuNzk5OCA0LjkyMzU0QzEzLjQxMTMgNC45Mjk5NSAxMi4zMTMxIDUuMzIxNjIgMTEuNTA1NCA2LjA5ODU3QzEwLjY5NzYgNi44NzUzIDEwLjI4NDkgNy45OTkwNyAxMC4yNjc1IDkuNDY5ODZWMTEuOTYzNUg3LjY0MjQ1VjE1LjI0NDdIMTAuMjY3NVYyMy41OTQ1QzcuMzA4OTQgMjMuMDk0MyA0Ljk4MTM2IDIxLjc4OTUgMy4xNjQwMiAxOS42ODA0QzEuMzQ2NjcgMTcuNTcxMyAwLjQwNzM5MSAxNS4wMjc3IDAuMzQ2MDY5IDEyLjA0OTVDMC4zNzA2MDQgOS44NzI4MyAwLjg5OTA5NyA3LjkwNjUzIDEuOTMxNTUgNi4xNTA2NUMyLjkzOTAyIDQuNDE5ODIgNC4zNzM2OSAyLjk3NjQgNi4wOTgzNSAxLjk1ODRDNy44NDM3NyAwLjkxOTg3NyA5Ljc5ODIxIDAuMzg4MTY5IDExLjk2MTcgMC4zNjMyODFaIiBmaWxsPSJ1cmwoI3BhaW50MF9saW5lYXJfMzlfMjYzKSIvPgogIDwvZz4KICA8ZGVmcz4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0icGFpbnQwX2xpbmVhcl8zOV8yNjMiIHgxPSIyMS45NzQ0IiB5MT0iMjMuNTk0NSIgeDI9IjIuMjUxMDkiIHkyPSIyLjgwMjUiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIj4KICAgICAgPHN0b3Agc3RvcC1jb2xvcj0iI0NDQUI2NyIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjAuNSIgc3RvcC1jb2xvcj0iI0FFODc0QiIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiNGQ0YzQUMiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgICA8Y2xpcFBhdGggaWQ9ImNsaXAwXzM5XzI2MyI+CiAgICAgIDxyZWN0IHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgZmlsbD0id2hpdGUiLz4KICAgIDwvY2xpcFBhdGg+CiAgPC9kZWZzPgo8L3N2Zz4=');
 const wechatIcon = ref('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIj4KICA8ZyBjbGlwLXBhdGg9InVybCgjY2xpcDBfOTJfMTYxMCkiPgogICAgPHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0xMiAwQzkuNjI2NjMgMCA3LjMwNjU1IDAuNzAzNzg4IDUuMzMzMTYgMi4wMjIzNkMzLjM1OTc3IDMuMzQwOTQgMS44MjE3IDUuMjE1MDkgMC45MTM0NTEgNy40MDc4QzAuMDA1MTk5MzkgOS42MDA1MSAtMC4yMzI0NDEgMTIuMDEzMyAwLjIzMDU4MiAxNC4zNDExQzAuNjkzNjA1IDE2LjY2ODkgMS44MzY0OSAxOC44MDcxIDMuNTE0NzIgMjAuNDg1M0M1LjE5Mjk2IDIyLjE2MzUgNy4zMzExNSAyMy4zMDY0IDkuNjU4OTIgMjMuNzY5NEMxMS45ODY3IDI0LjIzMjQgMTQuMzk5NSAyMy45OTQ4IDE2LjU5MjIgMjMuMDg2NkMxOC43ODQ5IDIyLjE3ODMgMjAuNjU5MSAyMC42NDAyIDIxLjk3NzYgMTguNjY2OEMyMy4yOTYyIDE2LjY5MzUgMjQgMTQuMzczNCAyNCAxMkMyNCA4LjgxNzQgMjIuNzM1NyA1Ljc2NTE2IDIwLjQ4NTMgMy41MTQ3MkMxOC4yMzQ5IDEuMjY0MjggMTUuMTgyNiAwIDEyIDBaTTcuOTE1MjcgMTQuNzgyMUM3LjY3NjMxIDE0LjkwOTYgNy40MzczNSAxNS4wMzg0IDcuMTk4NDggMTUuMTY3MkM2LjgyMTggMTUuMzcwNCA2LjQ0NTM0IDE1LjU3MzQgNi4wNjk0OCAxNS43NzA1QzYuMjQwMDEgMTUuMjI4OSA2LjQxODQzIDE0LjY5MjEgNi42MDc5IDE0LjE1MzdDNS42MzA1MyAxMy41MDE2IDQuODIzNjkgMTIuNTI0MiA0LjU1NTI3IDExLjM1ODlDMy41MzM2OSA3LjQzMDUzIDguNzk2MzIgNC4xMDUyNiAxMy4wMjE2IDYuNDg2MzJIMTMuMDA1OEMxNC4xOTYzIDcuMTQ0NzQgMTUuMTQyMSA4LjI4NzkgMTUuNDE2OCA5LjY0NDIxQzExLjc0MTEgOS4zODIxMSA5LjI1ODk1IDEyLjMyODQgMTAuMjIzNyAxNS4xMTM3QzkuNDQwODQgMTUuMTM3NCA4LjY1OTc5IDE1LjAyNTIgNy45MTUyNyAxNC43ODIxWk0xNy43ODA1IDE2Ljk4NDdDMTcuOTM4NCAxNy40MjUzIDE4LjA3NDIgMTcuODY3NCAxOC4yMDg0IDE4LjMxNThDMTcuOTk4NyAxOC4yMTQ4IDE3Ljc5NTcgMTguMDk5MyAxNy41OTMgMTcuOTg0QzE3LjI5ODIgMTcuODE2MyAxNy4wMDM4IDE3LjY0ODkgMTYuNjg5NSAxNy41MjYzQzE0LjAzMzcgMTguMjk1MyAxMS43OTQ3IDE3LjI3MDUgMTAuODE3NCAxNS42NTA1QzguNzIyMTEgMTIuMTk4OSAxMy4zMDI2IDguNDM3ODkgMTcuMzMyMSAxMC40ODc0QzE5LjkyNDcgMTEuODA0MiAyMC41MjYzIDE1LjAzIDE3Ljc4MDUgMTYuOTg0N1pNMTEuODIgOS41NTI0OEMxMi4yNjEzIDkuNTUyNDggMTIuNjE5IDkuMTk0NzggMTIuNjE5IDguNzUzNTRDMTIuNjE5IDguMzEyMjkgMTIuMjYxMyA3Ljk1NDU5IDExLjgyIDcuOTU0NTlDMTEuMzc4OCA3Ljk1NDU5IDExLjAyMTEgOC4zMTIyOSAxMS4wMjExIDguNzUzNTRDMTEuMDIxMSA5LjE5NDc4IDExLjM3ODggOS41NTI0OCAxMS44MiA5LjU1MjQ4Wk04LjU4MTkgOS4zMTgyN0M4Ljg5Mzg2IDkuMDA2MzEgOC44OTM4NiA4LjUwMDUyIDguNTgxOSA4LjE4ODU2QzguMjY5OTMgNy44NzY2IDcuNzY0MTUgNy44NzY2IDcuNDUyMTkgOC4xODg1NkM3LjE0MDIyIDguNTAwNTIgNy4xNDAyMiA5LjAwNjMxIDcuNDUyMTggOS4zMTgyN0M3Ljc2NDE1IDkuNjMwMjMgOC4yNjk5NCA5LjYzMDIzIDguNTgxOSA5LjMxODI3Wk0xNC4wMzY4IDEyLjU5NTRDMTQuMDM2OCAxMi45MzY0IDEzLjc2MDQgMTMuMjEyOCAxMy40MTk1IDEzLjIxMjhDMTMuMDc4NSAxMy4yMTI4IDEyLjgwMjEgMTIuOTM2NCAxMi44MDIxIDEyLjU5NTRDMTIuODAyMSAxMi4yNTQ0IDEzLjA3ODUgMTEuOTc4IDEzLjQxOTUgMTEuOTc4QzEzLjc2MDQgMTEuOTc4IDE0LjAzNjggMTIuMjU0NCAxNC4wMzY4IDEyLjU5NTRaTTE3LjA2NjggMTIuNTk1NEMxNy4wNjY4IDEyLjkzNjQgMTYuNzkwNCAxMy4yMTI4IDE2LjQ0OTUgMTMuMjEyOEMxNi4xMDg1IDEzLjIxMjggMTUuODMyMSAxMi45MzY0IDE1LjgzMjEgMTIuNTk1NEMxNS44MzIxIDEyLjI1NDQgMTYuMTA4NSAxMS45NzggMTYuNDQ5NSAxMS45NzhDMTYuNzkwNCAxMS45NzggMTcuMDY2OCAxMi4yNTQ0IDE3LjA2NjggMTIuNTk1NFoiIGZpbGw9InVybCgjcGFpbnQwX2xpbmVhcl85Ml8xNjEwKSIvPgogIDwvZz4KICA8ZGVmcz4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0icGFpbnQwX2xpbmVhcl85Ml8xNjEwIiB4MT0iMjIuMzQ0IiB5MT0iMjQiIHgyPSIxLjk2OCIgeTI9IjIuNTIiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIj4KICAgICAgPHN0b3Agc3RvcC1jb2xvcj0iI0NDQUI2NyIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjAuNSIgc3RvcC1jb2xvcj0iI0FFODc0QiIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiNGQ0YzQUMiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgICA8Y2xpcFBhdGggaWQ9ImNsaXAwXzkyXzE2MTAiPgogICAgICA8cmVjdCB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIGZpbGw9IndoaXRlIi8+CiAgICA8L2NsaXBQYXRoPgogIDwvZGVmcz4KPC9zdmc+');
 const twitterIcon = ref('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIj4KICA8cGF0aCBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGNsaXAtcnVsZT0iZXZlbm9kZCIgZD0iTTAgMTJDMCA1LjM3MjgxIDUuMzcyODEgMCAxMiAwQzE4LjYyNzIgMCAyNCA1LjM3MjgxIDI0IDEyQzI0IDE4LjYyNzIgMTguNjI3MiAyNCAxMiAyNEM1LjM3MjgxIDI0IDAgMTguNjI3MiAwIDEyWk0xNy42MDg5IDUuNzE0MjlMMTMuMTQxNiAxMS4wMzc0SDEzLjE0MTRMMTggMTguMjg1N0gxNC40MjY3TDExLjE1NDkgMTMuNDA0N0w3LjA1ODY2IDE4LjI4NTdINkwxMC42ODQ5IDEyLjcwMzZMNiA1LjcxNDI5SDkuNTczMjhMMTIuNjcxNCAxMC4zMzYzTDE2LjU1MDMgNS43MTQyOUgxNy42MDg5Wk05LjA2NjE0IDYuNTMxMjRINy40NDAxTDE0LjkyNDcgMTcuNTA1OUgxNi41NTA4TDkuMDY2MTQgNi41MzEyNFoiIGZpbGw9InVybCgjcGFpbnQwX2xpbmVhcl85Ml8xNjA1KSIvPgogIDxkZWZzPgogICAgPGxpbmVhckdyYWRpZW50IGlkPSJwYWludDBfbGluZWFyXzkyXzE2MDUiIHgxPSIyMi4zNDQiIHkxPSIyNCIgeDI9IjEuOTY4IiB5Mj0iMi41MiIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiPgogICAgICA8c3RvcCBzdG9wLWNvbG9yPSIjQ0NBQjY3Ii8+CiAgICAgIDxzdG9wIG9mZnNldD0iMC41IiBzdG9wLWNvbG9yPSIjQUU4NzRCIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iI0ZDRjNBQyIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICA8L2RlZnM+Cjwvc3ZnPg==');
@@ -18,7 +66,7 @@ const instagramIcon = ref('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d
 const telegramIcon = ref('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIj4KICA8ZyBjbGlwLXBhdGg9InVybCgjY2xpcDBfOTJfMTYyNSkiPgogICAgPHBhdGggZD0iTTEyIDI0QzE4LjYyOSAyNCAyNCAxOC42MjkgMjQgMTJDMjQgNS4zNzEgMTguNjI5IDAgMTIgMEM1LjM3MSAwIDAgNS4zNzEgMCAxMkMwIDE4LjYyOSA1LjM3MSAyNCAxMiAyNFpNNS40OTEgMTEuNzRMMTcuMDYxIDcuMjc5QzE3LjU5OCA3LjA4NSAxOC4wNjcgNy40MSAxNy44OTMgOC4yMjJMMTcuODk0IDguMjIxTDE1LjkyNCAxNy41MDJDMTUuNzc4IDE4LjE2IDE1LjM4NyAxOC4zMiAxNC44NCAxOC4wMUwxMS44NCAxNS43OTlMMTAuMzkzIDE3LjE5M0MxMC4yMzMgMTcuMzUzIDEwLjA5OCAxNy40ODggOS43ODggMTcuNDg4TDEwLjAwMSAxNC40MzVMMTUuNTYxIDkuNDEyQzE1LjgwMyA5LjE5OSAxNS41MDcgOS4wNzkgMTUuMTg4IDkuMjkxTDguMzE3IDEzLjYxN0w1LjM1NSAxMi42OTNDNC43MTIgMTIuNDg5IDQuNjk4IDEyLjA1IDUuNDkxIDExLjc0WiIgZmlsbD0idXJsKCNwYWludDBfbGluZWFyXzkyXzE2MjUpIi8+CiAgPC9nPgogIDxkZWZzPgogICAgPGxpbmVhckdyYWRpZW50IGlkPSJwYWludDBfbGluZWFyXzkyXzE2MjUiIHgxPSIyMi4zNDQiIHkxPSIyNCIgeDI9IjEuOTY4IiB5Mj0iMi41MiIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiPgogICAgICA8c3RvcCBzdG9wLWNvbG9yPSIjQ0NBQjY3Ii8+CiAgICAgIDxzdG9wIG9mZnNldD0iMC41IiBzdG9wLWNvbG9yPSIjQUU4NzRCIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iI0ZDRjNBQyIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICAgIDxjbGlwUGF0aCBpZD0iY2xpcDBfOTJfMTYyNSI+CiAgICAgIDxyZWN0IHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgZmlsbD0id2hpdGUiLz4KICAgIDwvY2xpcFBhdGg+CiAgPC9kZWZzPgo8L3N2Zz4=');
 const youtubeIcon = ref('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIj4KICA8ZyBjbGlwLXBhdGg9InVybCgjY2xpcDBfOTJfMTYwMSkiPgogICAgPHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik01LjMzMzE2IDIuMDIyMzZDNy4zMDY1NSAwLjcwMzc4OCA5LjYyNjYzIDAgMTIgMEMxNS4xODI2IDAgMTguMjM0OSAxLjI2NDI4IDIwLjQ4NTMgMy41MTQ3MkMyMi43MzU3IDUuNzY1MTYgMjQgOC44MTc0IDI0IDEyQzI0IDE0LjM3MzQgMjMuMjk2MiAxNi42OTM1IDIxLjk3NzYgMTguNjY2OEMyMC42NTkxIDIwLjY0MDIgMTguNzg0OSAyMi4xNzgzIDE2LjU5MjIgMjMuMDg2NkMxNC4zOTk1IDIzLjk5NDggMTEuOTg2NyAyNC4yMzI0IDkuNjU4OTIgMjMuNzY5NEM3LjMzMTE1IDIzLjMwNjQgNS4xOTI5NiAyMi4xNjM1IDMuNTE0NzIgMjAuNDg1M0MxLjgzNjQ5IDE4LjgwNzEgMC42OTM2MDUgMTYuNjY4OSAwLjIzMDU4MiAxNC4zNDExQy0wLjIzMjQ0MSAxMi4wMTMzIDAuMDA1MTk5MzkgOS42MDA1MSAwLjkxMzQ1MSA3LjQwNzhDMS44MjE3IDUuMjE1MDkgMy4zNTk3NyAzLjM0MDk0IDUuMzMzMTYgMi4wMjIzNlpNMTguMTM0NCAxNS4wMzg0QzE4LjI1NDQgMTQuNzQ4NCAxOC4zMTYgMTQuNDM3NSAxOC4zMTU4IDE0LjEyMzdWOS44NzYzMkMxOC4zMTYgOS41NjI0NiAxOC4yNTQ0IDkuMjUxNjQgMTguMTM0NCA4Ljk2MTYyQzE4LjAxNDQgOC42NzE2IDE3LjgzODUgOC40MDgwNiAxNy42MTY2IDguMTg2MDVDMTcuMzk0OCA3Ljk2NDA1IDE3LjEzMTQgNy43ODc5NCAxNi44NDE0IDcuNjY3NzlDMTYuNTUxNSA3LjU0NzYzIDE2LjI0MDcgNy40ODU3OSAxNS45MjY4IDcuNDg1NzlIOC4wNzMxNkM3Ljc1OTMxIDcuNDg1NzkgNy40NDg1MyA3LjU0NzYzIDcuMTU4NTkgNy42Njc3OUM2Ljg2ODY1IDcuNzg3OTQgNi42MDUyMiA3Ljk2NDA1IDYuMzgzMzYgOC4xODYwNUM2LjE2MTUxIDguNDA4MDYgNS45ODU1NyA4LjY3MTYgNS44NjU2MSA4Ljk2MTYyQzUuNzQ1NjUgOS4yNTE2NCA1LjY4NDAxIDkuNTYyNDYgNS42ODQyMiA5Ljg3NjMyVjE0LjEyMzdDNS42ODQwMSAxNC40Mzc1IDUuNzQ1NjUgMTQuNzQ4NCA1Ljg2NTYxIDE1LjAzODRDNS45ODU1NyAxNS4zMjg0IDYuMTYxNTEgMTUuNTkxOSA2LjM4MzM2IDE1LjgxMzlDNi42MDUyMiAxNi4wMzU5IDYuODY4NjUgMTYuMjEyMSA3LjE1ODU5IDE2LjMzMjJDNy40NDg1MyAxNi40NTI0IDcuNzU5MzEgMTYuNTE0MiA4LjA3MzE2IDE2LjUxNDJIMTUuOTI2OEMxNi4yNDA3IDE2LjUxNDIgMTYuNTUxNSAxNi40NTI0IDE2Ljg0MTQgMTYuMzMyMkMxNy4xMzE0IDE2LjIxMjEgMTcuMzk0OCAxNi4wMzU5IDE3LjYxNjYgMTUuODEzOUMxNy44Mzg1IDE1LjU5MTkgMTguMDE0NCAxNS4zMjg0IDE4LjEzNDQgMTUuMDM4NFpNMTMuNjY0MiAxMi4wMDVMMTAuMzM1OCAxMy45MzZWMTAuMDY0NUwxMy42NjQyIDEyLjAwNVoiIGZpbGw9InVybCgjcGFpbnQwX2xpbmVhcl85Ml8xNjAxKSIvPgogIDwvZz4KICA8ZGVmcz4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0icGFpbnQwX2xpbmVhcl85Ml8xNjAxIiB4MT0iMjIuMzQ0IiB5MT0iMjQiIHgyPSIxLjk2OCIgeTI9IjIuNTIiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIj4KICAgICAgPHN0b3Agc3RvcC1jb2xvcj0iI0NDQUI2NyIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjAuNSIgc3RvcC1jb2xvcj0iI0FFODc0QiIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiNGQ0YzQUMiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgICA8Y2xpcFBhdGggaWQ9ImNsaXAwXzkyXzE2MDEiPgogICAgICA8cmVjdCB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIGZpbGw9IndoaXRlIi8+CiAgICA8L2NsaXBQYXRoPgogIDwvZGVmcz4KPC9zdmc+');
 
-const icons = ref([
+const socialMediaIcons = ref([
     {
         src: fbIcon,
         alt: 'Facebook Icon',
@@ -50,16 +98,132 @@ const icons = ref([
         text: 'Youtube'
     },
 ]);
+
+const gameLicenseImgList = ref([
+    {
+        src: '/img/game-license/game-license-1.png',
+        alt: 'game-license-1',
+        text: ''
+    },
+    {
+        src: '/img/game-license/game-license-2.png',
+        alt: 'game-license-2',
+        text: ''
+    },
+    {
+        src: '/img/game-license/game-license-3.png',
+        alt: 'game-license-3',
+        text: ''
+    },
+    {
+        src: '/img/game-license/game-license-4.png',
+        alt: 'game-license-4',
+        text: ''
+    },
+]);
+
+const footerGameLinkList = ref([
+    {
+        url: '',
+        text: 'Sportsbook'
+    },
+    {
+        url: '',
+        text: 'Live Casino'
+    },
+    {
+        url: '',
+        text: 'Slots'
+    },
+    {
+        url: '',
+        text: 'Table Game'
+    },
+    {
+        url: '',
+        text: 'BlackJack'
+    },
+    {
+        url: '',
+        text: 'Roulette'
+    },
+    {
+        url: '',
+        text: 'Baccarat'
+    },
+    {
+        url: '',
+        text: 'Poker'
+    },
+    {
+        url: '',
+        text: 'Bingo'
+    },
+    {
+        url: '',
+        text: 'Virtual Games'
+    },
+]);
+
+const footerMenuLinkList = ref({
+    "sections": [
+        {
+            "header": "Sports",
+            "items": [
+                "Sports Home",
+                "Live Scores",
+                "Results",
+                "Sports Betting Insights",
+            ]
+        },
+        {
+            "header": "Promo",
+            "items": [
+                "Membership",
+                "Membership Privilege",
+                "Promotions",
+                "Refer a friend",
+            ]
+        },
+        {
+            "header": "Support/Legal",
+            "items": [
+                "Help Center",
+                "Important Announcement",
+                "Gamble Aware",
+                "Live Support",
+                "FAQ",
+                "Privacy Policy",
+                "Terms of Service",
+                "Law Enforcement"
+            ]
+        },
+        {
+            "header": "About Us",
+            "items": [
+                "News",
+                "Work With Us",
+                "Business Contact",
+                "Partners"
+            ]
+        },
+    ]
+}
+);
 </script>
 
 <style lang="scss" scoped>
 .footer {
-    padding: 20px 10px 100px 10px;
+    // padding: 4rem 10px 100px 10px;
 
     &-icn {
         width: 24px;
         height: 24px;
     }
+}
+
+.footer-padding {
+    padding: 1rem 10px 100px 10px;
 }
 
 .copyright {
@@ -78,9 +242,117 @@ const icons = ref([
     height: 24px;
 }
 
+.grid-container-footer {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    /* 2 columns */
+    gap: 1rem;
+    justify-items: left;
+    padding: 1.5rem 0 1.5rem 0;
+    white-space: nowrap;
+}
+
+.grid-item-footer {
+    padding: 0.3rem 0 0 0.5rem;
+    text-align: center;
+    cursor: pointer;
+}
+
+.footer-logo {
+    width: 134px;
+    height: 30px;
+}
+
+.footer-container {
+    display: flex;
+    flex-direction: column;
+    justify-items: left;
+}
+
+.footer-info-text {
+    color: #D9D9D9;
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 14px;
+    padding: 0.5rem 0 0.5rem 0.5rem;
+}
+
+.grid-container-license-footer {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    /* 2 columns */
+    gap: 1rem;
+    justify-items: left;
+    padding: 1rem 1.5rem 2rem 1.5rem;
+}
+
+.footer-menu-header {
+    color: #EBC76E;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    padding-left: 0.5rem;
+}
+
+.footer-menu-item {
+    color: #D9D9D9;
+    font-size: 11px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.about-football-bet-container {
+    background: #2B2B32;
+    display: flex;
+    flex-direction: column;
+    // padding: 1rem 0.5rem 0.5rem 0.5rem;
+    padding: 1rem;
+}
+
+.about-football-bet-title {
+    color: #FFF;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.about-football-bet-content {
+    padding: 1rem 0 0 0;
+    color: #D9D9D9;
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.about-football-bet-link {
+    padding: 1rem 0 0 0;
+    color: #EBC76E;
+    font-size: 11px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+
+    display: flex;
+    align-items: center;
+}
+
 @media only screen and (max-width:475px) {
     .copyright {
         font-size: 12px;
+    }
+
+    .grid-container-footer {
+        grid-template-columns: repeat(2, 1fr);
+        /* 2 columns for mobile */
+    }
+
+    .grid-container-license-footer {
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 </style>
