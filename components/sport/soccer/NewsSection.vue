@@ -13,7 +13,7 @@
                 class="happening-now-text-2">{{ $t('sport.news.now') }}</span>
         </div>
 
-        <div class="btn-wrapper">
+        <div class="btn-wrapper event-match-wrapper">
             <sport-soccer-article-container v-for="(news, index) in newsList" :key="index" :newsId="news.newsId"
                 :newsTime="news.dateDisplay" :newsImgSrc="news.newsImg" :newsImgAlt="news.newsAlt"
                 :newsContent="news.newsShortDescription">
@@ -36,7 +36,7 @@
             <span style="margin-left: 0.3rem;" class="happening-now-text-2">{{ $t('sport.news.events') }}</span>
         </div>
 
-        <div style="margin: 0 0 0 1rem;" class="hot-match-container">
+        <div style="margin: 0 0 0 1rem;" class="hot-match-container event-match-wrapper">
             <sport-soccer-event-match-container v-for="(match, index) in eventMatchList" :key="index"
                 :tournamentText="match.tournamentText" :matchRunningTime="match.matchRunningTime"
                 :isRunningMatch="match.isRunningMatch" :homeName="match.homeName" :homeScore="match.homeScore"
@@ -54,8 +54,6 @@
             </custom-button-4>
         </div>
     </div>
-
-    <div></div>
 </template>
 
 <script setup lang="ts">
@@ -119,5 +117,15 @@ function selectButton(value: any) {
     flex-direction: row;
     align-items: center;
     padding: 1rem;
+}
+
+.event-match-wrapper {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding-bottom: 1rem;
+    gap: 1rem;
+    padding-right: 1rem;
 }
 </style>

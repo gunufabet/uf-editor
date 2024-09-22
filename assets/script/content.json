@@ -80,6 +80,27 @@
           "homeOdds": "2.05",
           "awayOdds": "3.44",
           "drawOdds": "2"
+        },
+        {
+          "eventTitle": "Olympic 2024",
+          "eventLogo": "/img/soccer/event-logo.png",
+          "eventLogoAlt": "eventLogoAlt",
+          "tournamentIcon": "/img/soccer/icn-soccer.svg",
+          "tournamentIconAlt": "Soccer",
+          "tournamentText": "Men’s Soccer Semi-Final",
+          "matchRunningTime": "87’",
+          "isRunningMatch": true,
+          "homeName": "Morocco",
+          "homeScore": "1",
+          "homeIcon": "/img/team-flag/morocco.png",
+          "homeIconAlt": "Morocco",
+          "awayName": "Spain",
+          "awayScore": "0",
+          "awayIcon": "/img/team-flag/spain.png",
+          "awayIconAlt": "Spain",
+          "homeOdds": "2.05",
+          "awayOdds": "3.44",
+          "drawOdds": "2"
         }
       ],
       "newsList": [

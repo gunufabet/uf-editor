@@ -129,7 +129,8 @@ const props = defineProps({
     flex-direction: column;
     display: flex;
     position: relative;
-    max-width: 350px;
+    // max-width: 350px;
+    max-width: 299px;
     min-height: 193px;
     flex-shrink: 0;
     background: #151518;
