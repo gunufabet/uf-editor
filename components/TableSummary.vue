@@ -69,6 +69,7 @@ const props = defineProps({
     font-style: normal;
     font-weight: 400;
     line-height: normal;
+    align-content: start;
 }
 
 .summary-table th {
