@@ -31,10 +31,12 @@
                     <span class="team-text">{{ props.awayName }}</span>
                 </div>
                 <div class="match-content-wrapper-3">
-                    <custom-button-7 :label="`1`" :label2="`2.05`" :designType="`2`"
+                    <custom-button-7 :label="`1`" :label2="homeOdds" :designType="`2`"
                         :oddsIcon="`/img/soccer/icn-odds-up.svg`"></custom-button-7>
-                    <custom-button-7 :label="`X`" :label2="`3.44`" :designType="`2`"
+                    <custom-button-7 :label="`X`" :label2="awayOdds" :designType="`2`"
                         :oddsIcon="`/img/soccer/icn-odds-down.svg`"></custom-button-7>
+                    <custom-button-7 :label="drawOdds" :labelDisable="true" :designType="`2`"
+                        :oddsIcon="`/img/soccer/icn-odds-lock.svg`"></custom-button-7>
                 </div>
             </div>
         </div>
@@ -126,7 +128,7 @@ const props = defineProps({
 .match-container {
     flex-direction: column;
     display: flex;
-    position: relative;    
+    position: relative;
     max-width: 350px;
     min-height: 193px;
     flex-shrink: 0;
@@ -138,7 +140,7 @@ const props = defineProps({
 
 .match-header-wrapper-bg {
     top: 0;
-    left: 0;    
+    left: 0;
     width: 100%;
     height: 100%;
     display: contents;

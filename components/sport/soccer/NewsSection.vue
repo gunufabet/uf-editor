@@ -3,7 +3,8 @@
         <custom-button-3 v-for="(button, index) in buttonOption" :key="index" :label="button.text" :id="button.id"
             :isSelected="button.id === selectedBtnId" @click="selectButton(button)"></custom-button-3>
     </div>
-    <aside-content :key="asideTitleText" :aside-title-text="asideTitleText" :aside-content-text="asideContentText"></aside-content>
+    <aside-content :key="asideTitleText" :aside-title-text="asideTitleText"
+        :aside-content-text="asideContentText"></aside-content>
 
     <div v-if="showNews">
         <div style="margin: 1rem;">
@@ -27,6 +28,34 @@
             </custom-button-4>
         </div>
     </div>
+
+    <div v-if="showEvents">
+        <div class="event-title-container">
+            <img style="margin-right: 0.3rem;" src="/img/soccer/icn-feature.svg" alt="soccer happening now">
+            <span class="happening-now-text-1">{{ $t('sport.news.featured') }} </span>
+            <span style="margin-left: 0.3rem;" class="happening-now-text-2">{{ $t('sport.news.events') }}</span>
+        </div>
+
+        <div style="margin: 0 0 0 1rem;" class="hot-match-container">
+            <sport-soccer-event-match-container v-for="(match, index) in eventMatchList" :key="index"
+                :tournamentText="match.tournamentText" :matchRunningTime="match.matchRunningTime"
+                :isRunningMatch="match.isRunningMatch" :homeName="match.homeName" :homeScore="match.homeScore"
+                :homeIcon="match.homeIcon" :homeIconAlt="match.homeIconAlt" :awayName="match.awayName"
+                :awayScore="match.awayScore" :awayIcon="match.awayIcon" :awayIconAlt="match.awayIconAlt"
+                :homeOdds="match.homeOdds" :awayOdds="match.awayOdds" :drawOdds="match.drawOdds">
+            </sport-soccer-event-match-container>
+        </div>
+
+        <custom-button-1 :label="$t('sport.button.viewMoreFeaturedMatches')"></custom-button-1>
+
+        <div class="btn-wrapper">
+            <custom-button-4 v-for="(button, index) in sportsButtonList" :key="index" :id="button.id"
+                :label="button.text" :label2="button.text2" :iconSrc="button.iconSrc" :iconAlt="button.iconAlt">
+            </custom-button-4>
+        </div>
+    </div>
+
+    <div></div>
 </template>
 
 <script setup lang="ts">
@@ -36,8 +65,10 @@ const selectedBtnId = ref(content.Sport.Soccer.sectionNewsEvents.buttonOption[0]
 const asideTitleText = ref('');
 const asideContentText = ref('');
 const showNews = ref(false);
+const showEvents = ref(false);
 const newsList = ref(content.Sport.Soccer.newsList);
 const sportsButtonList = ref(content.Sport.Soccer.sectionSportsButton.buttonOption);
+const eventMatchList = ref(content.Sport.Soccer.eventMatchList);
 
 onMounted(() => {
     selectButton(null)
@@ -57,6 +88,7 @@ function selectButton(value: any) {
     asideTitleText.value = selectedButton?.title || '';
     asideContentText.value = selectedButton?.content || '';
     showNews.value = selectedButton?.showNews || false;
+    showEvents.value = selectedButton?.showEvents || false;
 }
 </script>
 
@@ -80,5 +112,12 @@ function selectButton(value: any) {
     color: #FFF;
     font-size: 12px;
     font-weight: 500;
+}
+
+.event-title-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 1rem;
 }
 </style>

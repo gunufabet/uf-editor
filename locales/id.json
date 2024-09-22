@@ -20,13 +20,16 @@
       "viewMore": "View More",
       "viewMoreFootballNews": "View More Football News",
       "ufFootballNews": "UFABET Football News",
-      "ufFootballEvents": "UFABET Football Events"
+      "ufFootballEvents": "UFABET Football Events",
+      "viewMoreFeaturedMatches": "More Ufabet Featured Matches"
     },
     "news": {
       "happening": "HAPPENING ",
       "now": "NOW ",
       "hot": "HOT ",
-      "matches": "MATCHES "
+      "matches": "MATCHES ",
+      "featured": "FEATURED ",
+      "events": "EVENTS"
     }
   }
 }
