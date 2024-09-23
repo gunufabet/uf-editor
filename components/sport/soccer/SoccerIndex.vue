@@ -29,8 +29,8 @@
     <sport-soccer-menu-tab-football-leagues
         v-if="selectedMenuId === 'football-leagues'"></sport-soccer-menu-tab-football-leagues>
 
-    <accordion-h2-style-2 :section-title="content.section3.titleH2" :section-content="content.section3.contentH2">
-    </accordion-h2-style-2>
+    <accordion-h2-style2 :section-title="content.section3.titleH2" :section-content="content.section3.contentH2">
+    </accordion-h2-style2>
 
     <br>
 
@@ -78,7 +78,6 @@ function selectTabMenu(value: string) {
     );
 
     selectedMenuId.value = selectedMenu?.id || '';
-    console.log('xxx', selectedMenuId.value)
 }
 
 const eventMatchList = ref([]);

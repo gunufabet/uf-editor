@@ -13,13 +13,13 @@
 
 useHead({
   title: 'UFABET',
-  meta: [
-    {
-      hid: 'description',
-      name: 'description',
-      content: 'Welcome to UFABET'
-    }
-  ]
+  // meta: [
+  //   {
+  //     hid: 'description',
+  //     name: 'description',
+  //     content: 'Welcome to UFABET'
+  //   }
+  // ]
 })
 
 onMounted(() => {
@@ -49,7 +49,14 @@ function topFunction() {
   display: none;
   position: fixed;
   bottom: 30px;
-  left: 20px;
+  // left: 20px;
+  left: 26%;
   z-index: 99;
+}
+
+@media only screen and (max-width: 700px) {
+  #scrollupBtn {
+    left: 20px;
+  }
 }
 </style>

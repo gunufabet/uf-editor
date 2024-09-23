@@ -147,8 +147,6 @@ section8ContentListH3.value = betSportsContent.value?.section8?.contentListH3.ma
     content: item.content,
     contentList: item.contentListH4
 }));
-
-// console.log('section8ContentListH3.value', section8ContentListH3.value)
 </script>
 
 <style lang="scss" scoped>

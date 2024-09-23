@@ -280,7 +280,7 @@ const footerMenuLinkList = ref({
 
 .grid-container-license-footer {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     /* 2 columns */
     gap: 1rem;
     justify-items: left;

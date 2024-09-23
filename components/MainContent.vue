@@ -1,11 +1,9 @@
 <template>
-    <header>
-        <main class="main-content">
-            <h1 class="main-content-title">{{ props.mainTitleText }}</h1>
-            <p id="main-content-detail" class="main-content-detail" v-html="props.mainContentText"></p>
-        </main>
-        <a id="show-more">Show More</a>
-    </header>
+    <main class="main-content">
+        <h1 class="main-content-title">{{ props.mainTitleText }}</h1>
+        <p id="main-content-detail" class="main-content-detail" v-html="props.mainContentText"></p>
+    </main>
+    <a id="show-more">Show More</a>
 </template>
 
 <script setup lang="ts">
@@ -159,7 +157,7 @@ function showMoreContent(event: any) {
     padding-top: 1rem;
 }
 
-.main-content-title{    
+.main-content-title {
     margin-bottom: 1.5rem;
 }
 </style>
