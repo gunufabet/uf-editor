@@ -10,7 +10,7 @@
             </span>
         </h4>
         <div v-if="openPanel" class="accordion-panel">
-            <p class="accordion-panel-content" :class="openPanel ? 'open' : 'close'">{{ props.sectionContent }}</p>
+            <p class="accordion-panel-content" :class="openPanel ? 'open' : 'close'" v-html="props.sectionContent"></p>
         </div>
     </div>
 </template>
