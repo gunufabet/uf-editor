@@ -1,0 +1,407 @@
+{
+  "main": {
+    "title": "Ufabet Football Betting and Football Odds",
+    "content": "Football betting has gained immense popularity, particularly online, where the convenience and variety of options make it an attractive choice for enthusiasts worldwide. Apply for football betting at Ufabet, a leading platform that stands out for its comprehensive offerings and competitive odds. Ufabet is a fun and safe platform to bet on sports like the Premier League, the UEFA Champions League, and the FIFA World Cup.<br><br>Online football betting has surged in popularity over in-person betting due to the ease of access, the ability to place bets from anywhere, and the wide range of leagues and tournaments available. Ufabet, as a premier football betting site, offers extensive coverage of domestic and international competitions, making it a preferred choice for many. Betting opportunities are available every day in all leagues, from the English Premier League to the UEFA Europa League and from the Bundesliga to La Liga."
+  },
+  "section2": {
+    "title": "Football Betting Ufabet",
+    "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad."
+  },
+  "sectionWithMenuLeague": {
+    "menuTab": [
+      { "id": "league1", "text": "League 1", "menuTabOrder": 1 },
+      { "id": "league2", "text": "League 2", "menuTabOrder": 2 },
+      { "id": "league3", "text": "League 3", "menuTabOrder": 3 },
+      { "id": "league4", "text": "League 4", "menuTabOrder": 4 },
+      { "id": "league5", "text": "League 5", "menuTabOrder": 5 },
+      { "id": "league6", "text": "League 6", "menuTabOrder": 6 }
+    ],
+    "menuContent": [
+      {
+        "menuTabId": "league1",
+        "hotMatchList": [
+          {
+            "tournamentText": "UEFA Champions Leagua",
+            "matchRunningTime": "56’",
+            "isRunningMatch": true,
+            "homeName": "Chelsea",
+            "homeScore": "1",
+            "homeIcon": "/img/team-flag/chelsea.png",
+            "homeIconAlt": "Chelsea",
+            "awayName": "Mancity",
+            "awayScore": "0",
+            "awayIcon": "/img/team-flag/mancity.png",
+            "awayIconAlt": "Mancity",
+            "homeOdds": "2.05",
+            "awayOdds": "3.44",
+            "drawOdds": "2"
+          },
+          {
+            "tournamentText": "UEFA Champions Leagua",
+            "matchRunningTime": "56’",
+            "isRunningMatch": true,
+            "homeName": "Chelsea",
+            "homeScore": "1",
+            "homeIcon": "/img/team-flag/chelsea.png",
+            "homeIconAlt": "Chelsea",
+            "awayName": "Mancity",
+            "awayScore": "0",
+            "awayIcon": "/img/team-flag/mancity.png",
+            "awayIconAlt": "Mancity",
+            "homeOdds": "2.05",
+            "awayOdds": "3.44",
+            "drawOdds": "2"
+          }
+        ]
+      },
+      {
+        "menuTabId": "league2",
+        "hotMatchList": [
+          {
+            "tournamentText": "UEFA Champions Leagua",
+            "matchRunningTime": "56’",
+            "isRunningMatch": true,
+            "homeName": "Chelsea",
+            "homeScore": "2",
+            "homeIcon": "/img/team-flag/chelsea.png",
+            "homeIconAlt": "Chelsea",
+            "awayName": "Mancity",
+            "awayScore": "1",
+            "awayIcon": "/img/team-flag/mancity.png",
+            "awayIconAlt": "Mancity",
+            "homeOdds": "2.05",
+            "awayOdds": "3.44",
+            "drawOdds": "2"
+          },
+          {
+            "tournamentText": "UEFA Champions Leagua",
+            "matchRunningTime": "56’",
+            "isRunningMatch": true,
+            "homeName": "Chelsea",
+            "homeScore": "1",
+            "homeIcon": "/img/team-flag/chelsea.png",
+            "homeIconAlt": "Chelsea",
+            "awayName": "Mancity",
+            "awayScore": "0",
+            "awayIcon": "/img/team-flag/mancity.png",
+            "awayIconAlt": "Mancity",
+            "homeOdds": "2.05",
+            "awayOdds": "3.44",
+            "drawOdds": "2"
+          }
+        ]
+      },
+      {
+        "menuTabId": "league3",
+        "hotMatchList": [
+          {
+            "tournamentText": "UEFA Champions Leagua",
+            "matchRunningTime": "56’",
+            "isRunningMatch": true,
+            "homeName": "Chelsea",
+            "homeScore": "3",
+            "homeIcon": "/img/team-flag/chelsea.png",
+            "homeIconAlt": "Chelsea",
+            "awayName": "Mancity",
+            "awayScore": "2",
+            "awayIcon": "/img/team-flag/mancity.png",
+            "awayIconAlt": "Mancity",
+            "homeOdds": "2.05",
+            "awayOdds": "3.44",
+            "drawOdds": "2"
+          },
+          {
+            "tournamentText": "UEFA Champions Leagua",
+            "matchRunningTime": "56’",
+            "isRunningMatch": true,
+            "homeName": "Chelsea",
+            "homeScore": "1",
+            "homeIcon": "/img/team-flag/chelsea.png",
+            "homeIconAlt": "Chelsea",
+            "awayName": "Mancity",
+            "awayScore": "0",
+            "awayIcon": "/img/team-flag/mancity.png",
+            "awayIconAlt": "Mancity",
+            "homeOdds": "2.05",
+            "awayOdds": "3.44",
+            "drawOdds": "2"
+          }
+        ]
+      },      
+      {
+        "menuTabId": "league4",
+        "hotMatchList": [
+          {
+            "tournamentText": "UEFA Champions Leagua",
+            "matchRunningTime": "56’",
+            "isRunningMatch": true,
+            "homeName": "Chelsea",
+            "homeScore": "0",
+            "homeIcon": "/img/team-flag/chelsea.png",
+            "homeIconAlt": "Chelsea",
+            "awayName": "Mancity",
+            "awayScore": "1",
+            "awayIcon": "/img/team-flag/mancity.png",
+            "awayIconAlt": "Mancity",
+            "homeOdds": "2.05",
+            "awayOdds": "3.44",
+            "drawOdds": "2"
+          },
+          {
+            "tournamentText": "UEFA Champions Leagua",
+            "matchRunningTime": "56’",
+            "isRunningMatch": true,
+            "homeName": "Chelsea",
+            "homeScore": "1",
+            "homeIcon": "/img/team-flag/chelsea.png",
+            "homeIconAlt": "Chelsea",
+            "awayName": "Mancity",
+            "awayScore": "0",
+            "awayIcon": "/img/team-flag/mancity.png",
+            "awayIconAlt": "Mancity",
+            "homeOdds": "2.05",
+            "awayOdds": "3.44",
+            "drawOdds": "2"
+          }
+        ]
+      },      
+      {
+        "menuTabId": "league5",
+        "hotMatchList": [
+          {
+            "tournamentText": "UEFA Champions Leagua",
+            "matchRunningTime": "56’",
+            "isRunningMatch": true,
+            "homeName": "Chelsea",
+            "homeScore": "1",
+            "homeIcon": "/img/team-flag/chelsea.png",
+            "homeIconAlt": "Chelsea",
+            "awayName": "Mancity",
+            "awayScore": "0",
+            "awayIcon": "/img/team-flag/mancity.png",
+            "awayIconAlt": "Mancity",
+            "homeOdds": "2.05",
+            "awayOdds": "3.44",
+            "drawOdds": "2"
+          },
+          {
+            "tournamentText": "UEFA Champions Leagua",
+            "matchRunningTime": "56’",
+            "isRunningMatch": true,
+            "homeName": "Chelsea",
+            "homeScore": "1",
+            "homeIcon": "/img/team-flag/chelsea.png",
+            "homeIconAlt": "Chelsea",
+            "awayName": "Mancity",
+            "awayScore": "0",
+            "awayIcon": "/img/team-flag/mancity.png",
+            "awayIconAlt": "Mancity",
+            "homeOdds": "2.05",
+            "awayOdds": "3.44",
+            "drawOdds": "2"
+          }
+        ]
+      },      
+      {
+        "menuTabId": "league6",
+        "hotMatchList": [
+          {
+            "tournamentText": "UEFA Champions Leagua",
+            "matchRunningTime": "56’",
+            "isRunningMatch": true,
+            "homeName": "Chelsea",
+            "homeScore": "1",
+            "homeIcon": "/img/team-flag/chelsea.png",
+            "homeIconAlt": "Chelsea",
+            "awayName": "Mancity",
+            "awayScore": "0",
+            "awayIcon": "/img/team-flag/mancity.png",
+            "awayIconAlt": "Mancity",
+            "homeOdds": "2.05",
+            "awayOdds": "3.44",
+            "drawOdds": "2"
+          },
+          {
+            "tournamentText": "UEFA Champions Leagua",
+            "matchRunningTime": "56’",
+            "isRunningMatch": true,
+            "homeName": "Chelsea",
+            "homeScore": "1",
+            "homeIcon": "/img/team-flag/chelsea.png",
+            "homeIconAlt": "Chelsea",
+            "awayName": "Mancity",
+            "awayScore": "0",
+            "awayIcon": "/img/team-flag/mancity.png",
+            "awayIconAlt": "Mancity",
+            "homeOdds": "2.05",
+            "awayOdds": "3.44",
+            "drawOdds": "2"
+          }
+        ]
+      }
+    ]
+  },
+  "sectionWithMenu1": {
+    "menuTab": [
+      {
+        "id": "football-betting",
+        "text": "What is Ufabet Football Betting?",
+        "menuTabOrder": 1
+      },
+      {
+        "id": "football-odds",
+        "text": "How are Football Odds Calculated for Betting?",
+        "menuTabOrder": 2
+      },
+      {
+        "id": "football-leagues",
+        "text": "What Major Football Leagues can you Bet on at Ufabet?",
+        "menuTabOrder": 3
+      }
+    ],
+    "menuContent": [
+      {
+        "menuTabId": "football-betting",
+        "section1": {
+          "titleH2": "What is Ufabet Football Betting?",
+          "contentH2": "UFABET Football Betting is an online platform dedicated to sports betting focusing on football. Ufabet provides a broad spectrum of betting options, including mix parlay,",
+          "contentListH3": [
+            {
+              "title": "Why should you choose Ufabet to Bet on Football Matches?",
+              "content": "This section default to be collapsed, this is an example when it is expanded.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercita ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehend in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Duis aute irure dolor in reprehenderit in voluptate.",
+              "defaultExpand": true
+            }
+          ],
+          "contentListH4": []
+        },
+        "section2": {
+          "titleH2": "How to Bet on Football Online with Ufabet?",
+          "contentH2": "To bet on Football Online with Ufabet, follow the 7 steps listed below. <br>Create an Account. Visit the Ufabet website and click on Register. Fill in the required personal information, ",
+          "contentListH3": [
+            {
+              "title": "1. Create an Account",
+              "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+              "defaultExpand": false
+            },
+            {
+              "title": "2. Deposit Funds",
+              "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+              "defaultExpand": false
+            },
+            {
+              "title": "3. Navigate to the Football Betting Section",
+              "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+              "defaultExpand": false
+            },
+            {
+              "title": "4. Select Bet Type",
+              "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+              "defaultExpand": false
+            },
+            {
+              "title": "5. Place Bet",
+              "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+              "defaultExpand": false
+            },
+            {
+              "title": "6. Monitor Bet",
+              "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+              "defaultExpand": false
+            },
+            {
+              "title": "7. Withdraw Winnings",
+              "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+              "defaultExpand": false
+            }
+          ],
+          "contentListH4": [
+            {
+              "title": "How to Deposit Funds to Ufabet Account?",
+              "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercita ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehend in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+            },
+            {
+              "title": "How to Withdraw Winnings on Ufabet Account?",
+              "content": "Epcot is a theme park at Walt Disney World Resort featuring exciting attractions, international pavilions, award-winning fireworks and seasonal special events."
+            }
+          ]
+        }
+      },
+      {
+        "menuTabId": "football-odds",
+        "section1": {
+          "titleH2": "How are Football Odds Calculated for Betting?",
+          "contentH2": "Football odds are calculated for betting on UFABET based on several factors, including the type of odds, the handicap system, and the specific betting marke",
+          "contentListH3": [
+            {
+              "title": "What are the Factors affecting Football Odds?",
+              "content": "The factors affecting Football odds are listed below.<br><ul><li><b>Team Form:</b> The teams' recent performance and winning or losing streaks impact the odds.</li></ul>",
+              "defaultExpand": true
+            }
+          ]
+        }
+      },
+      {
+        "menuTabId": "football-leagues",
+        "section1": {
+          "titleH2": "What Major Football Leagues can you Bet on ay=t Ufabet?",
+          "contentH2": "Major Football Leagues that you can bet on at Ufabet are listed below.<br>English Premier League (EPL): England's top ",
+          "contentListH3": [
+            {
+              "title": "1. English Premier League (EPL)",
+              "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad."
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "section3": {
+    "titleH2": "What are the Bonuses  Promotions Ufabet offers?",
+    "contentH2": "The bonuses and promotions Ufabet offers are listed below. Handicap/High/Odd/Even (0.5%): The bonus provides a 0.5% refund on bets placed in"
+  },
+  "section4": {
+    "titleH2": "Ufabet Football Betting Boost",
+    "contentH2": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. quis nostrud exercitation ullamco laboris ",
+    "showBetBooat": true
+  },
+  "section5": {
+    "titleH2": "What are the Types of Bets you can do for Football Betting?",
+    "contentH2": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. quis nostrud exercitation ullamco laboris "
+  },
+  "section6": {
+    "titleH2": "What are the Benefits of Football Betting Online?",
+    "contentH2": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. quis nostrud exercitation ullamco laboris ",
+    "contentListH3": [
+      {
+        "title": "What are the Advantages of Ufabet over other Online Betting Sites?",
+        "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. quis nostrud exercitation ullamco laboris "
+      },
+      {
+        "title": "Is Online Football Betting better than In-Person Football Betting?",
+        "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. quis nostrud exercitation ullamco laboris "
+      },
+      {
+        "title": "Is Online Football Betting Legal?",
+        "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. quis nostrud exercitation ullamco laboris "
+      }
+    ]
+  },
+  "section7": {
+    "titleH2": "What are the Best Football Betting Strategies?",
+    "contentH2": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. quis nostrud exercitation ullamco laboris ",
+    "contentListH3": [
+      {
+        "title": "How Important is Research and Analysis to Football Betting?",
+        "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. quis nostrud exercitation ullamco laboris "
+      },
+      {
+        "title": "How to Minimize Risks on Football Betting?",
+        "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. quis nostrud exercitation ullamco laboris "
+      },
+      {
+        "title": "What are the Common Mistakes to Avoid in Football Betting?",
+        "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. quis nostrud exercitation ullamco laboris "
+      }
+    ]
+  }
+}

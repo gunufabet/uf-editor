@@ -1,6 +1,7 @@
 <template>
   <div>
-    <main-content :main-title-text="route.params.category" :main-content-text="mainContentText"></main-content>
+    <sport-soccer-index v-if="route.params.category === 'soccer'"></sport-soccer-index>
+    <main-content v-else :main-title-text="route.params.category" :main-content-text="mainContentText"></main-content>
     <div class="break-space"></div>
   </div>
 </template>

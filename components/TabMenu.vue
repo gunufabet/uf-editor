@@ -23,24 +23,7 @@ const props = defineProps({
 });
 
 const selectedTab = ref(props.defaultSelectedTab || props.tabMenuList[0].id);
-// const selectedTab = ref('account');
-// const tabMenuList = ref([
-//     {
-//         id: 'account',
-//         text: 'UFABET Account',
-//     },
-//     {
-//         id: 'deposit',
-//         text: 'UFABET Deposit',
-//     },
-//     {
-//         id: 'sport',
-//         text: 'UFABET Sports',
-//     }
-// ]);
-
 const emit = defineEmits(['select-tab-menu'])
-
 
 const selectTab = async (menuId: string) => {
     selectedTab.value = menuId;
@@ -56,7 +39,10 @@ const selectTab = async (menuId: string) => {
 
     display: flex;
     justify-content: space-around;
-    align-items: center;
+    align-items: center;    
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;    
 }
 
 .tab-menu-item {
@@ -67,6 +53,9 @@ const selectTab = async (menuId: string) => {
     color: #FFF;
     padding-bottom: 1rem;
     padding-top: 1rem;
+    text-wrap: nowrap;
+    margin-left: 1rem;
+    margin-right: 1rem;
 
     &:hover {
         color: #EBC76E;

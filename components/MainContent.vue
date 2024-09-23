@@ -158,4 +158,8 @@ function showMoreContent(event: any) {
     line-height: normal;
     padding-top: 1rem;
 }
+
+.main-content-title{    
+    margin-bottom: 1.5rem;
+}
 </style>
