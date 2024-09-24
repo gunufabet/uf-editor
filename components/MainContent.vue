@@ -50,7 +50,8 @@ function clickShowMore() {
         font-weight: 500;
         font-size: 46px;
         text-align: center;
-        margin-top: 20px;
+        margin-top: 50px;
+        margin-bottom: 30px;
         background: linear-gradient(208deg, #8B6832 28.09%, #FCDD9A 50.01%, #966B2A 70.61%);
         background-clip: text;
         -webkit-background-clip: text;
@@ -113,9 +114,5 @@ function clickShowMore() {
     font-weight: 500;
     line-height: normal;
     padding-top: 1rem;
-}
-
-.main-content-title {
-    margin-bottom: 1.5rem;
 }
 </style>

@@ -1,9 +1,7 @@
-<template>
-  <div>
+<template>  
     <sport-soccer-index v-if="route.params.category === 'soccer'"></sport-soccer-index>
     <main-content v-else :main-title-text="route.params.category" :main-content-text="mainContentText"></main-content>
-    <div class="break-space"></div>
-  </div>
+    <div class="break-space"></div>  
 </template>
 
 <script setup lang="ts">

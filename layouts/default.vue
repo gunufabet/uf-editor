@@ -1,8 +1,11 @@
 <template>
-  <layout-header />
-  <layout-container />
-  <NuxtPage />
-  <layout-footer />
+  <layout-header id="header" />
+  <!-- <layout-container /> -->
+  <main id="main">
+    <NuxtPage />
+  </main>
+  <layout-footer id="footer">
+  </layout-footer>
   <button id="scrollupBtn" @click="topFunction">
     <img src="/img/icn-scrollup.svg" alt="scroll up">
   </button>
