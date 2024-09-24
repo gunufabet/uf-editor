@@ -57,7 +57,6 @@ details.disabled summary {
     margin-left: 1rem;
     padding-right: 1.3rem;
     color: #EBC76E;
-    font-family: Prompt;
     font-size: 24px;
     font-weight: 400;
     line-height: 28px;
@@ -125,9 +124,11 @@ details.disabled summary {
 
 .accordion-panel-content {
     color: #D9D9D9;
-    font-size: 12px;
+    // font-size: 12px;
+    font-size: 14px;
     font-weight: 300;
-    line-height: 16px;
+    // line-height: 16px;
+    line-height: 24px;
     margin-top: 1rem;
     margin-left: 1rem;
     margin-right: 1rem;

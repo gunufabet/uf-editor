@@ -37,7 +37,7 @@ function clickDetail() {
 
     &-title {
         color: #EBC76E;
-        font-size: 12px;
+        font-size: 16px;
         font-style: normal;
         font-weight: 500;
         line-height: normal;
@@ -46,10 +46,11 @@ function clickDetail() {
     }
 
     &-detail {
-        font-size: 10px;
+        // font-size: 10px;
+        font-size: 14px;
         margin: 0.5rem 0.1rem 0.5rem .1rem;
-        // line-height: 24px;
-        line-height: 16px;
+        line-height: 24px;
+        // line-height: 16px;
         font-weight: 300;
 
         color: #D9D9D9;

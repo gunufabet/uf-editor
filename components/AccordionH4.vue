@@ -88,9 +88,10 @@ async function clickPanel() {
 
 .accordion-panel-content {
     color: #D9D9D9;
-    font-size: 12px;
+    // font-size: 12px;
+    font-size: 14px;
     font-weight: 300;
-    line-height: 16px;
+    line-height: 18px;
     // margin-top: 1rem;    
     margin-left: 2.3rem;
     margin-right: 1rem;

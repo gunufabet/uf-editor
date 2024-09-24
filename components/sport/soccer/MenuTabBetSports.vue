@@ -8,7 +8,6 @@
 
     <br>
 
-    <!-- <sub-main-content :section-sub-content-h3="section2ContentListH3"></sub-main-content> -->
     <accordion-h3 v-for="(item, index) in section2ContentListH3" :key="index" :section-title="item.title"
         :section-content="item.content" :with-break-line="true">
     </accordion-h3>
