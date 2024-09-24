@@ -29,6 +29,8 @@
     <sport-soccer-menu-tab-football-leagues
         v-if="selectedMenuId === 'football-leagues'"></sport-soccer-menu-tab-football-leagues>
 
+    <br>
+
     <accordion-h2-style2 :section-title="content.section3.titleH2" :section-content="content.section3.contentH2">
     </accordion-h2-style2>
 
@@ -48,16 +50,16 @@
     <accordion-h2-style-2 :section-title="content.section6.titleH2" :section-content="content.section6.contentH2">
     </accordion-h2-style-2>
 
-    <accordion-h3-style2 style="margin-left: 1rem;" v-for="(item, index) in content.section6.contentListH3" :key="index"
-        :section-title="item.title" :section-content="item.content"></accordion-h3-style2>
+    <accordion-h3 style="margin-left: 1rem;" v-for="(item, index) in content.section6.contentListH3" :key="index"
+        :section-title="item.title" :section-content="item.content" :with-break-line="false"></accordion-h3>
 
     <br>
 
     <accordion-h2-style-2 :section-title="content.section7.titleH2" :section-content="content.section7.contentH2">
     </accordion-h2-style-2>
 
-    <accordion-h3-style2 style="margin-left: 1rem;" v-for="(item, index) in content.section7.contentListH3" :key="index"
-        :section-title="item.title" :section-content="item.content"></accordion-h3-style2>
+    <accordion-h3 style="margin-left: 1rem;" v-for="(item, index) in content.section7.contentListH3" :key="index"
+        :section-title="item.title" :section-content="item.content" :with-break-line="false"></accordion-h3>
 </template>
 
 <script setup lang="ts">
@@ -99,7 +101,7 @@ function selectTabMenuLeague(value: string) {
     );
 
     selectedLeagueMenuId.value = selectedMenu?.id || '';
-    eventMatchList.value = selectedMenuContent?.hotMatchList || [];    
+    eventMatchList.value = selectedMenuContent?.hotMatchList || [];
 }
 
 onMounted(() => {

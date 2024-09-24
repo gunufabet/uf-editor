@@ -19,10 +19,11 @@
                     </svg>
                 </span>
             </h3>
-            <div class="accordion-break-line"></div>
+            <div v-if="withBreakLine" class="accordion-break-line"></div>
         </summary>
         <!-- Content with shadow effect -->
-        <p class="accordion-panel-content" :class="openPanel ? 'accordion-h3-open' : 'accordion-h3-close'" v-html="props.sectionContent"></p>
+        <p class="accordion-panel-content" :class="openPanel ? 'accordion-h3-open' : 'accordion-h3-close'"
+            v-html="props.sectionContent"></p>
     </details>
 </template>
 
@@ -37,6 +38,10 @@ const props = defineProps({
     sectionContent: {
         type: String,
         default: ''
+    },
+    withBreakLine: {
+        type: Boolean,
+        default: false
     }
 });
 

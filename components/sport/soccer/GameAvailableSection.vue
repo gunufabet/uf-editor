@@ -6,7 +6,7 @@
         :tableContent="title_contentH2Table.content"></table-summary>
 
     <accordion-h3 v-for="(item, index) in title_contentH3Expand" :key="index" :section-title="item.title"
-        :section-content="item.content">
+        :section-content="item.content" :with-break-line="true">
     </accordion-h3>
 
     <aside-content :key="asideTitleText2" :aside-title-text="asideTitleText2"
