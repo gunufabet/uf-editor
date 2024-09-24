@@ -1,18 +1,20 @@
 <template>
-    <div class="accordion-wrapper">
-        <h4 class="accordion" @click="clickPanel">
-            <span class="accordion-text">{{ props.sectionTitle }}</span>
-            <span class="accordion-icn" :class="openPanel ? 'flip-vertical' : 'flip-vertical-transition'">
-                <svg xmlns="http://www.w3.org/2000/svg" width="9" height="6" viewBox="0 0 9 6" fill="none">
-                    <path d="M8 1.5L4.5 5L1 1.5" stroke="#CCAB67" stroke-width="1.5" stroke-miterlimit="10"
-                        stroke-linecap="round" stroke-linejoin="round" />
-                </svg>
-            </span>
-        </h4>
-        <div v-if="openPanel" class="accordion-panel">
-            <p class="accordion-panel-content" :class="openPanel ? 'open' : 'close'" v-html="props.sectionContent"></p>
-        </div>
-    </div>
+    <details class="accordion-panel" :open="true">
+        <summary @click.prevent="false" @click="clickPanel">
+            <h4 class="accordion">
+                <span class="accordion-text">{{ props.sectionTitle }}</span>
+                <span class="accordion-icn" :class="openPanel ? 'flip-vertical' : 'flip-vertical-transition'">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="9" height="6" viewBox="0 0 9 6" fill="none">
+                        <path d="M8 1.5L4.5 5L1 1.5" stroke="#CCAB67" stroke-width="1.5" stroke-miterlimit="10"
+                            stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </span>
+            </h4>
+        </summary>
+        <!-- Content with shadow effect -->
+        <p class="accordion-panel-content" :class="openPanel ? 'accordion-h4-open' : 'accordion-h4-close'"
+            v-html="props.sectionContent"></p>
+    </details>
 </template>
 
 <script setup lang="ts">
@@ -29,16 +31,12 @@ const props = defineProps({
     }
 });
 
-function clickPanel() {
+async function clickPanel() {
     openPanel.value = !openPanel.value;
 }
 </script>
 
 <style lang="scss" scoped>
-.accordion-wrapper {
-    margin: 0 1rem 0 1rem;
-}
-
 .accordion {
     display: flex;
     width: 100%;
@@ -50,24 +48,57 @@ function clickPanel() {
 }
 
 .accordion-text {
+    margin-left: 2.3rem;
+    padding-right: 1.3rem;
     color: #CCAB67;
-    font-size: 12px;
+    font-size: 14px;
     font-style: normal;
     font-weight: 500;
     line-height: 18px;
-    margin-left: 2rem;
 }
 
-.accordion-icn {
-    display: flex;
-    position: absolute;
-    // right: 1rem;
-    left: 1rem;
-    top: 0.8rem;
+.accordion-panel {
+    margin: 0 1rem 0 0;
+    background-color: transparent;
+    // overflow: hidden;
+
+    /* Remove the fade shadow when expanded */
+    .open::after {
+        display: none;
+    }
+
+    /* Remove the arrow in the summary */
+    summary {
+        list-style: none;
+        cursor: pointer;
+    }
+
+    summary::-webkit-details-marker {
+        display: none;
+    }
+
+    summary::marker {
+        display: none;
+    }
+
+    h4 {
+        margin: 0.5rem 0 0.5rem 0;
+    }
+}
+
+.accordion-panel-content {
+    color: #D9D9D9;
+    font-size: 12px;
+    font-weight: 300;
+    line-height: 16px;
+    // margin-top: 1rem;    
+    margin-left: 2.3rem;
+    margin-right: 1rem;
+    overflow: hidden;
 }
 
 .flip-vertical {
-    transform: rotate(180deg);
+    transform: rotate(-180deg);
     transition: transform 0.3s ease;
 }
 
@@ -75,27 +106,21 @@ function clickPanel() {
     transition: transform 0.3s ease;
 }
 
-.accordion-panel {
-    padding: 0 18px;
-    display: none;
-    display: block;
-    background-color: transparent;
-    overflow: hidden;
-
-    .open {
-        display: block;
-    }
-
-    .close {
-        display: none;
-    }
+.accordion-icn {
+    display: flex;
+    position: absolute;
+    left: 1rem;
+    top: 0.8rem;
 }
 
-.accordion-panel-content {
-    color: #D9D9D9;
-    font-size: 12px;
-    font-style: normal;
-    font-weight: 300;
-    line-height: 16px;
+.accordion-h4-open {
+    max-height: 1000px;
+    transition: max-height 1s ease;
+}
+
+.accordion-h4-close {
+    transition: max-height 0.5s ease;
+    max-height: 0;
+    overflow: hidden;
 }
 </style>

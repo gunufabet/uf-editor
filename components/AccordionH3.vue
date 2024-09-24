@@ -51,10 +51,6 @@ async function clickPanel() {
 </script>
 
 <style lang="scss" scoped>
-// details.disabled summary {
-//     pointer-events: none;
-// }
-
 .accordion {
     display: flex;
     width: 100%;
@@ -94,6 +90,10 @@ async function clickPanel() {
 
     summary::marker {
         display: none;
+    }
+
+    h3 {
+        margin: 0.5rem 0 0.5rem 0;
     }
 }
 

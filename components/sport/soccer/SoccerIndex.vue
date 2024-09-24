@@ -50,6 +50,8 @@
     <accordion-h2-style-2 :section-title="content.section6.titleH2" :section-content="content.section6.contentH2">
     </accordion-h2-style-2>
 
+    <br>
+
     <accordion-h3 style="margin-left: 1rem;" v-for="(item, index) in content.section6.contentListH3" :key="index"
         :section-title="item.title" :section-content="item.content" :with-break-line="false"></accordion-h3>
 
@@ -58,6 +60,8 @@
     <accordion-h2-style-2 :section-title="content.section7.titleH2" :section-content="content.section7.contentH2">
     </accordion-h2-style-2>
 
+    <br>
+    
     <accordion-h3 style="margin-left: 1rem;" v-for="(item, index) in content.section7.contentListH3" :key="index"
         :section-title="item.title" :section-content="item.content" :with-break-line="false"></accordion-h3>
 </template>
