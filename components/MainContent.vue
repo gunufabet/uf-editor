@@ -91,9 +91,9 @@ function clickShowMore() {
 }
 
 .main-content-detail-open {
-    max-height: 1000px;
+    max-height: 5000px;
     /* Fully expand */
-    transition: max-height 0.5s ease;
+    transition: max-height 1s ease;
 }
 
 .main-content-detail-close {

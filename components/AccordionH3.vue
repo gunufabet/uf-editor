@@ -133,7 +133,7 @@ async function clickPanel() {
 }
 
 .accordion-h3-open {
-    max-height: 1000px;
+    max-height: 5000px;
     transition: max-height 1s ease;
 }
 

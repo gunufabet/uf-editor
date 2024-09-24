@@ -78,7 +78,7 @@ details.disabled summary {
     overflow: hidden;
 
     .open {
-        max-height: 1000px;
+        max-height: 5000px;
         /* Fully expand */
         transition: max-height 0.5s ease;
     }
