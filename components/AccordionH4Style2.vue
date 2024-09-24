@@ -1,10 +1,10 @@
 <template>
     <details class="accordion-panel disabled" :open="true">
         <summary @click.prevent="false">
-            <h2 class="accordion">
+            <h4 class="accordion">
                 <span class="accordion-text">{{ props.sectionTitle }}</span>
                 <div v-if="props.sectionTitle" class="accordion-indent"></div>
-            </h2>
+            </h4>
         </summary>
         <!-- Content with shadow effect -->
         <p class="accordion-panel-content" v-html="props.sectionContent" @click="clickPanel"
@@ -33,8 +33,9 @@ function clickPanel() {
 
 <style lang="scss" scoped>
 details.disabled summary {
-  pointer-events: none; /* prevents click events */
-//   user-select: none; /* prevents text selection */
+    pointer-events: none;
+    /* prevents click events */
+    //   user-select: none; /* prevents text selection */
 }
 
 .accordion {
@@ -47,11 +48,11 @@ details.disabled summary {
 .accordion-text {
     margin-left: 1rem;
     padding-right: 1.3rem;
-    color: #EBC76E;
-    font-family: Prompt;
-    font-size: 24px;
-    font-weight: 400;
-    line-height: 28px;
+    color: #CCAB67;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 18px;
 }
 
 .accordion-indent {
@@ -59,8 +60,8 @@ details.disabled summary {
     left: 0;
     top: 5px;
     background: linear-gradient(180deg, #EBC76E 0%, #85713E 100%);
-    width: 5px;
-    height: 18px;
+    width: 3px;
+    height: 9px;
 }
 
 .accordion-panel {
@@ -112,13 +113,17 @@ details.disabled summary {
     summary::marker {
         display: none;
     }
+
+    h4 {
+        margin: 0.5rem 0 0.5rem 0;
+    }
 }
 
 .accordion-panel-content {
     color: #D9D9D9;
     font-size: 12px;
     font-weight: 300;
-    line-height: 16px;
+    line-height: 18px;
     margin-top: 1rem;
     margin-left: 1rem;
     margin-right: 1rem;

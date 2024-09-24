@@ -1,28 +1,31 @@
 <template>
-    <sub-main-content :section-title="betSportsContent?.title"
-        :section-content="betSportsContent?.content"></sub-main-content>
+    <accordion-h2 :section-title="betSportsContent?.title" :section-content="betSportsContent?.content"></accordion-h2>
 
     <table-summary :tableHeader="betSportsContent?.contentH4Table?.header"
         :tableContent="betSportsContent?.contentH4Table?.content"></table-summary>
 
-    <sub-main-content :section-title="``" :section-content="betSportsContent?.content2"></sub-main-content>
+    <accordion-h2 :section-title="``" :section-content="betSportsContent?.content2"></accordion-h2>
+
+    <br>
 
     <!-- <sub-main-content :section-sub-content-h3="section2ContentListH3"></sub-main-content> -->
     <accordion-h3 v-for="(item, index) in section2ContentListH3" :key="index" :section-title="item.title"
         :section-content="item.content" :with-break-line="true">
     </accordion-h3>
 
-    <accordion-h4 v-for="(item, index) in section2ContentListH4" :key="index" :section-title="item.title"
-        :section-content="item.content">
+    <accordion-h4 style="margin-left: 1rem;" v-for="(item, index) in section2ContentListH4" :key="index"
+        :section-title="item.title" :section-content="item.content">
     </accordion-h4>
 
     <accordion-h3 v-for="(item, index) in section3ContentListH3" :key="index" :section-title="item.title"
         :section-content="item.content" :with-break-line="true">
     </accordion-h3>
 
-    <accordion-h4 v-for="(item, index) in section3ContentListH4" :key="index" :section-title="item.title"
-        :section-content="item.content">
+    <accordion-h4 style="margin-left: 1rem;" v-for="(item, index) in section3ContentListH4" :key="index"
+        :section-title="item.title" :section-content="item.content">
     </accordion-h4>
+
+    <br>
 
     <div v-for="(match, index) in liveMatchLive" :key="index">
         <sport-soccer-live-score-table v-for="(item, index) in match.matchDetail" :key="index" :score="item.score"
@@ -51,34 +54,43 @@
         </sport-soccer-event-match-container>
     </div>
 
-    <accordion-h4 v-for="(item, index) in section5ContentListH4" :key="index" :section-title="item.title"
-        :section-content="item.content">
+    <br>
+
+    <accordion-h4 style="margin-left: 1rem;" v-for="(item, index) in section5ContentListH4" :key="index"
+        :section-title="item.title" :section-content="item.content">
     </accordion-h4>
 
     <accordion-h3 v-for="(item, index) in section6ContentListH3" :key="index" :section-title="item.title"
         :section-content="item.content" :with-break-line="true">
     </accordion-h3>
 
-    <accordion-h4 v-for="(item, index) in section6ContentListH4" :key="index" :section-title="item.title"
-        :section-content="item.content">
+    <accordion-h4 style="margin-left: 1rem;" v-for="(item, index) in section6ContentListH4" :key="index"
+        :section-title="item.title" :section-content="item.content">
     </accordion-h4>
 
-    <accordion-h4 v-for="(item, index) in section6ContentListH4" :key="index" :section-title="item.title"
-        :section-content="item.content">
+    <accordion-h4 style="margin-left: 1rem;" v-for="(item, index) in section6ContentListH4" :key="index"
+        :section-title="item.title" :section-content="item.content">
     </accordion-h4>
 
-    <sub-main-content v-for="(item, index) in section7ContentListH4" :key="index" :section-title="item.title"
-        :section-content="item.content">
-    </sub-main-content>
+    <br>
+
+    <div v-for="(item, index) in section7ContentListH4" :key="index">
+        <accordion-h4-style2 :section-title="item?.title" :section-content="item?.content">
+        </accordion-h4-style2>
+        <br>
+    </div>
 
     <div style="margin-left: 1rem;">
         <div v-for="(item, index) in section8ContentListH3" :key="index">
-            <accordion-h3 :section-title="item.title" :section-content="item.content" :with-break-line="true"></accordion-h3>
-            <sub-main-content v-for="(detail, indexContentList) in item.contentList" :key="indexContentList"
-                :section-title-h4="detail.title" :section-content-h4="detail.content"></sub-main-content>
+            <accordion-h3 :section-title="item.title" :section-content="item.content"
+                :with-break-line="true"></accordion-h3>
+
+            <accordion-h4-style2 v-for="(detail, indexContentList) in item.contentList" :key="indexContentList"
+                :section-title="detail?.title" :section-content="detail?.content">
+            </accordion-h4-style2>
+            <br>
         </div>
-    </div>
-    <br>
+    </div>    
     <br>
 </template>
 

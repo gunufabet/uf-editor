@@ -16,7 +16,7 @@ const props = defineProps({
 <style lang="scss" scoped>
 .show-more-wrapper {
     display: flex;
-    justify-content: start;
+    justify-content: center;
     align-items: center;
     padding: 1rem;
 }

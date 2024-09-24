@@ -5,8 +5,14 @@
     <sport-banner></sport-banner>
     <div class="break-space"></div>
 
-    <sub-main-content :section-title="sectionTitle" :section-content="sectionContent"
-        :section-sub-content="subContentData"></sub-main-content>
+    <!-- <sub-main-content :section-title="sectionTitle" :section-content="sectionContent"
+        :section-sub-content="subContentData"></sub-main-content> -->
+
+    <accordion-h2 :section-title="sectionTitle" :section-content="sectionContent">
+    </accordion-h2>
+    <br>
+    <accordion-h3 style="margin-left: 1rem;" v-for="(item, index) in subContentData" :key="index"
+        :section-title="item.title" :section-content="item.content" :with-break-line="false"></accordion-h3>
 
     <!-- hot matches -->
     <sport-soccer-hot-match-section></sport-soccer-hot-match-section>
@@ -14,17 +20,18 @@
     <!-- livescore -->
     <aside-content :key="asideTitleTextLiveMatch" :aside-title-text="asideTitleTextLiveMatch"
         :aside-content-text="asideContentTextLiveMatch"></aside-content>
+        
     <sport-soccer-live-score-tab-menu></sport-soccer-live-score-tab-menu>
     <div class="break-space"></div>
 
     <tab-menu @select-tab-menu="selectTabMenu" :tab-menu-list="tabMenuList"></tab-menu>
     <div class="break-space"></div>
     <sport-soccer-menu-tab-bet-sports v-if="selectedMenuId === 'sport'"></sport-soccer-menu-tab-bet-sports>
-    <sub-main-content v-else :section-title="sectionTitleTabMenuSelected" :section-content="sectionContentTabMenuSelected"
-        :section-sub-content="subContentDataTabMenuSelected" :section-title-h3="sectionTitleTabMenuSelectedH3"
-        :section-content-h3="sectionContentTabMenuSelectedH3" :section-sub-content-h3="subContentDataTabMenuSelectedH3"
-        :section-title-h4="sectionTitleTabMenuSelectedH4" :section-content-h4="sectionContentTabMenuSelectedH4"
-        :section-sub-content-h4="subContentDataTabMenuSelectedH4"
+    <sub-main-content v-else :section-title="sectionTitleTabMenuSelected"
+        :section-content="sectionContentTabMenuSelected" :section-sub-content="subContentDataTabMenuSelected"
+        :section-title-h3="sectionTitleTabMenuSelectedH3" :section-content-h3="sectionContentTabMenuSelectedH3"
+        :section-sub-content-h3="subContentDataTabMenuSelectedH3" :section-title-h4="sectionTitleTabMenuSelectedH4"
+        :section-content-h4="sectionContentTabMenuSelectedH4" :section-sub-content-h4="subContentDataTabMenuSelectedH4"
         :section-content-h2-table-header="sectionContentH2TableHeader"
         :section-content-h2-table-content="sectionContentH2TableContent"
         :section-content-h3-table-header="sectionContentH3TableHeader"

@@ -3,14 +3,13 @@
         <table>
             <caption style="display: block;" class="aside-content-title"> {{ props.asideTitleText }}</caption>
         </table>
-        <strong class="aside-content-detail"
-            :class="sectionContentDetailTruncate ? 'aside-content-detail-truncate' : ''" @click="clickDetail"> {{
+        <strong class="aside-content-detail" :class="openPanel ? 'open' : 'close'" @click="clickDetail"> {{
                 props.asideContentText }}</strong>
     </div>
 </template>
 
 <script setup lang="ts">
-const sectionContentDetailTruncate = ref(true);
+const openPanel = ref(false);
 
 const props = defineProps({
     asideTitleText: {
@@ -24,7 +23,7 @@ const props = defineProps({
 });
 
 function clickDetail() {
-    sectionContentDetailTruncate.value = !sectionContentDetailTruncate.value;
+    openPanel.value = !openPanel.value;
 }
 </script>
 
@@ -63,27 +62,35 @@ function clickDetail() {
         position: relative;
     }
 
-    // &-detail::after {
-    //     /* Required for pseudo-element */
-    //     content: '';
-    //     position: absolute;
-    //     bottom: 0;
-    //     left: 0;
-    //     width: 100%;
-    //     /* Height of the fade effect */
-    //     height: 40px;
-    //     /* Adjust color to match background */
-    //     background: linear-gradient(rgba(0, 0, 0, 0), #000);
-    //     /* Ensure the overlay does not interfere with text selection */
-    //     pointer-events: none;
-    // }
-}
+    .open {
+        max-height: 1000px;
+        /* Fully expand */
+        transition: max-height 0.5s ease;
+    }
 
-.aside-content-detail-truncate {
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2;
-    overflow: hidden;
-    // padding-top: 0.5rem;
+    .close {
+        max-height: 4.5rem;
+        /* Equivalent to 3 lines */
+        overflow: hidden;
+        position: relative;
+        transition: max-height 0.5s ease;
+    }
+
+    /* Add the fade shadow */
+    .close::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 1.5rem;
+        background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.8) 100%);
+        pointer-events: none;
+    }
+
+    /* Remove the fade shadow when expanded */
+    .open::after {
+        display: none;
+    }
 }
 </style>
