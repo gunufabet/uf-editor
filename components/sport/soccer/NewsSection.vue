@@ -1,5 +1,5 @@
 <template>
-    <div class="btn-wrapper">
+    <div class="btn-wrapper" style="justify-content: center; gap: 1rem;">
         <custom-button-3 v-for="(button, index) in buttonOption" :key="index" :label="button.text" :id="button.id"
             :isSelected="button.id === selectedBtnId" @click="selectButton(button)"></custom-button-3>
     </div>

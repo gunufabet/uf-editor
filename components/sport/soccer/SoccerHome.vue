@@ -20,10 +20,10 @@
     <!-- livescore -->
     <aside-content :key="asideTitleTextLiveMatch" :aside-title-text="asideTitleTextLiveMatch"
         :aside-content-text="asideContentTextLiveMatch"></aside-content>
-        
+
     <sport-soccer-live-score-tab-menu></sport-soccer-live-score-tab-menu>
     <div class="break-space"></div>
-
+    
     <tab-menu @select-tab-menu="selectTabMenu" :tab-menu-list="tabMenuList"></tab-menu>
     <div class="break-space"></div>
     <sport-soccer-menu-tab-bet-sports v-if="selectedMenuId === 'sport'"></sport-soccer-menu-tab-bet-sports>

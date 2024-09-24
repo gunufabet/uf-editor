@@ -1,11 +1,15 @@
 <template>
     <section :id="props.sectionTitle" class="section-content">
         <!-- h2 -->
-        <h2 v-if="props.sectionTitle" class="subTitle" @click="clickSectionTitle">{{ props.sectionTitle }}</h2>
+        <!-- <h2 v-if="props.sectionTitle" class="subTitle" @click="clickSectionTitle">{{ props.sectionTitle }}</h2>
         <p v-if="props.sectionContent" @click="clickSectionTitle"
             :class="sectionContentDetailTruncate ? 'section-content-detail-truncate' : ''"
             class="section-content-detail section-content-title-detail" v-html="props.sectionContent">
-        </p>
+        </p> -->
+
+        <accordion-h2 v-if="props.sectionTitle" :section-title="props.sectionTitle"
+            :section-content="props.sectionContent" :add-padding="false">
+        </accordion-h2>
 
         <table-summary :tableHeader="sectionContentH2TableHeader"
             :tableContent="sectionContentH2TableContent"></table-summary>
@@ -17,11 +21,17 @@
         </details>
 
         <!-- h3 -->
-        <h3 v-if="props.sectionTitleH3" class="subTitleH3">{{ props.sectionTitleH3 }}</h3>
+        <!-- <h3 v-if="props.sectionTitleH3" class="subTitleH3">{{ props.sectionTitleH3 }}</h3>
         <p v-if="props.sectionContentH3"
             class="section-content-detail section-content-title-detail subTitleH3DetailSpace"
             v-html="props.sectionContentH3">
-        </p>
+        </p> -->
+
+        <br v-if="props.sectionTitle && props.sectionTitleH3">
+        
+        <accordion-h3-style-2 v-if="props.sectionTitleH3" :section-title="props.sectionTitleH3"
+            :section-content="props.sectionContentH3" :with-break-line="false">
+        </accordion-h3-style-2>
 
         <table-summary :tableHeader="sectionContentH3TableHeader"
             :tableContent="sectionContentH3TableContent"></table-summary>
@@ -33,11 +43,14 @@
         </details>
 
         <!-- h4 -->
-        <h4 v-if="props.sectionTitleH4" class="subTitleH4">{{ props.sectionTitleH4 }}</h4>
+        <!-- <h4 v-if="props.sectionTitleH4" class="subTitleH4">{{ props.sectionTitleH4 }}</h4>
         <p v-if="props.sectionContentH4"
             class="section-content-detail section-content-title-detail subTitleH4DetailSpace"
             v-html="props.sectionContentH4">
-        </p>
+        </p> -->
+        <accordion-h4-style-2 style="margin-left: 1rem;" v-if="props.sectionTitleH4"
+            :section-title="props.sectionTitleH4" :section-content="props.sectionContentH4" :with-break-line="false">
+        </accordion-h4-style-2>
 
         <table-summary :tableHeader="sectionContentH4TableHeader"
             :tableContent="sectionContentH4TableContent"></table-summary>
@@ -142,7 +155,7 @@ function clickSectionTitle() {
         font-size: 12px;
         font-weight: 300;
         // line-height: 16px;
-        line-height: normal;        
+        line-height: normal;
 
         &-h3-title {
             // padding: 0.5rem 0.5rem 0.5rem 1.3em;

@@ -1,10 +1,10 @@
 <template>
-    <details class="accordion-panel disabled" :open="true" :class="addPadding ? 'accordion-h2-add-padding' : ''">
+    <details class="accordion-panel disabled" :open="true">
         <summary @click.prevent="false">
-            <h2 class="accordion">
+            <h3 class="accordion">
                 <span class="accordion-text">{{ props.sectionTitle }}</span>
                 <div v-if="props.sectionTitle" class="accordion-indent"></div>
-            </h2>
+            </h3>
         </summary>
         <!-- Content with shadow effect -->
         <p class="accordion-panel-content" v-html="props.sectionContent" @click="clickPanel"
@@ -23,11 +23,7 @@ const props = defineProps({
     sectionContent: {
         type: String,
         default: ''
-    },
-    addPadding: {
-        type: Boolean,
-        default: true
-    },
+    }
 });
 
 function clickPanel() {
@@ -52,23 +48,24 @@ details.disabled summary {
 .accordion-text {
     margin-left: 1rem;
     padding-right: 1.3rem;
-    color: #EBC76E;
-    font-family: Prompt;
-    font-size: 24px;
-    font-weight: 400;
-    line-height: 28px;
+    color: #CCAB67;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 18px;
 }
 
 .accordion-indent {
     position: absolute;
     left: 0;
-    top: 5px;
+    top: 4px;
     background: linear-gradient(180deg, #EBC76E 0%, #85713E 100%);
-    width: 5px;
-    height: 18px;
+    width: 4px;
+    height: 10px;
 }
 
 .accordion-panel {
+    padding: 0 18px;
     background-color: transparent;
     overflow: hidden;
 
@@ -116,13 +113,17 @@ details.disabled summary {
     summary::marker {
         display: none;
     }
+
+    h3 {
+        margin: 0.5rem 0 0.5rem 0;
+    }
 }
 
 .accordion-panel-content {
     color: #D9D9D9;
     font-size: 12px;
     font-weight: 300;
-    line-height: 16px;
+    line-height: 18px;
     margin-top: 1rem;
     margin-left: 1rem;
     margin-right: 1rem;
@@ -132,9 +133,5 @@ details.disabled summary {
     // -webkit-line-clamp: 3;
     /* Limit to 3 lines */
     transition: -webkit-line-clamp 0.5s ease;
-}
-
-.accordion-h2-add-padding {
-    padding: 0 18px;
 }
 </style>

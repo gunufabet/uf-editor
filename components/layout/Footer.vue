@@ -1,15 +1,18 @@
 <template>
     <footer class="footer">
         <br>
+        <br>
         <div class="about-football-bet-container">
             <div class="about-football-bet-title">{{ contentAboutFooterBetInfo.title }}</div>
             <div class="about-football-bet-content">{{ contentAboutFooterBetInfo.content }}</div>
-            <div class="about-football-bet-link"><span style="margin-right: 0.5rem; cursor: pointer;">View More</span> <svg style="margin-top: 0.1rem;" xmlns="http://www.w3.org/2000/svg" width="5" height="8"
+            <div class="about-football-bet-link"><span style="margin-right: 0.5rem; cursor: pointer;">View More</span>
+                <svg style="margin-top: 0.1rem;" xmlns="http://www.w3.org/2000/svg" width="5" height="8"
                     viewBox="0 0 5 8" fill="none">
                     <path d="M0.791748 7L3.54175 4L0.791748 1" stroke="#EBC76E" stroke-width="1.5"
                         stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
                 </svg></div>
         </div>
+        <br>
 
         <div class="footer-padding">
             <!-- footerMenuLinkList -->
@@ -30,6 +33,8 @@
                     <img :src="game.src" :alt="game.alt">
                 </div>
             </div>
+
+            <br>
             <!-- contentFooterInfo -->
             <div class="footer-container">
                 <div><img class="footer-logo" src="/UFABET-LOGO.png" alt="ufabet logo"></div>
