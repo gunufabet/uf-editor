@@ -10,7 +10,8 @@
                     viewBox="0 0 5 8" fill="none">
                     <path d="M0.791748 7L3.54175 4L0.791748 1" stroke="#EBC76E" stroke-width="1.5"
                         stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
-                </svg></div>
+                </svg>
+            </div>
         </div>
         <br>
 
@@ -358,6 +359,39 @@ const footerMenuLinkList = ref({
 
     .grid-container-license-footer {
         grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1000px) {
+
+    .footer-padding,
+    .about-football-bet-container {
+        margin: 0 auto;
+        max-width: 100%;
+        padding-left: 15%;
+        padding-right: 15%;
+    }
+}
+
+@media (min-width: 1280px) {
+
+    .footer-padding,
+    .about-football-bet-container {
+        margin: 0 auto;
+        max-width: 100%;
+        padding-left: 25%;
+        padding-right: 25%;
+    }
+}
+
+@media (min-width: 1980px) {
+
+    .footer-padding,
+    .about-football-bet-container {
+        margin: 0 auto;
+        max-width: 100%;
+        padding-left: 30%;
+        padding-right: 30%;
     }
 }
 </style>

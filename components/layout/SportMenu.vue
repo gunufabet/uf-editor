@@ -30,7 +30,6 @@
             </nuxt-link>
         </div>
     </div>
-    <div></div>
 </template>
 
 <script setup lang="ts">
@@ -194,7 +193,7 @@ async function menuMainOnClick(menu: any) {
     bindCategory(menu.menuRoute)
 }
 
-async function bindCategory(routeName: string) {    
+async function bindCategory(routeName: string) {
     if (routeName === '' || routeName === 'index' || routeName === 'sports') {
         categoryItems.value = categoryItemsSoccer.value;
     } else {
@@ -281,5 +280,36 @@ async function bindCategory(routeName: string) {
     font-style: normal;
     font-weight: 600;
     line-height: normal;
+}
+
+// @media (min-width: 768px) {
+@media (min-width: 1000px) {
+    .menu-container,
+    .category-container {
+        margin: 0 auto;
+        max-width: 100%;
+        padding-left: 15%;
+        padding-right: 15%;
+    }
+}
+
+@media (min-width: 1280px) {
+    .menu-container,
+    .category-container {
+        margin: 0 auto;
+        max-width: 100%;
+        padding-left: 25%;
+        padding-right: 25%;
+    }
+}
+
+@media (min-width: 1980px) {
+    .menu-container,
+    .category-container {
+        margin: 0 auto;
+        max-width: 100%;
+        padding-left: 30%;
+        padding-right: 30%;
+    }
 }
 </style>

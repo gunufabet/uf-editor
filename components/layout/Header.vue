@@ -14,7 +14,7 @@
         <login-modal v-if="showModal" @close="showModal = false"></login-modal>
 
         <layout-sport-menu></layout-sport-menu>
-        </header>
+    </header>
 </template>
 
 <script setup lang="ts">
@@ -67,5 +67,30 @@ async function goToMain() {
     align-items: center;
 }
 
-@media only screen and (max-width:475px) {}
+@media (min-width: 1000px) {
+    .header-layout {
+        margin: 0 auto;
+        max-width: 100%;
+        padding-left: 15%;
+        padding-right: 15%;
+    }
+}
+
+@media (min-width: 1280px) {
+    .header-layout {
+        margin: 0 auto;
+        max-width: 100%;
+        padding-left: 25%;
+        padding-right: 25%;
+    }
+}
+
+@media (min-width: 1980px) {
+    .header-layout {
+        margin: 0 auto;
+        max-width: 100%;
+        padding-left: 30%;
+        padding-right: 30%;
+    }
+}
 </style>
