@@ -61,6 +61,7 @@ function topFunction() {
 @media (min-width: 476px) {
   #scrollupBtn {
     display: none;
+    position: fixed;
   }
 }
 
