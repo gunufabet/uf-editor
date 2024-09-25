@@ -110,8 +110,8 @@ async function clickPanel() {
 .accordion-icn {
     display: flex;
     position: absolute;
-    left: 1rem;
-    top: 0.8rem;
+    left: 1rem;    
+    top: 40%;
 }
 
 .accordion-h4-open {
