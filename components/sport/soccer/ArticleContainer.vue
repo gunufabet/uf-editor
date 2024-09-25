@@ -1,5 +1,5 @@
 <template>
-    <a href="" class="article-container">
+    <a style="color: transparent;" href="" class="article-container">
         <button class="open-link-btn">
             <img src="/img/soccer/icn-open-link.svg" :alt="props.newsImgAlt">
         </button>
@@ -46,7 +46,7 @@ const props = defineProps({
     // min-height: 210px;
     border-radius: 8px;
     background: var(--linear-bar, linear-gradient(90deg, #2B2B32 0%, #484141 100%));
-    transition: transform .2s ease-in;
+    transition: transform .2s ease-in;    
 }
 
 .article-container:hover {

@@ -57,7 +57,7 @@ const props = defineProps({
     flex-shrink: 0;
     // padding: 0.6rem 3rem 0.6rem 1rem;
     padding: 0.6rem 0 0.6rem 0.8rem;
-    min-width: 115px;
+    min-width: 155px;
     // padding: 1rem;
     color: #EBC76E;
 }
@@ -77,5 +77,11 @@ const props = defineProps({
     font-style: normal;
     font-weight: 500;
     line-height: 16px;
+}
+
+@media only screen and (max-width:475px) {
+    .custom-btn {
+        min-width: 115px;
+    }
 }
 </style>

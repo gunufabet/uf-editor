@@ -93,7 +93,7 @@ function selectButton(value: any) {
 <style lang="scss" scoped>
 .btn-wrapper {
     display: flex;
-    justify-content: start;
+    justify-content: center;
     align-items: center;
     // padding: 1rem;
     gap: 0.5rem;
@@ -127,5 +127,11 @@ function selectButton(value: any) {
     // padding-bottom: 1rem;
     gap: 1rem;
     padding-right: 1rem;
+}
+
+@media only screen and (max-width:475px) {
+    .btn-wrapper {
+        justify-content: start;
+    }
 }
 </style>

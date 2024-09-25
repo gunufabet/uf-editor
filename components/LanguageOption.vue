@@ -107,7 +107,7 @@ const languageList = ref([
 }
 
 .language-menu {
-    height: 162px;
+    // height: 162px;
     max-height: calc(-150px + 100vh);
     overflow-y: auto;
 }
