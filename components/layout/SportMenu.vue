@@ -293,23 +293,23 @@ async function bindCategory(routeName: string) {
     }
 }
 
-@media (min-width: 1280px) {
-    .menu-container,
-    .category-container {
-        margin: 0 auto;
-        max-width: 100%;
-        padding-left: 25%;
-        padding-right: 25%;
-    }
-}
+// @media (min-width: 1280px) {
+//     .menu-container,
+//     .category-container {
+//         margin: 0 auto;
+//         max-width: 100%;
+//         padding-left: 25%;
+//         padding-right: 25%;
+//     }
+// }
 
 @media (min-width: 1980px) {
     .menu-container,
     .category-container {
         margin: 0 auto;
         max-width: 100%;
-        padding-left: 30%;
-        padding-right: 30%;
+        padding-left: 20%;
+        padding-right: 20%;
     }
 }
 </style>

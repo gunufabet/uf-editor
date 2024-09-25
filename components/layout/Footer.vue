@@ -230,6 +230,7 @@ const footerMenuLinkList = ref({
 
 .footer-padding {
     padding: 1rem 10px 100px 10px;
+    // padding: 2rem 10px 100px 10px;
 }
 
 .copyright {
@@ -254,12 +255,14 @@ const footerMenuLinkList = ref({
     /* 2 columns */
     gap: 1rem;
     justify-items: left;
-    padding: 1.5rem 0 1.5rem 0;
+    // padding: 1.5rem 0 1.5rem 0;
+    padding: 1.5rem 0 2.5rem 0;
     white-space: nowrap;
 }
 
 .grid-item-footer {
-    padding: 0.3rem 0 0 0.5rem;
+    // padding: 0.3rem 0 0 0.5rem;
+    padding: 0.5rem 0 0 0.5rem;
     text-align: center;
     cursor: pointer;
 }
@@ -277,10 +280,11 @@ const footerMenuLinkList = ref({
 
 .footer-info-text {
     color: #D9D9D9;
-    font-size: 10px;
+    // font-size: 10px;
+    font-size: 16px;
     font-style: normal;
     font-weight: 400;
-    line-height: 14px;
+    line-height: 24px;
     padding: 0.5rem 0 0.5rem 0.5rem;
 }
 
@@ -295,7 +299,8 @@ const footerMenuLinkList = ref({
 
 .footer-menu-header {
     color: #EBC76E;
-    font-size: 12px;
+    // font-size: 12px;
+    font-size: 16px;
     font-style: normal;
     font-weight: 600;
     line-height: normal;
@@ -304,7 +309,8 @@ const footerMenuLinkList = ref({
 
 .footer-menu-item {
     color: #D9D9D9;
-    font-size: 11px;
+    // font-size: 11px;
+    font-size: 16px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
@@ -320,7 +326,8 @@ const footerMenuLinkList = ref({
 
 .about-football-bet-title {
     color: #FFF;
-    font-size: 12px;
+    // font-size: 12px;
+    font-size: 16px;
     font-style: normal;
     font-weight: 500;
     line-height: normal;
@@ -329,7 +336,8 @@ const footerMenuLinkList = ref({
 .about-football-bet-content {
     padding: 1rem 0 0 0;
     color: #D9D9D9;
-    font-size: 10px;
+    // font-size: 10px;
+    font-size: 16px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
@@ -338,7 +346,8 @@ const footerMenuLinkList = ref({
 .about-football-bet-link {
     padding: 1rem 0 0 0;
     color: #EBC76E;
-    font-size: 11px;
+    // font-size: 11px;
+    font-size: 16px;
     font-style: normal;
     font-weight: 500;
     line-height: normal;
@@ -373,25 +382,14 @@ const footerMenuLinkList = ref({
     }
 }
 
-@media (min-width: 1280px) {
-
-    .footer-padding,
-    .about-football-bet-container {
-        margin: 0 auto;
-        max-width: 100%;
-        padding-left: 25%;
-        padding-right: 25%;
-    }
-}
-
 @media (min-width: 1980px) {
 
     .footer-padding,
     .about-football-bet-container {
         margin: 0 auto;
         max-width: 100%;
-        padding-left: 30%;
-        padding-right: 30%;
+        padding-left: 20%;
+        padding-right: 20%;
     }
 }
 </style>

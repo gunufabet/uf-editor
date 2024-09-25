@@ -73,20 +73,7 @@ function topFunction() {
   }
 
   #scrollupBtn {
-    left: 17%;
-  }
-}
-
-@media (min-width: 1280px) {
-  #main {
-    margin: 0 auto;
-    max-width: 100%;
-    padding-left: 25%;
-    padding-right: 25%;
-  }
-
-  #scrollupBtn {
-    left: 26%;
+    left: 16%;
   }
 }
 
@@ -94,12 +81,12 @@ function topFunction() {
   #main {
     margin: 0 auto;
     max-width: 100%;
-    padding-left: 30%;
-    padding-right: 30%;
+    padding-left: 20%;
+    padding-right: 20%;
   }
 
   #scrollupBtn {
-    left: 31%;
+    left: 21%;
   }
 }
 </style>
