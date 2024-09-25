@@ -17,16 +17,20 @@
 
         <div class="footer-padding">
             <!-- footerMenuLinkList -->
-            <div v-for="(menu, index) in footerMenuLinkList.sections" :key="index">
-                <span class="footer-menu-header">{{ menu.header }}</span>
-                <div class="grid-container-footer">
-                    <div v-for="(item, menuItemIndex) in menu.items" :key="menuItemIndex"
-                        class="grid-item-footer footer-menu-item">
-                        {{ item }}
+            <div class="footer-menu-link-desktop">
+                <div v-for="(menu, index) in footerMenuLinkList.sections" :key="index">
+                    <span class="footer-menu-header">{{ menu.header }}</span>
+                    <div class="grid-container-footer-desktop">
+                        <div v-for="(item, menuItemIndex) in menu.items" :key="menuItemIndex"
+                            class="grid-item-footer footer-menu-item">
+                            {{ item }}
+                        </div>
                     </div>
                 </div>
                 <br>
             </div>
+
+            <div class="footer-break-line"></div>            
 
             <!-- gameLicenseImgList -->
             <div class="grid-container-license-footer">
@@ -260,6 +264,17 @@ const footerMenuLinkList = ref({
     white-space: nowrap;
 }
 
+.grid-container-footer-desktop {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    /* 2 columns */
+    gap: 1rem;
+    justify-items: left;
+    // padding: 1.5rem 0 1.5rem 0;
+    padding: 1.5rem 0 2.5rem 0;
+    white-space: nowrap;
+}
+
 .grid-item-footer {
     // padding: 0.3rem 0 0 0.5rem;
     padding: 0.5rem 0 0 0.5rem;
@@ -290,7 +305,7 @@ const footerMenuLinkList = ref({
 
 .grid-container-license-footer {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     /* 2 columns */
     gap: 1rem;
     justify-items: left;
@@ -356,6 +371,19 @@ const footerMenuLinkList = ref({
     align-items: center;
 }
 
+.footer-menu-link-desktop {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.footer-break-line {
+    width: 100%;
+    height: 1px;
+    background: #2B2B32;
+    margin-bottom: 1rem;
+}
+
 @media only screen and (max-width:475px) {
     .copyright {
         font-size: 12px;
@@ -368,6 +396,24 @@ const footerMenuLinkList = ref({
 
     .grid-container-license-footer {
         grid-template-columns: repeat(2, 1fr);
+    }
+
+    .grid-container-footer-desktop {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .footer-menu-link-desktop {
+        display: block;
+    }
+}
+
+@media only screen and (max-width:600px) {
+    .grid-container-footer-desktop {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .footer-menu-link-desktop {
+        display: block;
     }
 }
 
