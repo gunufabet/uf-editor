@@ -2,7 +2,7 @@
     <details class="accordion-panel disabled" :open="true">
         <summary @click.prevent="false">
             <h4 class="accordion">
-                <span class="accordion-text">{{ props.sectionTitle }}</span>
+                <span class="accordion-text" :class="openPanel ? 'expand' : ''">{{ props.sectionTitle }}</span>
                 <div v-if="props.sectionTitle" class="accordion-indent"></div>
             </h4>
         </summary>
@@ -54,6 +54,10 @@ details.disabled summary {
     font-style: normal;
     font-weight: 500;
     line-height: 18px;
+
+    &.expand {
+        color: #EBC76E;
+    }
 }
 
 .accordion-indent {

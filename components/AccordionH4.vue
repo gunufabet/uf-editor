@@ -2,7 +2,7 @@
     <details class="accordion-panel" :open="true">
         <summary @click.prevent="false" @click="clickPanel">
             <h4 class="accordion">
-                <span class="accordion-text">{{ props.sectionTitle }}</span>
+                <span class="accordion-text" :class="openPanel ? 'expand' : ''">{{ props.sectionTitle }}</span>
                 <span class="accordion-icn" :class="openPanel ? 'flip-vertical' : 'flip-vertical-transition'">
                     <svg xmlns="http://www.w3.org/2000/svg" width="9" height="6" viewBox="0 0 9 6" fill="none">
                         <path d="M8 1.5L4.5 5L1 1.5" stroke="#CCAB67" stroke-width="1.5" stroke-miterlimit="10"
@@ -40,7 +40,8 @@ async function clickPanel() {
 .accordion {
     display: flex;
     width: 100%;
-    padding: 0.5rem 0 0.5rem 0;
+    // padding: 0.5rem 0 0.5rem 0;
+    padding: 0.8rem 0 0.8rem 0;
     border-radius: 5px;
     background: linear-gradient(90deg, rgba(235, 199, 110, 0.20) 0%, rgba(133, 113, 62, 0.20) 100%);
     cursor: pointer;
@@ -55,6 +56,10 @@ async function clickPanel() {
     font-style: normal;
     font-weight: 500;
     line-height: 18px;
+
+    &.expand {
+        color: #EBC76E;
+    }
 }
 
 .accordion-panel {
@@ -110,7 +115,7 @@ async function clickPanel() {
 .accordion-icn {
     display: flex;
     position: absolute;
-    left: 1rem;    
+    left: 1rem;
     top: 40%;
 }
 

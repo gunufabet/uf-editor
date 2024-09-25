@@ -2,7 +2,7 @@
     <details class="accordion-panel" :open="true">
         <summary @click.prevent="false" @click="clickPanel">
             <h3 class="accordion">
-                <span class="accordion-text">{{ props.sectionTitle }}</span>
+                <span class="accordion-text" :class="openPanel ? 'expand' : ''">{{ props.sectionTitle }}</span>
                 <span class="accordion-icn" :class="openPanel ? 'flip-vertical' : 'flip-vertical-transition'">
                     <svg xmlns="http://www.w3.org/2000/svg" width="11" height="12" viewBox="0 0 11 12" fill="none">
                         <path
@@ -66,6 +66,10 @@ async function clickPanel() {
     font-style: normal;
     font-weight: 500;
     line-height: 18px;
+
+    &.expand {
+        color: #EBC76E;
+    }
 }
 
 .accordion-panel {
