@@ -59,6 +59,126 @@
           "odds": "@8.4"
         }
       ]
+    },
+    {
+      "betBoostOddFrom": "19.12",
+      "betBoostOddTo": "23.60",
+      "betList": [
+        {
+          "leagueName": "English Premier League",
+          "homeName": "Manchester United",
+          "awayName": "Manchester City",
+          "homeScore": 2,
+          "awayScore": 1,
+          "odds": "@6.12"
+        },
+        {
+          "leagueName": "UAE Pro League U21",
+          "homeName": "Al Bataeh Club U21",
+          "awayName": "Al Dhafra U21",
+          "homeScore": 0,
+          "awayScore": 0,
+          "odds": "@4.6"
+        },
+        {
+          "leagueName": "UAE Pro League U21",
+          "homeName": "Al Nasr Dubai U21",
+          "awayName": "Bani Yas Vlus Test Long U21",
+          "homeScore": 2,
+          "awayScore": 1,
+          "odds": "@8.4"
+        }
+      ]
+    },
+    {
+      "betBoostOddFrom": "19.12",
+      "betBoostOddTo": "23.60",
+      "betList": [
+        {
+          "leagueName": "English Premier League",
+          "homeName": "Manchester United",
+          "awayName": "Manchester City",
+          "homeScore": 2,
+          "awayScore": 1,
+          "odds": "@6.12"
+        },
+        {
+          "leagueName": "UAE Pro League U21",
+          "homeName": "Al Bataeh Club U21",
+          "awayName": "Al Dhafra U21",
+          "homeScore": 0,
+          "awayScore": 0,
+          "odds": "@4.6"
+        },
+        {
+          "leagueName": "UAE Pro League U21",
+          "homeName": "Al Nasr Dubai U21",
+          "awayName": "Bani Yas Vlus Test Long U21",
+          "homeScore": 2,
+          "awayScore": 1,
+          "odds": "@8.4"
+        }
+      ]
+    },
+    {
+      "betBoostOddFrom": "19.12",
+      "betBoostOddTo": "23.60",
+      "betList": [
+        {
+          "leagueName": "English Premier League",
+          "homeName": "Manchester United",
+          "awayName": "Manchester City",
+          "homeScore": 2,
+          "awayScore": 1,
+          "odds": "@6.12"
+        },
+        {
+          "leagueName": "UAE Pro League U21",
+          "homeName": "Al Bataeh Club U21",
+          "awayName": "Al Dhafra U21",
+          "homeScore": 0,
+          "awayScore": 0,
+          "odds": "@4.6"
+        },
+        {
+          "leagueName": "UAE Pro League U21",
+          "homeName": "Al Nasr Dubai U21",
+          "awayName": "Bani Yas Vlus Test Long U21",
+          "homeScore": 2,
+          "awayScore": 1,
+          "odds": "@8.4"
+        }
+      ]
+    },
+    {
+      "betBoostOddFrom": "19.12",
+      "betBoostOddTo": "23.60",
+      "betList": [
+        {
+          "leagueName": "English Premier League",
+          "homeName": "Manchester United",
+          "awayName": "Manchester City",
+          "homeScore": 2,
+          "awayScore": 1,
+          "odds": "@6.12"
+        },
+        {
+          "leagueName": "UAE Pro League U21",
+          "homeName": "Al Bataeh Club U21",
+          "awayName": "Al Dhafra U21",
+          "homeScore": 0,
+          "awayScore": 0,
+          "odds": "@4.6"
+        },
+        {
+          "leagueName": "UAE Pro League U21",
+          "homeName": "Al Nasr Dubai U21",
+          "awayName": "Bani Yas Vlus Test Long U21",
+          "homeScore": 2,
+          "awayScore": 1,
+          "odds": "@8.4"
+        }
+      ]
     }
   ]
 }

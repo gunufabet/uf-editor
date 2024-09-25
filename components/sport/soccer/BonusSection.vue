@@ -2,7 +2,7 @@
     <aside-content :key="asideTitleText" :aside-title-text="asideTitleText" :aside-content-text="asideContentText"></aside-content>
 
     <div class="img-wrapper">
-        <bonus-banner :img-src="bonusImgSrc" :img-alt="bonusImgAlt"></bonus-banner>
+        <bonus-banner :img-src="bonusImgSrc" :img-src-mobile="bonusImgSrcMobile" :img-alt="bonusImgAlt"></bonus-banner>
     </div>
 </template>
 
@@ -13,6 +13,7 @@ const bonusSection = ref(content.Sport.Soccer.sectionBonus);
 const asideTitleText = ref(bonusSection.value.title);
 const asideContentText = ref(bonusSection.value.content);
 const bonusImgSrc = ref(bonusSection.value.imgSrc);
+const bonusImgSrcMobile = ref(bonusSection.value.imgSrcMobile);
 const bonusImgAlt = ref(bonusSection.value.imgAlt);
 </script>
 

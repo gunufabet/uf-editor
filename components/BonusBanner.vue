@@ -2,7 +2,8 @@
     <aside class="banner-container">
         <div class="banner-container-wrapper">
             <div class="banner-container-img">
-                <img class="banner-container-img-item" :src="imgSrc" :alt="imgAlt">
+                <img class="banner-container-img-item" :alt="imgAlt" :srcset="`${imgSrcMobile} 480w, 
+                    ${imgSrc} 800w, ${imgSrc} 1200w`" :src="imgSrc">
             </div>
         </div>
     </aside>
@@ -11,6 +12,10 @@
 <script setup lang="ts">
 const props = defineProps({
     imgSrc: {
+        type: String,
+        default: ''
+    },
+    imgSrcMobile: {
         type: String,
         default: ''
     },
@@ -32,8 +37,8 @@ const props = defineProps({
 
         &-item {
             cursor: pointer;
-            max-width: 356px;
-            max-height: 165.07px;
+            max-width: 541px;
+            max-height: 266px;
             margin: 0.5rem;
             border-radius: 10px;
         }
@@ -68,7 +73,8 @@ const props = defineProps({
     .banner-container {
         &-img {
             &-item {
-                // max-width: 300px;
+                max-width: 356px;
+                max-height: 165.07px;
             }
         }
     }

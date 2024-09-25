@@ -2,10 +2,14 @@
     <aside class="banner-container">
         <div class="banner-container-wrapper">
             <div class="banner-container-img">
-                <img class="banner-container-img-item" :src="content.Sport.Soccer.advertisementBanner[0].imgSrc"
-                    :alt="content.Sport.Soccer.advertisementBanner[0].imgAlt">
-                <img class="banner-container-img-item" :src="content.Sport.Soccer.advertisementBanner[1].imgSrc"
-                    :alt="content.Sport.Soccer.advertisementBanner[1].imgAlt">
+                <img class="banner-container-img-item" :alt="content.Sport.Soccer.advertisementBanner[0].imgAlt"
+                    :srcset="`${content.Sport.Soccer.advertisementBanner[0].imgSrcMobile} 480w, 
+                    ${content.Sport.Soccer.advertisementBanner[0].imgSrc} 800w, ${content.Sport.Soccer.advertisementBanner[0].imgSrc} 1200w`"
+                    :src="content.Sport.Soccer.advertisementBanner[0].imgSrc">
+                <img class="banner-container-img-item" :alt="content.Sport.Soccer.advertisementBanner[1].imgAlt"
+                    :srcset="`${content.Sport.Soccer.advertisementBanner[1].imgSrcMobile} 480w, 
+                    ${content.Sport.Soccer.advertisementBanner[1].imgSrc} 800w, ${content.Sport.Soccer.advertisementBanner[1].imgSrc} 1200w`"
+                    :src="content.Sport.Soccer.advertisementBanner[1].imgSrc">
             </div>
         </div>
     </aside>
@@ -37,12 +41,12 @@ import content from '~/assets/script/content.json'
     }
 
     &-img {
-        
+
 
         &-item {
             cursor: pointer;
-            max-width: 174px;
-            max-height: 101;
+            max-width: 541px;
+            max-height: 266px;
             margin: 0.5rem;
             border-radius: 10px;
         }
@@ -71,6 +75,15 @@ import content from '~/assets/script/content.json'
             margin: 0.3rem;
             width: 8px;
             height: 8px;
+        }
+    }
+
+    .banner-container {
+        &-img {
+            &-item {
+                max-width: 174px;
+                max-height: 101px;
+            }
         }
     }
 }
