@@ -340,7 +340,7 @@ const footerMenuLinkList = ref({
     font-size: 16px;
     font-style: normal;
     font-weight: 400;
-    line-height: normal;
+    line-height: 24px;
 }
 
 .about-football-bet-link {
