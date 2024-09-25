@@ -124,7 +124,7 @@ function selectButton(value: any) {
     flex-wrap: nowrap;
     overflow-x: auto;
     overflow-y: hidden;
-    padding-bottom: 1rem;
+    // padding-bottom: 1rem;
     gap: 1rem;
     padding-right: 1rem;
 }

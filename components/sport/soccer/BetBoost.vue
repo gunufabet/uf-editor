@@ -40,7 +40,7 @@ const betBoostList = ref(content.betBoostList);
     flex-wrap: nowrap;    
     overflow-x: auto;
     overflow-y: hidden;
-    padding-bottom: 1rem;
+    // padding-bottom: 1rem;
 }
 
 .bet-boost-container {

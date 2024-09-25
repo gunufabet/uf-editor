@@ -31,11 +31,12 @@ const props = defineProps({
 <style lang="scss" scoped>
 .summary-table-wrapper {
     padding: 1rem 0 1rem 0;
+    overflow-x: auto;
 }
 
 .summary-table {
     width: 100%;
-    table-layout: fixed;
+    table-layout: inherit;
     border-collapse: collapse;
 }
 
