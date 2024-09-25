@@ -48,23 +48,19 @@ function topFunction() {
 </script>
 
 <style lang="scss" scoped>
-#scrollupBtn {
-  // display: none;
-  // position: fixed;
-  // bottom: 30px;
-  // // left: 20px;
-  // left: 26%;
-  // z-index: 99;
-}
-
-// @media only screen and (max-width: 700px) {
 @media only screen and (max-width: 475px) {
   #scrollupBtn {
-    display: none;
+    display: block;
     position: fixed;
     bottom: 30px;
     left: 20px;
     z-index: 99;
+  }
+}
+
+@media (min-width: 476px) {
+  #scrollupBtn {
+    display: none;
   }
 }
 
@@ -75,11 +71,6 @@ function topFunction() {
     padding-left: 15%;
     padding-right: 15%;
   }
-
-  #scrollupBtn {
-    // left: 16%;
-    display: none;
-  }
 }
 
 @media (min-width: 1980px) {
@@ -88,11 +79,6 @@ function topFunction() {
     max-width: 100%;
     padding-left: 20%;
     padding-right: 20%;
-  }
-
-  #scrollupBtn {
-    // left: 21%;
-    display: none;
   }
 }
 </style>
