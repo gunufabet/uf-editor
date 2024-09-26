@@ -84,6 +84,7 @@ function clickDetail() {
     .close::after {
         content: '';
         position: absolute;
+        top: 50px;
         bottom: 0;
         left: 0;
         width: 100%;
