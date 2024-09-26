@@ -24,7 +24,8 @@
 
         <div class="btn-wrapper">
             <custom-button-4 v-for="(button, index) in sportsButtonList" :key="index" :id="button.id"
-                :label="button.text" :label2="button.text2" :iconSrc="button.iconSrc" :iconAlt="button.iconAlt">
+                :label="button.text" :label2="button.text2" :iconSrc="button.iconSrc" :iconAlt="button.iconAlt"
+                @click="clickSportButton(button)">
             </custom-button-4>
         </div>
     </div>
@@ -87,6 +88,13 @@ function selectButton(value: any) {
     asideContentText.value = selectedButton?.content || '';
     showNews.value = selectedButton?.showNews || false;
     showEvents.value = selectedButton?.showEvents || false;
+}
+
+async function clickSportButton(button: any) {    
+    const router = useRouter()
+    const localePath = useLocalePath()
+
+    await router.push(localePath({ name: 'sports-category', params: { category: button.url } }));
 }
 </script>
 

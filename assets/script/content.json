@@ -941,7 +941,8 @@
             "text2": "Boxing",
             "iconSrc": "/img/soccer/icn-boxing.svg",
             "iconAlt": "Boxing",
-            "buttonOrder": 1
+            "buttonOrder": 1,
+            "url": "boxing"
           },
           {
             "id": "btn-tennis",
@@ -949,7 +950,8 @@
             "text2": "Tennis",
             "iconSrc": "/img/soccer/icn-tennis.svg",
             "iconAlt": "Tennis",
-            "buttonOrder": 2
+            "buttonOrder": 2,
+            "url": "tennis"
           },
           {
             "id": "btn-basketball",
@@ -957,7 +959,8 @@
             "text2": "Basketball",
             "iconSrc": "/img/soccer/icn-basketball.svg",
             "iconAlt": "Basketball",
-            "buttonOrder": 3
+            "buttonOrder": 3,
+            "url": "basketball"
           }
         ]
       }
