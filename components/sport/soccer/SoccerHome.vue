@@ -1,31 +1,25 @@
 <template>
-    <main-content :main-title-text="mainTitleText" :main-content-text="mainContentText"></main-content>
-    <div class="break-space"></div>
+    <main-content :main-title-text="mainTitleText" :main-content-text="mainContentText"></main-content>    
 
-    <sport-banner></sport-banner>
-    <div class="break-space"></div>
+    <sport-banner style="margin-top: 30px;"></sport-banner>    
 
-    <!-- <sub-main-content :section-title="sectionTitle" :section-content="sectionContent"
-        :section-sub-content="subContentData"></sub-main-content> -->
-
-    <accordion-h2 :section-title="sectionTitle" :section-content="sectionContent">
+    <accordion-h2 style="margin-top: 30px;" :section-title="sectionTitle" :section-content="sectionContent">
     </accordion-h2>
     <br>
-    <accordion-h3 style="margin-left: 1rem;" v-for="(item, index) in subContentData" :key="index"
+    <accordion-h3 style="margin-left: 1rem; margin-bottom: 30px;" v-for="(item, index) in subContentData" :key="index"
         :section-title="item.title" :section-content="item.content" :with-break-line="false"></accordion-h3>
 
     <!-- hot matches -->
     <sport-soccer-hot-match-section></sport-soccer-hot-match-section>
 
     <!-- livescore -->
-    <aside-content :key="asideTitleTextLiveMatch" :aside-title-text="asideTitleTextLiveMatch"
+    <aside-content style="margin-top: 30px;" :key="asideTitleTextLiveMatch" :aside-title-text="asideTitleTextLiveMatch"
         :aside-content-text="asideContentTextLiveMatch"></aside-content>
 
-    <sport-soccer-live-score-tab-menu></sport-soccer-live-score-tab-menu>
-    <div class="break-space"></div>
+    <sport-soccer-live-score-tab-menu></sport-soccer-live-score-tab-menu>    
     
-    <tab-menu @select-tab-menu="selectTabMenu" :tab-menu-list="tabMenuList"></tab-menu>
-    <div class="break-space"></div>
+    <tab-menu @select-tab-menu="selectTabMenu" :tab-menu-list="tabMenuList"></tab-menu>    
+    <br>
     <sport-soccer-menu-tab-bet-sports v-if="selectedMenuId === 'sport'"></sport-soccer-menu-tab-bet-sports>
     <sub-main-content v-else :section-title="sectionTitleTabMenuSelected"
         :section-content="sectionContentTabMenuSelected" :section-sub-content="subContentDataTabMenuSelected"
@@ -46,8 +40,8 @@
     <sport-soccer-bet-boost v-if="asideContentShowBetBoost"></sport-soccer-bet-boost>
 
     <sport-soccer-news-section></sport-soccer-news-section>
-
-    <sport-soccer-bonus-section></sport-soccer-bonus-section>
+    <br>
+    <sport-soccer-bonus-section></sport-soccer-bonus-section>    
 
     <sport-soccer-game-available-section></sport-soccer-game-available-section>
 </template>

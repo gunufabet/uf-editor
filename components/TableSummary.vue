@@ -44,10 +44,10 @@ const props = defineProps({
 .summary-table td {
     // max-width: 33%;
     text-align: left;
-    padding: 8px;
-    border-bottom: 1px solid #ddd;
+    padding: 8px;    
+    border-bottom: 1px solid rgba(204, 171, 103, 0.5);
     border: 0 0 1px 0;
-    border-bottom-color: rgba(132, 107, 45, 0.52);
+    // border-bottom-color: rgba(132, 107, 45, 0.52);
 
     color: #D9D9D9;
     font-size: 14px;

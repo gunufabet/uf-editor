@@ -1,14 +1,14 @@
 <template>
     <main-content :main-title-text="content.main.title" :main-content-text="content.main.content"></main-content>
     <br>
-    <br>
 
-    <accordion-h2-style-2 :section-title="content.section2.title" :section-content="content.section2.content">
+    <accordion-h2-style-2 style="margin-top: 30px;" :section-title="content.section2.title"
+        :section-content="content.section2.content">
     </accordion-h2-style-2>
 
-    <br>
     <!-- sectionWithMenuLeague -->
-    <tab-menu @select-tab-menu="selectTabMenuLeague" :tab-menu-list="tabMenuLeagueList"></tab-menu>
+    <tab-menu style="margin-top: 30px;" @select-tab-menu="selectTabMenuLeague"
+        :tab-menu-list="tabMenuLeagueList"></tab-menu>
     <br>
     <div style="margin: 0 0 0 1rem;" class="soccer-hot-match-wrapper">
         <sport-soccer-match-container v-for="(match, index) in eventMatchList" :key="index"
@@ -39,15 +39,17 @@
     <accordion-h2-style-2 :section-title="content.section4.titleH2" :section-content="content.section4.contentH2">
     </accordion-h2-style-2>
 
-    <br v-if="content.section4.showBetBooat">
-    <sport-soccer-bet-boost v-if="content.section4.showBetBooat"></sport-soccer-bet-boost>
+    <!-- <br v-if="content.section4.showBetBooat"> -->
+    <sport-soccer-bet-boost style="margin-top: 30px;" v-if="content.section4.showBetBooat"></sport-soccer-bet-boost>
 
-    <accordion-h2-style-2 :section-title="content.section5.titleH2" :section-content="content.section5.contentH2">
+    <accordion-h2-style-2 style="margin-top: 30px;" :section-title="content.section5.titleH2"
+        :section-content="content.section5.contentH2">
     </accordion-h2-style-2>
 
     <br>
 
-    <accordion-h2-style-2 :section-title="content.section6.titleH2" :section-content="content.section6.contentH2">
+    <accordion-h2-style-2 style="margin-top: 30px;" :section-title="content.section6.titleH2"
+        :section-content="content.section6.contentH2">
     </accordion-h2-style-2>
 
     <br>
@@ -61,7 +63,7 @@
     </accordion-h2-style-2>
 
     <br>
-    
+
     <accordion-h3 style="margin-left: 1rem;" v-for="(item, index) in content.section7.contentListH3" :key="index"
         :section-title="item.title" :section-content="item.content" :with-break-line="false"></accordion-h3>
 </template>
