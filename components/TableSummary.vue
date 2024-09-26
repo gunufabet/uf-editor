@@ -41,22 +41,14 @@ const props = defineProps({
 }
 
 .summary-table th,
-.summary-table td {
-    // max-width: 33%;
+.summary-table td {    
     text-align: left;
     padding: 8px;    
-    border-bottom: 1px solid rgba(204, 171, 103, 0.5);
-    border: 0 0 1px 0;
-    // border-bottom-color: rgba(132, 107, 45, 0.52);
-
-    color: #D9D9D9;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
 }
 
 .summary-table th {
+    background: #2B2B32;
+
     color: #EBC76E;
     font-size: 14px;
     font-style: normal;
@@ -71,11 +63,13 @@ const props = defineProps({
     font-weight: 400;
     line-height: normal;
     align-content: start;
+
+    border-bottom: 1px solid rgba(204, 171, 103, 0.5);    
 }
 
-.summary-table th {
-    background: #2B2B32;
-}
+// .summary-table th {
+//     background: #2B2B32;
+// }
 
 .summary-table tr {
     background: transparent;
