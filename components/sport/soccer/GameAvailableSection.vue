@@ -1,27 +1,39 @@
 <template>
-    <aside-content :key="asideTitleText" :aside-title-text="asideTitleText"
-        :aside-content-text="asideContentText"></aside-content>
+    <accordion-h2 :section-title="asideTitleText" :section-content="asideContentText"></accordion-h2>
 
     <table-summary :tableHeader="title_contentH2Table.header"
         :tableContent="title_contentH2Table.content"></table-summary>
 
-    <accordion-h3 v-for="(item, index) in title_contentH3Expand" :key="index" :section-title="item.title"
-        :section-content="item.content" :with-break-line="true">
-    </accordion-h3>
+    <tab-menu @select-tab-menu="selectTabMenu" :tab-menu-list="tabMenuList"></tab-menu>
+    <br>
 
-    <aside-content :key="asideTitleText2" :aside-title-text="asideTitleText2"
+    <div :id="item.titleId" v-for="(item, index) in title_contentH3Expand" :key="index">
+        <accordion-h3 :section-title="item.title" :section-content="item.content" :with-break-line="true">
+        </accordion-h3>
+        <div class="btn-wrapper" style="margin-left: 2rem;" v-if="item.buttonDesign === '1'">
+            <custom-button-5 v-for="(game, index) in item.buttonList" :key="index" :id="game.id" :label="game.text"
+                :label2="game.text2"></custom-button-5>
+        </div>
+        <div class="btn-wrapper" style="margin-left: 2rem;" v-if="item.buttonDesign === '2'">
+            <custom-button-6 v-for="(game, index) in item.buttonList" :key="index" :id="game.id"
+                :label="game.text"></custom-button-6>
+        </div>
+        <br>
+    </div>
+
+    <aside-content :id="asideTitleIdText2" :key="asideTitleText2" :aside-title-text="asideTitleText2"
         :aside-content-text="asideContentText2"></aside-content>
-    <accordion-h4 style="margin-left: 1rem;" v-for="(item, index) in title2_contentH4Expand" :key="index" :section-title="item.title"
-        :section-content="item.content">
+    <accordion-h4 style="margin-left: 1rem;" v-for="(item, index) in title2_contentH4Expand" :key="index"
+        :section-title="item.title" :section-content="item.content">
     </accordion-h4>
 
     <aside-content :key="asideTitleText3" :aside-title-text="asideTitleText3"
         :aside-content-text="asideContentText3"></aside-content>
-    <accordion-h4 style="margin-left: 1rem;" v-for="(item, index) in title3_contentH4Expand" :key="index" :section-title="item.title"
-        :section-content="item.content">
+    <accordion-h4 style="margin-left: 1rem;" v-for="(item, index) in title3_contentH4Expand" :key="index"
+        :section-title="item.title" :section-content="item.content">
     </accordion-h4>
 
-    <br>
+    <!-- <br>
     <tab-menu @select-tab-menu="selectTabMenu" :tab-menu-list="tabMenuList"></tab-menu>
     <div class="break-space"></div>
     <aside-content :key="asideTitleText_SelectedTab" :aside-title-text="asideTitleText_SelectedTab"
@@ -33,16 +45,38 @@
 
         <custom-button-6 v-if="buttonDesign_SelectedTab === '2'" v-for="(game, index) in gameListButton_SelectedTab"
             :key="index" :id="game.id" :label="game.text"></custom-button-6>
-    </div>
+    </div> -->
 </template>
 
 <script setup lang="ts">
 import content from '~/assets/script/content.json'
 
+const props = defineProps({
+    focusTitle: {
+        type: Boolean,
+        default: false
+    },
+    menuTabId: {
+        type: String,
+        default: ''
+    }
+});
+
+watch(() => props.menuTabId, (newValue) => {
+    selectTabMenu(newValue);
+    const element = document.getElementById(props.menuTabId);
+    console.log('newValue', newValue)
+    if (element) {
+        element.focus({ preventScroll: true }); // Focus the element
+        element.scrollIntoView({ behavior: 'smooth', block: 'center' })
+    }
+});
+
 const gameSection = ref(content.Sport.Soccer.sectionGameAvailable);
 const asideTitleText = ref(gameSection.value.title);
 const asideContentText = ref(gameSection.value.content);
 const asideTitleText2 = ref(gameSection.value.title2);
+const asideTitleIdText2 = ref(gameSection.value.title2Id);
 const asideContentText2 = ref(gameSection.value.content2);
 const asideTitleText3 = ref(gameSection.value.title3);
 const asideContentText3 = ref(gameSection.value.content3);
@@ -66,10 +100,18 @@ function selectTabMenu(value: string) {
         (content) => content.menuTabId === value
     );
 
-    asideTitleText_SelectedTab.value = selectedMenu?.title || '';
-    asideContentText_SelectedTab.value = selectedMenu?.content || '';
-    buttonDesign_SelectedTab.value = selectedMenu?.buttonDesign || '';
-    gameListButton_SelectedTab.value = selectedMenu?.buttonList || [];
+    console.log('selectTabMenu', value)
+
+    // asideTitleText_SelectedTab.value = selectedMenu?.title || '';
+    // asideContentText_SelectedTab.value = selectedMenu?.content || '';
+    // buttonDesign_SelectedTab.value = selectedMenu?.buttonDesign || '';
+    // gameListButton_SelectedTab.value = selectedMenu?.buttonList || [];
+
+    const element = document.getElementById(selectedMenu?.menuTabId);    
+    if (element) {        
+        element.focus({ preventScroll: true }); // Focus the element
+        element.scrollIntoView({ behavior: 'smooth', block: 'center' })
+    }
 }
 
 onMounted(() => {

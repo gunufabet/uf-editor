@@ -1,7 +1,7 @@
 <template>
-    <main-content :main-title-text="mainTitleText" :main-content-text="mainContentText"></main-content>    
+    <main-content :main-title-text="mainTitleText" :main-content-text="mainContentText"></main-content>
 
-    <sport-banner style="margin-top: 30px;"></sport-banner>    
+    <sport-banner style="margin-top: 30px;"></sport-banner>
 
     <accordion-h2 style="margin-top: 30px;" :section-title="sectionTitle" :section-content="sectionContent">
     </accordion-h2>
@@ -16,9 +16,9 @@
     <aside-content style="margin-top: 30px;" :key="asideTitleTextLiveMatch" :aside-title-text="asideTitleTextLiveMatch"
         :aside-content-text="asideContentTextLiveMatch"></aside-content>
 
-    <sport-soccer-live-score-tab-menu></sport-soccer-live-score-tab-menu>    
-    
-    <tab-menu @select-tab-menu="selectTabMenu" :tab-menu-list="tabMenuList"></tab-menu>    
+    <sport-soccer-live-score-tab-menu></sport-soccer-live-score-tab-menu>
+
+    <tab-menu @select-tab-menu="selectTabMenu" :tab-menu-list="tabMenuList"></tab-menu>
     <br>
     <sport-soccer-menu-tab-bet-sports v-if="selectedMenuId === 'sport'"></sport-soccer-menu-tab-bet-sports>
     <sub-main-content v-else :section-title="sectionTitleTabMenuSelected"
@@ -41,9 +41,12 @@
 
     <sport-soccer-news-section></sport-soccer-news-section>
     <br>
-    <sport-soccer-bonus-section></sport-soccer-bonus-section>    
+    <sport-soccer-bonus-section></sport-soccer-bonus-section>
 
-    <sport-soccer-game-available-section></sport-soccer-game-available-section>
+    <sport-soccer-game-available-section :menu-tab-id="selectTabMenu2_MenuTabId"
+        :focus-title="selectTabMenu2_FocusTitle"></sport-soccer-game-available-section>
+
+    <!-- <div id="test">test</div> -->
 </template>
 
 <script setup lang="ts">
@@ -140,6 +143,9 @@ function selectTabMenu(value: string) {
     sectionContentH4TableContent.value = selectedMenu?.contentH4Table?.content || [];
 }
 
+const selectTabMenu2_MenuTabId = ref('');
+const selectTabMenu2_FocusTitle = ref(false);
+
 function selectTabMenu2(value: string) {
     if (!value) {
         value = content.Sport.Soccer.sectionWithMenu2.menuTab[0].id;
@@ -149,9 +155,15 @@ function selectTabMenu2(value: string) {
         (content) => content.menuTabId === value
     );
 
-    asideTitleText.value = selectedMenu?.title || '';
-    asideContentText.value = selectedMenu?.content || '';
-    asideContentShowBetBoost.value = selectedMenu?.showBetBoost || false;
+    //"menuTabId": "football",
+    if (value === 'football') {
+        asideTitleText.value = selectedMenu?.title || '';
+        asideContentText.value = selectedMenu?.content || '';
+        asideContentShowBetBoost.value = selectedMenu?.showBetBoost || false;
+    }
+
+    selectTabMenu2_MenuTabId.value = selectedMenu?.menuTabId || '';
+    selectTabMenu2_FocusTitle.value = selectedMenu?.focusTitle || false;
 }
 
 onMounted(() => {

@@ -698,19 +698,22 @@
             "menuTabId": "football",
             "showBetBoost": true,
             "title": "UFABET Football Bet Boost",
-            "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad."
+            "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad.",
+            "focusTitle": false
           },
           {
             "menuTabId": "slot",
             "showBetBoost": false,
-            "title": "UFABET Slot",
-            "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad."
+            "title": "",
+            "content": "",
+            "focusTitle": true
           },
           {
             "menuTabId": "gambling",
             "showBetBoost": false,
-            "title": "UFABET Gambling",
-            "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad."
+            "title": "",
+            "content": "",
+            "focusTitle": true
           }
         ]
       },
@@ -768,9 +771,10 @@
         "imgSrcMobile": "/img/sport-banner/ufabet-bonus-ucoin-cash-back-mobile.png",
         "imgAlt": "ufabet promo bonus ucoin cash back"
       },
-      "sectionGameAvailable": {
+      "sectionGameAvailable": {        
         "title": "What Casino Games are Available for Betting on Ufabet?",
         "content": "The Casino Games available for betting on Ufabet are listed in the table below.",
+        "title2Id": "gambling",
         "title2": "How can users track their betting history on Ufabet?",
         "content2": "Users can track their betting history on UFABET by logging into their account and navigating to the 'Transaction History' or 'Betting History' section. The transaction history feature allows users to view detailed records of their past bets, including the outcomes, amounts wagered, and dates of the bets. Users monitor their activity and keep track of their betting patterns by selecting such an option. The functionality is crucial for players who want to manage their gambling habits and review their past decisions.<br><br>Tracking betting activity and analyzing records of wins, losses, and bet types offers valuable insights into overall performance. It becomes possible to make well-informed decisions on future wagers by identifying trends through such an analysis. The strategic approach to monitoring betting history enhances the overall experience in online football betting, allowing for more calculated and potentially successful outcomes.",
         "title3": "What measures does Ufabet take to promote responsible gambling?",
@@ -817,12 +821,66 @@
         },
         "title_contentH3Expand": [
           {
-            "title": "1. Slot Games on Ufabet",
-            "content": "UFABET’s slot games are a platform highlight, offering a diverse selection that appeals to many players. The platform features a variety of themes, from adventure to classic fruit slots, and ensures high-quality graphics and engaging gameplay. Players enjoy modern video slots with multiple pay lines, interactive bonus features, and progressive jackpots, leading to substantial winnings. Slot games on Ufabet are purely depending on chance. They have a set of reels with different symbols and pay lines. Players place a bet and then spin the reels to play. Players receive a payout if the symbols form a winning combination on an active pay line. UFABET enhances the experience with tailored bonuses and promotions, a user-friendly interface, and mobile compatibility, making it easy to play on the go. "
+            "titleId": "slot",
+            "title": "1. Slot Games on Ufabet",            
+            "content": "UFABET’s slot games are a platform highlight, offering a diverse selection that appeals to many players. The platform features a variety of themes, from adventure to classic fruit slots, and ensures high-quality graphics and engaging gameplay. Players enjoy modern video slots with multiple pay lines, interactive bonus features, and progressive jackpots, leading to substantial winnings. Slot games on Ufabet are purely depending on chance. They have a set of reels with different symbols and pay lines. Players place a bet and then spin the reels to play. Players receive a payout if the symbols form a winning combination on an active pay line. UFABET enhances the experience with tailored bonuses and promotions, a user-friendly interface, and mobile compatibility, making it easy to play on the go. ",
+            "buttonDesign": "1",
+            "buttonList": [
+              {
+                "id": "x-slot-game",
+                "text": "X Slot",
+                "text2": "Game",
+                "buttonOrder": 1
+              },
+              {
+                "id": "y-slot-game",
+                "text": "Y Slot",
+                "text2": "Game",
+                "buttonOrder": 2
+              },
+              {
+                "id": "z-slot-game",
+                "text": "Z Slot",
+                "text2": "Game",
+                "buttonOrder": 1
+              },
+              {
+                "id": "d-slot-game",
+                "text": "D Slot",
+                "text2": "Game",
+                "buttonOrder": 1
+              },
+              {
+                "id": "e-slot-game",
+                "text": "E Slot",
+                "text2": "Game",
+                "buttonOrder": 1
+              },
+              {
+                "id": "f-slot-game",
+                "text": "F Slot",
+                "text2": "Game",
+                "buttonOrder": 1
+              }
+            ]
           },
           {
+            "titleId": "livecasino",
             "title": "2. Live Casino on Ufabet",
-            "content": "UFABET’s live casino delivers an immersive gaming experience that replicates the atmosphere of a real casino, at a player fingertips. The gambling platform offers a variety of old-school table games such as blackjack, roulette, baccarat, and poker, all hosted by professional live dealers. Ufabet’s live casino are streamed in real-time from high-quality studios, ensuring a smooth and engaging visual experience. Players interact with dealers and other participants through live chat, adding a social element to the games. The live format enhances transparency and fair play, as all actions unfold in real-time, giving players confidence in the integrity of the outcomes. Live casino on Ufabet combines the thrill of a physical casino with the ease of online gaming, making it a popular choice for enthusiasts of live table games."
+            "content": "UFABET’s live casino delivers an immersive gaming experience that replicates the atmosphere of a real casino, at a player fingertips. The gambling platform offers a variety of old-school table games such as blackjack, roulette, baccarat, and poker, all hosted by professional live dealers. Ufabet’s live casino are streamed in real-time from high-quality studios, ensuring a smooth and engaging visual experience. Players interact with dealers and other participants through live chat, adding a social element to the games. The live format enhances transparency and fair play, as all actions unfold in real-time, giving players confidence in the integrity of the outcomes. Live casino on Ufabet combines the thrill of a physical casino with the ease of online gaming, making it a popular choice for enthusiasts of live table games.",
+            "buttonDesign": "2",
+            "buttonList": [
+              {
+                "id": "x-casino-game",
+                "text": "UFABET X Casino Game",
+                "buttonOrder": 1
+              },
+              {
+                "id": "y-casino-game",
+                "text": "UFABET Y Casino Game",
+                "buttonOrder": 2
+              }
+            ]
           }
         ],
         "title2_contentH4Expand": [
@@ -843,8 +901,7 @@
         ],
         "menuTab": [
           { "id": "slot", "text": "UFABET Slot", "menuTabOrder": 1 },
-          {
-            "id": "livecasino",
+          {            
             "text": "UFABET Live Casino",
             "menuTabOrder": 2
           },
