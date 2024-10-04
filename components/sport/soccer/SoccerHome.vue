@@ -18,6 +18,7 @@
 
     <sport-soccer-live-score-tab-menu></sport-soccer-live-score-tab-menu>
 
+    <br>
     <tab-menu @select-tab-menu="selectTabMenu" :tab-menu-list="tabMenuList"></tab-menu>
     <br>
     <sport-soccer-menu-tab-bet-sports v-if="selectedMenuId === 'sport'"></sport-soccer-menu-tab-bet-sports>
@@ -33,6 +34,8 @@
         :section-content-h4-table-header="sectionContentH4TableHeader"
         :section-content-h4-table-content="sectionContentH4TableContent"></sub-main-content>
 
+    <br>
+    <br>
     <tab-menu @select-tab-menu="selectTabMenu2" :tab-menu-list="tabMenuList2"></tab-menu>
     <aside-content :key="asideTitleText" :aside-title-text="asideTitleText"
         :aside-content-text="asideContentText"></aside-content>
@@ -41,12 +44,11 @@
 
     <sport-soccer-news-section></sport-soccer-news-section>
     <br>
+    
     <sport-soccer-bonus-section></sport-soccer-bonus-section>
 
     <sport-soccer-game-available-section :menu-tab-id="selectTabMenu2_MenuTabId"
         :focus-title="selectTabMenu2_FocusTitle"></sport-soccer-game-available-section>
-
-    <!-- <div id="test">test</div> -->
 </template>
 
 <script setup lang="ts">

@@ -4,15 +4,18 @@
     <table-summary :tableHeader="title_contentH2Table.header"
         :tableContent="title_contentH2Table.content"></table-summary>
 
+    <br>
     <tab-menu @select-tab-menu="selectTabMenu" :tab-menu-list="tabMenuList"></tab-menu>
     <br>
 
     <div :id="item.titleId" v-for="(item, index) in title_contentH3Expand" :key="index">
-        <accordion-h3 :section-title="item.title" :section-content="item.content" :with-break-line="true" :defaultOpenPanel="item.defaultOpen">
+        <accordion-h3 :section-title="item.title" :section-content="item.content" :with-break-line="true"
+            :defaultOpenPanel="item.defaultOpen">
         </accordion-h3>
-        
-        <br v-if="item.buttonList?.length > 0">        
-        <div v-if="item.buttonDesign === '1' && item.buttonList?.length > 0" class="btn-wrapper" style="margin-left: 2rem;">
+
+        <br v-if="item.buttonList?.length > 0">
+        <div v-if="item.buttonDesign === '1' && item.buttonList?.length > 0" class="btn-wrapper"
+            style="margin-left: 2rem;">
             <custom-button-5 v-for="(game, index) in item.buttonList" :key="index" :id="game.id" :label="game.text"
                 :label2="game.text2"></custom-button-5>
         </div>
@@ -21,7 +24,7 @@
             <custom-button-6 v-for="(game, index) in item.buttonList" :key="index" :id="game.id"
                 :label="game.text"></custom-button-6>
         </div>
-        <br v-if="item.buttonList?.length > 0">        
+        <br v-if="item.buttonList?.length > 0">
     </div>
 
     <aside-content :id="asideTitleIdText2" :key="asideTitleText2" :aside-title-text="asideTitleText2"

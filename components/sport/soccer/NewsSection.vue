@@ -1,8 +1,12 @@
 <template>
+    <br>
+
     <div class="btn-wrapper" style="justify-content: center; gap: 1rem;">
         <custom-button-3 v-for="(button, index) in buttonOption" :key="index" :label="button.text" :id="button.id"
             :isSelected="button.id === selectedBtnId" @click="selectButton(button)"></custom-button-3>
     </div>
+
+    <br>
     <aside-content :key="asideTitleText" :aside-title-text="asideTitleText"
         :aside-content-text="asideContentText"></aside-content>
 
@@ -20,7 +24,9 @@
             </sport-soccer-article-container>
         </div>
 
+        <br>
         <custom-button-1 :label="$t('sport.button.viewMoreFootballNews')"></custom-button-1>
+        <br>
 
         <div class="btn-wrapper">
             <custom-button-4 v-for="(button, index) in sportsButtonList" :key="index" :id="button.id"
@@ -47,8 +53,10 @@
             </sport-soccer-event-match-container>
         </div>
 
+        <br>
         <custom-button-1 :label="$t('sport.button.viewMoreFeaturedMatches')"></custom-button-1>
-
+        <br>
+        
         <div class="btn-wrapper">
             <custom-button-4 v-for="(button, index) in sportsButtonList" :key="index" :id="button.id"
                 :label="button.text" :label2="button.text2" :iconSrc="button.iconSrc" :iconAlt="button.iconAlt">
@@ -90,7 +98,7 @@ function selectButton(value: any) {
     showEvents.value = selectedButton?.showEvents || false;
 }
 
-async function clickSportButton(button: any) {    
+async function clickSportButton(button: any) {
     const router = useRouter()
     const localePath = useLocalePath()
 
