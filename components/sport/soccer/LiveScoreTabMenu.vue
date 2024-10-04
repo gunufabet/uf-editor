@@ -3,8 +3,8 @@
         <div v-for="(menu, index) in menuTab" :key="index">
             <button class="live-tab-text" :class="menu.id === selectedMenu ? 'text-highlight' : ''"
                 @click="selectMenu(menu)">
-                {{ menu.text }} <div class="count-button"
-                    :class="menu.isLive ? 'count-button-live' : 'count-button-others'">
+                {{ menu.text }}
+                <div class="count-button" :class="menu.isLive ? 'count-button-live' : 'count-button-others'">
                     <p class="count-button-text">{{ menu.total }}</p>
                 </div>
             </button>
@@ -92,7 +92,7 @@ function selectMenu(menu: any) {
 .live-tab-text {
     color: #FFF;
     text-align: center;
-    font-size: 12px;
+    font-size: 16px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
@@ -108,7 +108,7 @@ function selectMenu(menu: any) {
 .text-highlight {
     color: #EBC76E;
     text-align: center;
-    font-size: 12px;
+    font-size: 16px;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
@@ -117,17 +117,15 @@ function selectMenu(menu: any) {
 .count-button {
     border-radius: 50%;
 
-    font-size: 10px;
+    font-size: 12px;
     font-style: normal;
     font-weight: 600;
     line-height: normal;
     color: #FFF;
     text-align: center;
-    // padding: 3px 6px 3px 6px;
-    // padding: 3px 1px 3px 1px;
-    width: 10px;
-    height: 10px;
-    padding: 5px;
+    width: 1.2rem;
+    height: 1.2rem;
+    padding: 0.3rem;
 
     display: flex;
     align-items: center;
@@ -145,5 +143,22 @@ function selectMenu(menu: any) {
 
 .count-button-text {
     white-space: nowrap;
+}
+
+@media only screen and (max-width:475px) {
+    .live-tab-text {
+        font-size: 14px;
+    }
+
+    .text-highlight {
+        font-size: 14px;
+    }
+
+    .count-button {        
+        font-size: 12px;
+        width: 1.2rem;
+        height: 1.2rem;
+        padding: 3px;
+    }
 }
 </style>

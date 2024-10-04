@@ -22,13 +22,16 @@
                         <span class="league-text">{{ props.homeName }}</span>
                     </td>
                     <td class="match-odds-col">
-                        <sport-soccer-match-odds-box :oddOption="props.homeOdd_ft_hdp_1" :odds="props.homeOdd_ft_hdp_2"></sport-soccer-match-odds-box>
+                        <sport-soccer-match-odds-box :oddOption="props.homeOdd_ft_hdp_1"
+                            :odds="props.homeOdd_ft_hdp_2"></sport-soccer-match-odds-box>
                     </td>
                     <td class="match-odds-col">
-                        <sport-soccer-match-odds-box :oddOption="props.homeOdd_ft_ou_1" :odds="props.homeOdd_ft_ou_2"></sport-soccer-match-odds-box>
+                        <sport-soccer-match-odds-box :oddOption="props.homeOdd_ft_ou_1"
+                            :odds="props.homeOdd_ft_ou_2"></sport-soccer-match-odds-box>
                     </td>
                     <td class="match-odds-col">
-                        <sport-soccer-match-odds-box :oddOption="props.homeOdd_ft_1x2_1" :odds="props.homeOdd_ft_1x2_2"></sport-soccer-match-odds-box>
+                        <sport-soccer-match-odds-box :oddOption="props.homeOdd_ft_1x2_1"
+                            :odds="props.homeOdd_ft_1x2_2"></sport-soccer-match-odds-box>
                     </td>
                 </tr>
 
@@ -38,13 +41,16 @@
                         <span class="league-text">{{ props.awayName }}</span>
                     </td>
                     <td class="match-odds-col">
-                        <sport-soccer-match-odds-box :oddOption="props.awayOdd_ft_hdp_1" :odds="props.awayOdd_ft_hdp_2"></sport-soccer-match-odds-box>
+                        <sport-soccer-match-odds-box :oddOption="props.awayOdd_ft_hdp_1"
+                            :odds="props.awayOdd_ft_hdp_2"></sport-soccer-match-odds-box>
                     </td>
                     <td class="match-odds-col">
-                        <sport-soccer-match-odds-box :oddOption="props.awayOdd_ft_ou_1" :odds="props.awayOdd_ft_ou_2"></sport-soccer-match-odds-box>
+                        <sport-soccer-match-odds-box :oddOption="props.awayOdd_ft_ou_1"
+                            :odds="props.awayOdd_ft_ou_2"></sport-soccer-match-odds-box>
                     </td>
                     <td class="match-odds-col">
-                        <sport-soccer-match-odds-box :oddOption="props.awayOdd_ft_1x2_1" :odds="props.awayOdd_ft_1x2_2"></sport-soccer-match-odds-box>
+                        <sport-soccer-match-odds-box :oddOption="props.awayOdd_ft_1x2_1"
+                            :odds="props.awayOdd_ft_1x2_2"></sport-soccer-match-odds-box>
                     </td>
                 </tr>
 
@@ -54,13 +60,15 @@
                         <span class="match-option">
                             <button v-if="hasLiveStream"><img src="/img/soccer/icn-live-stream.svg" alt=""></button>
                             <button v-if="hasStatistic"><img src="/img/soccer/icn-statistic.svg" alt=""></button>
-                            <button v-if="hasMoreBetOption"><img src="/img/soccer/icn-more-match-option.svg" alt=""></button>
+                            <button v-if="hasMoreBetOption"><img src="/img/soccer/icn-more-match-option.svg"
+                                    alt=""></button>
                         </span>
                     </td>
                     <td class="match-odds-col"></td>
                     <td class="match-odds-col"></td>
                     <td class="match-odds-col">
-                        <sport-soccer-match-odds-box :oddOption="props.odd_ft_1x2_draw_1" :odds="props.odd_ft_1x2_draw_2"></sport-soccer-match-odds-box>
+                        <sport-soccer-match-odds-box :oddOption="props.odd_ft_1x2_draw_1"
+                            :odds="props.odd_ft_1x2_draw_2"></sport-soccer-match-odds-box>
                     </td>
                 </tr>
             </tbody>
@@ -265,8 +273,9 @@ const props = defineProps({
     display: flex;
     justify-content: center;
     /* Align table horizontally (optional) */
-    width: 100%;
+    width: 55%;
     /* Full width of the parent container */
+    margin-left: 1rem;
 }
 
 .bet-type-table {
@@ -280,5 +289,12 @@ const props = defineProps({
 
 button {
     padding: 0;
+}
+
+@media only screen and (max-width:475px) {
+    .table-wrapper {
+        width: 100%;
+        margin-left: 0;
+    }
 }
 </style>

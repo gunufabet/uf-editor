@@ -42,12 +42,20 @@ const props = defineProps({
     withBreakLine: {
         type: Boolean,
         default: false
+    },
+    defaultOpenPanel:{
+        type: Boolean,
+        default: false
     }
 });
 
 async function clickPanel() {
     openPanel.value = !openPanel.value;
 }
+
+onMounted(() => {  
+  openPanel.value = props.defaultOpenPanel;
+})
 </script>
 
 <style lang="scss" scoped>
