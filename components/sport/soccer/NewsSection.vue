@@ -17,7 +17,7 @@
                 class="happening-now-text-2">{{ $t('sport.news.now') }}</span>
         </div>
 
-        <div class="btn-wrapper event-match-wrapper">
+        <div class="scroll-container" style="margin-left: 1rem;">
             <sport-soccer-article-container v-for="(news, index) in newsList" :key="index" :newsId="news.newsId"
                 :newsTime="news.dateDisplay" :newsImgSrc="news.newsImg" :newsImgAlt="news.newsAlt"
                 :newsContent="news.newsShortDescription">
@@ -56,7 +56,7 @@
         <br>
         <custom-button-1 :label="$t('sport.button.viewMoreFeaturedMatches')"></custom-button-1>
         <br>
-        
+
         <div class="btn-wrapper">
             <custom-button-4 v-for="(button, index) in sportsButtonList" :key="index" :id="button.id"
                 :label="button.text" :label2="button.text2" :iconSrc="button.iconSrc" :iconAlt="button.iconAlt">
@@ -107,6 +107,12 @@ async function clickSportButton(button: any) {
 </script>
 
 <style lang="scss" scoped>
+.scroll-container {
+    display: flex;
+    overflow-x: auto;
+    gap: 1rem;
+}
+
 .btn-wrapper {
     display: flex;
     justify-content: center;
