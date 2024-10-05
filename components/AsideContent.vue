@@ -44,7 +44,7 @@ function clickDetail() {
     }
 
     &-detail {
-        font-size: 14px;
+        font-size: 16px;
         // margin: 0.5rem 0 0.5rem 0;
         margin: 0 0 0.5rem 0;
         line-height: 24px;
@@ -96,6 +96,18 @@ function clickDetail() {
     /* Remove the fade shadow when expanded */
     .open::after {
         display: none;
+    }
+}
+
+@media only screen and (max-width:475px) {
+    .aside-content {
+        &-title {
+            font-size: 24px;
+        }
+
+        &-detail {
+            font-size: 14px;
+        }
     }
 }
 </style>

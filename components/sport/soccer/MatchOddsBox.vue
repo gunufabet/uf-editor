@@ -37,7 +37,7 @@ const props = defineProps({
 .odd-text-1 {
     color: #AE874B;
     text-align: center;
-    font-size: 9px;
+    font-size: 13px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
@@ -46,10 +46,22 @@ const props = defineProps({
 .odd-text-2 {
     color: #FFF;
     text-align: center;
-    font-size: 11px;
+    font-size: 14px;
     font-style: normal;
     font-weight: 500;
     line-height: normal;
     margin: 0 0.4rem 0 0.4rem;
+}
+
+@media only screen and (max-width:475px) {
+
+    .odd-text-1 {
+        font-size: 9px;
+    }
+
+    .odd-text-2 {
+        font-size: 11px;
+    }
+
 }
 </style>

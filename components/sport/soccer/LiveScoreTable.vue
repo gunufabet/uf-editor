@@ -195,13 +195,13 @@ const props = defineProps({
     text-align: center;
 
     .col-text {
-        width: 63px;
+        width: 70px;
         white-space: nowrap;
         text-overflow: ellipsis;
         overflow: hidden;
 
         color: #EBC76E;
-        font-size: 10px;
+        font-size: 14px;
         font-style: normal;
         font-weight: 500;
         line-height: normal;
@@ -210,7 +210,7 @@ const props = defineProps({
 
 .score-tag {
     color: #FF4242;
-    font-size: 11px;
+    font-size: 14px;
     font-style: normal;
     font-weight: 500;
     line-height: normal;
@@ -218,7 +218,7 @@ const props = defineProps({
 
 .time-tag {
     color: #FFF;
-    font-size: 11px;
+    font-size: 14px;
     font-style: normal;
     font-weight: 500;
     line-height: normal;
@@ -241,7 +241,7 @@ const props = defineProps({
 
 .league-text {
     color: #FFF;
-    font-size: 12px;
+    font-size: 14px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
@@ -296,5 +296,26 @@ button {
         width: 100%;
         margin-left: 0;
     }
+
+    .bet-type-col {
+        .col-text {
+            width: 63px;
+            font-size: 10px;
+        }
+    }
+
+    .score-tag {
+        font-size: 11px;
+    }
+
+    .time-tag {
+        font-size: 11px;
+    }
+
+    .league-text {
+        font-size: 12px;
+    }
+
+
 }
 </style>

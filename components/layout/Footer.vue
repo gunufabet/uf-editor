@@ -313,8 +313,7 @@ const footerMenuLinkList = ref({
 }
 
 .footer-menu-header {
-    color: #EBC76E;
-    // font-size: 12px;
+    color: #EBC76E;    
     font-size: 14px;
     font-style: normal;
     font-weight: 600;
@@ -323,8 +322,7 @@ const footerMenuLinkList = ref({
 }
 
 .footer-menu-item {
-    color: #D9D9D9;
-    // font-size: 11px;
+    color: #D9D9D9;    
     font-size: 14px;
     font-style: normal;
     font-weight: 400;

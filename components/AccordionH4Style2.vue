@@ -48,8 +48,7 @@ details.disabled summary {
 .accordion-text {
     margin-left: 1rem;
     padding-right: 1.3rem;
-    color: #CCAB67;
-    // font-size: 12px;
+    color: #CCAB67;    
     font-size: 14px;
     font-style: normal;
     font-weight: 500;
@@ -126,8 +125,7 @@ details.disabled summary {
 }
 
 .accordion-panel-content {
-    color: #D9D9D9;
-    // font-size: 12px;
+    color: #D9D9D9;    
     font-size: 14px;
     font-weight: 300;
     line-height: 18px;

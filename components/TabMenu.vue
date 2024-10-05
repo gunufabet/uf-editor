@@ -39,15 +39,15 @@ const selectTab = async (menuId: string) => {
 
     display: flex;
     justify-content: space-around;
-    align-items: center;    
+    align-items: center;
     flex-wrap: nowrap;
     overflow-x: auto;
-    overflow-y: hidden;    
+    overflow-y: hidden;
 }
 
 .tab-menu-item {
     cursor: pointer;
-    font-size: 12px;
+    font-size: 16px;
     font-weight: 400;
     line-height: normal;
     color: #FFF;
@@ -72,5 +72,11 @@ const selectTab = async (menuId: string) => {
 
     padding-bottom: 0.8rem;
     padding-top: 1rem;
+}
+
+@media only screen and (max-width:475px) {
+    .tab-menu-item {
+        font-size: 12px;
+    }
 }
 </style>
