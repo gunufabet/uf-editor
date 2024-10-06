@@ -38,20 +38,6 @@
     <accordion-h4 style="margin-left: 1rem;" v-for="(item, index) in title3_contentH4Expand" :key="index"
         :section-title="item.title" :section-content="item.content">
     </accordion-h4>
-
-    <!-- <br>
-    <tab-menu @select-tab-menu="selectTabMenu" :tab-menu-list="tabMenuList"></tab-menu>
-    <div class="break-space"></div>
-    <aside-content :key="asideTitleText_SelectedTab" :aside-title-text="asideTitleText_SelectedTab"
-        :aside-content-text="asideContentText_SelectedTab"></aside-content>
-
-    <div class="btn-wrapper">
-        <custom-button-5 v-if="buttonDesign_SelectedTab === '1'" v-for="(game, index) in gameListButton_SelectedTab"
-            :key="index" :id="game.id" :label="game.text" :label2="game.text2"></custom-button-5>
-
-        <custom-button-6 v-if="buttonDesign_SelectedTab === '2'" v-for="(game, index) in gameListButton_SelectedTab"
-            :key="index" :id="game.id" :label="game.text"></custom-button-6>
-    </div> -->
 </template>
 
 <script setup lang="ts">
@@ -104,17 +90,6 @@ function selectTabMenu(value: string) {
     const selectedMenu = gameSection.value.menuContent.find(
         (content) => content.menuTabId === value
     );
-
-    // asideTitleText_SelectedTab.value = selectedMenu?.title || '';
-    // asideContentText_SelectedTab.value = selectedMenu?.content || '';
-    // buttonDesign_SelectedTab.value = selectedMenu?.buttonDesign || '';
-    // gameListButton_SelectedTab.value = selectedMenu?.buttonList || [];
-
-    const element = document.getElementById(selectedMenu?.menuTabId);
-    if (element) {
-        element.focus({ preventScroll: true }); // Focus the element
-        element.scrollIntoView({ behavior: 'smooth', block: 'center' })
-    }
 }
 
 onMounted(() => {
