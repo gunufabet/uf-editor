@@ -2,8 +2,8 @@
     <div style="margin: 1rem 1rem 0.5rem 1rem;" class="live-match-title">
         Explore More Soccer Betting Leagues
     </div>
-
-    <div class="live-match-wrapper">
+    
+    <div class="live-match-wrapper" style="margin-top: 1rem;">
         <div class="live-match-container" v-for="(item, index) in runningLiveScore" :key="index">
             <div style="margin-left: 0.7rem;" class="live-match-header">
                 <img class="league-img" src="/img/soccer/icn-flag-placeholder.svg" :alt="item.attributes.leagueName">
@@ -11,9 +11,9 @@
                     <img src="/img/soccer/icn-open-link.svg" alt="">
                 </button>
             </div>
-            
+
             <p style="margin: 1rem 1rem 1rem 0.7rem;" class="league-title">{{ item.attributes.leagueName }}</p>
-            
+
             <span class="match-state-text" style="padding: 0.5rem;">{{ item.attributes.matchState }}</span>
 
             <table style="border-left: solid 2px #CCAB67; margin: 0 0.5rem 0 0.5rem;">
@@ -92,7 +92,7 @@ const { runningLiveScore } = storeToRefs(useSportStore());
 }
 
 .live-match-container {
-    margin: 0 1rem 1rem 1rem;    
+    margin: 0 1rem 1rem 1rem;
     min-width: 264px;
     flex-shrink: 0;
     fill: #181818;
@@ -110,64 +110,6 @@ const { runningLiveScore } = storeToRefs(useSportStore());
     border-radius: 0 8px 8px 0;
 }
 
-.item-container {
-    display: flex;
-    flex-direction: column;
-    margin: 0.5rem 1rem 0 1rem;
-    // width: 100%;
-
-    &-league-name {
-        margin: 0.1rem 0 0.1rem 0;
-        color: #8B8B8B;
-        font-size: 10px;
-        font-style: normal;
-        font-weight: 400;
-        line-height: normal;
-    }
-
-    &-team-match {
-        margin: 0.1rem 0 0.1rem 0;
-        color: #FFF;
-        font-size: 11px;
-        font-style: normal;
-        font-weight: 400;
-        line-height: normal;
-    }
-
-    &-team-match-vs {
-        color: #AE874B;
-        font-size: 11px;
-        font-style: normal;
-        font-weight: 400;
-        line-height: normal;
-        margin: 0 0.3rem 0 0.3rem;
-    }
-
-    &-match-score {
-        margin: 0.1rem 0 0.1rem 0;
-        flex-grow: 1;
-        color: #EBC76E;
-        font-size: 12px;
-        font-style: normal;
-        font-weight: 700;
-        line-height: normal;
-    }
-
-    &-match-odds {
-        color: #8B8B8B;
-        font-size: 12px;
-        font-style: normal;
-        font-weight: 400;
-        line-height: normal;
-    }
-}
-
-.break-line {
-    height: 1px;
-    background: #29272A;
-    margin: 0.5rem 0 0.3rem 0;
-}
-
 .live-match-btn {
     display: flex;
     justify-content: center;
@@ -180,7 +122,7 @@ const { runningLiveScore } = storeToRefs(useSportStore());
 
     color: #FFDBAA;
     text-align: center;
-    font-size: 12px;
+    font-size: 14px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
@@ -196,35 +138,22 @@ const { runningLiveScore } = storeToRefs(useSportStore());
     margin-left: 0.3rem;
 }
 
-.live-match-odds-to-text {
-    color: #FFF;
-    text-align: center;
-    font-size: 12px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: normal;
-}
-
-.live-match-odds-img {
-    margin: 0 0.4rem 0 0.4rem;
-}
-
 .match-team-text {
     color: #D9D9D9;
-    font-size: 12px;
+    font-size: 14px;
     font-weight: 400;
     padding: 0.3rem 0 0.3rem 0;
 }
 
 .match-score-text {
     color: #EBC76E;
-    font-size: 12px;
-    font-weight: 600;    
+    font-size: 14px;
+    font-weight: 600;
 }
 
 .match-state-text {
     color: #EBC76E;
-    font-size: 8px;
+    font-size: 14px;
 }
 
 .live-match-team-score-wrapper {
@@ -237,7 +166,7 @@ const { runningLiveScore } = storeToRefs(useSportStore());
 .team-flag-icn {
     max-width: 18px;
     max-height: 18px;
-    margin-left: 0.3rem;
+    margin-left: 0.5rem;
     margin-right: 0.3rem;
     vertical-align: middle;
 }
@@ -252,7 +181,7 @@ const { runningLiveScore } = storeToRefs(useSportStore());
     }
 
     .match-state-text {
-        font-size: 8px;
+        font-size: 14px;
     }
 
     .match-team-text {
@@ -263,8 +192,8 @@ const { runningLiveScore } = storeToRefs(useSportStore());
         font-size: 12px;
     }
 
-    .match-state-text {
-        font-size: 8px;
+    .live-match-btn {
+        font-size: 14px;
     }
 }
 </style>
