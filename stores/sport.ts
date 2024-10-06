@@ -1,14 +1,16 @@
-import { SportCategory } from "~/types/strapi-model";
+import { SportCategory, type LiveScore } from "~/types/strapi-model";
 import { Strapi4ResponseData } from "@nuxtjs/strapi/dist/runtime/types/v4";
+import callApi from "~/helpers/call-api";
 
 export const useSportStore = defineStore("sport", {
   state: () => {
     return {
       sportCategory: [] as Strapi4ResponseData<SportCategory>[],
+      runningLiveScore: [] as Strapi4ResponseData<LiveScore>[],
     };
   },
   actions: {
-    async fetchSportCateogry() {      
+    async fetchSportCateogry() {
       const { find } = useStrapi();
       const { locale } = useI18n();
       this.sportCategory = (
@@ -21,11 +23,17 @@ export const useSportStore = defineStore("sport", {
           },
           populate: {
             localizations: {
-              fields: ['id', 'locale', 'name']
-            }
-          }
+              fields: ["id", "locale", "name"],
+            },
+          },
         })
       ).data;
+    },
+    async fetchRunningMatch() {
+      const response = await callApi.getRunningLiveScore();      
+      if (response.succ) {
+        this.runningLiveScore = response.data;
+      }
     },
   },
   getters: {},

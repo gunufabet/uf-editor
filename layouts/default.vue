@@ -13,6 +13,7 @@
 
 <script setup lang="ts">
 // useAsyncData('sports', async () => await useSportStore().fetchSportCateogry())
+useAsyncData('sports', async () => await useSportStore().fetchRunningMatch())
 
 useHead({
   title: 'UFABET',
@@ -26,7 +27,7 @@ useHead({
 })
 
 onMounted(() => {
-  document.addEventListener("scroll", scrollFunction);
+  document.addEventListener("scroll", scrollFunction);  
 })
 
 function scrollFunction() {

@@ -4,9 +4,24 @@
         :section-content="sportsContent?.section1?.contentH2">
     </accordion-h2>
 
-    <accordion-h3 style="margin-left: 1rem;" v-for="(item, index) in sportsContent?.section1?.contentListH3"
-        :key="index" :section-title="item.title" :section-content="item.content" :with-break-line="false">
-    </accordion-h3>
+    <div v-for="(item, index) in sportsContent?.section1?.contentListH3" :key="index">
+        <accordion-h3 style="margin-left: 1rem;" :section-title="item.title" :section-content="item.content"
+            :with-break-line="true">
+        </accordion-h3>
+
+        <sport-soccer-bet-boost v-if="item.showBetBoost"></sport-soccer-bet-boost>
+
+        <br v-if="item.showLeagueStandingButton || item.showLeagueScheduleButton">
+        <div class="football-league-btn-wrapper" v-if="item.showLeagueStandingButton || item.showLeagueScheduleButton">
+            <custom-button-6 v-if="item.showLeagueStandingButton" id="premier-league-standing"
+                label="English Premier League Standings"></custom-button-6>
+            <custom-button-6 v-if="item.showLeagueScheduleButton" id="premier-league-schedule"
+                label="English Premier League Schedule"></custom-button-6>
+        </div>
+        <br v-if="item.showRunningMatch">
+        <sport-soccer-live-match v-if="item.showRunningMatch"></sport-soccer-live-match>
+        <br v-if="item.showRunningMatch">
+    </div>
 </template>
 
 <script setup lang="ts">
@@ -15,5 +30,12 @@ import content from '~/assets/script/contentSoccer.json'
 const sportsContent = ref(content.sectionWithMenu1.menuContent.find(
     (content) => content.menuTabId === 'football-leagues'
 ));
-
 </script>
+
+<style lang="scss" scoped>
+.football-league-btn-wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+</style>

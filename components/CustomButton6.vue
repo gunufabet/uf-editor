@@ -1,11 +1,7 @@
 <template>
-    <!-- <div class="btn-wrapper"> -->
-        <button :id="id" class="custom-btn">
-            <div class="btn-content-wrapper">
-                <div class="label-text-1">{{ props.label }}</div>
-            </div>
-        </button>
-    <!-- </div> -->
+    <button :id="id" class="custom-btn-6">
+        <div class="label-text-1">{{ props.label }}</div>        
+    </button>
 </template>
 
 <script setup lang="ts">
@@ -36,13 +32,14 @@ const props = defineProps({
     align-items: center;
 }
 
-.custom-btn {
+.custom-btn-6 {
     border-radius: 8px;
     border: 1px solid #8B6832;
     background: var(--linear-bar, linear-gradient(90deg, #2B2B32 0%, #484141 100%));
     flex-shrink: 0;
-    padding: 1rem;
+    padding: 0.5rem 1rem 0.5rem 1rem;
     color: #EBC76E;
+    max-width: 174px;
 }
 
 .label-text-1 {
@@ -52,5 +49,11 @@ const props = defineProps({
     font-style: normal;
     font-weight: 400;
     line-height: 16px;
+}
+
+@media only screen and (max-width:475px) {
+    .custom-btn-6 {
+        max-width: 144px;
+    }
 }
 </style>

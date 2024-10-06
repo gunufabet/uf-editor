@@ -1,0 +1,270 @@
+<template>
+    <div style="margin: 1rem 1rem 0.5rem 1rem;" class="live-match-title">
+        Explore More Soccer Betting Leagues
+    </div>
+
+    <div class="live-match-wrapper">
+        <div class="live-match-container" v-for="(item, index) in runningLiveScore" :key="index">
+            <div style="margin-left: 0.7rem;" class="live-match-header">
+                <img class="league-img" src="/img/soccer/icn-flag-placeholder.svg" :alt="item.attributes.leagueName">
+                <button class="open-match-btn">
+                    <img src="/img/soccer/icn-open-link.svg" alt="">
+                </button>
+            </div>
+            
+            <p style="margin: 1rem 1rem 1rem 0.7rem;" class="league-title">{{ item.attributes.leagueName }}</p>
+            
+            <span class="match-state-text" style="padding: 0.5rem;">{{ item.attributes.matchState }}</span>
+
+            <table style="border-left: solid 2px #CCAB67; margin: 0 0.5rem 0 0.5rem;">
+                <tr>
+                    <td class="match-team-text">
+                        <img :src="item?.attributes?.homeFlagImg?.data?.attributes?.flag
+            ? 'data:image/png;base64,' + item?.attributes?.homeFlagImg?.data?.attributes?.flag
+            : '/img/soccer/icn-flag-placeholder.svg'
+            " :alt="item.attributes.homeName" class="team-flag-icn" />
+                        {{ item.attributes.homeName }}
+                    </td>
+                    <td class="match-score-text">{{ item.attributes.homeScore }}</td>
+                </tr>
+                <tr>
+                    <td class="match-team-text">
+                        <img :src="item?.attributes?.awayFlagImg?.data?.attributes?.flag
+            ? 'data:image/png;base64,' + item?.attributes?.awayFlagImg?.data?.attributes?.flag
+            : '/img/soccer/icn-flag-placeholder.svg'
+            " :alt="item.attributes.awayName" class="team-flag-icn" />
+                        {{ item.attributes.awayName }}
+                    </td>
+                    <td class="match-score-text">{{ item.attributes.awayScore }}</td>
+                </tr>
+            </table>
+            <div
+                style="display: flex; justify-content: center; align-content: center; text-align: center; margin: 1rem;">
+                <button class="live-match-btn">Bet More</button>
+            </div>
+        </div>
+    </div>
+</template>
+
+<script setup lang="ts">
+import { useSportStore } from "~/stores/sport";
+const { runningLiveScore } = storeToRefs(useSportStore());
+</script>
+
+<style lang="scss" scoped>
+.live-match-title {
+    color: #CCAB67;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+}
+
+.open-match-btn {
+    margin-right: 0.3rem;
+}
+
+.live-match-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.league-img {
+    border-radius: 3px;
+    // background: url(<path-to-image>) lightgray 50% / cover no-repeat;
+    max-width: 41.754px;
+    max-height: 34px;
+    flex-shrink: 0;
+    margin-top: 0.7rem;
+}
+
+.league-title {
+    color: #D9D9D9;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.live-match-wrapper {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+
+}
+
+.live-match-container {
+    margin: 0 1rem 1rem 1rem;    
+    min-width: 264px;
+    flex-shrink: 0;
+    fill: #181818;
+    stroke-width: 1px;
+    stroke: #CCAB67;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    position: relative;
+    background-image: url('/img/bet-boost-container.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    // padding: 30%;
+    border-radius: 0 8px 8px 0;
+}
+
+.item-container {
+    display: flex;
+    flex-direction: column;
+    margin: 0.5rem 1rem 0 1rem;
+    // width: 100%;
+
+    &-league-name {
+        margin: 0.1rem 0 0.1rem 0;
+        color: #8B8B8B;
+        font-size: 10px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+    }
+
+    &-team-match {
+        margin: 0.1rem 0 0.1rem 0;
+        color: #FFF;
+        font-size: 11px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+    }
+
+    &-team-match-vs {
+        color: #AE874B;
+        font-size: 11px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        margin: 0 0.3rem 0 0.3rem;
+    }
+
+    &-match-score {
+        margin: 0.1rem 0 0.1rem 0;
+        flex-grow: 1;
+        color: #EBC76E;
+        font-size: 12px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+    }
+
+    &-match-odds {
+        color: #8B8B8B;
+        font-size: 12px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+    }
+}
+
+.break-line {
+    height: 1px;
+    background: #29272A;
+    margin: 0.5rem 0 0.3rem 0;
+}
+
+.live-match-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    height: 40px;
+    flex-shrink: 0;
+    border-radius: 15px;
+    background: var(--linear-bar, linear-gradient(90deg, #2B2B32 0%, #484141 100%));
+
+    color: #FFDBAA;
+    text-align: center;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.live-match-img {
+    width: 95px;
+    height: 29.9px;
+}
+
+.live-match-odds-from-text {
+    text-decoration: line-through;
+    margin-left: 0.3rem;
+}
+
+.live-match-odds-to-text {
+    color: #FFF;
+    text-align: center;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.live-match-odds-img {
+    margin: 0 0.4rem 0 0.4rem;
+}
+
+.match-team-text {
+    color: #D9D9D9;
+    font-size: 12px;
+    font-weight: 400;
+    padding: 0.3rem 0 0.3rem 0;
+}
+
+.match-score-text {
+    color: #EBC76E;
+    font-size: 12px;
+    font-weight: 600;    
+}
+
+.match-state-text {
+    color: #EBC76E;
+    font-size: 8px;
+}
+
+.live-match-team-score-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    // align-content: center;
+}
+
+.team-flag-icn {
+    max-width: 18px;
+    max-height: 18px;
+    margin-left: 0.3rem;
+    margin-right: 0.3rem;
+    vertical-align: middle;
+}
+
+@media only screen and (max-width:475px) {
+    .live-match-title {
+        font-size: 14px;
+    }
+
+    .league-title {
+        font-size: 14px;
+    }
+
+    .match-state-text {
+        font-size: 8px;
+    }
+
+    .match-team-text {
+        font-size: 12px;
+    }
+
+    .match-score-text {
+        font-size: 12px;
+    }
+
+    .match-state-text {
+        font-size: 8px;
+    }
+}
+</style>

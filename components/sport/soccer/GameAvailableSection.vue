@@ -70,8 +70,7 @@ const props = defineProps({
 
 watch(() => props.menuTabId, (newValue) => {
     selectTabMenu(newValue);
-    const element = document.getElementById(props.menuTabId);
-    console.log('newValue', newValue)
+    const element = document.getElementById(props.menuTabId);    
     if (element) {
         element.focus({ preventScroll: true }); // Focus the element
         element.scrollIntoView({ behavior: 'smooth', block: 'center' })
@@ -105,8 +104,6 @@ function selectTabMenu(value: string) {
     const selectedMenu = gameSection.value.menuContent.find(
         (content) => content.menuTabId === value
     );
-
-    console.log('selectTabMenu', value)
 
     // asideTitleText_SelectedTab.value = selectedMenu?.title || '';
     // asideContentText_SelectedTab.value = selectedMenu?.content || '';
