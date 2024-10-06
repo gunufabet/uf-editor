@@ -6,7 +6,7 @@
 
     <div v-for="(item, index) in sportsContent?.section1?.contentListH3" :key="index">
         <accordion-h3 style="margin-left: 1rem;" :section-title="item.title" :section-content="item.content"
-            :with-break-line="true">
+            :with-break-line="true" :defaultOpenPanel="item.defaultOpen">
         </accordion-h3>
 
         <sport-soccer-bet-boost v-if="item.showBetBoost"></sport-soccer-bet-boost>
