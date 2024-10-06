@@ -1,15 +1,10 @@
 <template>
-    <div v-if="hotMatchList.length > 0" style="margin: 1rem;" class="title-container">
-        <div style="display: flex;">
-            <img style="margin-right: 0.3rem;" src="/img/soccer/icn-hot.svg" alt="hot matches">
-        </div>
-        <div>
-            <span class="hot-match-text-1">{{ $t('sport.news.hot') }} </span>
-            <span class="hot-match-text-2">{{ $t('sport.news.matches') }}</span>
-        </div>
-    </div>
-    <div style="margin: 1rem;" class="hot-match-container">
-        <sport-soccer-match-container v-for="(match, index) in hotMatchList" :key="index"
+    <!-- sectionWithMenuLeague -->
+    <tab-menu v-if="leagueList" style="margin-top: 30px;" @select-tab-menu="selectTabMenuLeague"
+        :tab-menu-list="leagueList"></tab-menu>
+    <br>
+    <div style="margin: 0 0 0 1rem;" class="soccer-hot-match-wrapper">
+        <sport-soccer-match-container v-for="(match, index) in eventMatchList" :key="index"
             :tournamentText="match.tournamentText" :matchRunningTime="match.matchRunningTime"
             :isRunningMatch="match.isRunningMatch" :homeName="match.homeName" :homeScore="match.homeScore"
             :homeIcon="match.homeIcon" :homeIconAlt="match.homeIconAlt" :awayName="match.awayName"
@@ -21,17 +16,37 @@
 
 <script setup lang="ts">
 import { useSportStore } from "~/stores/sport";
-const { runningLiveScore } = storeToRefs(useSportStore());
+const { runningLiveScoreByLeague, leagueList } = storeToRefs(useSportStore());
 
-const hotMatchList = ref([]);
+const eventMatchList = ref([]);
+const selectedLeagueMenuId = ref('');
 
 onMounted(() => {
-    mapMatch();
+    selectTabMenuLeague('');
 })
 
-function mapMatch() {
-    hotMatchList.value = [];
-    runningLiveScore.value.forEach((item) => {
+function selectTabMenuLeague(value: string) {
+    if (!value) {
+        value = leagueList.value[0].id;
+        selectedLeagueMenuId.value = value;
+    }
+
+    const selectedMenu = leagueList.value.find(
+        (menu) => menu.id === value
+    );
+
+    selectedLeagueMenuId.value = selectedMenu?.id || '';
+    
+    mapMatch(selectedLeagueMenuId.value);
+}
+
+function mapMatch(selectedLeagueMenuId: String) {    
+    const matches = runningLiveScoreByLeague.value.filter(
+        (matchContent) => matchContent.attributes.leagueId === selectedLeagueMenuId
+    );
+    
+    eventMatchList.value = [];
+    matches.forEach((item) => {
         let record = {
             tournamentText: item.attributes.leagueName,
             matchRunningTime: item.attributes.runningMatchMinute,
@@ -41,7 +56,7 @@ function mapMatch() {
             homeIcon: item.attributes?.homeFlagImg?.data?.attributes?.flag || '',
             homeIconAlt: item.attributes.homeName,
             awayName: item.attributes.awayName,
-            awayScore: item.attributes.awayScore,
+            awayScore: item.attributes.awayScore,            
             awayIcon: item.attributes?.awayFlagImg?.data?.attributes?.flag || '',
             awayIconAlt: item.attributes.awayName,
             homeOdds: "2.05",   // Use dynamic data if available
@@ -49,36 +64,19 @@ function mapMatch() {
             drawOdds: "2"       // Use dynamic data if available
         };
 
-        hotMatchList.value.push(record);
+        eventMatchList.value.push(record);
     });
 }
 </script>
 
 <style lang="scss" scoped>
-.title-container {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-}
-
-.hot-match-container {
+.soccer-hot-match-wrapper {
     display: flex;
     flex-wrap: nowrap;
-    gap: 1rem;
     overflow-x: auto;
     overflow-y: hidden;
-}
-
-.hot-match-text-1 {
-    color: #EBC76E;
-    font-size: 12px;
-    font-weight: 700;
-}
-
-.hot-match-text-2 {
-    color: #FFF;
-    font-size: 12px;
-    font-weight: 500;
-    margin-left: 0.1rem;
+    padding-bottom: 1rem;
+    gap: 1rem;
+    padding-right: 1rem;
 }
 </style>

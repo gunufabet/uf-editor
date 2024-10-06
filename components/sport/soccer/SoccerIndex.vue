@@ -7,18 +7,7 @@
     </accordion-h2-style-2>
 
     <!-- sectionWithMenuLeague -->
-    <tab-menu style="margin-top: 30px;" @select-tab-menu="selectTabMenuLeague"
-        :tab-menu-list="tabMenuLeagueList"></tab-menu>
-    <br>
-    <div style="margin: 0 0 0 1rem;" class="soccer-hot-match-wrapper">
-        <sport-soccer-match-container v-for="(match, index) in eventMatchList" :key="index"
-            :tournamentText="match.tournamentText" :matchRunningTime="match.matchRunningTime"
-            :isRunningMatch="match.isRunningMatch" :homeName="match.homeName" :homeScore="match.homeScore"
-            :homeIcon="match.homeIcon" :homeIconAlt="match.homeIconAlt" :awayName="match.awayName"
-            :awayScore="match.awayScore" :awayIcon="match.awayIcon" :awayIconAlt="match.awayIconAlt"
-            :homeOdds="match.homeOdds" :awayOdds="match.awayOdds" :drawOdds="match.drawOdds">
-        </sport-soccer-match-container>
-    </div>
+    <sport-soccer-live-match-by-league></sport-soccer-live-match-by-league>    
 
     <br>
     <tab-menu @select-tab-menu="selectTabMenu" :tab-menu-list="tabMenuList"></tab-menu>
@@ -69,7 +58,6 @@
 </template>
 
 <script setup lang="ts">
-import type { SportSubContent, SportSubContentList } from "~/types/strapi-model";
 import content from '~/assets/script/contentSoccer.json'
 
 const tabMenuList = ref(content.sectionWithMenu1.menuTab);
@@ -88,42 +76,7 @@ function selectTabMenu(value: string) {
     selectedMenuId.value = selectedMenu?.id || '';
 }
 
-const eventMatchList = ref([]);
-const tabMenuLeagueList = ref(content.sectionWithMenuLeague.menuTab);
-const tabMenuLeagueContentList = ref(content.sectionWithMenuLeague.menuContent);
-const selectedLeagueMenuId = ref('');
-function selectTabMenuLeague(value: string) {
-    if (!value) {
-        value = tabMenuLeagueList.value[0].id;
-        selectedLeagueMenuId.value = value;
-    }
-
-    const selectedMenu = tabMenuLeagueList.value.find(
-        (menu) => menu.id === value
-    );
-
-    const selectedMenuContent = tabMenuLeagueContentList.value.find(
-        (menuContent) => menuContent.menuTabId === value
-    );
-
-    selectedLeagueMenuId.value = selectedMenu?.id || '';
-    eventMatchList.value = selectedMenuContent?.hotMatchList || [];
-}
-
 onMounted(() => {
-    selectTabMenu('');
-    selectTabMenuLeague('');
+    selectTabMenu(''); 
 })
 </script>
-
-<style lang="scss" scoped>
-.soccer-hot-match-wrapper {
-    display: flex;
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    overflow-y: hidden;
-    padding-bottom: 1rem;
-    gap: 1rem;
-    padding-right: 1rem;
-}
-</style>

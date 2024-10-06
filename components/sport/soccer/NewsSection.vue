@@ -66,6 +66,9 @@
 </template>
 
 <script setup lang="ts">
+import { useSportStore } from "~/stores/sport";
+const { runningLiveScore } = storeToRefs(useSportStore());
+
 import content from '~/assets/script/content.json'
 const buttonOption = ref(content.Sport.Soccer.sectionNewsEvents.buttonOption);
 const selectedBtnId = ref(content.Sport.Soccer.sectionNewsEvents.buttonOption[0].id);
@@ -75,10 +78,11 @@ const showNews = ref(false);
 const showEvents = ref(false);
 const newsList = ref(content.Sport.Soccer.newsList);
 const sportsButtonList = ref(content.Sport.Soccer.sectionSportsButton.buttonOption);
-const eventMatchList = ref(content.Sport.Soccer.eventMatchList);
+const eventMatchList = ref([]);
 
 onMounted(() => {
     selectButton(null)
+    mapMatch()
 })
 
 function selectButton(value: any) {
@@ -104,6 +108,31 @@ async function clickSportButton(button: any) {
 
     await router.push(localePath({ name: 'sports-category', params: { category: button.url } }));
 }
+
+function mapMatch() {
+    eventMatchList.value = [];
+    runningLiveScore.value.forEach((item) => {
+        let record = {
+            tournamentText: item.attributes.leagueName,
+            matchRunningTime: item.attributes.runningMatchMinute,
+            isRunningMatch: true,
+            homeName: item.attributes.homeName,
+            homeScore: item.attributes.homeScore,
+            homeIcon: item.attributes?.homeFlagImg?.data?.attributes?.flag || '',
+            homeIconAlt: item.attributes.homeName,
+            awayName: item.attributes.awayName,
+            awayScore: item.attributes.awayScore,
+            awayIcon: item.attributes?.awayFlagImg?.data?.attributes?.flag || '',
+            awayIconAlt: item.attributes.awayName,
+            homeOdds: "2.05",   // Use dynamic data if available
+            awayOdds: "3.44",   // Use dynamic data if available
+            drawOdds: "2"       // Use dynamic data if available
+        };
+
+        eventMatchList.value.push(record);
+    });
+}
+
 </script>
 
 <style lang="scss" scoped>

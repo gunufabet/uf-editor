@@ -9,7 +9,7 @@ export const CallApiMethod = Object.freeze({
 });
 
 export default {
-  async getRunningLiveScore() {
+  async getRunningLiveScore(totalRecord: Number) {
     let leagueIds = [34, 39, 92, 87, 58, 74, 85, 93, 1244]; // top leagues
 
     const dateFormat = (data: Date, format: string) =>
@@ -28,7 +28,7 @@ export default {
     let runningStateParam =
       "filters[matchState][$in][0]=1H&filters[matchState][$in][1]=HT&filters[matchState][$in][2]=2H";
     let sortParam = "sort:asc,leagueId:asc,matchDate:asc,matchTime:asc";
-    let paginationParam = "pagination[page]=1&pagination[pageSize]=3";
+    let paginationParam = `pagination[page]=1&pagination[pageSize]=${totalRecord}`;
     let langParam = "locale=en";
     let populateParam = "&populate[homeFlagImg]=*&populate[awayFlagImg]=*";
 

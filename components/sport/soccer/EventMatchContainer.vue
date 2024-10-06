@@ -23,11 +23,23 @@
                 </div>
                 <div class="match-content-wrapper-2">
                     <span class="team-text">{{ props.homeName }}</span>
-                    <span><img :src="props.homeIcon" :alt="props.homeIconAlt"></span>
+                    <span>
+                        <!-- <img :src="props.homeIcon" :alt="props.homeIconAlt"> -->
+                        <img :src="props.homeIcon
+                    ? 'data:image/png;base64,' + props.homeIcon
+                    : '/img/soccer/icn-flag-placeholder.svg'
+                    " :alt="props.homeIconAlt" class="img-icon" />
+                    </span>
                     <span class="score-text">{{ props.homeScore }}</span>
                     <span class="score-text">:</span>
                     <span class="score-text">{{ props.awayScore }}</span>
-                    <span><img :src="props.awayIcon" :alt="props.awayIconAlt"></span>
+                    <span>
+                        <!-- <img :src="props.awayIcon" :alt="props.awayIconAlt"> -->
+                        <img :src="props.awayIcon
+                    ? 'data:image/png;base64,' + props.awayIcon
+                    : '/img/soccer/icn-flag-placeholder.svg'
+                    " :alt="props.awayIconAlt" class="img-icon" />
+                    </span>
                     <span class="team-text">{{ props.awayName }}</span>
                 </div>
                 <div class="match-content-wrapper-3">
@@ -179,7 +191,7 @@ const props = defineProps({
     align-items: center;
 
     color: #EBC76E;
-    font-size: 11px;
+    font-size: 14px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
@@ -271,9 +283,38 @@ const props = defineProps({
 
 .tournament-text {
     color: #EBC76E;
-    font-size: 10px;
+    font-size: 14px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
+}
+
+.img-icon {
+    width: 20px;
+    height: 20px;
+}
+
+@media only screen and (max-width:475px) {
+    .match-content-wrapper-1 {
+        font-size: 11px;
+    }
+
+    .match-content-wrapper-2 {
+        .team-text {
+            font-size: 12px;
+        }
+
+        .score-text {
+            font-size: 22px;
+        }
+    }
+
+    .event-title {
+        font-size: 12px;
+    }
+
+    .tournament-text {
+        font-size: 10px;
+    }
 }
 </style>

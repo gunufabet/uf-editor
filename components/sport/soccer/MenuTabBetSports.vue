@@ -96,6 +96,8 @@
 <script setup lang="ts">
 import type { SportSubContent, SportSubContentList } from "~/types/strapi-model";
 import content from '~/assets/script/content.json'
+import { useSportStore } from "~/stores/sport";
+const { runningLiveScore } = storeToRefs(useSportStore());
 
 const betSportsContent = ref(content.Sport.Soccer.sectionWithMenu1.menuContent.find(
     (content) => content.menuTabId === 'sport'
@@ -125,7 +127,7 @@ section3ContentListH4.value = betSportsContent.value?.section3?.contentListH4.ma
     content: item.content
 }));
 
-const eventMatchList = ref(betSportsContent.value?.section4?.eventMatchList);
+const eventMatchList = ref([]);
 const liveMatchLive = ref(betSportsContent.value?.section4?.liveMatchList)
 
 const section5ContentListH4 = ref<SportSubContent[]>([]);
@@ -158,6 +160,35 @@ section8ContentListH3.value = betSportsContent.value?.section8?.contentListH3.ma
     content: item.content,
     contentList: item.contentListH4
 }));
+
+
+onMounted(() => {
+    mapMatch();
+})
+
+function mapMatch() {
+    eventMatchList.value = [];
+    runningLiveScore.value.forEach((item) => {
+        let record = {
+            tournamentText: item.attributes.leagueName,
+            matchRunningTime: item.attributes.runningMatchMinute,
+            isRunningMatch: true,
+            homeName: item.attributes.homeName,
+            homeScore: item.attributes.homeScore,
+            homeIcon: item.attributes?.homeFlagImg?.data?.attributes?.flag || '',
+            homeIconAlt: item.attributes.homeName,
+            awayName: item.attributes.awayName,
+            awayScore: item.attributes.awayScore,
+            awayIcon: item.attributes?.awayFlagImg?.data?.attributes?.flag || '',
+            awayIconAlt: item.attributes.awayName,
+            homeOdds: "2.05",   // Use dynamic data if available
+            awayOdds: "3.44",   // Use dynamic data if available
+            drawOdds: "2"       // Use dynamic data if available
+        };
+
+        eventMatchList.value.push(record);
+    });
+}
 </script>
 
 <style lang="scss" scoped>

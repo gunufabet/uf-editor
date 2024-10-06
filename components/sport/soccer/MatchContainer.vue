@@ -5,8 +5,8 @@
                 <div><img src="/img/soccer/icn-soccer.svg" alt=""></div>
                 <div class="tournament-text">{{ props.tournamentText }}</div>
             </div>
-            <div v-if="isRunningMatch"><img src="/img/soccer/icn-play-live.svg" alt=""
-                    style="width: 37px; height: 15px;">
+            <div v-if="isRunningMatch">
+                <img src="/img/soccer/icn-play-live.svg" alt="" style="width: 37px; height: 15px;">
             </div>
         </div>
         <div class="bg-top-left-design">
@@ -31,8 +31,14 @@
         <div class="match-content-container">
             <div class="match-content-wrapper-base">
                 <div class="match-content-wrapper-2">
-                    <div class="team-container">
-                        <div><img class="img-icon" :src="props.homeIcon" :alt="props.homeIconAlt"></div>
+                    <div class="team-container" style="width: 40%; align-self: start;">
+                        <div>
+                            <!-- <img class="img-icon" :src="props.homeIcon" :alt="props.homeIconAlt"> -->
+                            <img :src="props.homeIcon
+                    ? 'data:image/png;base64,' + props.homeIcon
+                    : '/img/soccer/icn-flag-placeholder.svg'
+                    " :alt="props.homeIconAlt" class="img-icon" />
+                        </div>
                         <div class="team-text">{{ props.homeName }}</div>
                     </div>
                     <div class="team-container">
@@ -42,11 +48,17 @@
                     props.awayScore }}</span>
                         </div>
                         <div>
-                            <span class="match-running-text">{{ props.matchRunningTime }}</span>
+                            <span class="match-running-text">{{ props.matchRunningTime }}'</span>
                         </div>
                     </div>
-                    <div class="team-container">
-                        <div><img class="img-icon" :src="props.awayIcon" :alt="props.awayIconAlt"></div>
+                    <div class="team-container" style="width: 40%; ; align-self: start;">
+                        <div>
+                            <!-- <img class="img-icon" :src="props.awayIcon" :alt="props.awayIconAlt"> -->
+                            <img :src="props.awayIcon
+                    ? 'data:image/png;base64,' + props.awayIcon
+                    : '/img/soccer/icn-flag-placeholder.svg'
+                    " :alt="props.awayIconAlt" class="img-icon" />
+                        </div>
                         <div class="team-text">{{ props.awayName }}</div>
                     </div>
                 </div>
@@ -132,8 +144,8 @@ const props = defineProps({
     flex-direction: column;
     display: flex;
     position: relative;
-    min-width: 299px;
-    min-height: 178px;
+    min-width: 343px;
+    min-height: 188px;
     flex-shrink: 0;
     background: linear-gradient(104deg, #2B2B32 0%, #484141 93.5%);
     stroke-width: 1px;
@@ -176,7 +188,7 @@ const props = defineProps({
 
     .team-text {
         color: #FFF;
-        font-size: 12px;
+        font-size: 14px;
         font-style: normal;
         font-weight: 400;
         line-height: normal;
@@ -185,7 +197,7 @@ const props = defineProps({
 
     .score-text {
         color: #EBC76E;
-        font-size: 22px;
+        font-size: 26px;
         font-style: normal;
         font-weight: 600;
         line-height: normal;
@@ -227,7 +239,7 @@ const props = defineProps({
 
 .tournament-text {
     color: #EBC76E;
-    font-size: 10px;
+    font-size: 14px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
@@ -236,7 +248,7 @@ const props = defineProps({
 .match-running-text {
     color: #EBC76E;
     text-align: center;
-    font-size: 11px;
+    font-size: 14px;
     font-style: normal;
     font-weight: 300;
     line-height: normal;
@@ -253,5 +265,29 @@ const props = defineProps({
     top: 0;
     left: 0;
     z-index: 0;
+}
+
+@media only screen and (max-width:475px) {
+    .match-container {
+        min-height: 188px;
+    }
+
+    .match-content-wrapper-2 {
+        .team-text {
+            font-size: 12px;
+        }
+
+        .score-text {
+            font-size: 24px;
+        }
+    }
+
+    .tournament-text {
+        font-size: 14px;
+    }
+
+    .match-running-text {
+        font-size: 14px;
+    }
 }
 </style>
