@@ -39,7 +39,8 @@ const props = defineProps({
     flex-shrink: 0;
     padding: 0.5rem 1rem 0.5rem 1rem;
     color: #EBC76E;
-    max-width: 174px;
+    // max-width: 174px;
+    width: fit-content;
 }
 
 .label-text-1 {

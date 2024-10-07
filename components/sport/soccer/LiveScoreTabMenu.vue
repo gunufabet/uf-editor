@@ -87,6 +87,7 @@ function selectMenu(menu: any) {
     flex-shrink: 0;
     background: linear-gradient(0deg, #29272A 0%, #000 100%);
     color: #FFF;
+    justify-content: center;
 }
 
 .live-tab-text {

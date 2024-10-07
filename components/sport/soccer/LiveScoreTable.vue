@@ -1,5 +1,5 @@
-<template>
-    <div class="table-wrapper">
+<template>    
+    <div class="table-wrapper">        
         <table class="bet-type-table">
             <!-- Table Head -->
             <thead>
@@ -275,7 +275,8 @@ const props = defineProps({
     /* Align table horizontally (optional) */
     width: 55%;
     /* Full width of the parent container */
-    margin-left: 1rem;
+    // margin-left: 1rem;
+    margin: auto;
 }
 
 .bet-type-table {
