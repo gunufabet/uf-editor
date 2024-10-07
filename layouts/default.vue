@@ -50,6 +50,11 @@ function topFunction() {
 </script>
 
 <style lang="scss" scoped>
+
+#main{
+  overflow-y: hidden;
+}
+
 @media only screen and (max-width: 475px) {
   #scrollupBtn {
     display: block;
