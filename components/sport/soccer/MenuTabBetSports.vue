@@ -89,8 +89,7 @@
             </accordion-h4-style2>
             <br>
         </div>
-    </div>    
-    <br>
+    </div>
 </template>
 
 <script setup lang="ts">

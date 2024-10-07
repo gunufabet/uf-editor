@@ -33,8 +33,7 @@
         :section-content-h3-table-content="sectionContentH3TableContent"
         :section-content-h4-table-header="sectionContentH4TableHeader"
         :section-content-h4-table-content="sectionContentH4TableContent"></sub-main-content>
-
-    <br>
+    
     <br>
     <tab-menu @select-tab-menu="selectTabMenu2" :tab-menu-list="tabMenuList2"></tab-menu>
     <aside-content :key="asideTitleText" :aside-title-text="asideTitleText"
