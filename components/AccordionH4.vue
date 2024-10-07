@@ -3,7 +3,7 @@
         <summary @click.prevent="false" @click="clickPanel">
             <h4 class="accordion">
                 <span class="accordion-text" :class="openPanel ? 'expand' : ''">{{ props.sectionTitle }}</span>
-                <span class="accordion-icn" :class="openPanel ? 'flip-vertical-transition' : 'flip-vertical'">
+                <span class="accordion-icn" :class="openPanel ? 'flip-vertical' : 'flip-vertical-transition'">
                     <svg xmlns="http://www.w3.org/2000/svg" width="9" height="6" viewBox="0 0 9 6" fill="none">
                         <path d="M8 1.5L4.5 5L1 1.5" stroke="#CCAB67" stroke-width="1.5" stroke-miterlimit="10"
                             stroke-linecap="round" stroke-linejoin="round" />
