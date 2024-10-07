@@ -42,7 +42,7 @@ const props = defineProps({
 .article-container {
     display: block;
     position: relative;
-    max-width: 175px;
+    min-width: 175px;
     // min-height: 210px;
     border-radius: 8px;
     background: var(--linear-bar, linear-gradient(90deg, #2B2B32 0%, #484141 100%));
