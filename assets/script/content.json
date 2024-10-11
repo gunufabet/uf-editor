@@ -26,7 +26,7 @@
             "content": "The UFABET Direct Website Entrance is the primary gateway for accessing UFABET’s various online gambling services, including football betting, casinos, baccarat, slots, and more. The entrance is designed to offer a secure and efficient entry point for users to log into their accounts and enjoy a range of betting options.<br/><br/>Visitors to UFABET usually visit the platform's website or use its entrance links. The actual URL vary owing to regional restrictions or website upgrades. Use a reliable URL supplied by official sources like the UFABET support team or their official channels."
           }
         ]
-      },            
+      },
       "newsList": [
         {
           "newsId": "1",
@@ -188,9 +188,21 @@
       },
       "sectionWithMenu1": {
         "menuTab": [
-          { "id": "account", "text": "UFABET Account", "menuTabOrder": 1 },
-          { "id": "deposit", "text": "UFABET Deposit", "menuTabOrder": 2 },
-          { "id": "sport", "text": "UFABET Sports", "menuTabOrder": 3 }
+          {
+            "id": "account",
+            "text": "UFABET Account",
+            "menuTabOrder": 1
+          },
+          {
+            "id": "deposit",
+            "text": "UFABET Deposit",
+            "menuTabOrder": 2
+          },
+          {
+            "id": "sport",
+            "text": "UFABET Sports",
+            "menuTabOrder": 3
+          }
         ],
         "menuContent": [
           {
@@ -225,38 +237,10 @@
           {
             "menuTabId": "deposit",
             "title": "What are the Ufabet Deposit Methods?",
-            "content": "The Ufabet deposit methods are listed below.",
-            "contentList": [
-              {
-                "title": "Bank Transfer:",
-                "content": "Users have the option to deposit funds straight from their bank accounts to their Ufabet account. Bank transfer is commonly used and supports transfers from multiple banks. Bank transfers usually take1-2 business days for processing, depending on the time and which bank the transfer was done. Depositing funds via bank is safer as it undergoes a stricter policies."
-              },
-              {
-                "title": "E-Wallets: ",
-                "content": "Ufabet supports popular e-wallet services, allowing quick and secure transactions. One of the supported e-wallets include True Money. E-wallet deposits are a lot faster than bank transfers, often in a few minutes to hours. Most sports bettors favored depositing funds thru E-wallets for its speed and convenience."
-              }
-            ],
+            "content": "The Ufabet deposit methods are listed below.<br/><ul><li><strong>Bank Transfer</strong>: Users have the option to deposit funds straight from their bank accounts to their Ufabet account. Bank transfer is commonly used and supports transfers from multiple banks. Bank transfers usually take1-2 business days for processing, depending on the time and which bank the transfer was done. Depositing funds via bank is safer as it undergoes a stricter policies.</li><li><strong>E-Wallets</strong>: Ufabet supports popular e-wallet services, allowing quick and secure transactions. One of the supported e-wallets include True Money. E-wallet deposits are a lot faster than bank transfers, often in a few minutes to hours. Most sports bettors favored depositing funds thru E-wallets for its speed and convenience.</li></ul>",
             "content2": "Depositing funds in Ufabet is easy and straightforward. Bank transfers are the secure way to deposit money while E-wallets are most convenient. Sports bettors are able to deposit funds instantly using their mobile phones. The process usually takes a few minutes and they get to access Ufabet and place bets to their choice of team.",
             "titleH3": "What is the Ufabet Withdrawal Conditions?",
-            "contentH3": "The Ufabet withdrawal conditions are listed below.",
-            "contentListH3": [
-              {
-                "title": "Withdrawals via notification form: ",
-                "content": "Another withdrawal method is the withdrawal notification form."
-              },
-              {
-                "title": "Withdrawal amount: ",
-                "content": "Withdrawal on Ufabet has no minimum amount as long as the bets are placed after the deposit."
-              },
-              {
-                "title": "Withdrawal limit per day:",
-                "content": "Players withdraw money without limits per day."
-              },
-              {
-                "title": "Withdrawal account:",
-                "content": "The bank account used for withdrawals must be the same one provided when registering as a member."
-              }
-            ],
+            "contentH3": "The Ufabet withdrawal conditions are listed below.<br/><ul><li><strong>Withdrawals via notification form</strong>: Another withdrawal method is the withdrawal notification form.</li><li><strong>Withdrawal amount</strong>: Withdrawal on Ufabet has no minimum amount as long as the bets are placed after the deposit.</li><li><strong>Withdrawal limit per day</strong>: Players withdraw money without limits per day.</li><li><strong>Withdrawal account</strong>: The bank account used for withdrawals must be the same one provided when registering as a member.</li></ul>",
             "titleH4": "What are the Ufabet Payment Options?",
             "contentH4": "The Ufabet payment options are listed in the table below.",
             "contentH4Table": {
@@ -306,14 +290,22 @@
             "content": "The Sports available for betting on Ufabet are listed in the table below.",
             "content2": "The most popular sport at Ufabet is Football. Betting online on sports gained popularity during the COVID-19 lockdown. Sports enthusiasts and lovers place their bets online without the hassle of going outside. Football has the most followers worldwide and is popular among online bettors. Football is the world's most-watched and played sport, with a massive fan base spanning every continent.",
             "contentH4Table": {
-              "header": ["Sport", "Popular Leagues/Events", "Betting Options"],
+              "header": [
+                "Sport",
+                "Popular Leagues/Events",
+                "Betting Options"
+              ],
               "content": [
                 [
                   "Football Soccer",
                   "EPL, MLS, German Bundesliga, Italia Serie A, Chinese Super League, Spanish La Liga, French Ligue 1, Thai League 1, Japanese J-League, South Korean K-League, UEFA Championship League, FIFA World Cup, UEFA Championship League, UEFA Europa League, Carabao Cup, FA Cup",
                   "Match winner, Over/Under, Handicap, Even/Odd, Total Goals, 1x2 Betting, Double Chance, Correct Score, Half-time/Full-time, First Goal/Last Goal, Champion Prediction, Mixed Parlay"
                 ],
-                ["Basketball", "NBA, Euro League", "HDP, Over/Under, Outright"],
+                [
+                  "Basketball",
+                  "NBA, Euro League",
+                  "HDP, Over/Under, Outright"
+                ],
                 [
                   "Tennis",
                   "ATP, WTA, Grand Slams",
@@ -329,7 +321,11 @@
                   "NFL, College Football",
                   "HDP, Over/Under, Mix Parlay, Outright"
                 ],
-                ["Boxing", "Major Title Fights", "HDP, Over/Under, Outright"],
+                [
+                  "Boxing",
+                  "Major Title Fights",
+                  "HDP, Over/Under, Outright"
+                ],
                 [
                   "Mixed Martial Arts (MMA)",
                   "UFC, Bellator",
@@ -621,9 +617,21 @@
       },
       "sectionWithMenu2": {
         "menuTab": [
-          { "id": "football", "text": "UFABET Football", "menuTabOrder": 1 },
-          { "id": "slot", "text": "UFABET Slot", "menuTabOrder": 2 },
-          { "id": "gambling", "text": "UFABET Gambling", "menuTabOrder": 3 }
+          {
+            "id": "football",
+            "text": "UFABET Football",
+            "menuTabOrder": 1
+          },
+          {
+            "id": "slot",
+            "text": "UFABET Slot",
+            "menuTabOrder": 2
+          },
+          {
+            "id": "gambling",
+            "text": "UFABET Gambling",
+            "menuTabOrder": 3
+          }
         ],
         "menuContent": [
           {
@@ -677,8 +685,16 @@
       ],
       "sectionNewsEvents": {
         "buttonOption": [
-          { "id": "news", "text": "UFABET Football News", "buttonOrder": 1 },
-          { "id": "events", "text": "UFABET Football Events", "buttonOrder": 2 }
+          {
+            "id": "news",
+            "text": "UFABET Football News",
+            "buttonOrder": 1
+          },
+          {
+            "id": "events",
+            "text": "UFABET Football Events",
+            "buttonOrder": 2
+          }
         ],
         "buttonOptionContent": [
           {
@@ -712,7 +728,11 @@
         "title3": "What measures does Ufabet take to promote responsible gambling?",
         "content3": "Ufabet takes several measures to promote responsible gambling, demonstrating a strong commitment to player safety and well-being. The platform provides tools that help players manage and control their gambling activities, ensuring they enjoy betting without it negatively impacting their lives. It includes providing clear information about the risks associated with gambling and offering assistance for patrons who are experiencing difficulties. Ufabet’s approach has set new standards in the online gambling industry, encouraging other platforms to prioritize player safety. Ufabet is licensed by the Gambling Commission, ensuring it operates under strict regulations designed to protect players and promote fair play. These efforts make Ufabet one of the most trusted and secure online betting platforms.",
         "title_contentH2Table": {
-          "header": ["Casino Game", "Description", "Betting Options"],
+          "header": [
+            "Casino Game",
+            "Description",
+            "Betting Options"
+          ],
           "content": [
             [
               "Slot Games",
@@ -859,12 +879,20 @@
           }
         ],
         "menuTab": [
-          { "id": "slot", "text": "UFABET Slot", "menuTabOrder": 1 },
+          {
+            "id": "slot",
+            "text": "UFABET Slot",
+            "menuTabOrder": 1
+          },
           {
             "text": "UFABET Live Casino",
             "menuTabOrder": 2
           },
-          { "id": "gambling", "text": "UFABET Gambling", "menuTabOrder": 3 }
+          {
+            "id": "gambling",
+            "text": "UFABET Gambling",
+            "menuTabOrder": 3
+          }
         ],
         "menuContent": [
           {
@@ -988,6 +1016,10 @@
       "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
     },
     "siteFooterInfo": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.<br/><br/>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do ioh eiusmod tempor incididunt ut labore et  magna aliqua. Ut enim ad ghp minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum Duis aute irure dolor in reprehenderit in the voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-    "socialMedia": [{ "socialMediaApp": "" }]
+    "socialMedia": [
+      {
+        "socialMediaApp": ""
+      }
+    ]
   }
 }
