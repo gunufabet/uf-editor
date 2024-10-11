@@ -81,13 +81,23 @@ function selectMenu(menu: any) {
 
 <style lang="scss" scoped>
 .live-tab {
-    display: flex;
-    flex-direction: row;
+    // display: flex;
+    // flex-direction: row;
     padding: 1rem 0 1rem 0;
+    // flex-shrink: 0;
+    // background: linear-gradient(0deg, #29272A 0%, #000 100%);
+    // color: #FFF;
+    // justify-content: center;
+    position: relative;
     flex-shrink: 0;
     background: linear-gradient(0deg, #29272A 0%, #000 100%);
-    color: #FFF;
+
+    display: flex;
     justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
 }
 
 .live-tab-text {
