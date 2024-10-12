@@ -6,7 +6,7 @@
   "section2": {
     "title": "Football Betting Ufabet",
     "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad."
-  },  
+  },
   "sectionWithMenu1": {
     "menuTab": [
       {
@@ -109,17 +109,31 @@
       {
         "menuTabId": "football-leagues",
         "section1": {
-          "titleH2": "What Major Football Leagues can you Bet on at Ufabet?",          
+          "titleH2": "What Major Football Leagues can you Bet on at Ufabet?",
           "contentH2": "Major Football Leagues that you can bet on at Ufabet are listed below.<br/><br/><ul><li><strong>English Premier League (EPL):</strong> England's top professional football league, known for its competitiveness and global following.</li><li><strong>Major League Soccer (USA):</strong> The premier professional football league in the United States and Canada, featuring teams from both countries.</li><li><strong>German Bundesliga:</strong> Germany's top football league, celebrated for its passionate fan base and high-quality football.</li><li><strong>Italian Serie A:</strong> Italy's premier football competition, known for its tactical play and historic clubs like Juventus and AC Milan.</li><li><strong>Chinese Super League:</strong> China's leading professional football league, attracting international players and growing global influence.</li><li><strong>Spanish La Liga:</strong> Spain's top professional football division, famous for its technical skill and clubs like FC Barcelona and Real Madrid.</li><li><strong>French Ligue 1:</strong> France's leading football league, featuring prominent clubs like Paris Saint-Germain and Olympique Marseille.</li><li><strong>Thai League 1 (Thailand):</strong> Thailand's top professional football league, known for its growing popularity and competitive matches.</li><li><strong>Japanese J-league:</strong> Japan's premier football league, recognized for its organization and contribution to Asian football development.</li><li><strong>South Korean K-league:</strong> South Korea's top football league, noted for its balance of competition and development of football talent.</li></ul>",
           "contentListH3": [
             {
               "title": "1. English Premier League (EPL)",
               "content": "The English Premier League (EPL) is England's highest professional football level. Twenty teams compete each year for the title in the league, which began on February 20, 1992. The English Football League (EFL) is used for promotion and relegation, creating a competitive atmosphere.<br/><br/>The EPL is <strong>celebrated globally</strong> for its unparalleled quality, attracting elite players and managers. The league's intense competition, where any team upsets the top clubs, combined with its broad international reach, makes it the most-watched sports league worldwide. Lucrative broadcasting deals have enabled clubs to secure top-tier talent, adding prestige. The sport’s rich history and passionate fan base further amplify the league's allure.<br/><br/>Prominent teams within the EPL include <strong>Manchester United, Liverpool, Arsenal, Chelsea, Manchester City</strong>, and <strong>Tottenham Hotspur</strong>. The teams are historically successful and boast extensive global fan bases, making them household names in football.<br/><br/>The EPL is a prime focus for sports betting, offering diverse markets such as match outcomes, goal scorers, over/under goals, handicap betting, and in-play bets. Its <strong>unpredictable nature</strong> and <strong>competitive matches</strong> create excitement and challenges for bettors, with bookmakers providing various options to cater to varying betting strategies.<br/><br/>The EPL commands a <strong>massive global betting audience</strong> fueled by its widespread media coverage and international appeal. The league's partnerships with betting companies underline the role betting plays in its ecosystem, attracting bettors from all corners of the world.<br/><br/>Betting on the EPL is <strong>highly rewarding</strong> due to the extensive information and variety of betting options. The competition among bettors and the precise odds set by bookmakers make it challenging to find value. The thrill and unpredictability of the league are appealing, but they bring risks, so it is crucial to bet responsibly and manage risks. The decision to bet on the English Premier League must consider these factors, aligning with individual knowledge and financial capacity.",
-              "defaultOpen" : true,
+              "defaultOpen": true,
               "showRunningMatch": true,
               "showBetBoost": true,
               "showLeagueStandingButton": true,
-              "showLeagueScheduleButton": true
+              "showLeagueStandingButtonInfo": {
+                "leagueId": 92,
+                "leagueName": "English Premier League",
+                "routeUrlName": "premier-league-standing",
+                "buttonId": "premier-league-standing",
+                "buttonLabel": "English Premier League Standings"
+              },
+              "showLeagueScheduleButton": true,
+              "showLeagueScheduleButtonInfo": {
+                "leagueId": 92,
+                "leagueName": "English Premier League",
+                "routeUrlName": "premier-league-schedule",
+                "buttonId": "premier-league-schedule",
+                "buttonLabel": "English Premier League Schedule"
+              }
             },
             {
               "title": "2. Major League Soccer (USA)",
@@ -165,7 +179,7 @@
             {
               "title": "10. South Korean K-league",
               "content": "The South Korean K-League, officially known as the K League, is the premier professional football league in South Korea. K-League was formed in 1983 and has two levels, K League 1 and K League 2. The league is renowned for its competitive nature, strategic gameplay, and local and international football talent development.<br/><br/>The K-League's significance lies in its role in <strong>advancing South Korean football</strong>. K-League has nurtured homegrown talent, some of whom have achieved international recognition. The league fosters a competitive spirit and impacts the country’s football culture and economy.<br/><br/><strong>Ulsan Hyundai</strong>, <strong>FC Seoul</strong>, and <strong>Jeonbuk Hyundai Motors</strong> are a few of the most well-known K-League teams. Ulsan Hyundai has recently made headlines for its solid performances and the much-anticipated East Coast Derby Korea Cup Final. Jeonbuk Hyundai Motors is another powerhouse with a history of success in domestic and Asian competition. FC Seoul is well-known for its passionate fanbase and consistent performances.<br/><br/>The <strong>odds for K League 1</strong> matches reveal bookmakers' expectations. For example, Gwangju FC has odds of 5/4 against Pohang Steelers at 23/10. Ulsan Hyundai is at 11/10 to win against Gangwon FC at 12/5. FC Seoul is favored at 10/11 against Daejeon Hana Citizen at 10/3. Jeju United stands at 7/5 against Daegu FC, while Suwon FC has 15/13 against Jeonbuk Motors. Gimcheon Sangmu FC is slightly favored at 19/20 against Incheon Utd at 3/1. Lower odds indicate higher probability outcomes. The <strong>betting scenario</strong> for K-League 1 is robust, with numerous options available, including traditional bets like match outcomes and specialized markets such as team scores.<br/><br/>Betting on K-League 1 has grown in popularity, <strong>attracting bettors</strong> locally and internationally. The league's vibrant matches and professional teams have created an active betting market. A devoted group of K-League 1 bettors has grown in recent years, reflecting the growing <strong>popularity of Asian football</strong>. Betting on South K-League 1 is seen as a good option because of the league's entertaining nature and the availability of extensive statistical resources.",
-              "defaultExpand": false 
+              "defaultExpand": false
             }
           ]
         }

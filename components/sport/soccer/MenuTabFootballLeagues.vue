@@ -13,10 +13,11 @@
 
         <br v-if="item.showLeagueStandingButton || item.showLeagueScheduleButton">
         <div class="football-league-btn-wrapper" v-if="item.showLeagueStandingButton || item.showLeagueScheduleButton">
-            <custom-button-6 v-if="item.showLeagueStandingButton" id="premier-league-standing"
-                label="English Premier League Standings" @click="GoToLeagueStanding"></custom-button-6>
-            <custom-button-6 v-if="item.showLeagueScheduleButton" id="premier-league-schedule"
-                label="English Premier League Schedule"></custom-button-6>
+            <custom-button-6 v-if="item.showLeagueStandingButton" :id="item.showLeagueStandingButtonInfo.buttonId"
+                :label="item.showLeagueStandingButtonInfo.buttonLabel"
+                @click="GoToLeagueStanding(item.showLeagueStandingButtonInfo.routeUrlName)"></custom-button-6>
+            <custom-button-6 v-if="item.showLeagueScheduleButton" :id="item.showLeagueScheduleButtonInfo.buttonId"
+                :label="item.showLeagueScheduleButtonInfo.buttonLabel"></custom-button-6>
         </div>
         <br v-if="item.showRunningMatch">
         <sport-soccer-live-match v-if="item.showRunningMatch"></sport-soccer-live-match>
@@ -32,11 +33,12 @@ const sportsContent = ref(content.sectionWithMenu1.menuContent.find(
 ));
 const router = useRouter();
 
-async function GoToLeagueStanding() {
+async function GoToLeagueStanding(routeUrlName: any) {
+    console.log('GoToLeagueStanding-routeUrlName', routeUrlName)
     const localePath = useLocalePath();
     const router = useRouter();
 
-    return router.push(localePath({ name: 'sports-soccer-league', params: { league: 'english-premier-league' } }));
+    return router.push(localePath({ name: 'sports-soccer-league', params: { league: routeUrlName } }));
 }
 </script>
 
