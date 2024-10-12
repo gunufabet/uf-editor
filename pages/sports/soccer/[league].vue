@@ -68,7 +68,7 @@
 <script setup lang="ts">
 import { useDateFormat } from "@vueuse/shared";
 import type { SportSubContent } from "~/types/strapi-model";
-import content from '~/assets/script/contentLeague.json'
+import content from '~/assets/script/contentLeagueStanding.json'
 
 const dateFormat = (data: Date, format: string) =>
     useDateFormat(data, format, {
