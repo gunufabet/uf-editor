@@ -14,7 +14,7 @@
         <br v-if="item.showLeagueStandingButton || item.showLeagueScheduleButton">
         <div class="football-league-btn-wrapper" v-if="item.showLeagueStandingButton || item.showLeagueScheduleButton">
             <custom-button-6 v-if="item.showLeagueStandingButton" id="premier-league-standing"
-                label="English Premier League Standings"></custom-button-6>
+                label="English Premier League Standings" @click="GoToLeagueStanding"></custom-button-6>
             <custom-button-6 v-if="item.showLeagueScheduleButton" id="premier-league-schedule"
                 label="English Premier League Schedule"></custom-button-6>
         </div>
@@ -30,6 +30,14 @@ import content from '~/assets/script/contentSoccer.json'
 const sportsContent = ref(content.sectionWithMenu1.menuContent.find(
     (content) => content.menuTabId === 'football-leagues'
 ));
+const router = useRouter();
+
+async function GoToLeagueStanding() {
+    const localePath = useLocalePath();
+    const router = useRouter();
+
+    return router.push(localePath({ name: 'sports-soccer-league', params: { league: 'english-premier-league' } }));
+}
 </script>
 
 <style lang="scss" scoped>

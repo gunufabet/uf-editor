@@ -1,0 +1,81 @@
+{
+  "leagueInfo": {
+    "leagueId": 92,
+    "leagueName": "English Premier League"
+  },
+  "main": {
+    "title": "{premier_league_param} Standings: {premier_league_param} Table {premier_league_year_param}",
+    "content": "A Premier League standing refers to the current ranking of teams in the English Premier League based on performance throughout the season. The Premier League table standings are updated regularly, reflecting points, goal difference, goals scored, form and fixtures, and relegation and qualification. The Premier League is the top English football league, with 20 teams playing in a round-robin style. The season consists of 38 games for each team, with the winners competing for a title and invitations to European events and the losing teams risking relegation to a lower league.<br/><br/>Understanding the Premier League standings matters for bettors because the data gives insight into the team's performance, trends, and probable outcomes. Factors such ."
+  },
+  "section2": {
+    "title": "{premier_league_param} table - {premier_league_year_from_param}/{premier_league_year_to_param} Season",
+    "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad.",
+    "showLeagueTable": true,
+    "showRunningMatch": true
+  },
+  "section3": {
+    "titleH2": "How to Understand the Premier League Table?",
+    "contentH2": "Teams are ranked in position in the Premier League table according to points gained, with goal difference and goals scored as tiebreakers when two teams have an equal number of points. The Premier League's point",
+    "contentListH3": [
+      {
+        "title": "How Important is the Premier League Table for Betting?",
+        "content": "The Premier League table is important for betting because it provides statistics on team form, performance trends, and standings influencing odds and betting decisions. The Premier League table and standings influence betting decisions by providing information about a team's current form, consistency, and whole performance throughout the season.<br/><br/>A team that consistently finishes at the top of the table has the potential of winning future matches. The team that finishes at the bottom has higher odds yet fewer chances of success. The information allows bettors of the English Premier League to make informed decisions and identify exciting bets. The Premier League table reveals trends such as home and away performance, goal differentials, and recent form, which are important for making accurate predictions.<br/><br/>The league table's specific attributes matter when placing informed bets in Premier League betting. The points tally indicates a team's performance and consistency, with higher scores indicating dependability. Goal differential reflects offensive and defensive strength. Teams with a positive goal differential have a strong attack and defense, making them strong contenders. Recent form is another important consideration. Premier League scores and Premier League results today provide bettors with updated information, especially when recent form over the last five to ten games is considered. Head-to-head records against upcoming opponents offer important context when teams have a historical advantage over rival teams. Understanding these factors enhances the ability to make strategic bets in the English Premier League betting, where every detail influences the outcomes."
+      }
+    ]
+  },
+  "section4": {
+    "titleH2": "How are Teams Ranked for Positions in the Premier League Table?",
+    "contentH2": "Teams are ranked in position in the Premier League table according to points gained, with goal difference and goals scored as tiebreakers when two teams have an equal number of points. The Premier League's point",
+    "contentListH3": [
+      {
+        "title": "What Factors Impact the Final Decision for Tiebreakers in the Premier League Standing?",
+        "content": "The factors that impact the final decision for tiebreakers in the Premier League standings are listed below",
+        "defaultExpand": false
+      },
+      {
+        "title": "Are the Premier League Standings Crucial for the Qualification of European Competitions?",
+        "content": "Yes, Premier League standings are crucial for the qualification of European competitions. The Premier League standings determine which teams participate in tournaments, such as the UEFA Champions League, UEFA Europa League, and UEFA Europa Conference League. The top four teams in the Premier League standings automatically qualify for the Champions League, Europe's most prestigious club match.<br/><br/>The team that finishes fifth and the Football Association Challenge Cup (FA Cup) winners qualify for the Europa League. The English Football League Cup champions qualify for the Europa Conference League. The qualifications are highly sought after for providing huge cash benefits, improving the club's reputation, and recruiting top talent.",
+        "defaultExpand": false
+      }
+    ],
+    "contentListH4": [
+      {
+        "title": "What Premier League Team Rankings are Qualified for the UEFA Champions League?",
+        "content": "..."
+      },
+      {
+        "title": "What Premier League Team Rankings are Qualified for the UEFA Europa League?",
+        "content": "..."
+      }
+    ]
+  },
+  "section5": {
+    "titleH2": "What are the Factors that Influence Premier League Standings?",
+    "contentH2": "The factors that influence Premier League standings are listed below.<br/><br/>Player Performances: Individual and collective player performances impact Premier League standings. Players' talents, form, and consistency are influential factors in deciding the team's success. Individual player form and consistency, including fitness, skill level, and contribution to team play, impact standings. A player's physical fitness and skill level affect their ability to perform consistently, while contributions to the team's play improve unity and effectiveness on the field. Teams striving for top Premier League rankings must sustain high performance levels.<br/><br/>Injuries: Injuries impact the team’s performance, influencing individual players and team chemistry. Injury to major players causes them to miss time off the field, which upsets the team’s game plan, lowers performance, and eventually hurts the team's standings. The frequency and severity of injuries exhaust the team’s resources and hinder their ability to perform consistently throughout the season. Monitoring player health and",
+    "contentListH3": [
+      {
+        "title": "How do the Premier League Standings Affect the Teams?",
+        "content": "Premier League standings impact teams by increasing financial support through prizes and sponsorship deals, boosting or lowering team morale and stability depending on the team’s rank, and increasing global visibility. Higher standings lead to greater financial rewards through broadcasting rights, commercial partnerships, and prize money, which allow clubs to invest in better players and infrastructure.<br/><br/>Teams in top positions gain advantages in qualifying for prestigious tournaments such as the UEFA Champions League, further boosting finances and global appeal. Morale and team stability are influenced by rankings, with higher-placed teams enjoying confidence and strength. Lower-ranked teams face pressure, reduced fan support, and internal challenges, leading to management changes.",
+        "defaultExpand": false
+      }
+    ],
+    "contentListH4": [
+      {
+        "title": "How do Current Premier League Standings compare to Last Season?",
+        "content": "The current Premier League standings, compared to last season show shifts in team rankings due to changes in form, transfers, and injuries. Top teams such as Manchester City and Arsenal maintain strong positions. Manchester City continues to dominate, holding the top position with 91 points, while Arsenal follows closely with 89 points in the Premier League table 2023/24.<br/><br/>Liverpool and Aston Villa are two teams that have shown significant improvement. Liverpool improved from fifth place last season to third place in the Premier League table 2023/24, with 82 points. Aston Villa similarly jumped from seventh to fourth place, exhibiting improved performance and tactical adjustments. The improvements are achieved through effective player recruitment and increased team camaraderie."
+      }
+    ]
+  },
+  "section6": {
+    "titleH2": "What is the Format for Premier League Matches?",
+    "contentH2": "The format for Premier League matches involves 20 teams playing each other twice in a round-robin format, with each team playing 38 matches over the season. The format ensures that each side confronts each other once at home and once away, ensuring fairness and balance in the tournament. The season lasts from August to May, and points are awarded based on performance. Points are three for a victory, one for a draw, and zero for a defeat.<br/><br/>The Premier League champion is determined by the team with the most points at the end of the season. Rankings are established by goal difference in the case of a tie-in point and then goal totals. The league operates a promotion and relegation system in which the bottom three tea",
+    "contentListH3": [
+      {
+        "title": "How to Track Premier League Match Schedules?",
+        "content": "To track Premier League match schedules, visit the official Premier League website or app, follow the team's social media channels, and sync schedules to the device's calendar for real-time updates. The first step involves visiting the official website or app, the most reliable source for up-to-date  Premier League fixtures, and providing access to the entire season’s schedule.<br/><br/>Following the social media accounts of various teams is the next step, as teams share news and reminders about upcoming games and the Premier League schedule. Lastly, syncing the schedules with a device's calendar is recommended for real-time updates for the Premier League schedule. It allows users to receive notifications to ensure that no game is missed. This approach provides comprehensive coverage of match timings and updates across multiple platforms.",
+        "defaultExpand": false
+      }
+    ],
+    "contentListH4": []
+  }
+}
