@@ -120,7 +120,7 @@
               "showBetBoost": true,
               "showLeagueStandingButton": true,
               "showLeagueStandingButtonInfo": {
-                "leagueId": 92,
+                "leagueId": "92",
                 "leagueName": "English Premier League",
                 "routeUrlName": "premier-league-standing",
                 "buttonId": "premier-league-standing",
@@ -128,11 +128,19 @@
               },
               "showLeagueScheduleButton": true,
               "showLeagueScheduleButtonInfo": {
-                "leagueId": 92,
+                "leagueId": "92",
                 "leagueName": "English Premier League",
                 "routeUrlName": "premier-league-schedule",
                 "buttonId": "premier-league-schedule",
                 "buttonLabel": "English Premier League Schedule"
+              },
+              "showLeagueButton": true,
+              "showLeagueButtonInfo": {
+                "leagueId": "92",
+                "leagueName": "English Premier League",
+                "routeUrlName": "premier-league",
+                "buttonId": "premier-league",
+                "buttonLabel": "English Premier League Info"
               }
             },
             {

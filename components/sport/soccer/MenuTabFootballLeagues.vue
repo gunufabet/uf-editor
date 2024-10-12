@@ -15,9 +15,14 @@
         <div class="football-league-btn-wrapper" v-if="item.showLeagueStandingButton || item.showLeagueScheduleButton">
             <custom-button-6 v-if="item.showLeagueStandingButton" :id="item.showLeagueStandingButtonInfo.buttonId"
                 :label="item.showLeagueStandingButtonInfo.buttonLabel"
-                @click="GoToLeagueStanding(item.showLeagueStandingButtonInfo.routeUrlName)"></custom-button-6>
+                @click="GoToLeagueStanding(item.showLeagueStandingButtonInfo.routeUrlName, item.showLeagueStandingButtonInfo.leagueId)"></custom-button-6>
+
             <custom-button-6 v-if="item.showLeagueScheduleButton" :id="item.showLeagueScheduleButtonInfo.buttonId"
                 :label="item.showLeagueScheduleButtonInfo.buttonLabel"></custom-button-6>
+
+            <custom-button-6 v-if="item.showLeagueButton" :id="item.showLeagueButtonInfo.buttonId"
+                :label="item.showLeagueButtonInfo.buttonLabel"
+                @click="GoToLeague(item.showLeagueButtonInfo.routeUrlName, item.showLeagueButtonInfo.leagueId)"></custom-button-6>
         </div>
         <br v-if="item.showRunningMatch">
         <sport-soccer-live-match v-if="item.showRunningMatch"></sport-soccer-live-match>
@@ -31,21 +36,35 @@ import content from '~/assets/script/contentSoccer.json'
 const sportsContent = ref(content.sectionWithMenu1.menuContent.find(
     (content) => content.menuTabId === 'football-leagues'
 ));
+const localePath = useLocalePath();
 const router = useRouter();
 
-async function GoToLeagueStanding(routeUrlName: any) {
-    console.log('GoToLeagueStanding-routeUrlName', routeUrlName)
-    const localePath = useLocalePath();
-    const router = useRouter();
+async function GoToLeagueStanding(routeUrlName: any, leagueId: any) {
+    return router.push(localePath({ name: 'sports-soccer-standing-leagueStanding', params: { leagueStanding: routeUrlName }, query: { leagueId: leagueId } }));
+}
 
-    return router.push(localePath({ name: 'sports-soccer-league', params: { league: routeUrlName } }));
+async function GoToLeague(routeUrlName: any, leagueId: any) {
+    return router.push(localePath({ name: 'sports-soccer-league-league', params: { league: routeUrlName }, query: { leagueId: leagueId } }));
 }
 </script>
 
 <style lang="scss" scoped>
 .football-league-btn-wrapper {
     display: flex;
-    justify-content: center;
+    justify-content: center;    
     gap: 1rem;
+
+    // display: flex;
+    // justify-content: space-around;
+    // align-items: center;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+@media only screen and (max-width:475px) {
+    .football-league-btn-wrapper {
+        justify-content: start;
+    }
 }
 </style>
