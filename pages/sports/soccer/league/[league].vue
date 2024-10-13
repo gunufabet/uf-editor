@@ -74,7 +74,7 @@
 
     <br v-if="content?.section6?.contentListH3">
     <accordion-h3 style="margin-left: 1rem;" v-for="(item, index) in content?.section6?.contentListH3" :key="index"
-        :section-title="item.title" :section-content="item.content" :with-break-line="true">
+        :section-title="item.title" :section-content="item.content" :with-break-line="true" :default-open-panel="item.defaultExpand">
     </accordion-h3>
 
     <accordion-h4-style-2 style="margin-left: 1rem;" v-for="(item, index) in content?.section6?.contentListH4"
@@ -89,7 +89,7 @@
 
     <br v-if="content?.section7?.contentListH3">
     <accordion-h3 style="margin-left: 1rem;" v-for="(item, index) in content?.section7?.contentListH3" :key="index"
-        :section-title="item.title" :section-content="item.content" :with-break-line="true">
+        :section-title="item.title" :section-content="item.content" :with-break-line="true" :default-open-panel="item.defaultExpand">
     </accordion-h3>
 
     <accordion-h4-style-2 style="margin-left: 1rem;" v-for="(item, index) in content?.section7?.contentListH4"

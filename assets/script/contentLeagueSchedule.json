@@ -1,0 +1,100 @@
+{
+  "leagueInfo": [
+    {
+      "leagueId": "92",
+      "leagueName": "English Premier League",
+      "main": {
+        "title": "Premier League Schedule: Fixtures and Games",
+        "content": "The Premier League schedule lists matches played during the Premier League season. The Premier League is the top tier of English football, with 20 teams. A season consists of 38 games, with each side playing every other team twice, once at home and once away.<br/><br/>The Premier League schedule and fixtures are created meticulously considering TV broadcast agreements, club preferences, stadium availability, and travel issues. A fixture computer generates random matchups while considering travel, local events, and holidays such as Boxing Day. The schedule of Premier League matches is revealed in mid-June, giving clubs, fans, and broadcasters plenty of time to prepare. Extreme weather, health issues, logistical disruptions, or safety concerns cause postponements. The Premier League Board reviews the situation and allows postponements if there are substantial safety or health threats."
+      },
+      "section2": {
+        "titleH2": "What Premier League Games will happen this week?",
+        "contentH2": "The Premier League Games that will happen this week are listed below.<br/><br/>West Ham United vs. Chelsea FC: The game is ",
+        "contentListH3": [
+          {
+            "title": "How to Bet on Premier League Games on UFABET?",
+            "content": "To bet on Premier League games on UFABET, follow the steps below.<br/><br/><span class=\"text-style-1\">1. Register or log in.</span> Visit the UFABET website and complete the registration process. Fill in basic information such as name and contact details, and create a username and password.<br/><br/><span class=\"text-style-1\">2. Deposit Funds.</span> Deposit funds using various payment methods, such as bank transfers and e-wallets (True Money). The currencies available are USD and THB.<br/><br/><span class=\"text-style-1\">3. Choose a match from the schedule list.</span> Navigate the schedule list to select a Premier League match once the account has been funded. Study the teams involved, including past performances, injuries, and head-to-head records, before making a wager. Knowing the teams' performance helps make more informed betting judgments.<br/><br/><span class=\"text-style-1\">4. Select a betting market.</span> Choose the betting market after selecting a match. UFABET offers various English Premier League betting options, such as match results (1x2), over/under goals, both teams to score, and handicap betting. <br/><br/><span class=\"text-style-1\">5. Place bet.</span> Enter the amount to bet after choosing the betting market. Consider responsible betting, odds, and team statistics before placing a bet. Responsible betting requires setting clear limits on how much to gamble.",
+            "defaultExpand": false
+          }
+        ],
+        "contentListH4": []
+      },
+      "sectionButton": {
+        "buttonOption": [
+          {
+            "id": "most-anticiapted-this-season-btn-id",
+            "text": "What are the most Anticipated Premier League Games this Season?",
+            "buttonOrder": 1
+          },
+          {
+            "id": "most-anticiapted-start-season-btn-id",
+            "text": "When does the Premier League Season Start?",
+            "buttonOrder": 2
+          }
+        ],
+        "buttonOptionContent": [
+          {
+            "buttonId": "most-anticiapted-this-season-btn-id",
+            "section1": {
+              "titleH2": "How are the Premier League Schedule and Fixtures determined?",
+              "contentH2": "The Premier League schedule and fixtures are determined by a complex process involving TV broadcast agreements, club preferences, stadium availability, and travel and rest times. The balancing system ensures fairness throughout the season.",
+              "contentListH3": [
+                {
+                  "title": "What are the Factors the Organization consider when doing the Premier League Fixtures?",
+                  "content": "The factors the organization considers when doing Premier League fixtures are listed below.<br/><br/><span class=\"text-style-1\">Club or team requests and preferences:</span> The Premier League considers requests and preferences from clubs or teams when scheduling fixtures. The requests include avoiding home games on specified dates due to concerns about stadium availability or other activities. The league aims to satisfy the teams' logistical requirements and preferences by considering things that must result in a seamless and effective scheduling procedure.",
+                  "defaultExpand": true
+                },
+                {
+                  "title": "When is the Premier League Schedule Finalized?",
+                  "content": "...",
+                  "defaultExpand": false
+                },
+                {
+                  "title": "Is there a possibility of Postponing Premier League Games?",
+                  "content": "...",
+                  "defaultExpand": false
+                },
+                {
+                  "title": "What is the Structure of the Premier League Match Schedule?",
+                  "content": "...",
+                  "defaultExpand": false
+                },
+                {
+                  "title": "What is the Significance of the PL Table for Match Schedules?",
+                  "content": "...",
+                  "defaultExpand": false
+                }
+              ],
+              "contentListH4": []
+            }
+          },
+          {
+            "buttonId": "most-anticiapted-start-season-btn-id",
+            "section1": {
+                "titleH2": "How are the Premier League Schedule and Fixtures determined?",
+                "contentH2": "The Premier League schedule and fixtures are determined by a complex process involving TV broadcast agreements, club preferences, stadium availability, and travel and rest times. The balancing system ensures fairness throughout the season.",
+                "contentListH3": [
+                  {
+                    "title": "How many Premier League Games are there in a Single Season?",
+                    "content": "There are 380 Premier League games in a single season, with each of the 20 teams playing 38 matches in a home-and-away format. There are 38 games in a season for each side, 19 of which are played at home and 19 away. The reason for the rule is that each team is required to play each of the other 19 teams twice. The total number of games is determined by calculating the number of matches each team performs, which is 38. Multiplying the 38 games played by each of the 20 teams yields 760 games counted from each team's perspective.<br/><br/>The number of unique matches in the season is 380, though, because each game is tallied once for the two participating teams. The system promotes a balanced competition, with each team having an equal opportunity to play at home and away, allowing for a fair determination of the league champion based on total performance.",
+                    "defaultExpand": true
+                  },
+                  {
+                    "title": "Why are Premier League Games mostly Scheduled on Weekends?",
+                    "content": "...",
+                    "defaultExpand": false
+                  },
+                  {
+                    "title": "Why does not Premier League have Playoffs?",
+                    "content": "...",
+                    "defaultExpand": false
+                  }
+                ],
+                "contentListH4": []
+              }
+          }
+        ]
+      }
+    }
+  ]
+}

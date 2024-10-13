@@ -18,6 +18,7 @@
                 @click="GoToLeagueStanding(item.showLeagueStandingButtonInfo.routeUrlName, item.showLeagueStandingButtonInfo.leagueId)"></custom-button-6>
 
             <custom-button-6 v-if="item.showLeagueScheduleButton" :id="item.showLeagueScheduleButtonInfo.buttonId"
+                @click="GoToLeagueSchedule(item.showLeagueScheduleButtonInfo.routeUrlName, item.showLeagueScheduleButtonInfo.leagueId)"
                 :label="item.showLeagueScheduleButtonInfo.buttonLabel"></custom-button-6>
 
             <custom-button-6 v-if="item.showLeagueButton" :id="item.showLeagueButtonInfo.buttonId"
@@ -43,6 +44,10 @@ async function GoToLeagueStanding(routeUrlName: any, leagueId: any) {
     return router.push(localePath({ name: 'sports-soccer-standing-leagueStanding', params: { leagueStanding: routeUrlName }, query: { leagueId: leagueId } }));
 }
 
+async function GoToLeagueSchedule(routeUrlName: any, leagueId: any) {
+    return router.push(localePath({ name: 'sports-soccer-schedule-leagueSchedule', params: { leagueSchedule: routeUrlName }, query: { leagueId: leagueId } }));
+}
+
 async function GoToLeague(routeUrlName: any, leagueId: any) {
     return router.push(localePath({ name: 'sports-soccer-league-league', params: { league: routeUrlName }, query: { leagueId: leagueId } }));
 }
@@ -51,7 +56,7 @@ async function GoToLeague(routeUrlName: any, leagueId: any) {
 <style lang="scss" scoped>
 .football-league-btn-wrapper {
     display: flex;
-    justify-content: center;    
+    justify-content: center;
     gap: 1rem;
 
     // display: flex;

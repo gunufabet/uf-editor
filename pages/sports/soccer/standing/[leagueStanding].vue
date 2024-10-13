@@ -14,7 +14,7 @@
 
     <!-- section 3 -->
     <accordion-h3 style="margin-left: 1rem;" v-for="(item, index) in content.section3.contentListH3" :key="index"
-        :section-title="item.title" :section-content="item.content" :with-break-line="false"></accordion-h3>
+        :section-title="item.title" :section-content="item.content" :with-break-line="false" :default-open-panel="item.defaultExpand"></accordion-h3>
 
     <br>
 
@@ -24,7 +24,7 @@
 
     <br>
     <accordion-h3 style="margin-left: 1rem;" v-for="(item, index) in content?.section4?.contentListH3" :key="index"
-        :section-title="item.title" :section-content="item.content" :with-break-line="true">
+        :section-title="item.title" :section-content="item.content" :with-break-line="true" :default-open-panel="item.defaultExpand">
     </accordion-h3>
 
     <accordion-h4 style="margin-left: 1rem;" v-for="(item, index) in content?.section4?.contentListH4" :key="index"
@@ -39,7 +39,7 @@
 
     <br>
     <accordion-h3 style="margin-left: 1rem;" v-for="(item, index) in content?.section5?.contentListH3" :key="index"
-        :section-title="item.title" :section-content="item.content" :with-break-line="true">
+        :section-title="item.title" :section-content="item.content" :with-break-line="true" :default-open-panel="item.defaultExpand">
     </accordion-h3>
 
     <accordion-h4-style-2 style="margin-left: 1rem;" v-for="(item, index) in content?.section5?.contentListH4"
@@ -54,7 +54,7 @@
 
     <br>
     <accordion-h3 style="margin-left: 1rem;" v-for="(item, index) in content?.section6?.contentListH3" :key="index"
-        :section-title="item.title" :section-content="item.content" :with-break-line="true">
+        :section-title="item.title" :section-content="item.content" :with-break-line="true" :default-open-panel="item.defaultExpand">
     </accordion-h3>
 
     <accordion-h4-style-2 style="margin-left: 1rem;" v-for="(item, index) in content?.section6?.contentListH4"
