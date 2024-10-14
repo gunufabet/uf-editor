@@ -72,18 +72,18 @@ const betBoostList = ref(content.betBoostList);
     // width: 100%;
 
     &-league-name {
-        margin: 0.1rem 0 0.1rem 0;
+        margin: 0.1rem 0 0.3rem 0;
         color: #8B8B8B;
-        font-size: 10px;
+        font-size: 14px;
         font-style: normal;
         font-weight: 400;
         line-height: normal;
     }
 
     &-team-match {
-        margin: 0.1rem 0 0.1rem 0;
+        margin: 0.1rem 0 0.3rem 0;
         color: #FFF;
-        font-size: 11px;
+        font-size: 14px;
         font-style: normal;
         font-weight: 400;
         line-height: normal;
@@ -91,7 +91,7 @@ const betBoostList = ref(content.betBoostList);
 
     &-team-match-vs {
         color: #AE874B;
-        font-size: 11px;
+        font-size: 14px;
         font-style: normal;
         font-weight: 400;
         line-height: normal;
@@ -102,7 +102,7 @@ const betBoostList = ref(content.betBoostList);
         margin: 0.1rem 0 0.1rem 0;
         flex-grow: 1;
         color: #EBC76E;
-        font-size: 12px;
+        font-size: 14px;
         font-style: normal;
         font-weight: 700;
         line-height: normal;
@@ -110,7 +110,7 @@ const betBoostList = ref(content.betBoostList);
 
     &-match-odds {
         color: #8B8B8B;
-        font-size: 12px;
+        font-size: 14px;
         font-style: normal;
         font-weight: 400;
         line-height: normal;
@@ -135,7 +135,7 @@ const betBoostList = ref(content.betBoostList);
 
     color: #FFDBAA;
     text-align: center;
-    font-size: 12px;
+    font-size: 14px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
@@ -155,7 +155,7 @@ const betBoostList = ref(content.betBoostList);
 .bet-boost-odds-to-text {
     color: #FFF;
     text-align: center;
-    font-size: 12px;
+    font-size: 14px;
     font-style: normal;
     font-weight: 600;
     line-height: normal;

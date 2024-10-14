@@ -145,7 +145,7 @@ function closeModal(event: any) {
     .join-now {
         color: #FDD387;
         text-align: center;
-        font-size: 12px;
+        font-size: 14px;
         font-style: normal;
         font-weight: 500;
         line-height: normal;
@@ -155,7 +155,7 @@ function closeModal(event: any) {
     .forgot-pw {
         color: #CDCDCD;
         text-align: center;
-        font-size: 12px;
+        font-size: 14px;
         font-style: normal;
         font-weight: 400;
         line-height: 14px;

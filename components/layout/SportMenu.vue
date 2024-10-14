@@ -261,7 +261,7 @@ async function bindCategory(routeName: string) {
     align-items: center;
     flex-direction: column;
     padding: 10px;
-    font-size: 11px;
+    font-size: 12px;
     text-decoration: none;
     text-align: center;
 }
@@ -278,7 +278,7 @@ async function bindCategory(routeName: string) {
 
 .main-menu-selected-text {
     color: #EBC76E;
-    font-size: 10px;
+    font-size: 12px;
     font-style: normal;
     font-weight: 600;
     line-height: normal;
@@ -286,7 +286,7 @@ async function bindCategory(routeName: string) {
 
 .main-menu-not-selected-text {
     color: #EBC76E;
-    font-size: 10px;
+    font-size: 12px;
     font-style: normal;
     font-weight: 600;
     line-height: normal;

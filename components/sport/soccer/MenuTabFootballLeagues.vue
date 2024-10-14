@@ -66,6 +66,8 @@ async function GoToLeague(routeUrlName: any, leagueId: any) {
     flex-wrap: nowrap;
     overflow-x: auto;
     overflow-y: hidden;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
 }
 
 @media only screen and (max-width:475px) {

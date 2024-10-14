@@ -55,7 +55,7 @@ async function clickPanel() {
     font-size: 14px;
     font-style: normal;
     font-weight: 500;
-    line-height: 18px;
+    // line-height: 2rem;
 
     &.expand {
         color: #EBC76E;
@@ -95,7 +95,7 @@ async function clickPanel() {
     color: #D9D9D9;    
     font-size: 14px;
     font-weight: 300;
-    line-height: 18px;
+    line-height: 1.5rem;
     // margin-top: 1rem;    
     margin-left: 2.3rem;
     margin-right: 1rem;

@@ -1,5 +1,6 @@
 <template>
-    <button :id="id" class="custom-btn" :class="isSelected ? 'selected' : 'notSelected'">{{ props.label }}</button>
+    <button :id="id" class="custom-btn" :class="isSelected ? 'selected' : 'notSelected'"><span
+            class="custom-button-text">{{ props.label }}</span></button>
 </template>
 
 <script setup lang="ts">
@@ -48,5 +49,17 @@ const props = defineProps({
     background: var(--linear-bar, linear-gradient(90deg, #2B2B32 0%, #484141 100%));
     color: #AE874B;
     font-weight: 400;
+}
+
+.custom-button-text {
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+
+@media only screen and (max-width:475px) {
+    .custom-button-text {
+        margin-left: 0;
+        margin-right: 0;
+    }
 }
 </style>

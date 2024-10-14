@@ -64,7 +64,7 @@ const props = defineProps({
 
 .label-text-1 {
     color: #EBC76E;
-    font-size: 10px;
+    font-size: 14px;
     font-style: normal;
     font-weight: 400;
     line-height: 16px;

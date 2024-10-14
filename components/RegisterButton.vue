@@ -45,7 +45,7 @@ const props = defineProps({
 
 @media only screen and (max-width:475px) {
     .btn-text {
-        font-size: 10px;
+        font-size: 12px;
     }
 }
 </style>

@@ -41,9 +41,9 @@ const props = defineProps({
 }
 
 .summary-table th,
-.summary-table td {    
+.summary-table td {
     text-align: left;
-    padding: 8px;    
+    padding: 1rem;
 }
 
 .summary-table th {
@@ -64,7 +64,7 @@ const props = defineProps({
     line-height: normal;
     align-content: start;
 
-    border-bottom: 1px solid rgba(204, 171, 103, 0.5);    
+    border-bottom: 1px solid rgba(204, 171, 103, 0.5);
 }
 
 // .summary-table th {

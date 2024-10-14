@@ -100,7 +100,7 @@ const languageList = ref([
 .lang-text {
     margin: 0 0.5rem 0 0.3rem;
     color: #EBC76E;
-    font-size: 10px;
+    font-size: 14px;
     font-style: normal;
     font-weight: 500;
     line-height: normal;
@@ -178,5 +178,11 @@ const languageList = ref([
     align-items: center;
     gap: 0.3rem;
     margin: 0.3rem;
+}
+
+@media only screen and (max-width:475px) {
+    .lang-text {
+        font-size: 12px;
+    }
 }
 </style>

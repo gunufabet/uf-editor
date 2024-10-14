@@ -25,7 +25,7 @@ const props = defineProps({
     border-radius: 25px;
     background: var(--linear-bar, linear-gradient(90deg, #2B2B32 0%, #484141 100%));
     color: #EBC76E;
-    font-size: 12px;
+    font-size: 14px;
     // font-style: normal;
     font-weight: 500;
     line-height: normal;

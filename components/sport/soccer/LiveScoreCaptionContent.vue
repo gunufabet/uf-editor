@@ -48,7 +48,7 @@ function clickDetail() {
     &-detail {        
         font-size: 14px;
         margin: 0.5rem 0.1rem 0.5rem .1rem;
-        line-height: 24px;
+        line-height: 1.5rem;
         font-weight: 300;
 
         color: #D9D9D9;

@@ -210,7 +210,7 @@ const props = defineProps({
 
     .team-text {
         color: #FFF;
-        font-size: 12px;
+        font-size: 14px;
         font-style: normal;
         font-weight: 400;
         line-height: normal;
@@ -267,7 +267,7 @@ const props = defineProps({
 
 .event-title {
     color: #FFF;
-    font-size: 12px;
+    font-size: 14px;
     font-style: normal;
     font-weight: 700;
     line-height: normal;

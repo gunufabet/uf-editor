@@ -73,7 +73,7 @@ onMounted(() => {
     font-size: 14px;
     font-style: normal;
     font-weight: 500;
-    line-height: 18px;
+    // line-height: 2rem;
 
     &.expand {
         color: #EBC76E;
@@ -113,7 +113,7 @@ onMounted(() => {
     color: #D9D9D9;    
     font-size: 14px;
     font-weight: 300;
-    line-height: 20px;
+    line-height: 1.5rem;
     margin-top: 0.5rem;
     margin-bottom: 0.3rem;
     margin-left: 2.3rem;
@@ -142,7 +142,7 @@ onMounted(() => {
     border-bottom: 1px solid #ddd;
     border-bottom-color: rgba(132, 107, 45, 0.52);
     margin-left: 1rem;
-    margin-bottom: 1.5rem;
+    // margin-bottom: 1.5rem;
     margin-top: 1.5rem;
 }
 

@@ -12,7 +12,8 @@
 
     <div v-if="showNews">
         <div style="margin: 1rem;">
-            <img style="margin-right: 0.3rem;" src="/img/soccer/icn-happening-now.svg" alt="soccer happening now">
+            <img style="margin-right: 0.3rem;" src="/img/soccer/icn-happening-now.svg" alt="soccer happening now"
+                class="happening-now-img">
             <span class="happening-now-text-1">{{ $t('sport.news.happening') }} </span><span
                 class="happening-now-text-2">{{ $t('sport.news.now') }}</span>
         </div>
@@ -153,13 +154,13 @@ function mapMatch() {
 
 .happening-now-text-1 {
     color: #EBC76E;
-    font-size: 12px;
+    font-size: 16px;
     font-weight: 700;
 }
 
 .happening-now-text-2 {
     color: #FFF;
-    font-size: 12px;
+    font-size: 16px;
     font-weight: 500;
 }
 
@@ -178,6 +179,11 @@ function mapMatch() {
     // padding-bottom: 1rem;
     gap: 1rem;
     padding-right: 1rem;
+}
+
+.happening-now-img {
+    width: 12px;
+    height: 12px;
 }
 
 @media only screen and (max-width:475px) {

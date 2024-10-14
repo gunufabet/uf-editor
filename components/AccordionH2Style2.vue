@@ -59,7 +59,7 @@ details.disabled summary {
     color: #EBC76E;
     font-size: 24px;
     font-weight: 400;
-    line-height: 28px;
+    // line-height: 2rem;
 }
 
 .accordion-indent {
@@ -127,7 +127,7 @@ details.disabled summary {
     color: #D9D9D9;    
     font-size: 14px;
     font-weight: 300;    
-    line-height: 24px;
+    line-height: 1.5rem;
     margin-top: 1rem;
     margin-left: 1rem;
     margin-right: 1rem;

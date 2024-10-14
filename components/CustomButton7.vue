@@ -93,7 +93,7 @@ const props = defineProps({
     gap: 0.3rem;
 
     color: #FFF;
-    font-size: 12px;
+    font-size: 14px;
     font-style: normal;
     font-weight: 500;
     line-height: normal;

@@ -33,6 +33,7 @@
         :section-title="item.title" :section-content="item.content">
     </accordion-h4>
 
+    <br>
     <aside-content :key="asideTitleText3" :aside-title-text="asideTitleText3"
         :aside-content-text="asideContentText3"></aside-content>
     <accordion-h4 style="margin-left: 1rem;" v-for="(item, index) in title3_contentH4Expand" :key="index"

@@ -52,7 +52,7 @@ details.disabled summary {
     font-size: 14px;
     font-style: normal;
     font-weight: 500;
-    line-height: 18px;
+    // line-height: 2rem;
 
     &.expand {
         color: #EBC76E;
@@ -128,7 +128,7 @@ details.disabled summary {
     color: #D9D9D9;    
     font-size: 14px;
     font-weight: 300;
-    line-height: 18px;
+    line-height: 1.5rem;
     margin-top: 1rem;
     margin-left: 1rem;
     margin-right: 1rem;

@@ -69,7 +69,7 @@ function clickShowMore() {
     }
 
     &-detail {
-        line-height: 24px;
+        line-height: 2rem;
         font-weight: 300;
 
         color: #D9D9D9;
@@ -119,7 +119,7 @@ function clickShowMore() {
     cursor: pointer;
     color: #EBC76E;
     text-align: center;
-    font-size: 12px;
+    font-size: 14px;
     font-style: normal;
     font-weight: 500;
     line-height: normal;

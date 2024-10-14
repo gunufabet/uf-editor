@@ -73,7 +73,7 @@ const props = defineProps({
     overflow: hidden;
 
     color: #FFF;
-    font-size: 10px;
+    font-size: 14px;
     font-style: normal;
     font-weight: 400;
     line-height: 14px;
@@ -89,12 +89,12 @@ const props = defineProps({
 .date-wrapper {
     background: linear-gradient(270deg, rgba(0, 0, 0, 0.00) 8.06%, rgba(49, 40, 17, 0.71) 48.61%, #846B2D 100%);
     color: #EBC76E;
-    font-size: 10px;
-    height: 15px;
+    font-size: 14px;
+    height: 21px;
     left: 0;
     line-height: 10px;
     position: absolute;
-    top: -18px;
+    top: -24px;
     width: 100%;
     // width: -moz-fit-content;
     // width: fit-content;    

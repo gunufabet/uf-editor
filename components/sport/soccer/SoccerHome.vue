@@ -42,10 +42,13 @@
     <br>
     <sport-soccer-bet-boost v-if="asideContentShowBetBoost"></sport-soccer-bet-boost>
 
+    
     <sport-soccer-news-section></sport-soccer-news-section>
     <br>
 
     <sport-soccer-bonus-section></sport-soccer-bonus-section>
+
+    <br>
 
     <sport-soccer-game-available-section :menu-tab-id="selectTabMenu2_MenuTabId"
         :focus-title="selectTabMenu2_FocusTitle"></sport-soccer-game-available-section>
