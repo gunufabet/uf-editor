@@ -27,9 +27,9 @@
 
     <accordion-h2-style-2 :section-title="content.section4.titleH2" :section-content="content.section4.contentH2">
     </accordion-h2-style-2>
-
-    <!-- <br v-if="content.section4.showBetBooat"> -->
-    <sport-soccer-bet-boost style="margin-top: 30px;" v-if="content.section4.showBetBooat"></sport-soccer-bet-boost>
+    
+    <!-- <br v-if="content.section4.showBetBoost"> -->    
+    <sport-soccer-bet-boost style="margin-top: 30px;" v-if="content.section4.showBetBoost"></sport-soccer-bet-boost>
 
     <accordion-h2-style-2 style="margin-top: 30px;" :section-title="content.section5.titleH2"
         :section-content="content.section5.contentH2">

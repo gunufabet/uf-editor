@@ -33,17 +33,18 @@
         :section-content-h3-table-content="sectionContentH3TableContent"
         :section-content-h4-table-header="sectionContentH4TableHeader"
         :section-content-h4-table-content="sectionContentH4TableContent"></sub-main-content>
-    
+
     <br>
     <tab-menu @select-tab-menu="selectTabMenu2" :tab-menu-list="tabMenuList2"></tab-menu>
     <aside-content :key="asideTitleText" :aside-title-text="asideTitleText"
         :aside-content-text="asideContentText"></aside-content>
 
+    <br>
     <sport-soccer-bet-boost v-if="asideContentShowBetBoost"></sport-soccer-bet-boost>
 
     <sport-soccer-news-section></sport-soccer-news-section>
     <br>
-    
+
     <sport-soccer-bonus-section></sport-soccer-bonus-section>
 
     <sport-soccer-game-available-section :menu-tab-id="selectTabMenu2_MenuTabId"

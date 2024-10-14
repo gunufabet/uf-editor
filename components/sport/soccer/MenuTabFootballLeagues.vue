@@ -9,6 +9,7 @@
             :with-break-line="true" :defaultOpenPanel="item.defaultOpen">
         </accordion-h3>
 
+        <br v-if="item.showBetBoost">
         <sport-soccer-bet-boost v-if="item.showBetBoost"></sport-soccer-bet-boost>
 
         <br v-if="item.showLeagueStandingButton || item.showLeagueScheduleButton">
