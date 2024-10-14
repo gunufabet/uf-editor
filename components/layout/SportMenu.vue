@@ -2,8 +2,7 @@
     <div>
         <!-- main menu -->
         <div class="menu-container">
-            <nuxt-link v-for="(menu, index) in menuItems" :key="index" @click="menuMainOnClick(menu)"
-                :to="localePath({ name: menu.menuRoute })" :style="{
+            <nuxt-link v-for="(menu, index) in menuItems" :key="index" @click="menuMainOnClick(menu)" :style="{
                 textDecoration: 'none',
                 color: 'inherit',
                 opacity: (routeName === menu.menuRoute || routeName === menu.menuRouteHome) ? '1' : '0.5',
@@ -17,15 +16,14 @@
         </div>
         <!-- category -->
         <div class="category-container">
-            <nuxt-link v-for="(category, index) in categoryItems" :key="index"
-                :to="localePath({ name: category.menuRoute, params: { category: category.url } })" :style="{
+            <nuxt-link v-for="(category, index) in categoryItems" :key="index" @click="menuCategoryOnClick(category)" :style="{
                 textDecoration: 'none',
                 color: 'inherit',
                 opacity: route.params.category === category.url ? '1' : '0.5',
             }">
                 <div class="category-item">
                     <div><img class="sub-category-icn" :src="category.src" :alt="category.alt"></div>
-                    <div style="text-align: center;">{{ category.text }}</div>
+                    <div style="text-align: center; cursor: pointer;">{{ category.text }}</div>
                 </div>
             </nuxt-link>
         </div>
@@ -200,7 +198,22 @@ const menuItems = ref([
 ]);
 
 async function menuMainOnClick(menu: any) {
-    bindCategory(menu.menuRoute)
+    if (menu.menuRoute === 'sports') {
+        bindCategory(menu.menuRoute)
+        return router.push(localePath({ name: menu.menuRoute }));
+    }
+    else {
+        // do nothing
+    }
+}
+
+async function menuCategoryOnClick(menu: any) {    
+    if (menu.url === 'soccer') {        
+        return router.push(localePath({ name: menu.menuRoute, params: { category: menu.url } }));
+    }
+    else {
+        // do nothing
+    }
 }
 
 async function bindCategory(routeName: string) {
@@ -216,6 +229,7 @@ async function bindCategory(routeName: string) {
 .sub-category-icn {
     width: 20px;
     height: 20px;
+    cursor: pointer;
 }
 
 .menu-container {
