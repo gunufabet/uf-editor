@@ -22,7 +22,7 @@ const props = defineProps({
     }
 });
 
-const selectedTab = ref(props.defaultSelectedTab || props.tabMenuList[0].id);
+const selectedTab = ref(props.defaultSelectedTab || props.tabMenuList[0]?.id);
 const emit = defineEmits(['select-tab-menu'])
 
 const selectTab = async (menuId: string) => {

@@ -1,6 +1,6 @@
 <template>
     <!-- sectionWithMenuLeague -->
-    <tab-menu v-if="leagueList" style="margin-top: 30px;" @select-tab-menu="selectTabMenuLeague"
+    <tab-menu v-if="leagueList.length > 0" style="margin-top: 30px;" @select-tab-menu="selectTabMenuLeague"
         :tab-menu-list="leagueList"></tab-menu>
     <br>
     <div style="margin: 0 0 0 1rem;" class="soccer-hot-match-wrapper">
@@ -27,7 +27,7 @@ onMounted(() => {
 
 function selectTabMenuLeague(value: string) {
     if (!value) {
-        value = leagueList.value[0].id;
+        value = leagueList.value[0]?.id;
         selectedLeagueMenuId.value = value;
     }
 
@@ -36,15 +36,15 @@ function selectTabMenuLeague(value: string) {
     );
 
     selectedLeagueMenuId.value = selectedMenu?.id || '';
-    
+
     mapMatch(selectedLeagueMenuId.value);
 }
 
-function mapMatch(selectedLeagueMenuId: String) {    
+function mapMatch(selectedLeagueMenuId: String) {
     const matches = runningLiveScoreByLeague.value.filter(
         (matchContent) => matchContent.attributes.leagueId === selectedLeagueMenuId
     );
-    
+
     eventMatchList.value = [];
     matches.forEach((item) => {
         let record = {
@@ -56,7 +56,7 @@ function mapMatch(selectedLeagueMenuId: String) {
             homeIcon: item.attributes?.homeFlagImg?.data?.attributes?.flag || '',
             homeIconAlt: item.attributes.homeName,
             awayName: item.attributes.awayName,
-            awayScore: item.attributes.awayScore,            
+            awayScore: item.attributes.awayScore,
             awayIcon: item.attributes?.awayFlagImg?.data?.attributes?.flag || '',
             awayIconAlt: item.attributes.awayName,
             homeOdds: "2.05",   // Use dynamic data if available
