@@ -1,21 +1,23 @@
 <template>
-    <div v-if="hotMatchList.length > 0" style="margin: 1rem;" class="title-container">
-        <div style="display: flex;">
-            <img style="margin-right: 0.3rem;" src="/img/soccer/icn-hot.svg" alt="hot matches">
+    <div class="hot-match-bg">
+        <div v-if="hotMatchList.length > 0" class="title-container">
+            <div style="display: flex; margin-left: 1.3rem">
+                <img style="margin-right: 0.3rem;" src="/img/soccer/icn-hot-black.svg" alt="hot matches">
+            </div>
+            <div>
+                <span class="hot-match-text-1">{{ $t('sport.news.hot') }} </span>
+                <span class="hot-match-text-2">{{ $t('sport.news.matches') }}</span>
+            </div>
         </div>
-        <div>
-            <span class="hot-match-text-1">{{ $t('sport.news.hot') }} </span>
-            <span class="hot-match-text-2">{{ $t('sport.news.matches') }}</span>
+        <div style="margin: 1rem;" class="hot-match-container">
+            <sport-soccer-match-container v-for="(match, index) in hotMatchList" :key="index"
+                :tournamentText="match.tournamentText" :matchRunningTime="match.matchRunningTime"
+                :isRunningMatch="match.isRunningMatch" :homeName="match.homeName" :homeScore="match.homeScore"
+                :homeIcon="match.homeIcon" :homeIconAlt="match.homeIconAlt" :awayName="match.awayName"
+                :awayScore="match.awayScore" :awayIcon="match.awayIcon" :awayIconAlt="match.awayIconAlt"
+                :homeOdds="match.homeOdds" :awayOdds="match.awayOdds" :drawOdds="match.drawOdds">
+            </sport-soccer-match-container>
         </div>
-    </div>
-    <div style="margin: 1rem;" class="hot-match-container">
-        <sport-soccer-match-container v-for="(match, index) in hotMatchList" :key="index"
-            :tournamentText="match.tournamentText" :matchRunningTime="match.matchRunningTime"
-            :isRunningMatch="match.isRunningMatch" :homeName="match.homeName" :homeScore="match.homeScore"
-            :homeIcon="match.homeIcon" :homeIconAlt="match.homeIconAlt" :awayName="match.awayName"
-            :awayScore="match.awayScore" :awayIcon="match.awayIcon" :awayIconAlt="match.awayIconAlt"
-            :homeOdds="match.homeOdds" :awayOdds="match.awayOdds" :drawOdds="match.drawOdds">
-        </sport-soccer-match-container>
     </div>
 </template>
 
@@ -70,15 +72,21 @@ function mapMatch() {
 }
 
 .hot-match-text-1 {
-    color: #EBC76E;
+    color: #181818;
     font-size: 12px;
     font-weight: 700;
 }
 
 .hot-match-text-2 {
-    color: #FFF;
+    color: #181818;
     font-size: 12px;
     font-weight: 500;
     margin-left: 0.1rem;
+}
+
+.hot-match-bg {
+    background: linear-gradient(100deg, #EBC76E 0%, #BA8C4E 100%);
+    padding-top: 1rem;
+    padding-bottom: 1rem;
 }
 </style>

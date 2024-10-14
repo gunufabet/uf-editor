@@ -143,7 +143,7 @@ const betBoostList = ref(content.betBoostList);
 
 .bet-boost-img {
     // width: 25px;
-    height: 50px;
+    height: 30px;
     z-index: 1;
 }
 
