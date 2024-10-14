@@ -9,7 +9,7 @@
                 <img src="/img/soccer/icn-play-live.svg" alt="" style="width: 37px; height: 15px;">
             </div>
         </div>
-        <div class="bg-top-left-design">
+        <!-- <div class="bg-top-left-design">
             <svg xmlns="http://www.w3.org/2000/svg" width="299" height="179" viewBox="0 0 299 179" fill="none">
                 <path
                     d="M0.5 10.5C0.5 5.25329 4.75329 1 10 1H289C294.247 1 298.5 5.2533 298.5 10.5V168.5C298.5 173.747 294.247 178 289 178H10C4.7533 178 0.5 173.747 0.5 168.5V10.5Z"
@@ -27,7 +27,7 @@
                     </linearGradient>
                 </defs>
             </svg>
-        </div>
+        </div> -->
         <div class="match-content-container">
             <div class="match-content-wrapper-base">
                 <div class="match-content-wrapper-2">
@@ -161,7 +161,7 @@ const props = defineProps({
 
 .match-footer-container {
     position: absolute;
-    bottom: 0;
+    bottom: 0;    
     width: -webkit-fill-available;
 
     border-radius: 0px 0px 10px 10px;
