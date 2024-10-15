@@ -12,7 +12,7 @@
                     <div :class="(routeName === menu.menuRoute || routeName === menu.menuRouteHome) ? 'main-menu-selected-text' : 'main-menu-not-selected-text'"
                         style="text-align: center; cursor: pointer; display: flex; align-items: center;">
                         <!-- home icon -->
-                        <svg v-if="menu.menuRoute === 'sports' && routeName !== menu.menuRoute"
+                        <svg v-if="menu.menuRoute === 'sports' && (routeName !== menu.menuRoute && routeName !== menu.menuRouteHome)"
                             style="margin-right: 0.5rem;" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
                             viewBox="0 0 18 18" fill="none">
                             <rect x="0.5" y="0.5" width="17" height="17" rx="8.5"
@@ -28,7 +28,7 @@
                                 </linearGradient>
                             </defs>
                         </svg>
-                        <svg v-if="menu.menuRoute === 'sports' && routeName === menu.menuRoute"
+                        <svg v-if="menu.menuRoute === 'sports' && (routeName === menu.menuRoute || routeName === menu.menuRouteHome)"
                             style="margin-right: 0.5rem;" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
                             viewBox="0 0 18 18" fill="none">
                             <rect x="0.5" y="0.5" width="17" height="17" rx="8.5"
