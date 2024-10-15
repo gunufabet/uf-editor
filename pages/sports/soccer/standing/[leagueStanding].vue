@@ -6,6 +6,8 @@
         :section-content="content.section2.content">
     </accordion-h2-style-2>
 
+    <sport-soccer-league-table-summary v-if="content.section2?.showLeagueTable" :league-id="leagueId"></sport-soccer-league-table-summary>
+
     <accordion-h2 style="margin-top: 30px;" :section-title="content.section3.titleH2"
         :section-content="content.section3.contentH2">
     </accordion-h2>

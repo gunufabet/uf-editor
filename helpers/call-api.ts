@@ -70,4 +70,49 @@ export default {
         }
       });
   },
+  async getStanding(leagueId: String) {
+    const totalRecord = 100;
+    let leagueIdParam = `filters[leagueIdLocale]=${leagueId}en`;
+    let sortParam = "sort[0]=leagueName:asc";
+    let paginationParam = `pagination[page]=1&pagination[pageSize]=${totalRecord}`;
+    let langParam = "locale=en";
+    let populateParam = "populate[all][populate]=*&populate[home][populate]=*&populate[away][populate]=*";
+
+    let param = `${leagueIdParam}&${sortParam}&${paginationParam}&${langParam}&${populateParam}`;
+
+    return httpService({
+      method: CallApiMethod.get,
+      url: "api/live-score-standings?" + param,
+      timeout: 0,
+    })
+      .then((response) => {
+        if (response.data) {
+          return {
+            succ: true,
+            data: response.data.data,
+          };
+        }
+        return {
+          succ: false,
+          data: null,
+          msg: "No record found",
+        };
+      })
+      .catch((error) => {
+        let defaultErrorMessage = error.message || "Unknown error";
+        if (error.response) {
+          return {
+            succ: false,
+            data: null,
+            msg: error.response.data.message,
+          };
+        } else {
+          return {
+            succ: false,
+            data: null,
+            msg: defaultErrorMessage,
+          };
+        }
+      });
+  },
 };

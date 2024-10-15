@@ -121,8 +121,7 @@ details.disabled summary {
 .accordion-panel-content {
     color: #D9D9D9;
     font-size: 16px;
-    font-weight: 300;
-    // line-height: 16px;
+    font-weight: 300;    
     line-height: 1.5rem;
     margin-top: 1rem;
     margin-left: 1rem;

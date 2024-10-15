@@ -60,8 +60,8 @@ const props = defineProps({
     color: #D9D9D9;
     font-size: 14px;
     font-style: normal;
-    font-weight: 400;
-    line-height: normal;
+    font-weight: 400;    
+    line-height: 1.5rem;
     align-content: start;
 
     border-bottom: 1px solid rgba(204, 171, 103, 0.5);
