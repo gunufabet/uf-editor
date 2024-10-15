@@ -2,6 +2,12 @@
     <main-content :main-title-text="mainTitle" :main-content-text="content.main.content"></main-content>
     <br>
 
+    <accordion-h2 :section-title="section1Title">
+    </accordion-h2>
+    <sport-soccer-league-schedule :league-id="leagueId"></sport-soccer-league-schedule>
+    <br>
+    <br>
+
     <!-- section 2 -->
     <accordion-h2 :section-title="content?.section2?.titleH2" :section-content="content?.section2?.contentH2">
     </accordion-h2>
@@ -28,17 +34,19 @@
     <br>
 
     <!-- selected button content  -->
-    <accordion-h2 :section-title="selectedButtonContent?.section1?.titleH2" :section-content="selectedButtonContent?.section1?.contentH2">
+    <accordion-h2 :section-title="selectedButtonContent?.section1?.titleH2"
+        :section-content="selectedButtonContent?.section1?.contentH2">
     </accordion-h2>
 
-    <br v-if="selectedButtonContent?.section1?.titleH2">    
+    <br v-if="selectedButtonContent?.section1?.titleH2">
 
-    <accordion-h3 style="margin-left: 1rem;" v-for="(item, index) in selectedButtonContent?.section1?.contentListH3" :key="index"
-        :section-title="item.title" :section-content="item.content" :with-break-line="true" :default-open-panel="item.defaultExpand">
+    <accordion-h3 style="margin-left: 1rem;" v-for="(item, index) in selectedButtonContent?.section1?.contentListH3"
+        :key="index" :section-title="item.title" :section-content="item.content" :with-break-line="true"
+        :default-open-panel="item.defaultExpand">
     </accordion-h3>
 
-    <accordion-h4 style="margin-left: 1rem;" v-for="(item, index) in selectedButtonContent?.section1?.contentListH4" :key="index"
-        :section-title="item.title" :section-content="item.content">
+    <accordion-h4 style="margin-left: 1rem;" v-for="(item, index) in selectedButtonContent?.section1?.contentListH4"
+        :key="index" :section-title="item.title" :section-content="item.content">
     </accordion-h4>
 </template>
 
@@ -92,12 +100,21 @@ function selectButton(value: any) {
         selectedBtnId.value = content.value.sectionButton.buttonOption[0].id;
     } else {
         selectedBtnId.value = value.id;
-    }    
+    }
 
     selectedButtonContent.value = content.value.sectionButton.buttonOptionContent.find(
         (content) => content.buttonId === selectedBtnId.value
-    );    
+    );
 }
+
+const section1Title = computed(() => {
+    let title = content.value.section1.titleH2;
+    title = title.replace('{premier_league_param}', content.value.leagueName)
+    title = title.replace('{premier_league_year_from_param}', getThisYear.value);
+    title = title.replace('{premier_league_year_to_param}', getNextYear.value);
+
+    return title;
+})
 </script>
 
 <style lang="scss" scoped>

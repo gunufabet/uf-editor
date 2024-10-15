@@ -76,13 +76,68 @@ export default {
     let sortParam = "sort[0]=leagueName:asc";
     let paginationParam = `pagination[page]=1&pagination[pageSize]=${totalRecord}`;
     let langParam = "locale=en";
-    let populateParam = "populate[all][populate]=*&populate[home][populate]=*&populate[away][populate]=*";
+    let populateParam =
+      "populate[all][populate]=*&populate[home][populate]=*&populate[away][populate]=*";
 
     let param = `${leagueIdParam}&${sortParam}&${paginationParam}&${langParam}&${populateParam}`;
 
     return httpService({
       method: CallApiMethod.get,
       url: "api/live-score-standings?" + param,
+      timeout: 0,
+    })
+      .then((response) => {
+        if (response.data) {
+          return {
+            succ: true,
+            data: response.data.data,
+          };
+        }
+        return {
+          succ: false,
+          data: null,
+          msg: "No record found",
+        };
+      })
+      .catch((error) => {
+        let defaultErrorMessage = error.message || "Unknown error";
+        if (error.response) {
+          return {
+            succ: false,
+            data: null,
+            msg: error.response.data.message,
+          };
+        } else {
+          return {
+            succ: false,
+            data: null,
+            msg: defaultErrorMessage,
+          };
+        }
+      });
+  },
+  async getFixtures(leagueId: String) {
+    const dateFormat = (data: Date, format: string) =>
+      useDateFormat(data, format, {
+        // locales: locale.value === "th" ? "th-TH" : "en-US",
+      }).value.replace('"', "");
+
+    const totalRecord = 20;
+    let leagueIdParam = `filters[leagueId]=${leagueId}`;
+    let runningStateParam =
+      "filters[$or][0][matchState][$notIn][0]=FT&filters[$or][1][matchState][$null]=true";
+    let today = new Date();
+    let todayDate = dateFormat(today, "YYYY-MM-DD");
+    let dateFromParam = `filters[matchDate][$gte]=${todayDate}`;
+    let sortParam = "sort[0]=matchDate:asc,matchState:desc,matchTime:asc,homeName:asc";
+    let paginationParam = `pagination[page]=1&pagination[pageSize]=${totalRecord}`;
+    let langParam = "locale=en";
+    let populateParam = "populate[homeFlagImg]=*&populate[awayFlagImg]=*";
+    let param = `${dateFromParam}&${leagueIdParam}&${runningStateParam}&${sortParam}&${paginationParam}&${langParam}&${populateParam}`;
+
+    return httpService({
+      method: CallApiMethod.get,
+      url: "api/live-scores?" + param,
       timeout: 0,
     })
       .then((response) => {

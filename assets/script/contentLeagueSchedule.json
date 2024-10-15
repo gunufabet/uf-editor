@@ -4,8 +4,12 @@
       "leagueId": "92",
       "leagueName": "English Premier League",
       "main": {
-        "title": "Premier League Schedule: Fixtures and Games",
-        "content": "The Premier League schedule lists matches played during the Premier League season. The Premier League is the top tier of English football, with 20 teams. A season consists of 38 games, with each side playing every other team twice, once at home and once away.<br/><br/>The Premier League schedule and fixtures are created meticulously considering TV broadcast agreements, club preferences, stadium availability, and travel issues. A fixture computer generates random matchups while considering travel, local events, and holidays such as Boxing Day. The schedule of Premier League matches is revealed in mid-June, giving clubs, fans, and broadcasters plenty of time to prepare. Extreme weather, health issues, logistical disruptions, or safety concerns cause postponements. The Premier League Board reviews the situation and allows postponements if there are substantial safety or health threats."
+        "title": "English Premier League Schedule: Fixtures and Games",
+        "content": "The English Premier League schedule lists matches played during the Premier League season. The Premier League is the top tier of English football, with 20 teams. A season consists of 38 games, with each side playing every other team twice, once at home and once away.<br/><br/>The Premier League schedule and fixtures are created meticulously considering TV broadcast agreements, club preferences, stadium availability, and travel issues. A fixture computer generates random matchups while considering travel, local events, and holidays such as Boxing Day. The schedule of Premier League matches is revealed in mid-June, giving clubs, fans, and broadcasters plenty of time to prepare. Extreme weather, health issues, logistical disruptions, or safety concerns cause postponements. The Premier League Board reviews the situation and allows postponements if there are substantial safety or health threats."
+      },
+      "section1": {
+        "titleH2": "English Premier League Schedule and Fixtures - {premier_league_year_from_param}/{premier_league_year_to_param} Season",
+        "contentH2": ""
       },
       "section2": {
         "titleH2": "What Premier League Games will happen this week?",
