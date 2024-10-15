@@ -1,5 +1,17 @@
 <template>
-    <div v-if="standingAll" class="summary-table-wrapper">
+    <br>
+    <div class="standing-tab-wrapper">
+        <div class="standing-tab">
+            <div v-for="(menu, index) in standingOptions" :key="index">
+                <button class="standing-tab-text" :class="menu.id === selectedMenu ? 'text-highlight' : ''"
+                    @click="selectMenu(menu)">
+                    {{ menu.text }}
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div v-if="standingContent" class="summary-table-wrapper">
         <table class="summary-table">
             <thead>
                 <tr>
@@ -9,11 +21,11 @@
                 </tr>
             </thead>
             <tbody>
-                <tr v-for="(row, rowIndex) in standingAll" :key="rowIndex" class="column-number-align">
+                <tr v-for="(row, rowIndex) in standingContent" :key="rowIndex" class="column-number-align">
                     <td>{{ row.rank }}</td>
                     <td>
                         <img :src="row.flagImg?.data?.attributes?.flag ? 'data:image/png;base64,' +
-        row.flagImg?.data?.attributes?.flag : '/img/soccer/icn-flag-placeholder.svg'" class="
+                row.flagImg?.data?.attributes?.flag : '/img/soccer/icn-flag-placeholder.svg'" class="
                             team-img" />
                         {{ row.teamName }}
                     </td>
@@ -36,6 +48,7 @@ const content = ref();
 const standingAll = ref();
 const standingHome = ref();
 const standingAway = ref();
+const standingContent = ref();
 
 const props = defineProps({
     leagueId: {
@@ -59,6 +72,8 @@ const standingOptions = ref([
     }
 ]
 );
+
+const selectedMenu = ref(standingOptions.value[0].id);
 
 const headerColumn = ref([
     {
@@ -99,7 +114,7 @@ const headerColumn = ref([
     }
 ]);
 onMounted(() => {
-    fetchStanding()
+    fetchStanding()    
 })
 
 async function fetchStanding() {
@@ -109,13 +124,49 @@ async function fetchStanding() {
         standingAll.value = content.value[0].attributes.all
         standingHome.value = content.value[0].attributes.home
         standingAway.value = content.value[0].attributes.away
+
+        selectMenu(null);
     }
+}
+
+function selectMenu(menu: any) {
+    if (!menu?.id) {
+        selectedMenu.value = standingOptions.value[0].id;
+    } else { selectedMenu.value = menu.id; }
+
+    if (selectedMenu.value === 'home') {
+        standingContent.value = standingHome.value
+    } else if (selectedMenu.value === 'away') {
+        standingContent.value = standingAway.value
+    } else { standingContent.value = standingAll.value }
+
+
 }
 </script>
 
 <style lang="scss" scoped>
-.summary-table-wrapper {
+.standing-tab-wrapper {
+    padding-left: 2rem;
+}
+
+.standing-tab {
     padding: 1rem 0 1rem 0;
+    position: relative;
+    flex-shrink: 0;
+    background: linear-gradient(0deg, #29272A 0%, #000 100%);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    // flex-wrap: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    width: 75%;
+}
+
+.summary-table-wrapper {
+    padding: 0 0 1rem 0;
     overflow-x: auto;
     padding-left: 2rem;
 }
@@ -123,7 +174,7 @@ async function fetchStanding() {
 .summary-table {
     width: 75%;
     table-layout: inherit;
-    border-collapse: collapse;    
+    border-collapse: collapse;
 }
 
 .summary-table th,
@@ -224,8 +275,33 @@ async function fetchStanding() {
 }
 
 /* Optional: Ensure the headers stay above the sticky columns */
-.summary-table th {    
+.summary-table th {
     z-index: 2;
+}
+
+.standing-tab-text {
+    color: #FFF;
+    text-align: center;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin: 0 0.5rem 0 0.5rem;
+    display: inline-flex;
+    /* Ensure inline flex layout */
+    align-items: center;
+    /* Align text and count vertically */
+    gap: 0.25rem;
+    /* Adds spacing between text and count-button */
+}
+
+.text-highlight {
+    color: #EBC76E;
+    text-align: center;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
 }
 
 @media only screen and (max-width:475px) {
@@ -247,6 +323,15 @@ async function fetchStanding() {
     }
 
     .summary-table-wrapper {
+        padding-left: 0;
+    }
+
+    .standing-tab {
+        justify-content: start;
+        width: 100%;
+    }
+
+    .standing-tab-wrapper {
         padding-left: 0;
     }
 }
