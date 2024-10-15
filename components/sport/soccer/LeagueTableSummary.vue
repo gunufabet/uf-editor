@@ -44,6 +44,22 @@ const props = defineProps({
     },
 });
 
+const standingOptions = ref([
+    {
+        id: 'general',
+        text: 'General',
+    },
+    {
+        id: 'home',
+        text: 'Home',
+    },
+    {
+        id: 'away',
+        text: 'Away',
+    }
+]
+);
+
 const headerColumn = ref([
     {
         id: 'rank',
@@ -103,7 +119,7 @@ async function fetchStanding() {
     overflow-x: auto;
 }
 
-.summary-table {    
+.summary-table {
     width: 75%;
     table-layout: inherit;
     border-collapse: collapse;
@@ -116,7 +132,8 @@ async function fetchStanding() {
 }
 
 .summary-table th {
-    background: #2B2B32;
+    // background: #2B2B32;
+    background: rgba(43, 43, 50, 0.5);
 
     color: #EBC76E;
     font-size: 16px;
@@ -160,7 +177,8 @@ async function fetchStanding() {
 }
 
 .summary-table-bg {
-    background: #2B2B32;
+    // background: #2B2B32;
+    background: rgba(43, 43, 50, 0.5);
 }
 
 .team-img {
@@ -181,7 +199,8 @@ async function fetchStanding() {
 }
 
 .summary-table th:nth-child(1) {
-    background: #2B2B32;
+    // background: #2B2B32;
+    background: rgba(43, 43, 50, 0.5);
 }
 
 .summary-table th:nth-child(2),
@@ -199,7 +218,8 @@ async function fetchStanding() {
 }
 
 .summary-table th:nth-child(2) {
-    background: #2B2B32;
+    // background: #2B2B32;
+    background: rgba(43, 43, 50, 0.5);
 }
 
 /* Optional: Ensure the headers stay above the sticky columns */
