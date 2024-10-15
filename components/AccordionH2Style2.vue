@@ -58,8 +58,7 @@ details.disabled summary {
     padding-right: 1.3rem;
     color: #EBC76E;
     font-size: 24px;
-    font-weight: 400;
-    // line-height: 2rem;
+    font-weight: 400;    
 }
 
 .accordion-indent {

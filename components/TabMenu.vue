@@ -76,7 +76,7 @@ const selectTab = async (menuId: string) => {
 
 @media only screen and (max-width:475px) {
     .tab-menu-item {
-        font-size: 12px;
+        font-size: 16px;
     }
 }
 </style>

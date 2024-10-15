@@ -52,7 +52,6 @@ details.disabled summary {
     font-size: 16px;
     font-style: normal;
     font-weight: 500;
-    // line-height: 2rem;
 
     &.expand {
         color: #EBC76E;
