@@ -968,7 +968,7 @@
             "iconSrc": "/img/soccer/icn-boxing.svg",
             "iconAlt": "Boxing",
             "buttonOrder": 1,
-            "url": "boxing"
+            "url": ""
           },
           {
             "id": "btn-tennis",
@@ -977,7 +977,7 @@
             "iconSrc": "/img/soccer/icn-tennis.svg",
             "iconAlt": "Tennis",
             "buttonOrder": 2,
-            "url": "tennis"
+            "url": ""
           },
           {
             "id": "btn-basketball",
@@ -986,7 +986,7 @@
             "iconSrc": "/img/soccer/icn-basketball.svg",
             "iconAlt": "Basketball",
             "buttonOrder": 3,
-            "url": "basketball"
+            "url": ""
           }
         ]
       }
