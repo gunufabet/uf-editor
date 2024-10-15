@@ -117,6 +117,7 @@ async function fetchStanding() {
 .summary-table-wrapper {
     padding: 1rem 0 1rem 0;
     overflow-x: auto;
+    padding-left: 2rem;
 }
 
 .summary-table {
@@ -243,6 +244,10 @@ async function fetchStanding() {
 
     .summary-table {
         width: 100%;
+    }
+
+    .summary-table-wrapper {
+        padding-left: 0;
     }
 }
 </style>
