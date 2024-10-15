@@ -24,87 +24,169 @@
           }
         ]
       },
-      "section3": {
-        "titleH2": "What Months are Available for EPL Betting?",
-        "contentH2": "EPL betting is available from August to May. The regular English Premier League (EPL) season typically starts early to mid-August. The specific start date varies slightly each year, but it normally falls within the first two weeks of August. Bettors start betting on the EPL in July or early August. Most match-specific betting markets become available in mid-August as the season approaches. The season then runs through to May of the following year, with each team playing 38 matches.",
-        "contentListH3": [
+      "sectionWithMenu1": {
+        "menuTab": [
           {
-            "title": "How Often are Standings Updated for the English Premier League?",
-            "content": "The English Premier League (EPL) standings are updated in real-time as matches conclude. The English Premier League table reflects the latest results after each game, including points, goal difference, and positions. The process ensures fans and teams are updated regarding the English Premier League table and standings information immediately following the end of every match. Fans eagerly check the latest EPL results to see how their favorite teams performed and how the standings have shifted in the PL table.",
-            "defaultExpand": false,
-            "contentListH4": [
-              {
-                "title": "How many Teams are in the English Premier League?",
-                "content": "The English Premier League has 20 teams. Twenty clubs compete each year for the title of English champions in the highest level of English football. The Premier League is the most-watched competition, with 920 million homes in 189 countries. It includes some of the most recognized clubs, players, managers, and stadiums in international football. <br/><br/>Manchester City, Liverpool, Arsenal, Manchester United, and Chelsea are fan favorites to win the EPL championship. Manchester City leads with recent dominance, while Liverpool's history and Jürgen Klopp's leadership keep them in the race. Arsenal's resurgence under Mikel Arteta, Manchester United's legacy, and Chelsea's investment in their squad ensure these teams are consistently considered top contenders for the title."
-              }
-            ]
+            "id": "menu-1",
+            "text": "1. What Months are Available for EPL Betting?",
+            "menuTabOrder": 1
           },
           {
-            "title": "How are Schedules of Matches determined for the Premier League?",
-            "content": "...",
-            "defaultExpand": false,
-            "contentListH4": [
-              {
-                "title": "How many Games are there in a single EPL Season?",
-                "content": "..."
-              }
-            ]
+            "id": "menu-2",
+            "text": "2. How to Bet on UFABET for the English Premier League (EPL)?",
+            "menuTabOrder": 2
+          },
+          {
+            "id": "menu-3",
+            "text": "3. How are Premier League Odds Calculated for Betting?",
+            "menuTabOrder": 3
+          },
+          {
+            "id": "menu-4",
+            "text": "4. What are the Types of Bets you can make for EPL Betting?",
+            "menuTabOrder": 4
+          },
+          {
+            "id": "menu-5",
+            "text": "5. What Tips can Enhance Success in Betting on EPL Matches?",
+            "menuTabOrder": 4
+          },
+          {
+            "id": "menu-6",
+            "text": "6. What are the Best Football Betting Strategies in EPL?",
+            "menuTabOrder": 4
+          }
+        ],
+        "menuContent": [
+          {
+            "menuTabId": "menu-1",
+            "section1": {
+              "titleH2": "",
+              "contentH2": "EPL betting is available from August to May. The regular English Premier League (EPL) season typically starts early to mid-August. The specific start date varies slightly each year, but it normally falls within the first two weeks of August. Bettors start betting on the EPL in July or early August. Most match-specific betting markets become available in mid-August as the season approaches. The season then runs through to May of the following year, with each team playing 38 matches.",
+              "contentListH3": [
+                {
+                  "title": "How Often are Standings Updated for the English Premier League?",
+                  "content": "The English Premier League (EPL) standings are updated in real-time as matches conclude. The English Premier League table reflects the latest results after each game, including points, goal difference, and positions. The process ensures fans and teams are updated regarding the English Premier League table and standings information immediately following the end of every match. Fans eagerly check the latest EPL results to see how their favorite teams performed and how the standings have shifted in the PL table.",
+                  "defaultExpand": false,
+                  "contentListH4": [
+                    {
+                      "title": "How many Teams are in the English Premier League?",
+                      "content": "The English Premier League has 20 teams. Twenty clubs compete each year for the title of English champions in the highest level of English football. The Premier League is the most-watched competition, with 920 million homes in 189 countries. It includes some of the most recognized clubs, players, managers, and stadiums in international football. <br/><br/>Manchester City, Liverpool, Arsenal, Manchester United, and Chelsea are fan favorites to win the EPL championship. Manchester City leads with recent dominance, while Liverpool's history and Jürgen Klopp's leadership keep them in the race. Arsenal's resurgence under Mikel Arteta, Manchester United's legacy, and Chelsea's investment in their squad ensure these teams are consistently considered top contenders for the title."
+                    }
+                  ]
+                },
+                {
+                  "title": "How are Schedules of Matches determined for the Premier League?",
+                  "content": "...",
+                  "defaultExpand": false,
+                  "contentListH4": [
+                    {
+                      "title": "How many Games are there in a single EPL Season?",
+                      "content": "..."
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "menuTabId": "menu-2",
+            "section1": {
+              "titleH2": "",
+              "contentH2": "To bet on Ufabet for the English Premier League (EPL), follow the six steps below.<br/><br/>Register or login. Sign up or log in to Ufabet Direct. ",
+              "contentListH3": [
+                {
+                  "title": "How to Withdraw Winnings on Ufabet Account?",
+                  "content": "...",
+                  "defaultExpand": false,
+                  "contentListH4": []
+                },
+                {
+                  "title": "What are the Best Times to Place EPL Bets on Ufabet?",
+                  "content": "...",
+                  "defaultExpand": false,
+                  "contentListH4": []
+                }
+              ]              
+            }
+          },
+          {
+            "menuTabId": "menu-3",
+            "section1": {
+              "titleH2": "",
+              "contentH2": "Premier League odds for betting are calculated through a detailed process involving statistical analysis, market evaluation, and risk management, rather than simply reflecting the true probability of an outcome. Oddsmakers, who work closely with sportsbooks, set these odds with the primary goal of ensuring profitability while attracting bets on both sides of a match. The",
+              "contentListH3": [
+                {
+                  "title": "How do EPL Betting Odds compare to other Soccer Leagues?",
+                  "content": "EPL betting odds tend to be highly competitive, often reflecting the league's immense popularity and global following. Sportsbooks emphasize setting accurate and attractive odds due to the Premier League's status as one of the most-watched and bet-on football leagues worldwide. The intense competition among bookmakers to attract bettors results in tightly priced odds, particularly for high-profile matches involving top teams like Manchester City, Liverpool, and Arsenal. <br/><br/>EPL odds are usually scrutinized closely and closely aligned with market expectations compared to popular soccer leagues such as Spain's La Liga, Italy's Serie A, Germany's Bundesliga, and France's Ligue 1. The EPL ",
+                  "defaultExpand": false,
+                  "contentListH4": []               
+                }
+              ]              
+            }
+          },
+          {
+            "menuTabId": "menu-4",
+            "section1": {
+              "titleH2": "",
+              "contentH2": "The types of bets you can make for EPL betting are listed below.<br/><br/>Mixed Parlay: Mixed parlay betting on the EPL with Ufabet",
+              "contentListH3": []              
+            }
+          },
+          {
+            "menuTabId": "menu-5",
+            "section1": {
+              "titleH2": "",
+              "contentH2": "The tips that can enhance success in betting on EPL matches are listed below.<br/><br/>Keep many options open: Explore different ",
+              "contentListH3": [
+                {
+                  "title": "How can Risk be Managed Effectively in EPL Betting?",
+                  "content": "To deposit funds into a Ufabet account, follow these four steps: First, log into the platform and proceed to the deposit section. Second, choose from the list of payment options, such as bank transfers or e-wallets like True Money. Third, select the currency for the deposit, with Ufabet supporting major currencies like USD and THB and offering currency conversion to convert deposits into the desired account currency easily. Lastly, input the deposit payment and adhere to the on-screen prompts to finalize the transaction securely. These steps provide flexibility and convenience, ensuring users fund their accounts using the best method.",
+                  "contentListH4": []
+                },
+                {
+                  "title": "How to Withdraw Winnings on Ufabet Account?",
+                  "content": "...",
+                  "contentListH4": []
+                },
+                {
+                  "title": "What are the Best Times to Place EPL Bets on Ufabet?",
+                  "content": "...",
+                  "contentListH4": []
+                }
+              ]              
+            }
+          },
+          {
+            "menuTabId": "menu-6",
+            "section1": {
+              "titleH2": "",
+              "contentH2": "The best Football betting strategies in EPL are listed below.<br/><br/>Value Betting: Value betting involves identifying opportunities where the bookmaker's odds are higher than the actual probability of an event occurring.",
+              "contentListH3": [
+                {
+                  "title": "How to Find Value Bets for EPL Games on Ufabet?",
+                  "content": "To find value bets for EPL games on Ufabet, bettors must analyze the odds offered and determine discrepancies between these odds and the actual probability of outcomes. The process begins by examining Ufabet's odds for various EPL matches and contrasting them with odds from other bookmakers to spot any differences. The probability of different outcomes is assessed by analyzing factors such as team form, injuries, and head-to-head records, using the analysis to estimate the true likelihood of each result. Calculate the expected value (EV) using the formula: EV = (Probability of Winning × Odds) - (1 - Probability of Winning) to determine if a bet offers value. A positive EV indicates a value bet.<br/><br/>Monitor betting markets for any shifts in odds due to new information or betting volume and adjust the evaluation of value bets accordingly. Utilizing betting tools or software help automate the comparison of odds and probabilities, making the process more efficient. Staying informed through continuous updates on EPL news, expert analyses, and match previews further enhance the ability to identify value bets, thereby increasing the chances of long-term betting success on Ufabet.<br/><br/>One example of value bets for EPL is underdog upset.  Suppose Watford is playing against Arsenal, and the odds for Watford to win are 5.00 (4/1). The projected probability of Watford winning based on recent form, injuries, and home advantage is 25% (implying odds of 4.00 or 3/1). The bet represents value because the odds of 5.00 offer a higher return than the true odds of 4.00",
+                  "contentListH4": []
+                },
+                {
+                  "title": "What are the Common Mistakes to Avoid for Premier League Betting?",
+                  "content": "...",
+                  "contentListH4": []
+                },
+                {
+                  "title": "How can Bettors Ensure Responsible Betting while Wagering on EPL Matches?",
+                  "content": "...",
+                  "contentListH4": [
+                    {
+                      "title": "Does Ufabet Handle EPL Betting for International Users?",
+                      "content": "Yes, Ufabet handles EPL betting for international users.  Ufabet is a popular online sports betting platform that offers a wide range of sports betting opportunities, including the EPL, one of the most followed football leagues in the world. International users place bets on various EPL matches, including options like match outcomes, goal totals, and specific player performances. The platform is particularly popular in Southeast Asia but and serves a broader"
+                    }
+                  ]
+                }
+              ]             
+            }
           }
         ]
-      },
-      "section4": {
-        "titleH2": "How to Bet on UFABET for the English Premier League (EPL)? ",
-        "contentH2": "To bet on Ufabet for the English Premier League (EPL), follow the six steps below.<br/><br/>Register or login. Sign up or log in to Ufabet Direct. ",
-        "contentListH3": [
-          {
-            "title": "How to Withdraw Winnings on Ufabet Account?",
-            "content": "...",
-            "defaultExpand": false
-          },
-          {
-            "title": "What are the Best Times to Place EPL Bets on Ufabet?",
-            "content": "...",
-            "defaultExpand": false
-          }
-        ],
-        "contentListH4": []
-      },
-      "section5": {
-        "titleH2": "How are Premier League Odds Calculated for Betting?",
-        "contentH2": "Premier League odds for betting are calculated through a detailed process involving statistical analysis, market evaluation, and risk management, rather than simply reflecting the true probability of an outcome. Oddsmakers, who work closely with sportsbooks, set these odds with the primary goal of ensuring profitability while attracting bets on both sides of a match. The",
-        "contentListH3": [
-          {
-            "title": "How do EPL Betting Odds compare to other Soccer Leagues?",
-            "content": "EPL betting odds tend to be highly competitive, often reflecting the league's immense popularity and global following. Sportsbooks emphasize setting accurate and attractive odds due to the Premier League's status as one of the most-watched and bet-on football leagues worldwide. The intense competition among bookmakers to attract bettors results in tightly priced odds, particularly for high-profile matches involving top teams like Manchester City, Liverpool, and Arsenal. <br/><br/>EPL odds are usually scrutinized closely and closely aligned with market expectations compared to popular soccer leagues such as Spain's La Liga, Italy's Serie A, Germany's Bundesliga, and France's Ligue 1. The EPL ",
-            "defaultExpand": false
-          }
-        ],
-        "contentListH4": []
-      },
-      "section6": {
-        "titleH2": "What are the Types of Bets you can make for EPL Betting?",
-        "contentH2": "The types of bets you can make for EPL betting are listed below.<br/><br/>Mixed Parlay: Mixed parlay betting on the EPL with Ufabet",
-        "contentListH3": [],
-        "contentListH4": []
-      },
-      "section7": {
-        "titleH2": "What Tips can Enhance Success in Betting on EPL Matches?",
-        "contentH2": "The tips that can enhance success in betting on EPL matches are listed below.<br/><br/>Keep many options open: Explore different ",
-        "contentListH3": [
-          {
-            "title": "How can Risk be Managed Effectively in EPL Betting?",
-            "content": "To deposit funds into a Ufabet account, follow these four steps: First, log into the platform and proceed to the deposit section. Second, choose from the list of payment options, such as bank transfers or e-wallets like True Money. Third, select the currency for the deposit, with Ufabet supporting major currencies like USD and THB and offering currency conversion to convert deposits into the desired account currency easily. Lastly, input the deposit payment and adhere to the on-screen prompts to finalize the transaction securely. These steps provide flexibility and convenience, ensuring users fund their accounts using the best method."
-          },
-          {
-            "title": "How to Withdraw Winnings on Ufabet Account?",
-            "content": "..."
-          },
-          {
-            "title": "What are the Best Times to Place EPL Bets on Ufabet?",
-            "content": "..."
-          }
-        ],
-        "contentListH4": []
       }
     }
   ]

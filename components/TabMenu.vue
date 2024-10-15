@@ -1,5 +1,11 @@
 <template>
-    <div class="tab-menu-container">
+    <div v-if="h2Title" class="tab-menu-container">
+        <h2 v-for="(menu, index) in props.tabMenuList" :key="index">
+            <div @click="selectTab(menu.id)" class="tab-menu-item" :class="[menu.id === selectedTab ? 'tab-highlight' : '',
+    h2Title ? 'tab-menu-item-h2' : '']">{{ menu.text }}</div>
+        </h2>
+    </div>
+    <div v-else class="tab-menu-container">
         <div v-for="(menu, index) in props.tabMenuList" :key="index">
             <div @click="selectTab(menu.id)" class="tab-menu-item"
                 :class="menu.id === selectedTab ? 'tab-highlight' : ''">{{ menu.text }}</div>
@@ -19,7 +25,11 @@ const props = defineProps({
     tabMenuList: {
         type: Array as PropType<TabMenu[]>,
         default: ''
-    }
+    },
+    h2Title: {
+        type: Boolean,
+        default: false
+    },
 });
 
 const selectedTab = ref(props.defaultSelectedTab || props.tabMenuList[0]?.id);
@@ -60,6 +70,12 @@ const selectTab = async (menuId: string) => {
     &:hover {
         color: #EBC76E;
     }
+}
+
+.tab-menu-item-h2 {
+    width: 270px;
+    text-wrap: pretty;
+    line-height: 1.5rem;
 }
 
 .tab-highlight {
