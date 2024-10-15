@@ -189,23 +189,28 @@ function selectMenu(menu: any) {
 }
 
 .summary-table th {
-    background: #2B2B32;
-    // background: rgba(43, 43, 50, 0.5);
+    background: #161619;
 
     color: #EBC76E;
     font-size: 16px;
     font-style: normal;
-    font-weight: 700;
+    font-weight: 400;
     line-height: normal;
     text-align: right;
 }
 
 .summary-table th:nth-child(1) {
-    text-align: left;
+    text-align: left;    
 }
 
 .summary-table th:nth-child(2) {
     text-align: left;
+    font-weight: 700;
+}
+
+.summary-table th:last-child,
+.summary-table td:last-child {
+    font-weight: 700;
 }
 
 .summary-table td {
@@ -234,8 +239,7 @@ function selectMenu(menu: any) {
 }
 
 .summary-table-bg {
-    background: #2B2B32;
-    // background: rgba(43, 43, 50, 0.5);
+    background: #161619;    
 }
 
 .team-img {
@@ -256,8 +260,7 @@ function selectMenu(menu: any) {
 }
 
 .summary-table th:nth-child(1) {
-    background: #2B2B32;
-    // background: rgba(43, 43, 50, 0.5);
+    background: #161619;
 }
 
 .summary-table th:nth-child(2),
@@ -275,8 +278,7 @@ function selectMenu(menu: any) {
 }
 
 .summary-table th:nth-child(2) {
-    background: #2B2B32;
-    // background: rgba(43, 43, 50, 0.5);
+    background: #161619;
 }
 
 /* Optional: Ensure the headers stay above the sticky columns */
