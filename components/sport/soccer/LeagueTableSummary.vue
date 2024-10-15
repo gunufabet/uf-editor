@@ -110,9 +110,9 @@ async function fetchStanding() {
 }
 
 .summary-table th,
-.summary-table td {
+.summary-table td {    
     text-align: left;
-    padding: 1rem;
+    padding: 1rem 0.7rem 1rem 0.7rem;    
 }
 
 .summary-table th {
@@ -140,8 +140,7 @@ async function fetchStanding() {
     font-style: normal;
     font-weight: 400;
     line-height: normal;
-    align-content: start;
-    text-wrap: nowrap;
+    align-content: center;    
     border-bottom: 1px solid rgba(204, 171, 103, 0.5);
     text-align: right;
 }
