@@ -103,16 +103,16 @@ async function fetchStanding() {
     overflow-x: auto;
 }
 
-.summary-table {
-    width: 100%;
+.summary-table {    
+    width: 75%;
     table-layout: inherit;
-    border-collapse: collapse;    
+    border-collapse: collapse;
 }
 
 .summary-table th,
-.summary-table td {    
+.summary-table td {
     text-align: left;
-    padding: 1rem 0.7rem 1rem 0.7rem;    
+    padding: 1rem 0.7rem 1rem 0.7rem;
 }
 
 .summary-table th {
@@ -140,7 +140,7 @@ async function fetchStanding() {
     font-style: normal;
     font-weight: 400;
     line-height: normal;
-    align-content: center;    
+    align-content: center;
     border-bottom: 1px solid rgba(204, 171, 103, 0.5);
     text-align: right;
 }
@@ -219,6 +219,10 @@ async function fetchStanding() {
         width: 9px;
         /* Width of the 'border' */
         background: linear-gradient(90deg, rgba(106, 81, 18, 0.51) 0%, rgba(57, 46, 17, 0.00) 100%);
+    }
+
+    .summary-table {
+        width: 100%;
     }
 }
 </style>
