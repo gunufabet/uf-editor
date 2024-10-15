@@ -1,46 +1,49 @@
 <template>
-    <div style="margin: 1rem 1rem 0.5rem 1rem;" class="live-match-title">
-        Explore More Soccer Betting Leagues
-    </div>
-    
-    <div class="live-match-wrapper" style="margin-top: 1rem;">
-        <div class="live-match-container" v-for="(item, index) in runningLiveScore" :key="index">
-            <div style="margin-left: 0.7rem;" class="live-match-header">
-                <img class="league-img" src="/img/soccer/icn-flag-placeholder.svg" :alt="item.attributes.leagueName">
-                <button class="open-match-btn">
-                    <img src="/img/soccer/icn-open-link.svg" alt="">
-                </button>
-            </div>
+    <div v-if="runningLiveScore.length > 0" class="live-match-bg">
+        <div style="margin: 1rem 1rem 0.5rem 1rem;" class="live-match-title">
+            Explore More Soccer Betting Leagues
+        </div>
 
-            <p style="margin: 1rem 1rem 1rem 0.7rem;" class="league-title">{{ item.attributes.leagueName }}</p>
+        <div class="live-match-wrapper" style="margin-top: 1rem;">
+            <div class="live-match-container" v-for="(item, index) in runningLiveScore" :key="index">
+                <div style="margin-left: 0.7rem;" class="live-match-header">
+                    <img class="league-img" src="/img/soccer/icn-flag-placeholder.svg"
+                        :alt="item.attributes.leagueName">
+                    <button class="open-match-btn">
+                        <img src="/img/soccer/icn-open-link.svg" alt="">
+                    </button>
+                </div>
 
-            <span class="match-state-text" style="padding: 0.5rem;">{{ item.attributes.matchState }}</span>
+                <p style="margin: 1rem 1rem 1rem 0.7rem;" class="league-title">{{ item.attributes.leagueName }}</p>
 
-            <table style="border-left: solid 2px #CCAB67; margin: 0 0.5rem 0 0.5rem;">
-                <tr>
-                    <td class="match-team-text">
-                        <img :src="item?.attributes?.homeFlagImg?.data?.attributes?.flag
-            ? 'data:image/png;base64,' + item?.attributes?.homeFlagImg?.data?.attributes?.flag
-            : '/img/soccer/icn-flag-placeholder.svg'
-            " :alt="item.attributes.homeName" class="team-flag-icn" />
-                        {{ item.attributes.homeName }}
-                    </td>
-                    <td class="match-score-text">{{ item.attributes.homeScore }}</td>
-                </tr>
-                <tr>
-                    <td class="match-team-text">
-                        <img :src="item?.attributes?.awayFlagImg?.data?.attributes?.flag
-            ? 'data:image/png;base64,' + item?.attributes?.awayFlagImg?.data?.attributes?.flag
-            : '/img/soccer/icn-flag-placeholder.svg'
-            " :alt="item.attributes.awayName" class="team-flag-icn" />
-                        {{ item.attributes.awayName }}
-                    </td>
-                    <td class="match-score-text">{{ item.attributes.awayScore }}</td>
-                </tr>
-            </table>
-            <div
-                style="display: flex; justify-content: center; align-content: center; text-align: center; margin: 1rem;">
-                <button class="live-match-btn">Bet More</button>
+                <span class="match-state-text" style="padding: 0.5rem;">{{ item.attributes.matchState }}</span>
+
+                <table style="border-left: solid 2px #CCAB67; margin: 0 0.5rem 0 0.5rem;">
+                    <tr>
+                        <td class="match-team-text">
+                            <img :src="item?.attributes?.homeFlagImg?.data?.attributes?.flag
+        ? 'data:image/png;base64,' + item?.attributes?.homeFlagImg?.data?.attributes?.flag
+        : '/img/soccer/icn-flag-placeholder.svg'
+        " :alt="item.attributes.homeName" class="team-flag-icn" />
+                            {{ item.attributes.homeName }}
+                        </td>
+                        <td class="match-score-text">{{ item.attributes.homeScore }}</td>
+                    </tr>
+                    <tr>
+                        <td class="match-team-text">
+                            <img :src="item?.attributes?.awayFlagImg?.data?.attributes?.flag
+        ? 'data:image/png;base64,' + item?.attributes?.awayFlagImg?.data?.attributes?.flag
+        : '/img/soccer/icn-flag-placeholder.svg'
+        " :alt="item.attributes.awayName" class="team-flag-icn" />
+                            {{ item.attributes.awayName }}
+                        </td>
+                        <td class="match-score-text">{{ item.attributes.awayScore }}</td>
+                    </tr>
+                </table>
+                <div
+                    style="display: flex; justify-content: center; align-content: center; text-align: center; margin: 1rem;">
+                    <button class="live-match-btn">Bet More</button>
+                </div>
             </div>
         </div>
     </div>
@@ -53,10 +56,11 @@ const { runningLiveScore } = storeToRefs(useSportStore());
 
 <style lang="scss" scoped>
 .live-match-title {
-    color: #CCAB67;
+    color: #181818;
     font-size: 16px;
     font-style: normal;
     font-weight: 500;
+    padding-top: 1rem;
 }
 
 .open-match-btn {
@@ -169,6 +173,11 @@ const { runningLiveScore } = storeToRefs(useSportStore());
     margin-left: 0.5rem;
     margin-right: 0.3rem;
     vertical-align: middle;
+}
+
+.live-match-bg {
+    background: linear-gradient(100deg, #EBC76E 0%, #BA8C4E 100%);
+    padding-bottom: 1rem;
 }
 
 @media only screen and (max-width:475px) {
