@@ -1,5 +1,5 @@
 <template>
-    <div class="bet-boost-bg">
+    <div v-if="betBoostList.length > 0" class="bet-boost-bg">
         <div style="padding: 1rem 1rem 1rem 1rem;">
             <img class="bet-boost-img" style="margin-right: 0.5rem;" src="/img/bet-boost-black.png" alt="">            
         </div>

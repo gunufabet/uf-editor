@@ -1,6 +1,6 @@
 <template>
-    <div class="hot-match-bg">
-        <div v-if="hotMatchList.length > 0" class="title-container">
+    <div v-if="hotMatchList.length > 0" class="hot-match-bg">
+        <div class="title-container">
             <div style="display: flex; margin-left: 1.3rem">
                 <!-- <img style="margin-right: 0.3rem;" src="/img/soccer/icn-hot-black.svg" alt="hot matches"> -->
                 <svg style="margin-right: 0.3rem;" xmlns="http://www.w3.org/2000/svg" width="15" height="20" viewBox="0 0 10 14" fill="none">
