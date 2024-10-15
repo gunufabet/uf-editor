@@ -10,13 +10,49 @@
                 <div class="category-item"
                     :class="(routeName === menu.menuRoute || routeName === menu.menuRouteHome) ? 'menu-container-selected' : 'menu-container-not-selected'">
                     <div :class="(routeName === menu.menuRoute || routeName === menu.menuRouteHome) ? 'main-menu-selected-text' : 'main-menu-not-selected-text'"
-                        style="text-align: center; cursor: pointer;">{{ menu.text }}</div>
+                        style="text-align: center; cursor: pointer; display: flex; align-items: center;">
+                        <!-- home icon -->
+                        <svg v-if="menu.menuRoute === 'sports' && routeName !== menu.menuRoute"
+                            style="margin-right: 0.5rem;" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                            viewBox="0 0 18 18" fill="none">
+                            <rect x="0.5" y="0.5" width="17" height="17" rx="8.5"
+                                stroke="url(#paint0_linear_1179_388)" />
+                            <path
+                                d="M13.7153 7.92765L9.54535 4.29701C9.39413 4.16573 9.20062 4.09341 9.00036 4.09332C8.8001 4.09324 8.60653 4.16539 8.45519 4.29654L4.2866 7.92582C4.15901 8.03582 4.06811 8.1822 4.02609 8.34534C3.98408 8.50848 3.99297 8.68057 4.05156 8.83851C4.11015 8.99645 4.21565 9.1327 4.3539 9.22896C4.49215 9.32523 4.65653 9.37691 4.82499 9.37707H5.33568V12.3322C5.33594 12.5516 5.4232 12.7619 5.57832 12.917C5.73344 13.0721 5.94374 13.1594 6.16311 13.1596H7.34516C7.56453 13.1594 7.77484 13.0721 7.92996 12.917C8.08508 12.7619 8.17234 12.5516 8.1726 12.3322V11.1501C8.17273 11.0344 8.19708 10.92 8.24407 10.8142C8.29107 10.7085 8.35968 10.6137 8.44549 10.536C8.53148 10.4577 8.63312 10.3986 8.74369 10.3625C8.85426 10.3265 8.97122 10.3143 9.08684 10.3269C9.29787 10.3594 9.4897 10.4681 9.62614 10.6323C9.76257 10.7966 9.83419 11.0051 9.82748 11.2185V12.3322C9.82774 12.5516 9.915 12.7619 10.0701 12.917C10.2252 13.0721 10.4355 13.1594 10.6549 13.1596H11.837C12.0563 13.1594 12.2666 13.0721 12.4218 12.917C12.5769 12.7619 12.6641 12.5516 12.6644 12.3322V9.37707H13.1751C13.3433 9.37694 13.5075 9.32541 13.6456 9.22939C13.7838 9.13337 13.8893 8.99743 13.9481 8.83979C14.0068 8.68215 14.016 8.51032 13.9744 8.3473C13.9328 8.18429 13.8424 8.03787 13.7153 7.92765Z"
+                                fill="#B6B6B6" />
+                            <defs>
+                                <linearGradient id="paint0_linear_1179_388" x1="9" y1="0" x2="9" y2="18"
+                                    gradientUnits="userSpaceOnUse">
+                                    <stop stop-color="#B6B6B6" stop-opacity="0.12" />
+                                    <stop offset="1" stop-color="#B6B6B6" stop-opacity="0.55" />
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                        <svg v-if="menu.menuRoute === 'sports' && routeName === menu.menuRoute"
+                            style="margin-right: 0.5rem;" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                            viewBox="0 0 18 18" fill="none">
+                            <rect x="0.5" y="0.5" width="17" height="17" rx="8.5"
+                                stroke="url(#paint0_linear_1179_387)" />
+                            <path
+                                d="M13.7153 7.92765L9.54535 4.29701C9.39413 4.16573 9.20062 4.09341 9.00036 4.09332C8.8001 4.09324 8.60653 4.16539 8.45519 4.29654L4.2866 7.92582C4.15901 8.03582 4.06811 8.1822 4.02609 8.34534C3.98408 8.50848 3.99297 8.68057 4.05156 8.83851C4.11015 8.99645 4.21565 9.1327 4.3539 9.22896C4.49215 9.32523 4.65653 9.37691 4.82499 9.37707H5.33568V12.3322C5.33594 12.5516 5.4232 12.7619 5.57832 12.917C5.73344 13.0721 5.94374 13.1594 6.16311 13.1596H7.34516C7.56453 13.1594 7.77484 13.0721 7.92996 12.917C8.08508 12.7619 8.17234 12.5516 8.1726 12.3322V11.1501C8.17273 11.0344 8.19708 10.92 8.24407 10.8142C8.29107 10.7085 8.35968 10.6137 8.44549 10.536C8.53148 10.4577 8.63312 10.3986 8.74369 10.3625C8.85426 10.3265 8.97122 10.3143 9.08684 10.3269C9.29787 10.3594 9.4897 10.4681 9.62614 10.6323C9.76257 10.7966 9.83419 11.0051 9.82748 11.2185V12.3322C9.82774 12.5516 9.915 12.7619 10.0701 12.917C10.2252 13.0721 10.4355 13.1594 10.6549 13.1596H11.837C12.0563 13.1594 12.2666 13.0721 12.4218 12.917C12.5769 12.7619 12.6641 12.5516 12.6644 12.3322V9.37707H13.1751C13.3433 9.37694 13.5075 9.32541 13.6456 9.22939C13.7838 9.13337 13.8893 8.99743 13.9481 8.83979C14.0068 8.68215 14.016 8.51032 13.9744 8.3473C13.9328 8.18429 13.8424 8.03787 13.7153 7.92765Z"
+                                fill="#EBC76E" />
+                            <defs>
+                                <linearGradient id="paint0_linear_1179_387" x1="9" y1="0" x2="9" y2="18"
+                                    gradientUnits="userSpaceOnUse">
+                                    <stop stop-color="#EBC76E" stop-opacity="0.12" />
+                                    <stop offset="1" stop-color="#EBC76E" stop-opacity="0.55" />
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                        <span>{{ menu.text }}</span>
+                    </div>
                 </div>
             </nuxt-link>
         </div>
         <!-- category -->
         <div class="category-container">
-            <nuxt-link v-for="(category, index) in categoryItems" :key="index" @click="menuCategoryOnClick(category)" :style="{
+            <nuxt-link v-for="(category, index) in categoryItems" :key="index" @click="menuCategoryOnClick(category)"
+                :style="{
                 textDecoration: 'none',
                 color: 'inherit',
                 opacity: route.params.category === category.url ? '1' : '0.5',
@@ -207,8 +243,8 @@ async function menuMainOnClick(menu: any) {
     }
 }
 
-async function menuCategoryOnClick(menu: any) {    
-    if (menu.url === 'soccer') {        
+async function menuCategoryOnClick(menu: any) {
+    if (menu.url === 'soccer') {
         return router.push(localePath({ name: menu.menuRoute, params: { category: menu.url } }));
     }
     else {
