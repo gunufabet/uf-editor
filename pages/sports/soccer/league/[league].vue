@@ -3,6 +3,13 @@
 
     <br>
 
+    <img style="width: 100%;" :alt="content?.main?.imgAlt" :srcset="`${content?.main?.imgSrcMobile} 480w, 
+        ${content?.main?.imgSrc} 800w, ${content?.main?.imgSrc} 1200w`" :src="content?.main?.imgSrc">
+
+    <br>
+    <br>
+    <br>
+
     <!-- section 2 -->
     <accordion-h2 :section-title="content?.section2?.titleH2" :section-content="content?.section2?.contentH2">
     </accordion-h2>
@@ -19,7 +26,8 @@
     <br>
 
     <!-- sectionWithMenu1 -->
-    <tab-menu @select-tab-menu="selectTabMenu" :tab-menu-list="content?.sectionWithMenu1.menuTab" :h2Title="true"></tab-menu>
+    <tab-menu @select-tab-menu="selectTabMenu" :tab-menu-list="content?.sectionWithMenu1.menuTab"
+        :h2Title="true"></tab-menu>
 
     <accordion-h2 :section-title="selectedMenuContent?.section1?.titleH2"
         :section-content="selectedMenuContent?.section1?.contentH2">
@@ -34,7 +42,7 @@
 
         <accordion-h4-style-2 style="margin-left: 1rem;" v-for="(itemH4, indexH4) in item?.contentListH4" :key="indexH4"
             :section-title="itemH4.title" :section-content="itemH4.content">
-        </accordion-h4-style-2>        
+        </accordion-h4-style-2>
     </div>
 </template>
 
