@@ -114,7 +114,7 @@ const headerColumn = ref([
     }
 ]);
 onMounted(() => {
-    fetchStanding()    
+    fetchStanding()
 })
 
 async function fetchStanding() {
@@ -280,7 +280,7 @@ function selectMenu(menu: any) {
 }
 
 .standing-tab-text {
-    color: #FFF;
+    color: #8B8B8B;
     text-align: center;
     font-size: 16px;
     font-style: normal;
