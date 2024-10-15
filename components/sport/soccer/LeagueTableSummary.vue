@@ -36,6 +36,7 @@
                     <td>{{ row.loss }}</td>
                     <td>{{ row.gf }}</td>
                     <td>{{ row.ga }}</td>
+                    <td>{{ row.points }}</td>                    
                 </tr>
             </tbody>
         </table>
@@ -111,6 +112,10 @@ const headerColumn = ref([
     {
         id: 'standing-goal-against',
         text: 'A',
+    },
+    {
+        id: 'standing-pts',
+        text: 'PTS',
     }
 ]);
 onMounted(() => {
