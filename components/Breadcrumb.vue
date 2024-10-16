@@ -55,7 +55,7 @@ async function goToSubMenu() {
     background: linear-gradient(90deg, #484141 0%, rgba(72, 65, 65, 0.00) 100%);
     padding: 1rem;
     line-height: 1.5rem;
-    font-size: 16px;
+    font-size: 14px;
 }
 
 .arrow-icon {
@@ -65,17 +65,31 @@ async function goToSubMenu() {
 }
 
 .main-menu-text {
+    color: #EBC76E;
+    font-size: 14px;
+    // font-weight: 600;
     cursor: pointer;
 }
 
 .sub-menu-text {
+    color: #EBC76E;
+    font-size: 14px;
+    // font-weight: 600;
     cursor: pointer;
 }
 
 @media only screen and (max-width:475px) {
     .breadcrumb-wrapper {
-        padding: 1rem;
-        font-size: 14px;
+        padding: 0.5rem;
+        font-size: 12px;
+    }
+
+    .main-menu-text {
+        font-size: 12px;
+    }
+
+    .sub-menu-text {
+        font-size: 12px;
     }
 
     .arrow-icon {
