@@ -18,12 +18,12 @@
 </template>
 
 <script setup lang="ts">
-const showDropDown = ref(false);
-const selectedLanguageImg = ref('/img/lang/en.svg');
-const selectedLanguageText = ref('EN');
-const selectedLanguageAlt = ref('en');
 const { setLocale, t, locale } = useI18n()
-
+const showDropDown = ref(false);
+const selectedLanguageImg = ref(`/img/lang/${locale.value.toLowerCase()}.svg`);
+const selectedLanguageText = ref(`${locale.value.toUpperCase()}`);
+const selectedLanguageAlt = ref(`${locale.value.toLowerCase()}`);
+console.log('locale', locale)
 onMounted(() => {
     document.addEventListener("click", toggleDropdown);
 })
