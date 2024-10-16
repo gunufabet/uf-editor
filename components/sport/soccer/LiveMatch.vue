@@ -1,6 +1,6 @@
 <template>
-    <div v-if="runningLiveScore.length > 0" class="live-match-bg">
-        <div style="margin: 1rem 1rem 0.5rem 1rem;" class="live-match-title">
+    <div v-if="runningLiveScore.length > 0">
+        <div style="margin: 1rem 1rem 0.5rem 1rem;">
             Explore More Soccer Betting Leagues
         </div>
 
