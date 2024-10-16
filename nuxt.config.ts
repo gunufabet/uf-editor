@@ -57,8 +57,8 @@ export default defineNuxtConfig({
   runtimeConfig: {
     public: {
       domains: {
-        th: process.env.NUXT_PUBLIC_DOMAINS_TH,
-        en: process.env.NUXT_PUBLIC_DOMAINS_EN,
+        // th: process.env.NUXT_PUBLIC_DOMAINS_TH,
+        // en: process.env.NUXT_PUBLIC_DOMAINS_EN,
       },
       siteUrl: process.env.NUXT_PUBLIC_SITE_URL || "http://localhost:3000",
       site: {
