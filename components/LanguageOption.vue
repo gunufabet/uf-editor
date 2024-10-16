@@ -23,7 +23,7 @@ const showDropDown = ref(false);
 const selectedLanguageImg = ref(`/img/lang/${locale.value.toLowerCase()}.svg`);
 const selectedLanguageText = ref(`${locale.value.toUpperCase()}`);
 const selectedLanguageAlt = ref(`${locale.value.toLowerCase()}`);
-console.log('locale', locale)
+
 onMounted(() => {
     document.addEventListener("click", toggleDropdown);
 })
