@@ -18,7 +18,7 @@
 
     <br>
     <br>
-    
+
     <!-- section 2 -->
     <accordion-h2 :section-title="content?.section2?.titleH2" :section-content="content?.section2?.contentH2">
     </accordion-h2>
@@ -58,14 +58,24 @@
 
 <script setup lang="ts">
 import { useDateFormat } from "@vueuse/shared";
-import contentSource from '~/assets/script/contentLeague.json'
+import source from '~/assets/script/contentLeague.json'
+import sourceTH from '~/assets/script/th/contentLeague.json'
+const contentSource = ref();
+const { locale } = useI18n()
+
+if (locale.value === 'th') {
+    contentSource.value = sourceTH;
+} else {
+    contentSource.value = source;
+}
+
 const route = useRoute()
 const leagueId = ref(route.query.leagueId);
 const selectedMenuId = ref('');
 const selectedMenuContent = ref();
 
 const content = computed(() => {
-    const getContent = contentSource.leagueInfo.find(
+    const getContent = contentSource.value.leagueInfo.find(
         (item) => item.leagueId === leagueId.value
     );
     return getContent;

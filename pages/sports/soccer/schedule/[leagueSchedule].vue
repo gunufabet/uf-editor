@@ -56,7 +56,16 @@
 
 <script setup lang="ts">
 import { useDateFormat } from "@vueuse/shared";
-import contentSource from '~/assets/script/contentLeagueSchedule.json'
+import source from '~/assets/script/contentLeagueSchedule.json'
+import sourceTH from '~/assets/script/th/contentLeagueSchedule.json'
+const contentSource = ref();
+const { locale } = useI18n()
+
+if (locale.value === 'th') {
+    contentSource.value = sourceTH;
+} else {
+    contentSource.value = source;
+}
 
 const route = useRoute()
 const leagueId = ref(route.query.leagueId);
@@ -64,7 +73,7 @@ const selectedButtonContent = ref(null);
 const selectedBtnId = ref();
 
 const content = computed(() => {
-    const getContent = contentSource.leagueInfo.find(
+    const getContent = contentSource.value.leagueInfo.find(
         (item) => item.leagueId === leagueId.value
     );
     selectedBtnId.value = getContent.sectionButton.buttonOption[0].id;
