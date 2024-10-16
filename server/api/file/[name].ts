@@ -7,7 +7,8 @@ export default defineEventHandler((event) => {
         throw createError({ statusCode: 400, statusMessage: 'Invalid parameters' });
     }
     const { name } = params;
-    const filePath = path.join(process.cwd(), 'assets', 'script', `${name}.json`);
+    const decodedPath = decodeURIComponent(name);
+    const filePath = path.join(process.cwd(), 'assets', 'script', `${decodedPath}.json`);
     if (!fs.existsSync(filePath)) {
         throw createError({ statusCode: 404, statusMessage: 'File not found' });
     }

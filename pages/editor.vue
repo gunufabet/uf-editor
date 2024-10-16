@@ -10,6 +10,7 @@
     </ul>
     <div v-if="selectedFile">
       <h2>{{ selectedFile }}</h2>
+      <button class="save-button" @click="saveFile">Save</button>
       <JsonEditorVue
         v-model="fileContent"
         :options="jsonEditorOptions"
@@ -36,21 +37,26 @@ const fetchFiles = async () => {
 
 const selectFile = async (file) => {
   selectedFile.value = file;
-  const content = await $fetch(`/api/file/${file.replace(".json", "")}`);
+  const content = await $fetch(`/api/file/${encodeURIComponent(file.replace('.json', ''))}`);
   fileContent.value = JSON.stringify(content, null, 2);
 };
 
 const saveFile = async () => {
-  await $fetch("/api/file/save", {
-    method: "POST",
-    body: {
-      name: selectedFile.value.replace(".json", ""),
-      content: JSON.parse(fileContent.value),
-    },
-  });
-  alert("File saved successfully");
+  try {
+    const parsedContent = JSON.parse(fileContent.value);  
+    await $fetch('/api/file/save', {
+      method: 'POST',
+      body: {
+        name: selectedFile.value.replace('.json', ''),
+        content: parsedContent,  
+      },
+    });
+    alert('File saved successfully');
+  } catch (error) {
+    console.error('Error saving file:', error);
+    alert('Invalid JSON format or failed to save. Please fix any errors and try again.');
+  }
 };
-
 onMounted(fetchFiles);
 </script>
 
