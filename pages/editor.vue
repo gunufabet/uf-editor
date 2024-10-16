@@ -10,12 +10,22 @@
     </ul>
     <div v-if="selectedFile">
       <h2>{{ selectedFile }}</h2>
-      <button class="save-button" @click="saveFile">Save</button>
+      <button class="save-button" @click="openConfirmModal">Save</button>
       <JsonEditorVue
         v-model="fileContent"
         :options="jsonEditorOptions"
+        class="jse-theme-dark"
       ></JsonEditorVue>
-      <button class="save-button" @click="saveFile">Save</button>
+      <button class="save-button" @click="openConfirmModal">Save</button>
+    </div>
+
+    <div v-if="showModal" class="modal">
+      <div class="modal-content">
+        <h3>Confirm Save</h3>
+        <p>Are you sure you want to save the changes?</p>
+        <button @click="confirmSave" class="confirm-button">Yes, Save</button>
+        <button @click="closeConfirmModal" class="cancel-button">Cancel</button>
+      </div>
     </div>
   </div>
 </template>
@@ -23,10 +33,13 @@
 <script setup>
 import JsonEditorVue from "json-editor-vue";
 import { ref, onMounted } from "vue";
+import 'vanilla-jsoneditor/themes/jse-theme-dark.css';
 
 const files = ref([]);
 const selectedFile = ref("");
 const fileContent = ref("");
+const showModal = ref(false);
+
 const jsonEditorOptions = ref({
   mode: "code",
 });
@@ -41,7 +54,16 @@ const selectFile = async (file) => {
   fileContent.value = JSON.stringify(content, null, 2);
 };
 
-const saveFile = async () => {
+const openConfirmModal = () => {
+  showModal.value = true;
+};
+
+const closeConfirmModal = () => {
+  showModal.value = false;
+};
+
+const confirmSave = async () => {
+  closeConfirmModal();
   try {
     const parsedContent = JSON.parse(fileContent.value);  
     await $fetch('/api/file/save', {
@@ -57,6 +79,7 @@ const saveFile = async () => {
     alert('Invalid JSON format or failed to save. Please fix any errors and try again.');
   }
 };
+
 onMounted(fetchFiles);
 </script>
 
@@ -78,5 +101,54 @@ onMounted(fetchFiles);
 
 .save-button:hover {
   background-color: #45a049;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  width: 300px;
+  text-align: center;
+}
+
+.confirm-button {
+  background-color: #4caf50; /* Green */
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  margin: 10px;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+.cancel-button {
+  background-color: #f44336; /* Red */
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  margin: 10px;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+.confirm-button:hover {
+  background-color: #45a049;
+}
+
+.cancel-button:hover {
+  background-color: #e53935;
 }
 </style>
