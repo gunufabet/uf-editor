@@ -1,4 +1,8 @@
 <template>
+    <breadcrumb :main-menu="`Sports Bettings`" :main-menu-route="`sports`" :sub-menu="`Soccer`"
+        :sub-menu-route="`soccer`" :sub-item="mainTitle">
+    </breadcrumb>
+
     <main-content :main-title-text="mainTitle" :main-content-text="content.main.content"></main-content>
 
     <br>

@@ -1,4 +1,8 @@
 <template>
+    <breadcrumb :main-menu="`Sports Bettings`" :main-menu-route="`sports`" :sub-menu="`Soccer`"
+        :sub-menu-route="`soccer`" :sub-item="section2Title">
+    </breadcrumb>
+
     <main-content :main-title-text="mainTitle" :main-content-text="content.main.content"></main-content>
 
     <!-- section 2 -->
@@ -6,7 +10,8 @@
         :section-content="content.section2.content">
     </accordion-h2-style-2>
 
-    <sport-soccer-league-table-summary v-if="content.section2?.showLeagueTable" :league-id="leagueId"></sport-soccer-league-table-summary>
+    <sport-soccer-league-table-summary v-if="content.section2?.showLeagueTable"
+        :league-id="leagueId"></sport-soccer-league-table-summary>
 
     <accordion-h2 style="margin-top: 30px;" :section-title="content.section3.titleH2"
         :section-content="content.section3.contentH2">
@@ -16,7 +21,8 @@
 
     <!-- section 3 -->
     <accordion-h3 style="margin-left: 1rem;" v-for="(item, index) in content.section3.contentListH3" :key="index"
-        :section-title="item.title" :section-content="item.content" :with-break-line="false" :default-open-panel="item.defaultExpand"></accordion-h3>
+        :section-title="item.title" :section-content="item.content" :with-break-line="false"
+        :default-open-panel="item.defaultExpand"></accordion-h3>
 
     <br>
 
@@ -26,7 +32,8 @@
 
     <br>
     <accordion-h3 style="margin-left: 1rem;" v-for="(item, index) in content?.section4?.contentListH3" :key="index"
-        :section-title="item.title" :section-content="item.content" :with-break-line="true" :default-open-panel="item.defaultExpand">
+        :section-title="item.title" :section-content="item.content" :with-break-line="true"
+        :default-open-panel="item.defaultExpand">
     </accordion-h3>
 
     <accordion-h4 style="margin-left: 1rem;" v-for="(item, index) in content?.section4?.contentListH4" :key="index"
@@ -41,7 +48,8 @@
 
     <br>
     <accordion-h3 style="margin-left: 1rem;" v-for="(item, index) in content?.section5?.contentListH3" :key="index"
-        :section-title="item.title" :section-content="item.content" :with-break-line="true" :default-open-panel="item.defaultExpand">
+        :section-title="item.title" :section-content="item.content" :with-break-line="true"
+        :default-open-panel="item.defaultExpand">
     </accordion-h3>
 
     <accordion-h4-style-2 style="margin-left: 1rem;" v-for="(item, index) in content?.section5?.contentListH4"
@@ -56,7 +64,8 @@
 
     <br>
     <accordion-h3 style="margin-left: 1rem;" v-for="(item, index) in content?.section6?.contentListH3" :key="index"
-        :section-title="item.title" :section-content="item.content" :with-break-line="true" :default-open-panel="item.defaultExpand">
+        :section-title="item.title" :section-content="item.content" :with-break-line="true"
+        :default-open-panel="item.defaultExpand">
     </accordion-h3>
 
     <accordion-h4-style-2 style="margin-left: 1rem;" v-for="(item, index) in content?.section6?.contentListH4"
@@ -74,7 +83,7 @@ const leagueId = ref(route.query.leagueId);
 const content = computed(() => {
     const getContent = contentSource.leagueInfo.find(
         (item) => item.leagueId === leagueId.value
-    );    
+    );
     return getContent;
 })
 
