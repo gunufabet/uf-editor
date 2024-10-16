@@ -1,8 +1,8 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
-export default defineNuxtConfig({  
+export default defineNuxtConfig({
   devtools: { enabled: true },
-  modules: ["@nuxtjs/seo", "@nuxtjs/i18n", "@nuxtjs/strapi", "@pinia/nuxt"],
-  ssr: true,  
+  modules: ["@nuxtjs/seo", "@nuxtjs/i18n", "@nuxtjs/strapi", "@pinia/nuxt", 'json-editor-vue/nuxt'],
+  ssr: true,
   app: {
     head: {
       title: "UFABET",
