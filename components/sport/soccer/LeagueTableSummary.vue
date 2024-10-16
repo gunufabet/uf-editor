@@ -36,7 +36,7 @@
                     <td>{{ row.loss }}</td>
                     <td>{{ row.gf }}</td>
                     <td>{{ row.ga }}</td>
-                    <td>{{ row.points }}</td>                    
+                    <td>{{ row.points }}</td>
                 </tr>
             </tbody>
         </table>
@@ -143,9 +143,9 @@ function selectMenu(menu: any) {
         standingContent.value = standingHome.value
     } else if (selectedMenu.value === 'away') {
         standingContent.value = standingAway.value
-    } else { standingContent.value = standingAll.value }
-
-
+    } else {
+        standingContent.value = standingAll.value
+    }   
 }
 </script>
 
@@ -200,7 +200,7 @@ function selectMenu(menu: any) {
 }
 
 .summary-table th:nth-child(1) {
-    text-align: left;    
+    text-align: left;
 }
 
 .summary-table th:nth-child(2) {
@@ -239,7 +239,7 @@ function selectMenu(menu: any) {
 }
 
 .summary-table-bg {
-    background: #161619;    
+    background: #161619;
 }
 
 .team-img {

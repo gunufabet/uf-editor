@@ -19,7 +19,7 @@
                 stroke-linecap="round" stroke-linejoin="round" />
         </svg>
     </div>
-    
+
     <div v-for="(item, index) in content" :key="index" class="match-wrapper">
         <!-- Display the date above the table to prevent column issues -->
         <div v-if="index === 0 || dateFormat(item.attributes.matchDate, 'MMM') !== dateFormat(content[index - 1].attributes.matchDate, 'MMM')"
@@ -84,7 +84,7 @@ onMounted(() => {
 
 async function fetchMatch() {
     const response = await callApi.getFixtures(props.leagueId);
-    if (response.succ) {        
+    if (response.succ) {
         content.value = response.data
     }
 }
@@ -113,6 +113,8 @@ function getOrdinalSuffix(day: Number) {
 .match-wrapper {
     overflow-x: auto;
     color: #D9D9D9;
+    width: 75%;
+    margin: auto;
 }
 
 .match-calendar {
@@ -120,13 +122,16 @@ function getOrdinalSuffix(day: Number) {
     justify-content: center;
     align-items: center;
     text-align: center;
-    padding: 1rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
     background: #1B1B1D;
 
     color: #EBC76E;
     font-size: 14px;
     font-weight: 400;
     gap: 1rem;
+    width: 75%;
+    margin: auto;
 }
 
 .match-month {
@@ -185,6 +190,14 @@ td {
     // first column
     td:nth-child(1) {
         width: 30px;
+    }
+
+    .match-wrapper {
+        width: 100%;
+    }
+
+    .match-calendar {
+        width: 100%;
     }
 }
 </style>
