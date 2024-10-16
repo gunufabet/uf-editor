@@ -14,6 +14,11 @@
     <br>
     <br>
 
+    <sport-soccer-league-match :league-id="leagueId"></sport-soccer-league-match>
+
+    <br>
+    <br>
+    
     <!-- section 2 -->
     <accordion-h2 :section-title="content?.section2?.titleH2" :section-content="content?.section2?.contentH2">
     </accordion-h2>

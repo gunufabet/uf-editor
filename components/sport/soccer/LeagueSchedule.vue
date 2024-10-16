@@ -20,8 +20,7 @@
         </svg>
     </div>
 
-    <div v-for="(item, index) in content" :key="index" class="match-wrapper">
-        <!-- Display the date above the table to prevent column issues -->
+    <div v-for="(item, index) in content" :key="index" class="match-wrapper">        
         <div v-if="index === 0 || dateFormat(item.attributes.matchDate, 'MMM') !== dateFormat(content[index - 1].attributes.matchDate, 'MMM')"
             class="match-month">
             {{ dateFormat(item.attributes.matchDate, 'MMMM YYYY').toUpperCase() }}

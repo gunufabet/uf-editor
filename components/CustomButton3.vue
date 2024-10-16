@@ -1,5 +1,6 @@
 <template>
-    <button :id="id" class="custom-btn" :class="isSelected ? 'selected' : 'notSelected'"><span
+    <button :id="id" class="custom-btn"
+        :class="[isSelected ? 'selected' : 'notSelected', withMinWidth ? 'with-min-width' : '']"><span
             class="custom-button-text">{{ props.label }}</span></button>
 </template>
 
@@ -16,6 +17,10 @@ const props = defineProps({
     isSelected: {
         type: Boolean,
         default: false
+    },
+    withMinWidth: {
+        type: Boolean,
+        default: true
     }
 });
 </script>
@@ -30,12 +35,17 @@ const props = defineProps({
 
 .custom-btn {
     height: 44px;
-    min-width: 174px;
     border-radius: 8px;
     text-align: center;
     font-size: 14px;
     font-style: normal;
     line-height: 18px;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.with-min-width {
+    min-width: 174px;    
 }
 
 .selected {
@@ -53,7 +63,7 @@ const props = defineProps({
 
 .custom-button-text {
     margin-left: 1rem;
-    margin-right: 1rem;
+    margin-right: 1rem;    
 }
 
 @media only screen and (max-width:475px) {
