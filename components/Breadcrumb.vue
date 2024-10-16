@@ -45,7 +45,7 @@ async function goToMainMenu() {
     return router.push(localePath({ name: props.mainMenuRoute }));
 }
 
-async  function goToSubMenu() {
+async function goToSubMenu() {
     return router.push(localePath({ name: props.mainMenuRoute, params: { category: props.subMenuRoute } }));
 }
 </script>
@@ -54,6 +54,8 @@ async  function goToSubMenu() {
 .breadcrumb-wrapper {
     background: linear-gradient(90deg, #484141 0%, rgba(72, 65, 65, 0.00) 100%);
     padding: 1rem;
+    line-height: 1.5rem;
+    font-size: 16px;
 }
 
 .arrow-icon {
@@ -62,11 +64,24 @@ async  function goToSubMenu() {
     transform: rotate(180deg);
 }
 
-.main-menu-text{
+.main-menu-text {
     cursor: pointer;
 }
 
-.sub-menu-text{
+.sub-menu-text {
     cursor: pointer;
+}
+
+@media only screen and (max-width:475px) {
+    .breadcrumb-wrapper {
+        padding: 1rem;
+        font-size: 14px;
+    }
+
+    .arrow-icon {
+        margin-left: 0.5rem;
+        margin-right: 0.5rem;
+        transform: rotate(180deg);
+    }
 }
 </style>
