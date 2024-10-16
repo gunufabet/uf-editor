@@ -1,13 +1,37 @@
 <template>
   <div>
     <h1>JSON Editor</h1>
-    <ul>
-      <li v-for="file in files" :key="file">
-        <button style="color: white" @click="selectFile(file)">
-          {{ file }}
-        </button>
-      </li>
-    </ul>
+    <table>
+      <thead>
+        <tr>
+          <th>File Name</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="file in files" :key="file">
+          <td>
+            <button style="color: white" @click="selectFile(file)">
+              {{ file }}
+            </button>
+          </td>
+          <td>
+            <button
+              style="margin-left: 10px; color: white; background-color: #ff9800"
+              @click="renameFile(file)"
+            >
+              Rename
+            </button>
+            <button
+              style="margin-left: 10px; color: white; background-color: #2196f3"
+              @click="duplicateFile(file)"
+            >
+              Duplicate
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
     <div v-if="selectedFile">
       <h2>{{ selectedFile }}</h2>
       <button class="save-button" @click="openConfirmModal">Save</button>
@@ -33,7 +57,7 @@
 <script setup>
 import JsonEditorVue from "json-editor-vue";
 import { ref, onMounted } from "vue";
-import 'vanilla-jsoneditor/themes/jse-theme-dark.css';
+import "vanilla-jsoneditor/themes/jse-theme-dark.css";
 
 const files = ref([]);
 const selectedFile = ref("");
@@ -50,7 +74,9 @@ const fetchFiles = async () => {
 
 const selectFile = async (file) => {
   selectedFile.value = file;
-  const content = await $fetch(`/api/file/${encodeURIComponent(file.replace('.json', ''))}`);
+  const content = await $fetch(
+    `/api/file/${encodeURIComponent(file.replace(".json", ""))}`
+  );
   fileContent.value = JSON.stringify(content, null, 2);
 };
 
@@ -65,18 +91,74 @@ const closeConfirmModal = () => {
 const confirmSave = async () => {
   closeConfirmModal();
   try {
-    const parsedContent = JSON.parse(fileContent.value);  
-    await $fetch('/api/file/save', {
-      method: 'POST',
+    const parsedContent = JSON.parse(fileContent.value);
+    await $fetch("/api/file/save", {
+      method: "POST",
       body: {
-        name: selectedFile.value.replace('.json', ''),
-        content: parsedContent,  
+        name: selectedFile.value.replace(".json", ""),
+        content: parsedContent,
       },
     });
-    alert('File saved successfully');
+    alert("File saved successfully");
   } catch (error) {
-    console.error('Error saving file:', error);
-    alert('Invalid JSON format or failed to save. Please fix any errors and try again.');
+    console.error("Error saving file:", error);
+    alert(
+      "Invalid JSON format or failed to save. Please fix any errors and try again."
+    );
+  }
+};
+
+const duplicateFile = async (file) => {
+  const newFileName = prompt(
+    "Enter new filename",
+    `${file.replace(".json", "")}_copy.json`
+  );
+  if (newFileName && newFileName.trim() !== "") {
+    try {
+      const content = await $fetch(
+        `/api/file/${encodeURIComponent(file.replace(".json", ""))}`
+      );
+      await $fetch("/api/file/save", {
+        method: "POST",
+        body: {
+          name: file.replace(".json", ""),
+          content: content,
+          duplicate: newFileName.replace(".json", ""),
+        },
+      });
+      alert("File duplicated successfully");
+      fetchFiles();
+    } catch (error) {
+      console.error("Error duplicating file:", error);
+      alert("Failed to duplicate file. Please try again.");
+    }
+  } else {
+    alert("Invalid file name. Please try again.");
+  }
+};
+
+const renameFile = async (file) => {
+  const newName = prompt('Enter new name for the file:', file);
+  if (newName && newName.trim() !== "") {
+    try {
+      await $fetch("/api/file/rename", {
+        method: "POST",
+        body: {
+          oldName: file.replace(".json", ""),
+          newName: newName.replace(".json", ""),
+        },
+      });
+      alert("File renamed successfully");
+      fetchFiles();
+      if (selectedFile.value === file) {
+        selectedFile.value = newName;
+      }
+    } catch (error) {
+      console.error("Error renaming file:", error);
+      alert("Failed to rename file. Please try again.");
+    }
+  } else {
+    alert("Invalid file name. Please try again.");
   }
 };
 
