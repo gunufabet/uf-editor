@@ -1,5 +1,5 @@
 <template>
-    <breadcrumb :main-menu="`Sports Bettings`" :main-menu-route="`sports`" :sub-menu="`Soccer`"
+    <breadcrumb :main-menu="`Sports Bettings`" :main-menu-route="`sports-category`" :sub-menu="`Soccer`"
         :sub-menu-route="`soccer`" :sub-item="section2Title">
     </breadcrumb>
 

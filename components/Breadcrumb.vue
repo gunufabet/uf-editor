@@ -15,7 +15,6 @@
 </template>
 
 <script setup lang="ts">
-const openPanel = ref(false);
 const router = useRouter()
 const localePath = useLocalePath()
 
@@ -42,11 +41,11 @@ const props = defineProps({
     },
 });
 
-function goToMainMenu() {
+async function goToMainMenu() {
     return router.push(localePath({ name: props.mainMenuRoute }));
 }
 
-function goToSubMenu() {
+async  function goToSubMenu() {
     return router.push(localePath({ name: props.mainMenuRoute, params: { category: props.subMenuRoute } }));
 }
 </script>
