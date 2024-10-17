@@ -375,14 +375,14 @@ export const useSportStore = defineStore("sport", {
               }`,
               awayOdd_FT_OU_1: `u${apiOddsItem.ou}`,
               awayOdd_FT_OU_2: `${
-                apiOddsItem.overOdds_Bet_Display > 0
-                  ? formatAmount(apiOddsItem.overOdds_Bet_Display)
+                apiOddsItem.underOdds_Bet_Display > 0
+                  ? formatAmount(apiOddsItem.underOdds_Bet_Display)
                   : "-"
               }`,
               awayOdd_FT_1X2_1: "Away",
               awayOdd_FT_1X2_2: `${
-                apiOddsItem._1Odds_Bet_Display > 0
-                  ? formatAmount(apiOddsItem._1Odds_Bet_Display)
+                apiOddsItem._2Odds_Bet_Display > 0
+                  ? formatAmount(apiOddsItem._2Odds_Bet_Display)
                   : "-"
               }`,
               odd_FT_1X2_Draw_1: `Draw`,
