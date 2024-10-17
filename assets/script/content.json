@@ -552,38 +552,38 @@
       "sectionWithMenu2": {
         "menuTab": [
           {
-            "id": "menu2-football",
+            "id": "football",
             "text": "UFABET Football",
             "menuTabOrder": 1
           },
           {
-            "id": "menu2-slot",
+            "id": "slot",
             "text": "UFABET Slot",
             "menuTabOrder": 2
           },
           {
-            "id": "menu2-gambling",
+            "id": "gambling",
             "text": "UFABET Gambling",
             "menuTabOrder": 3
           }
         ],
         "menuContent": [
           {
-            "menuTabId": "menu2-football",
+            "menuTabId": "football",
             "showBetBoost": true,
             "title": "UFABET Football Bet Boost",
             "content": "BETBOOST is a unique betting method that enables users to predict the correct scores of soccer matches, starting with a minimum bet of just 10 baht. Bettors select from 1 to a maximum of 12 matches on a single bet slip. The payout is calculated by multiplying the odds of each match together, offering significant potential winnings if all predicted scores are accurate. However, if any score prediction is incorrect, the entire bet is considered lost, similar to a football mix parlay.<br /><br />Users first select matches by clicking on live football or today's games to place a BET BOOST. They input their predicted scores by pressing the \"+\" sign next to each team’s name after choosing the matches. The bettor must enter the desired wager amount in the bet slip menu once the scores are set, starting from 10 baht. Lastly, the wager is finalized by pressing the “Bet” button. All predicted scores must be correct for successful payouts, and the payout amount is determined by multiplying the odds of all selected matches together. For instance, if three matches are chosen with odds of 7.639, 5.574, and 5.574, the total payout is calculated by multiplying these odds by the stake amount.",
             "focusTitle": false
           },
           {
-            "menuTabId": "menu2-slot",
+            "menuTabId": "slot",
             "showBetBoost": false,
             "title": "",
             "content": "",
             "focusTitle": true
           },
           {
-            "menuTabId": "menu2-gambling",
+            "menuTabId": "gambling",
             "showBetBoost": false,
             "title": "",
             "content": "",
