@@ -58,9 +58,10 @@
 </template>
 
 <script setup lang="ts">
-import content from '~/assets/script/contentSoccer.json'
+import { getContentSoccer } from '@/composables/generalUtil'
+const content = ref(getContentSoccer());
 
-const tabMenuList = ref(content.sectionWithMenu1.menuTab);
+const tabMenuList = ref(content.value.sectionWithMenu1.menuTab);
 const selectedMenuId = ref('football-betting');
 
 function selectTabMenu(value: string) {

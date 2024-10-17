@@ -43,54 +43,6 @@
           "newsShortDescription": "Ireland vs lorem ipsum dolor sit testings delighted on the match ",
           "dateDisplay": "2 hours ago",
           "createdDate": ""
-        },
-        {
-          "newsId": "3",
-          "newsImg": "/img/sample-data/sample-article-1.png",
-          "newsAlt": "ufabet football news",
-          "newsShortDescription": "Real Madrid launch £100m Kane bid amid Man Utd",
-          "dateDisplay": "13 mins ago",
-          "createdDate": ""
-        },
-        {
-          "newsId": "4",
-          "newsImg": "/img/sample-data/sample-article-3.png",
-          "newsAlt": "ufabet football news",
-          "newsShortDescription": "Ireland vs lorem ipsum dolor sit testings delighted on the match ",
-          "dateDisplay": "2 hours ago",
-          "createdDate": ""
-        },
-        {
-          "newsId": "5",
-          "newsImg": "/img/sample-data/sample-article-1.png",
-          "newsAlt": "ufabet football news",
-          "newsShortDescription": "Real Madrid launch £100m Kane bid amid Man Utd",
-          "dateDisplay": "13 mins ago",
-          "createdDate": ""
-        },
-        {
-          "newsId": "6",
-          "newsImg": "/img/sample-data/sample-article-3.png",
-          "newsAlt": "ufabet football news",
-          "newsShortDescription": "Ireland vs lorem ipsum dolor sit testings delighted on the match ",
-          "dateDisplay": "2 hours ago",
-          "createdDate": ""
-        },
-        {
-          "newsId": "7",
-          "newsImg": "/img/sample-data/sample-article-1.png",
-          "newsAlt": "ufabet football news",
-          "newsShortDescription": "Real Madrid launch £100m Kane bid amid Man Utd",
-          "dateDisplay": "13 mins ago",
-          "createdDate": ""
-        },
-        {
-          "newsId": "8",
-          "newsImg": "/img/sample-data/sample-article-3.png",
-          "newsAlt": "ufabet football news",
-          "newsShortDescription": "Ireland vs lorem ipsum dolor sit testings delighted on the match ",
-          "dateDisplay": "2 hours ago",
-          "createdDate": ""
         }
       ],
       "sectionLiveSoccerMatch": {

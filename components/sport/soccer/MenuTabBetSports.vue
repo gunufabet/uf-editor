@@ -149,7 +149,7 @@ section6ContentListH4.value = betSportsContent.value?.section6?.contentListH4.ma
 }));
 
 const section7ContentListH4 = ref<SportSubContent[]>([]);
-section7ContentListH4.value = betSportsContent.value?.section7?.contentListH4.map((item: any) => ({
+section7ContentListH4.value = betSportsContent.value?.section7?.contentListH4?.map((item: any) => ({
     title: item.title,
     content: item.content
 }));

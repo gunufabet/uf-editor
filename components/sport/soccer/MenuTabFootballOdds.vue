@@ -11,8 +11,9 @@
 
 <script setup lang="ts">
 import type { SportSubContent, SportSubContentList } from "~/types/strapi-model";
-import content from '~/assets/script/contentSoccer.json'
-const sportsContent = ref(content.sectionWithMenu1.menuContent.find(
+import { getContentSoccer } from '@/composables/generalUtil'
+const content = ref(getContentSoccer());
+const sportsContent = ref(content.value.sectionWithMenu1.menuContent.find(
     (content) => content.menuTabId === 'football-odds'
 ));
 

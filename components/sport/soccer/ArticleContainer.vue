@@ -42,8 +42,10 @@ const props = defineProps({
 .article-container {
     display: block;
     position: relative;
-    min-width: 175px;
+    // min-width: 175px;
     // min-height: 210px;
+    max-width: 175px;
+    max-height: auto;
     border-radius: 8px;
     background: var(--linear-bar, linear-gradient(90deg, #2B2B32 0%, #484141 100%));
     transition: transform .2s ease-in;    
@@ -54,8 +56,10 @@ const props = defineProps({
 }
 
 .article-img {
-    width: -webkit-fill-available;
-    height: auto;
+    // width: -webkit-fill-available;    
+    // height: auto;
+    max-width: 175px;
+    max-height: 169px;
     border-radius: 8px 8px 0 0;
     overflow-clip-margin: content-box;
     overflow: clip;
