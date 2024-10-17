@@ -233,6 +233,59 @@ export default {
         }
       });
   },
+  async getSportOdds(
+    token: String,
+    gameType1: String,
+    gameType2: String,
+    marketType: String,
+    marketType2: String
+  ) {
+    axiosInstance.defaults.baseURL =
+      import.meta.env.NUXT_SB_API_URL || "https://cigapicorsd.bigbull99.com/";
+
+    const param = JSON.stringify({
+      privateKey: SB_API_KEY,
+      token: token,
+      marketType: marketType,
+    });
+
+    return httpService({
+      method: CallApiMethod.post,
+      url: "api/getoddslist_index",
+      data: param,
+      timeout: 0,
+      headers: methodHeader(),
+    })
+      .then((response) => {
+        if (response.data) {
+          return {
+            succ: true,
+            data: response.data,
+          };
+        }
+        return {
+          succ: false,
+          data: null,
+          msg: "No record found",
+        };
+      })
+      .catch((error) => {
+        let defaultErrorMessage = error.message || "Unknown error";
+        if (error.response) {
+          return {
+            succ: false,
+            data: null,
+            msg: error.response.data.message,
+          };
+        } else {
+          return {
+            succ: false,
+            data: null,
+            msg: defaultErrorMessage,
+          };
+        }
+      });
+  },
   async loginSB() {
     axiosInstance.defaults.baseURL =
       import.meta.env.NUXT_SB_API_URL || "https://cigapicorsd.bigbull99.com/";

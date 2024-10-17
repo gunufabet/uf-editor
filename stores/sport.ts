@@ -1,10 +1,13 @@
 import {
   SportCategory,
   LiveMatchCount,
+  Odds,
   type LiveScore,
 } from "~/types/strapi-model";
 import { Strapi4ResponseData } from "@nuxtjs/strapi/dist/runtime/types/v4";
 import callApi from "~/helpers/call-api";
+import { GameType1, GameType2 } from "~/enums/game-type.js";
+import { MarketType } from "~/enums/market-type.js";
 
 export const useSportStore = defineStore("sport", {
   state: () => {
@@ -14,6 +17,8 @@ export const useSportStore = defineStore("sport", {
       runningLiveScoreByLeague: [] as Strapi4ResponseData<LiveScore>[],
       leagueList: [],
       sportCount: {} as LiveMatchCount,
+      oddsList: [] as Odds[],
+      sbApiToken: "",
     };
   },
   actions: {
@@ -78,37 +83,68 @@ export const useSportStore = defineStore("sport", {
         } catch (error) {}
       }
     },
+    async getSBToken() {
+      if (!this.sbApiToken) {
+        const getTokenResponse = await callApi.loginSB();
+
+        if (getTokenResponse.succ) {
+          this.sbApiToken = getTokenResponse.data.result.token;
+        }
+      }
+    },
     async fetchSportCount() {
-      const marketType_running = "r";
-      const marketType_today = "t";
-      const marketType_early = "e";
+      await this.getSBToken();
 
-      const getTokenResponse = await callApi.loginSB();
-
-      if (getTokenResponse.succ) {
-        const token = getTokenResponse.data.result.token;        
+      if (this.sbApiToken) {
+        const token = this.sbApiToken;
 
         const responseRunning = await callApi.getSportCount(
           token,
-          marketType_running
+          MarketType.RUNNING
         );
         const responseToday = await callApi.getSportCount(
           token,
-          marketType_today
+          MarketType.TODAY
         );
         const responseEarly = await callApi.getSportCount(
           token,
-          marketType_early
+          MarketType.EARLY
         );
 
         this.sportCount = {
-          runningSoccerHDP: responseRunning.data.resultDS.soccerSportCount[0].hdpCount,
-          todaySoccerHDP: responseToday.data.resultDS.soccerSportCount[0].hdpCount,
-          earlySoccerHDP: responseEarly.data.resultDS.soccerSportCount[0].hdpCount,
-          runningSoccerOutright: responseRunning.data.resultDS.soccerSportCount[0].outCount,
-          todaySoccerOutright: responseToday.data.resultDS.soccerSportCount[0].outCount,
-          earlySoccerOutright: responseEarly.data.resultDS.soccerSportCount[0].outCount,
-        };                
+          runningSoccerHDP:
+            responseRunning.data.resultDS.soccerSportCount[0].hdpCount,
+          todaySoccerHDP:
+            responseToday.data.resultDS.soccerSportCount[0].hdpCount,
+          earlySoccerHDP:
+            responseEarly.data.resultDS.soccerSportCount[0].hdpCount,
+          runningSoccerOutright:
+            responseRunning.data.resultDS.soccerSportCount[0].outCount,
+          todaySoccerOutright:
+            responseToday.data.resultDS.soccerSportCount[0].outCount,
+          earlySoccerOutright:
+            responseEarly.data.resultDS.soccerSportCount[0].outCount,
+        };
+      }
+    },
+    async fetchSportOdds() {
+      await this.getSBToken();
+
+      try {
+        if (this.sbApiToken) {
+          const token = this.sbApiToken;
+          const oddsResponse = await callApi.getSportOdds(
+            token,
+            GameType1.SOCCER,
+            GameType2.SOCCER,
+            MarketType.TODAY,
+            MarketType.TODAY
+          );
+
+          this.oddsList = oddsResponse.data.result;
+        }
+      } catch (error) {
+        console.log("error", error);
       }
     },
   },
