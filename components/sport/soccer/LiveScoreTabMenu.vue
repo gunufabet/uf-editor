@@ -12,9 +12,12 @@
     </div>
     <loading v-if="getOddsApiInProgress"></loading>
     <div v-else v-for="(item, index) in matchOddsList" :key="index">
-        <sport-soccer-live-score-caption-content
+        <!-- <sport-soccer-live-score-caption-content
             v-if="index === 0 || item.leagueName !== matchOddsList[index - 1].leagueName"
-            :aside-title-text="item.leagueName" :aside-content-text="``"></sport-soccer-live-score-caption-content>
+            :aside-title-text="item.leagueName" :aside-content-text="``"></sport-soccer-live-score-caption-content> -->
+        <p v-if="index === 0 || item.leagueName !== matchOddsList[index - 1].leagueName" class="league-title">
+            {{ item.leagueName }}
+        </p>
 
         <sport-soccer-live-score-table :key="index" :score="item.score" :time="item.time" :home-name="item.homeName"
             :away-name="item.awayName" :has-live-stream="item.hasLiveStream" :has-statistic="item.hasStatistic"
@@ -198,6 +201,12 @@ const executeSelectMenu = useDebounceFn(async (menu: any) => {
     white-space: nowrap;
 }
 
+.league-title {
+    display: flex;
+    justify-content: center;
+    padding: 1rem
+}
+
 @media only screen and (max-width:475px) {
     .live-tab-text {
         font-size: 14px;
@@ -212,6 +221,10 @@ const executeSelectMenu = useDebounceFn(async (menu: any) => {
         width: 1.2rem;
         height: 1.2rem;
         padding: 3px;
+    }
+
+    .league-title {
+        justify-content: start;
     }
 }
 </style>
