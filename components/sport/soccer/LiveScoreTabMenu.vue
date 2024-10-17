@@ -11,13 +11,13 @@
         </div>
     </div>
 
-    <div v-for="(match, index) in liveMatchLive" :key="index">
-        <sport-soccer-live-score-caption-content :aside-title-text="match.title"
-            :aside-content-text="match.content"></sport-soccer-live-score-caption-content>
+    <div v-for="(item, index) in matchOddsList" :key="index">
+        <sport-soccer-live-score-caption-content
+            v-if="index === 0 || item.leagueName !== matchOddsList[index - 1].leagueName"
+            :aside-title-text="item.leagueName" :aside-content-text="``"></sport-soccer-live-score-caption-content>
 
-        <sport-soccer-live-score-table v-for="(item, index) in match.matchDetail" :key="index" :score="item.score"
-            :time="item.time" :home-name="item.homeName" :away-name="item.awayName"
-            :has-live-stream="item.hasLiveStream" :has-statistic="item.hasStatistic"
+        <sport-soccer-live-score-table :key="index" :score="item.score" :time="item.time" :home-name="item.homeName"
+            :away-name="item.awayName" :has-live-stream="item.hasLiveStream" :has-statistic="item.hasStatistic"
             :has-more-bet-option="item.hasMoreBetOption" :home-odd_ft_hdp_1="item.homeOdd_FT_HDP_1"
             :home-odd_ft_hdp_2="item.homeOdd_FT_HDP_2" :home-odd_ft_ou_1="item.homeOdd_FT_OU_1"
             :home-odd_ft_ou_2="item.homeOdd_FT_OU_2" :home-odd_ft_1x2_1="item.homeOdd_FT_1X2_1"
@@ -34,16 +34,14 @@
 
 
 <script setup lang="ts">
+import { MarketType } from "~/enums/market-type.js";
 import { getContent } from '@/composables/generalUtil'
+const { locale } = useI18n();
+useAsyncData('sports', async () => await useSportStore().fetchSportOdds(locale.value, MarketType.RUNNING))
 const content = ref(getContent());
 import { useSportStore } from "~/stores/sport";
-const { sportCount } = storeToRefs(useSportStore());
+const { sportCount, matchOddsList } = storeToRefs(useSportStore());
 const { t } = useI18n()
-const liveMatchCount = ref(content.value.Sport.Soccer.sectionLiveSoccerMatch.liveMatchCount)
-const liveMatchLive = ref(content.value.Sport.Soccer.sectionLiveSoccerMatch.liveMatchList)
-const asideTitleText = ref('LIGA PORTUGAL 3');
-const asideContentText = ref('Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.');
-
 const selectedMenu = ref('ufabet-soccer-live-matches');
 
 const menuTab = ref([
@@ -51,34 +49,34 @@ const menuTab = ref([
         id: 'ufabet-soccer-live-matches',
         href: 'ufabet-soccer-live-matches',
         text: 'Live',
-        total: liveMatchCount.value.live,
+        total: '0',
         isLive: true
     },
     {
         id: 'ufabet-soccer-today-matches',
         href: 'ufabet-soccer-today-matches',
         text: 'Today',
-        total: liveMatchCount.value.today,
+        total: '0',
         isLive: false
     },
     {
         id: 'ufabet-soccer-early-matches',
         href: 'ufabet-soccer-today-matches',
         text: 'Early',
-        total: liveMatchCount.value.early,
+        total: '0',
         isLive: false
     },
     {
         id: 'ufabet-soccer-outright-matches',
         href: 'ufabet-soccer-outright-matches',
         text: 'Outright',
-        total: liveMatchCount.value.outright,
+        total: '0',
         isLive: false
     }
 ]);
 
 onMounted(() => {
-    mapSportCount()
+    mapSportCount()    
 })
 
 function mapSportCount() {

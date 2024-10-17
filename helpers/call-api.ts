@@ -5,7 +5,7 @@ const axiosInstance = httpService;
 const SB_API_KEY =
   import.meta.env.NUXT_SB_API_KEY ||
   "316B25AD31ACEB8D6830E99088B4CDD2C5BBFCCDA193B4038B49B818ACFEFFD5EEF75F23BFC8B6D99403DA737BB8D599DCBED5BD29F1B1966DE753DAFD2A7CA6";
-const SB_API_USERNAME = import.meta.env.NUXT_SB_API_USERNAME || "wwd222cwsy3";
+const SB_API_USERNAME = import.meta.env.NUXT_SB_API_USERNAME || "wwd222cwsy2";
 const SB_API_PW = import.meta.env.NUXT_SB_API_PW || "Qq123456";
 
 const methodHeader = () => {
@@ -246,7 +246,11 @@ export default {
     const param = JSON.stringify({
       privateKey: SB_API_KEY,
       token: token,
+      gameType1: gameType1,
+      gameType2: gameType2,
       marketType: marketType,
+      marketType2: marketType2,
+      oddsType: "HK",
     });
 
     return httpService({

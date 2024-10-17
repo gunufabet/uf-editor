@@ -20,3 +20,14 @@ export function getContentSoccer() {
 
   return contentSoccer;
 }
+
+export function formatAmount(value) {
+  try {
+    return parseFloat(value).toLocaleString('en', {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    })
+  } catch (error) {
+    return value
+  }
+}

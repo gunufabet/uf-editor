@@ -16,7 +16,6 @@
 useAsyncData('sports', async () => await useSportStore().fetchRunningMatch())
 useAsyncData('sports', async () => await useSportStore().fetchRunningMatchByLeague())
 useAsyncData('sports', async () => await useSportStore().fetchSportCount())
-useAsyncData('sports', async () => await useSportStore().fetchSportOdds())
 
 useHead({
   title: 'UFABET',

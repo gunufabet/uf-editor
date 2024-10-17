@@ -1,13 +1,15 @@
 import {
   SportCategory,
   LiveMatchCount,
-  Odds,
+  MatchOdds,
+  ApiOdds,
   type LiveScore,
 } from "~/types/strapi-model";
 import { Strapi4ResponseData } from "@nuxtjs/strapi/dist/runtime/types/v4";
 import callApi from "~/helpers/call-api";
 import { GameType1, GameType2 } from "~/enums/game-type.js";
 import { MarketType } from "~/enums/market-type.js";
+import { formatAmount } from "@/composables/generalUtil";
 
 export const useSportStore = defineStore("sport", {
   state: () => {
@@ -17,7 +19,7 @@ export const useSportStore = defineStore("sport", {
       runningLiveScoreByLeague: [] as Strapi4ResponseData<LiveScore>[],
       leagueList: [],
       sportCount: {} as LiveMatchCount,
-      oddsList: [] as Odds[],
+      matchOddsList: [] as MatchOdds[],
       sbApiToken: "",
     };
   },
@@ -127,7 +129,7 @@ export const useSportStore = defineStore("sport", {
         };
       }
     },
-    async fetchSportOdds() {
+    async fetchSportOdds(locale: String, marketType: String) {
       await this.getSBToken();
 
       try {
@@ -135,16 +137,256 @@ export const useSportStore = defineStore("sport", {
           const token = this.sbApiToken;
           const oddsResponse = await callApi.getSportOdds(
             token,
-            GameType1.SOCCER,
-            GameType2.SOCCER,
-            MarketType.TODAY,
-            MarketType.TODAY
+            "", // B (Based on sport type, empty if sport type is Soccer (S) )
+            "", // B (Based on sport type, empty if sport type is Soccer (S) )
+            // MarketType.EARLY,
+            marketType,
+            "" // MarketType2 = r / t / e / u (empty if marketType is (r/t/e/u)
           );
 
-          this.oddsList = oddsResponse.data.result;
+          const parsedResponse = JSON.parse(oddsResponse.data.result);
+          this.matchOddsList = [] as MatchOdds[];
+
+          let maxRecords = 5;
+          for (let i = 0; i < parsedResponse.length && i < maxRecords; i++) {
+            const item = parsedResponse[i];
+            const itemPrevious = parsedResponse[i - 1];
+
+            if (i > 0 && item[15] === itemPrevious[15]) {
+              maxRecords += 1;
+              continue;
+            }
+
+            const apiOddsItem: ApiOdds = {
+              socOddsId: item[0],
+              socOddsId_FH: item[1],
+              moduleId: item[2],
+              moduleOrder: item[3],
+              moduleTitle: item[4],
+              moduleTitleC: item[5],
+              moduleTitleT: item[6],
+              moduleTitleV: item[7],
+              moduleTitleJ: item[8],
+              moduleTitleK: item[9],
+              gameType: item[10],
+              gameType2: item[11],
+              gameType3: item[12],
+              matchCode: item[13],
+              matchDate: item[14],
+              home: item[15],
+              homeC: item[16],
+              homeT: item[17],
+              homeV: item[18],
+              homeJ: item[19],
+              homeK: item[20],
+              away: item[21],
+              awayC: item[22],
+              awayT: item[23],
+              awayV: item[24],
+              awayJ: item[25],
+              awayK: item[26],
+              isHomeGive: item[27],
+              isHomeGive_FH: item[28],
+              hdp: item[29],
+              hdpOdds: item[30],
+              hdpSpread: item[31],
+              hdp_FH: item[32],
+              hdpOdds_FH: item[33],
+              hdpSpread_FH: item[34],
+              ou: item[35],
+              ouOdds: item[36],
+              ouSpread: item[37],
+              ou_FH: item[38],
+              ouOdds_FH: item[39],
+              ouSpread_FH: item[40],
+              hasHdp: item[41],
+              hasOU: item[42],
+              hasHdp_FH: item[43],
+              hasOU_FH: item[44],
+              isPause: item[45],
+              isPause_FH: item[46],
+              isLastCall: item[47],
+              isHalfTime: item[48],
+              isRun: item[49],
+              runHomeScore: item[50],
+              runAwayScore: item[51],
+              isInetBet: item[52],
+              isInetBet_FH: item[53],
+              isDanger: item[54],
+              live: item[55],
+              inetMinTransLimit: item[56],
+              inetMaxTransLimit: item[57],
+              inetMaxOUTransLimit: item[58],
+              inetMinTransLimit_FH: item[59],
+              inetMaxTransLimit_FH: item[60],
+              inetMaxOUTransLimit_FH: item[61],
+              hasOddsDiff: item[62],
+              hasSpreadDiff: item[63],
+              hasOddsDiff_FH: item[64],
+              hasSpreadDiff_FH: item[65],
+              hasRunning: item[66],
+              hasFirstHalf: item[67],
+              workingDate: item[68],
+              curMinute: item[69],
+              status: item[70],
+              x121Odds: item[71],
+              x12XOdds: item[72],
+              x122Odds: item[73],
+              hasX12: item[74],
+              x121Odds_FH: item[75],
+              x12XOdds_FH: item[76],
+              x122Odds_FH: item[77],
+              hasX12_FH: item[78],
+              rCHomE: item[79],
+              rCAway: item[80],
+              closingDate: item[81],
+              favId: item[82],
+              homeId: item[83],
+              awayId: item[84],
+              scoreNew: item[85],
+              statsId: item[86],
+              channel: item[87],
+              isWC: item[88],
+              rTSMatchId: item[89],
+              lcId: item[90],
+              nInfo: item[91],
+              nInfoC: item[92],
+              nInfoT: item[93],
+              nInfoV: item[94],
+              nInfoJ: item[95],
+              nInfoK: item[96],
+              injuryTime: item[97],
+              hdpSpreadOri: item[98],
+              hdpSpreadOri_FH: item[99],
+              ouSpreadOri: item[100],
+              ouSpreadOri_FH: item[101],
+              todayDate: item[102],
+              hasPar: item[103],
+              hasPar_FH: item[104],
+              minSpread: item[105],
+              eventKey: item[106],
+              isOdd: item[107],
+              hasOE: item[108],
+              oeOdds: item[109],
+              oeSpread: item[110],
+              isEarly: item[111],
+              homeHDPOdds_Bet: item[112],
+              awayHDPOdds_Bet: item[113],
+              overOdds_Bet: item[114],
+              underOdds_Bet: item[115],
+              homeHDPOdds_FH_Bet: item[116],
+              awayHDPOdds_FH_Bet: item[117],
+              overOdds_FH_Bet: item[118],
+              underOdds_FH_Bet: item[119],
+              homeHDPOdds_Bet_Display: item[120],
+              awayHDPOdds_Bet_Display: item[121],
+              overOdds_Bet_Display: item[122],
+              underOdds_Bet_Display: item[123],
+              _1Odds_Bet_Display: item[124],
+              _XOdds_Bet_Display: item[125],
+              _2Odds_Bet_Display: item[126],
+              oddOdds_Bet_Display: item[127],
+              evenOdds_Bet_Display: item[128],
+              homeHDPOdds_FH_Bet_Display: item[129],
+              awayHDPOdds_FH_Bet_Display: item[130],
+              overOdds_FH_Bet_Display: item[131],
+              underOdds_FH_Bet_Display: item[132],
+              _1Odds_FH_Bet_Display: item[133],
+              _XOdds_FH_Bet_Display: item[134],
+              _2Odds_FH_Bet_Display: item[135],
+              oddOdds_FH_Bet_Display: item[136],
+              evenOdds_FH_Bet_Display: item[137],
+              isAvailable_HDP: item[138],
+              isAvailable_OU: item[139],
+              isAvailable_1X2: item[140],
+              isAvailable_HDP_FH: item[141],
+              isAvailable_OU_FH: item[142],
+              isAvailable_1X2_FH: item[143],
+              matchDate2: item[144],
+              isMainMarket: item[145],
+              isOdd_FH: item[146],
+              hasOE_FH: item[147],
+              oeOdds_FH: item[148],
+              oeSpread_FH: item[149],
+              oddOdds_Bet: item[150],
+              evenOdds_Bet: item[151],
+              oddOdds_FH_Bet: item[152],
+              evenOdds_FH_Bet: item[153],
+              isAvailableOE: item[154],
+              isAvailableOE_FH: item[155],
+              stDatabaseId: item[156],
+              info: item[157],
+            };
+
+            const oddsItem: MatchOdds = {
+              score: `${
+                marketType === MarketType.RUNNING
+                  ? apiOddsItem.runHomeScore + " - " + apiOddsItem.runAwayScore
+                  : apiOddsItem.matchDate
+              }`,
+              time: `${apiOddsItem.status}H ${apiOddsItem.curMinute}'`,
+              leagueName:
+                locale === "th"
+                  ? apiOddsItem.moduleTitleT
+                  : apiOddsItem.moduleTitle,
+              homeName: locale === "th" ? apiOddsItem.homeT : apiOddsItem.home,
+              awayName: locale === "th" ? apiOddsItem.awayT : apiOddsItem.away,
+              hasLiveStream: apiOddsItem.hasRunning,
+              hasStatistic: apiOddsItem.statsId > 0 ? true : false,
+              hasMoreBetOption: true,
+              homeOdd_FT_HDP_1: apiOddsItem.isHomeGive
+                ? `-${apiOddsItem.hdp}`
+                : `${apiOddsItem.hdp}`,
+              homeOdd_FT_HDP_2: `${
+                apiOddsItem.homeHDPOdds_Bet_Display > 0
+                  ? formatAmount(apiOddsItem.homeHDPOdds_Bet_Display)
+                  : "-"
+              }`,
+              homeOdd_FT_OU_1: `o${apiOddsItem.ou}`,
+              homeOdd_FT_OU_2: `${
+                apiOddsItem.overOdds_Bet_Display > 0
+                  ? formatAmount(apiOddsItem.overOdds_Bet_Display)
+                  : "-"
+              }`,
+              homeOdd_FT_1X2_1: "Home",
+              homeOdd_FT_1X2_2: `${
+                apiOddsItem._1Odds_Bet_Display > 0
+                  ? formatAmount(apiOddsItem._1Odds_Bet_Display)
+                  : "-"
+              }`,
+
+              awayOdd_FT_HDP_1: apiOddsItem.isHomeGive
+                ? `${apiOddsItem.hdp}`
+                : `-${apiOddsItem.hdp}`,
+              awayOdd_FT_HDP_2: `${
+                apiOddsItem.awayHDPOdds_Bet_Display > 0
+                  ? formatAmount(apiOddsItem.awayHDPOdds_Bet_Display)
+                  : "-"
+              }`,
+              awayOdd_FT_OU_1: `u${apiOddsItem.ou}`,
+              awayOdd_FT_OU_2: `${
+                apiOddsItem.overOdds_Bet_Display > 0
+                  ? formatAmount(apiOddsItem.overOdds_Bet_Display)
+                  : "-"
+              }`,
+              awayOdd_FT_1X2_1: "Away",
+              awayOdd_FT_1X2_2: `${
+                apiOddsItem._1Odds_Bet_Display > 0
+                  ? formatAmount(apiOddsItem._1Odds_Bet_Display)
+                  : "-"
+              }`,
+              odd_FT_1X2_Draw_1: `Draw`,
+              odd_FT_1X2_Draw_2: `${
+                apiOddsItem._XOdds_Bet_Display > 0
+                  ? formatAmount(apiOddsItem._XOdds_Bet_Display)
+                  : "-"
+              }`,
+            };
+            this.matchOddsList.push(oddsItem);
+          }
         }
       } catch (error) {
-        console.log("error", error);
+        
       }
     },
   },
