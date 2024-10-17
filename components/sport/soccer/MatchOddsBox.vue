@@ -22,6 +22,7 @@ const props = defineProps({
 
 <style lang="scss" scoped>
 .match-odd-box {
+    min-width: 40px;
     display: flex;
     flex-direction: column;
     justify-content: center;

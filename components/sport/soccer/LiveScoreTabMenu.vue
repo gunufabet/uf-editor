@@ -37,46 +37,50 @@
 import { MarketType } from "~/enums/market-type.js";
 import { getContent } from '@/composables/generalUtil'
 const { locale } = useI18n();
-useAsyncData('sports', async () => await useSportStore().fetchSportOdds(locale.value, MarketType.RUNNING))
-const content = ref(getContent());
 import { useSportStore } from "~/stores/sport";
 const { sportCount, matchOddsList } = storeToRefs(useSportStore());
 const { t } = useI18n()
-const selectedMenu = ref('ufabet-soccer-live-matches');
-
 const menuTab = ref([
     {
         id: 'ufabet-soccer-live-matches',
         href: 'ufabet-soccer-live-matches',
         text: 'Live',
         total: '0',
-        isLive: true
+        isLive: true,
+        marketType: MarketType.RUNNING
     },
     {
         id: 'ufabet-soccer-today-matches',
         href: 'ufabet-soccer-today-matches',
         text: 'Today',
         total: '0',
-        isLive: false
+        isLive: false,
+        marketType: MarketType.TODAY
     },
     {
         id: 'ufabet-soccer-early-matches',
-        href: 'ufabet-soccer-today-matches',
+        href: 'ufabet-soccer-early-matches',
         text: 'Early',
         total: '0',
-        isLive: false
-    },
-    {
-        id: 'ufabet-soccer-outright-matches',
-        href: 'ufabet-soccer-outright-matches',
-        text: 'Outright',
-        total: '0',
-        isLive: false
+        isLive: false,
+        marketType: MarketType.EARLY
     }
+    // ,
+    // {
+    //     id: 'ufabet-soccer-outright-matches',
+    //     href: 'ufabet-soccer-outright-matches',
+    //     text: 'Outright',
+    //     total: '0',
+    //     isLive: false
+    // }
 ]);
 
+const selectedMenu = ref(menuTab.value[0].id);
+useAsyncData('sports', async () => await useSportStore().fetchSportOdds(locale.value, menuTab.value[0].marketType))
+
 onMounted(() => {
-    mapSportCount()    
+    mapSportCount()
+    selectMenu(menuTab.value[0])
 })
 
 function mapSportCount() {
@@ -98,6 +102,7 @@ function mapSportCount() {
 
 function selectMenu(menu: any) {
     selectedMenu.value = menu.id;
+    useAsyncData('sports', async () => await useSportStore().fetchSportOdds(locale.value, menu.marketType))
 }
 </script>
 

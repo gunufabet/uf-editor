@@ -317,14 +317,18 @@ export const useSportStore = defineStore("sport", {
               stDatabaseId: item[156],
               info: item[157],
             };
-
+            
             const oddsItem: MatchOdds = {
               score: `${
                 marketType === MarketType.RUNNING
-                  ? apiOddsItem.runHomeScore + " - " + apiOddsItem.runAwayScore
+                  ? apiOddsItem.runHomeScore + " - " + apiOddsItem.runAwayScore                 
+                  : ""
+              }`,
+              time: `${
+                marketType === MarketType.RUNNING
+                  ? `${apiOddsItem.status}H ${apiOddsItem.curMinute}`
                   : apiOddsItem.matchDate
               }`,
-              time: `${apiOddsItem.status}H ${apiOddsItem.curMinute}'`,
               leagueName:
                 locale === "th"
                   ? apiOddsItem.moduleTitleT
