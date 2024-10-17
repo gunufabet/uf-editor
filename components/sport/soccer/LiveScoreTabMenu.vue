@@ -10,8 +10,8 @@
             </button>
         </div>
     </div>
-
-    <div v-for="(item, index) in matchOddsList" :key="index">
+    <loading v-if="getOddsApiInProgress"></loading>
+    <div v-else v-for="(item, index) in matchOddsList" :key="index">
         <sport-soccer-live-score-caption-content
             v-if="index === 0 || item.leagueName !== matchOddsList[index - 1].leagueName"
             :aside-title-text="item.leagueName" :aside-content-text="``"></sport-soccer-live-score-caption-content>
@@ -38,6 +38,8 @@ import { MarketType } from "~/enums/market-type.js";
 import { getContent } from '@/composables/generalUtil'
 const { locale } = useI18n();
 import { useSportStore } from "~/stores/sport";
+import { useDebounceFn } from '@vueuse/shared'
+const getOddsApiInProgress = ref(false)
 const { sportCount, matchOddsList } = storeToRefs(useSportStore());
 const { t } = useI18n()
 const menuTab = ref([
@@ -100,10 +102,23 @@ function mapSportCount() {
     });
 }
 
-function selectMenu(menu: any) {
-    selectedMenu.value = menu.id;
-    useAsyncData('sports', async () => await useSportStore().fetchSportOdds(locale.value, menu.marketType))
+async function selectMenu(menu: any) {
+    getOddsApiInProgress.value = true
+    executeSelectMenu(menu)
 }
+
+const executeSelectMenu = useDebounceFn(async (menu: any) => {
+    try {
+        getOddsApiInProgress.value = true
+        selectedMenu.value = menu.id;
+        useAsyncData('sports', async () => await useSportStore().fetchSportOdds(locale.value, menu.marketType))
+    } catch (error) {
+        getOddsApiInProgress.value = false
+    }
+    finally {
+        getOddsApiInProgress.value = false
+    }
+})
 </script>
 
 <style lang="scss" scoped>
