@@ -35,6 +35,8 @@
 
 <script setup lang="ts">
 import content from '~/assets/script/content.json'
+import { useSportStore } from "~/stores/sport";
+const { sportCount } = storeToRefs(useSportStore());
 const { t } = useI18n()
 const liveMatchCount = ref(content.Sport.Soccer.sectionLiveSoccerMatch.liveMatchCount)
 const liveMatchLive = ref(content.Sport.Soccer.sectionLiveSoccerMatch.liveMatchList)
@@ -73,6 +75,27 @@ const menuTab = ref([
         isLive: false
     }
 ]);
+
+onMounted(() => {
+    mapSportCount()
+})
+
+function mapSportCount() {
+    menuTab.value = menuTab.value.map((item) => {
+        switch (item.id) {
+            case 'ufabet-soccer-live-matches':
+                return { ...item, total: sportCount.value.runningSoccerHDP };
+            case 'ufabet-soccer-today-matches':
+                return { ...item, total: sportCount.value.todaySoccerHDP };
+            case 'ufabet-soccer-early-matches':
+                return { ...item, total: sportCount.value.earlySoccerHDP };
+            case 'ufabet-soccer-outright-matches':
+                return { ...item, total: sportCount.value.todaySoccerOutright };
+            default:
+                return item;
+        }
+    });
+}
 
 function selectMenu(menu: any) {
     selectedMenu.value = menu.id;
@@ -165,7 +188,7 @@ function selectMenu(menu: any) {
         font-size: 14px;
     }
 
-    .count-button {        
+    .count-button {
         font-size: 12px;
         width: 1.2rem;
         height: 1.2rem;

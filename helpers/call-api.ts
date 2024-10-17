@@ -1,6 +1,21 @@
 import { httpService } from "~/stores/axios.js";
 import { useDateFormat } from "@vueuse/shared";
 
+const axiosInstance = httpService;
+const SB_API_KEY =
+  import.meta.env.NUXT_SB_API_KEY ||
+  "316B25AD31ACEB8D6830E99088B4CDD2C5BBFCCDA193B4038B49B818ACFEFFD5EEF75F23BFC8B6D99403DA737BB8D599DCBED5BD29F1B1966DE753DAFD2A7CA6";
+const SB_API_USERNAME = import.meta.env.NUXT_SB_API_USERNAME || "wwd222cwsy3";
+const SB_API_PW = import.meta.env.NUXT_SB_API_PW || "Qq123456";
+
+const methodHeader = () => {
+  let headers: any = {
+    "Content-Type": "application/json",
+  };
+
+  return headers;
+};
+
 export const CallApiMethod = Object.freeze({
   get: "get",
   post: "post",
@@ -129,7 +144,8 @@ export default {
     let today = new Date();
     let todayDate = dateFormat(today, "YYYY-MM-DD");
     let dateFromParam = `filters[matchDate][$gte]=${todayDate}`;
-    let sortParam = "sort[0]=matchDate:asc,matchState:desc,matchTime:asc,homeName:asc";
+    let sortParam =
+      "sort[0]=matchDate:asc,matchState:desc,matchTime:asc,homeName:asc";
     let paginationParam = `pagination[page]=1&pagination[pageSize]=${totalRecord}`;
     let langParam = "locale=en";
     let populateParam = "populate[homeFlagImg]=*&populate[awayFlagImg]=*";
@@ -145,6 +161,101 @@ export default {
           return {
             succ: true,
             data: response.data.data,
+          };
+        }
+        return {
+          succ: false,
+          data: null,
+          msg: "No record found",
+        };
+      })
+      .catch((error) => {
+        let defaultErrorMessage = error.message || "Unknown error";
+        if (error.response) {
+          return {
+            succ: false,
+            data: null,
+            msg: error.response.data.message,
+          };
+        } else {
+          return {
+            succ: false,
+            data: null,
+            msg: defaultErrorMessage,
+          };
+        }
+      });
+  },
+  async getSportCount(token: String, marketType: String) {
+    axiosInstance.defaults.baseURL =
+      import.meta.env.NUXT_SB_API_URL || "https://cigapicorsd.bigbull99.com/";
+
+    const param = JSON.stringify({
+      privateKey: SB_API_KEY,
+      token: token,
+      marketType: marketType,
+    });
+
+    return httpService({
+      method: CallApiMethod.post,
+      url: "api/getsportcount",
+      data: param,
+      timeout: 0,
+      headers: methodHeader(),
+    })
+      .then((response) => {
+        if (response.data) {
+          return {
+            succ: true,
+            data: response.data,
+          };
+        }
+        return {
+          succ: false,
+          data: null,
+          msg: "No record found",
+        };
+      })
+      .catch((error) => {
+        let defaultErrorMessage = error.message || "Unknown error";
+        if (error.response) {
+          return {
+            succ: false,
+            data: null,
+            msg: error.response.data.message,
+          };
+        } else {
+          return {
+            succ: false,
+            data: null,
+            msg: defaultErrorMessage,
+          };
+        }
+      });
+  },
+  async loginSB() {
+    axiosInstance.defaults.baseURL =
+      import.meta.env.NUXT_SB_API_URL || "https://cigapicorsd.bigbull99.com/";
+
+    const param = JSON.stringify({
+      privateKey: SB_API_KEY,
+      comptype: "0",
+      username: SB_API_USERNAME,
+      password: SB_API_PW,
+    });
+
+    return httpService({
+      method: CallApiMethod.post,
+      url: "api/login",
+      data: param,
+      timeout: 0,
+      headers: methodHeader(),
+    })
+      .then((response) => {
+        if (response.data) {
+          return {
+            succ: true,
+            data: response.data,
           };
         }
         return {

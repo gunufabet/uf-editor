@@ -16,7 +16,6 @@ export interface SportSubContent {
   content: string;
 }
 
-
 export interface SportSubContentList {
   title: string;
   content: string;
@@ -71,6 +70,15 @@ export interface LiveScore {
 }
 
 export interface LivescoreTeamFlag {
-	teamId: number;
-	flag: string;
+  teamId: number;
+  flag: string;
+}
+
+export interface LiveMatchCount {
+  runningSoccerHDP: number;
+  todaySoccerHDP: number;
+  earlySoccerHDP: number;
+  runningSoccerOutright: number;
+  todaySoccerOutright: number;
+  earlySoccerOutright: number;
 }

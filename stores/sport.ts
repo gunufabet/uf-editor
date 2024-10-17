@@ -1,4 +1,8 @@
-import { SportCategory, type LiveScore } from "~/types/strapi-model";
+import {
+  SportCategory,
+  LiveMatchCount,
+  type LiveScore,
+} from "~/types/strapi-model";
 import { Strapi4ResponseData } from "@nuxtjs/strapi/dist/runtime/types/v4";
 import callApi from "~/helpers/call-api";
 
@@ -9,6 +13,7 @@ export const useSportStore = defineStore("sport", {
       runningLiveScore: [] as Strapi4ResponseData<LiveScore>[],
       runningLiveScoreByLeague: [] as Strapi4ResponseData<LiveScore>[],
       leagueList: [],
+      sportCount: {} as LiveMatchCount,
     };
   },
   actions: {
@@ -66,13 +71,44 @@ export const useSportStore = defineStore("sport", {
           });
 
           // add to league
-          this.leagueList = [];          
+          this.leagueList = [];
           for (let league in groupedData) {
             this.leagueList.push(groupedData[league]);
           }
-        } catch (error) {
-          
-        }
+        } catch (error) {}
+      }
+    },
+    async fetchSportCount() {
+      const marketType_running = "r";
+      const marketType_today = "t";
+      const marketType_early = "e";
+
+      const getTokenResponse = await callApi.loginSB();
+
+      if (getTokenResponse.succ) {
+        const token = getTokenResponse.data.result.token;        
+
+        const responseRunning = await callApi.getSportCount(
+          token,
+          marketType_running
+        );
+        const responseToday = await callApi.getSportCount(
+          token,
+          marketType_today
+        );
+        const responseEarly = await callApi.getSportCount(
+          token,
+          marketType_early
+        );
+
+        this.sportCount = {
+          runningSoccerHDP: responseRunning.data.resultDS.soccerSportCount[0].hdpCount,
+          todaySoccerHDP: responseToday.data.resultDS.soccerSportCount[0].hdpCount,
+          earlySoccerHDP: responseEarly.data.resultDS.soccerSportCount[0].hdpCount,
+          runningSoccerOutright: responseRunning.data.resultDS.soccerSportCount[0].outCount,
+          todaySoccerOutright: responseToday.data.resultDS.soccerSportCount[0].outCount,
+          earlySoccerOutright: responseEarly.data.resultDS.soccerSportCount[0].outCount,
+        };                
       }
     },
   },
