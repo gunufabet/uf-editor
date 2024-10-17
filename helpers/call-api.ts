@@ -7,6 +7,8 @@ const SB_API_KEY =
   "316B25AD31ACEB8D6830E99088B4CDD2C5BBFCCDA193B4038B49B818ACFEFFD5EEF75F23BFC8B6D99403DA737BB8D599DCBED5BD29F1B1966DE753DAFD2A7CA6";
 const SB_API_USERNAME = import.meta.env.NUXT_SB_API_USERNAME || "wwd222cwsy2";
 const SB_API_PW = import.meta.env.NUXT_SB_API_PW || "Qq123456";
+const unewsApi = import.meta.env.VITE_API_URL || 'https://content.ufanews.com/'
+const sbApi = import.meta.env.NUXT_SB_API_URL || "https://cigapicorsd.bigbull99.com/"
 
 const methodHeader = () => {
   let headers: any = {
@@ -25,6 +27,8 @@ export const CallApiMethod = Object.freeze({
 
 export default {
   async getRunningLiveScore(totalRecord: Number) {
+    axiosInstance.defaults.baseURL = unewsApi;
+
     let leagueIds = [34, 39, 92, 87, 58, 74, 85, 93, 1244]; // top leagues
 
     const dateFormat = (data: Date, format: string) =>
@@ -86,6 +90,7 @@ export default {
       });
   },
   async getStanding(leagueId: String) {
+    axiosInstance.defaults.baseURL = unewsApi;
     const totalRecord = 100;
     let leagueIdParam = `filters[leagueIdLocale]=${leagueId}en`;
     let sortParam = "sort[0]=leagueName:asc";
@@ -132,6 +137,7 @@ export default {
       });
   },
   async getFixtures(leagueId: String) {
+    axiosInstance.defaults.baseURL = unewsApi;
     const dateFormat = (data: Date, format: string) =>
       useDateFormat(data, format, {
         // locales: locale.value === "th" ? "th-TH" : "en-US",
@@ -187,8 +193,7 @@ export default {
       });
   },
   async getSportCount(token: String, marketType: String) {
-    axiosInstance.defaults.baseURL =
-      import.meta.env.NUXT_SB_API_URL || "https://cigapicorsd.bigbull99.com/";
+    axiosInstance.defaults.baseURL = sbApi
 
     const param = JSON.stringify({
       privateKey: SB_API_KEY,
@@ -240,8 +245,7 @@ export default {
     marketType: String,
     marketType2: String
   ) {
-    axiosInstance.defaults.baseURL =
-      import.meta.env.NUXT_SB_API_URL || "https://cigapicorsd.bigbull99.com/";
+    axiosInstance.defaults.baseURL = sbApi
 
     const param = JSON.stringify({
       privateKey: SB_API_KEY,
@@ -291,8 +295,7 @@ export default {
       });
   },
   async loginSB() {
-    axiosInstance.defaults.baseURL =
-      import.meta.env.NUXT_SB_API_URL || "https://cigapicorsd.bigbull99.com/";
+    axiosInstance.defaults.baseURL = sbApi
 
     const param = JSON.stringify({
       privateKey: SB_API_KEY,
