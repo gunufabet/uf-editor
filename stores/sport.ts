@@ -335,7 +335,9 @@ export const useSportStore = defineStore("sport", {
               hasStatistic: apiOddsItem.statsId > 0 ? true : false,
               hasMoreBetOption: true,
               homeOdd_FT_HDP_1: apiOddsItem.isHomeGive
-                ? `-${apiOddsItem.hdp}`
+                ? `${
+                    apiOddsItem.hdp > 0 ? apiOddsItem.hdp * -1 : apiOddsItem.hdp
+                  }`
                 : `${apiOddsItem.hdp}`,
               homeOdd_FT_HDP_2: `${
                 apiOddsItem.homeHDPOdds_Bet_Display > 0
@@ -357,7 +359,11 @@ export const useSportStore = defineStore("sport", {
 
               awayOdd_FT_HDP_1: apiOddsItem.isHomeGive
                 ? `${apiOddsItem.hdp}`
-                : `-${apiOddsItem.hdp}`,
+                : `${
+                    apiOddsItem.hdp > 0
+                      ? apiOddsItem.hdp * -1
+                      : apiOddsItem.hdp > 0
+                  }`,
               awayOdd_FT_HDP_2: `${
                 apiOddsItem.awayHDPOdds_Bet_Display > 0
                   ? formatAmount(apiOddsItem.awayHDPOdds_Bet_Display)
@@ -385,9 +391,7 @@ export const useSportStore = defineStore("sport", {
             this.matchOddsList.push(oddsItem);
           }
         }
-      } catch (error) {
-        
-      }
+      } catch (error) {}
     },
   },
   getters: {},
