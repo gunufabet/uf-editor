@@ -243,7 +243,8 @@ export default {
     gameType1: String,
     gameType2: String,
     marketType: String,
-    marketType2: String
+    marketType2: String,
+    moduleId: String
   ) {
     axiosInstance.defaults.baseURL = sbApi
 
@@ -255,6 +256,7 @@ export default {
       marketType: marketType,
       marketType2: marketType2,
       oddsType: "HK",
+      moduleId: moduleId
     });
 
     return httpService({

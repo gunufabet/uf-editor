@@ -121,6 +121,7 @@
               "showLeagueStandingButton": true,
               "showLeagueStandingButtonInfo": {
                 "leagueId": "92",
+                "leagueId_cigapi": "55",
                 "leagueName": "English Premier League",
                 "routeUrlName": "premier-league-standing",
                 "buttonId": "premier-league-standing",
@@ -129,6 +130,7 @@
               "showLeagueScheduleButton": true,
               "showLeagueScheduleButtonInfo": {
                 "leagueId": "92",
+                "leagueId_cigapi": "55",
                 "leagueName": "English Premier League",
                 "routeUrlName": "premier-league-schedule",
                 "buttonId": "premier-league-schedule",
@@ -137,6 +139,7 @@
               "showLeagueButton": true,
               "showLeagueButtonInfo": {
                 "leagueId": "92",
+                "leagueId_cigapi": "55",
                 "leagueName": "English Premier League",
                 "routeUrlName": "premier-league",
                 "buttonId": "premier-league",

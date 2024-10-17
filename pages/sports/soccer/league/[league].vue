@@ -14,7 +14,8 @@
     <br>
     <br>
 
-    <sport-soccer-league-match :league-id="leagueId"></sport-soccer-league-match>
+    <!-- <sport-soccer-league-match :league-id="leagueId"></sport-soccer-league-match> -->
+    <sport-soccer-league-match-CIGAPI :league-id="leagueId"></sport-soccer-league-match-CIGAPI>
 
     <br>
     <br>

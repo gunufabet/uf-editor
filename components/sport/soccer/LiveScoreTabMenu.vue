@@ -78,7 +78,7 @@ const menuTab = ref([
 ]);
 
 const selectedMenu = ref(menuTab.value[0].id);
-useAsyncData('sports', async () => await useSportStore().fetchSportOdds(locale.value, menuTab.value[0].marketType))
+useAsyncData('sports', async () => await useSportStore().fetchSportOdds(locale.value, menuTab.value[0].marketType, "", 5))
 
 onMounted(() => {
     mapSportCount()
@@ -111,7 +111,7 @@ const executeSelectMenu = useDebounceFn(async (menu: any) => {
     try {
         getOddsApiInProgress.value = true
         selectedMenu.value = menu.id;
-        useAsyncData('sports', async () => await useSportStore().fetchSportOdds(locale.value, menu.marketType))
+        useAsyncData('sports', async () => await useSportStore().fetchSportOdds(locale.value, menu.marketType, "", 5))
     } catch (error) {
         getOddsApiInProgress.value = false
     }

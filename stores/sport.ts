@@ -129,7 +129,7 @@ export const useSportStore = defineStore("sport", {
         };
       }
     },
-    async fetchSportOdds(locale: String, marketType: String) {
+    async fetchSportOdds(locale: String, marketType: String, moduleId: String, maxRecords: Number) {
       await this.getSBToken();
 
       try {
@@ -141,13 +141,13 @@ export const useSportStore = defineStore("sport", {
             "", // B (Based on sport type, empty if sport type is Soccer (S) )
             // MarketType.EARLY,
             marketType,
-            "" // MarketType2 = r / t / e / u (empty if marketType is (r/t/e/u)
+            "", // MarketType2 = r / t / e / u (empty if marketType is (r/t/e/u)
+            moduleId
           );
 
           const parsedResponse = JSON.parse(oddsResponse.data.result);
           this.matchOddsList = [] as MatchOdds[];
-
-          let maxRecords = 5;
+          
           for (let i = 0; i < parsedResponse.length && i < maxRecords; i++) {
             const item = parsedResponse[i];
             const itemPrevious = parsedResponse[i - 1];

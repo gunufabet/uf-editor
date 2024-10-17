@@ -2,6 +2,7 @@
   "leagueInfo": [
     {
       "leagueId": "92",
+      "leagueId_cigapi": "55",
       "leagueName": "English Premier League",
       "main": {
         "title": "Premier League Standings: Premier League Table 2024",
