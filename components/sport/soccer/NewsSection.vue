@@ -70,15 +70,16 @@
 import { useSportStore } from "~/stores/sport";
 const { runningLiveScore } = storeToRefs(useSportStore());
 
-import content from '~/assets/script/content.json'
-const buttonOption = ref(content.Sport.Soccer.sectionNewsEvents.buttonOption);
-const selectedBtnId = ref(content.Sport.Soccer.sectionNewsEvents.buttonOption[0].id);
+import { getContent } from '@/composables/generalUtil'
+const content = ref(getContent());
+const buttonOption = ref(content.value.Sport.Soccer.sectionNewsEvents.buttonOption);
+const selectedBtnId = ref(content.value.Sport.Soccer.sectionNewsEvents.buttonOption[0].id);
 const asideTitleText = ref('');
 const asideContentText = ref('');
 const showNews = ref(false);
 const showEvents = ref(false);
-const newsList = ref(content.Sport.Soccer.newsList);
-const sportsButtonList = ref(content.Sport.Soccer.sectionSportsButton.buttonOption);
+const newsList = ref(content.value.Sport.Soccer.newsList);
+const sportsButtonList = ref(content.value.Sport.Soccer.sectionSportsButton.buttonOption);
 const eventMatchList = ref([]);
 
 onMounted(() => {
@@ -88,12 +89,12 @@ onMounted(() => {
 
 function selectButton(value: any) {
     if (!value) {
-        selectedBtnId.value = content.Sport.Soccer.sectionNewsEvents.buttonOption[0].id
+        selectedBtnId.value = content.value.Sport.Soccer.sectionNewsEvents.buttonOption[0].id
     } else {
         selectedBtnId.value = value.id;
     }
 
-    const selectedButton = content.Sport.Soccer.sectionNewsEvents.buttonOptionContent.find(
+    const selectedButton = content.value.Sport.Soccer.sectionNewsEvents.buttonOptionContent.find(
         (content) => content.buttonOptionId === selectedBtnId.value
     );
 

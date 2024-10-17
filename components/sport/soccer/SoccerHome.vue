@@ -56,26 +56,27 @@
 
 <script setup lang="ts">
 import type { SportSubContent } from "~/types/strapi-model";
-import content from '~/assets/script/content.json'
+import { getContent } from '@/composables/generalUtil'
+const content = ref(getContent());
 
 /* main title */
-const mainTitleText = ref(content.Sport.Soccer.main.title);
-const mainContentText = ref(content.Sport.Soccer.main.content);
+const mainTitleText = ref(content.value.Sport.Soccer.main.title);
+const mainContentText = ref(content.value.Sport.Soccer.main.content);
 
 const selectedMenuId = ref('');
-const tabMenuList = ref(content.Sport.Soccer.sectionWithMenu1.menuTab);
-const tabMenuList2 = ref(content.Sport.Soccer.sectionWithMenu2.menuTab);
+const tabMenuList = ref(content.value.Sport.Soccer.sectionWithMenu1.menuTab);
+const tabMenuList2 = ref(content.value.Sport.Soccer.sectionWithMenu2.menuTab);
 
 const asideTitleText = ref('');
 const asideContentText = ref('');
 const asideContentShowBetBoost = ref(false);
 
-const asideTitleTextLiveMatch = ref(content.Sport.Soccer.sectionLiveSoccerMatch.title);
-const asideContentTextLiveMatch = ref(content.Sport.Soccer.sectionLiveSoccerMatch.content);
+const asideTitleTextLiveMatch = ref(content.value.Sport.Soccer.sectionLiveSoccerMatch.title);
+const asideContentTextLiveMatch = ref(content.value.Sport.Soccer.sectionLiveSoccerMatch.content);
 
 // Ufabet Direct Website
-const sectionTitle = ref(content.Sport.Soccer.section1.title);
-const sectionContent = ref(content.Sport.Soccer.section1.content);
+const sectionTitle = ref(content.value.Sport.Soccer.section1.title);
+const sectionContent = ref(content.value.Sport.Soccer.section1.content);
 const subContentData = ref<SportSubContent[]>([]);
 
 const sectionTitleTabMenuSelected = ref('');
@@ -97,11 +98,11 @@ const sectionContentH4TableContent = ref([]);
 
 function selectTabMenu(value: string) {
     if (!value) {
-        value = content.Sport.Soccer.sectionWithMenu1.menuTab[0].id;
+        value = content.value.Sport.Soccer.sectionWithMenu1.menuTab[0].id;
         selectedMenuId.value = value;
     }
 
-    const selectedMenu = content.Sport.Soccer.sectionWithMenu1.menuContent.find(
+    const selectedMenu = content.value.Sport.Soccer.sectionWithMenu1.menuContent.find(
         (content) => content.menuTabId === value
     );
 
@@ -153,10 +154,10 @@ const selectTabMenu2_FocusTitle = ref(false);
 
 function selectTabMenu2(value: string) {
     if (!value) {
-        value = content.Sport.Soccer.sectionWithMenu2.menuTab[0].id;
+        value = content.value.Sport.Soccer.sectionWithMenu2.menuTab[0].id;
     }
 
-    const selectedMenu = content.Sport.Soccer.sectionWithMenu2.menuContent.find(
+    const selectedMenu = content.value.Sport.Soccer.sectionWithMenu2.menuContent.find(
         (content) => content.menuTabId === value
     );
 
@@ -175,7 +176,7 @@ onMounted(() => {
     selectTabMenu('');
     selectTabMenu2('');
 
-    subContentData.value = content.Sport.Soccer.section1.section1a.map((item: any) => ({
+    subContentData.value = content.value.Sport.Soccer.section1.section1a.map((item: any) => ({
         title: item.title,
         content: item.content
     }));

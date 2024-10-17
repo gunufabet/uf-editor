@@ -42,7 +42,8 @@
 </template>
 
 <script setup lang="ts">
-import content from '~/assets/script/content.json'
+import { getContent } from '@/composables/generalUtil'
+const content = ref(getContent());
 
 const props = defineProps({
     focusTitle: {
@@ -64,7 +65,7 @@ watch(() => props.menuTabId, (newValue) => {
     }
 });
 
-const gameSection = ref(content.Sport.Soccer.sectionGameAvailable);
+const gameSection = ref(content.value.Sport.Soccer.sectionGameAvailable);
 const asideTitleText = ref(gameSection.value.title);
 const asideContentText = ref(gameSection.value.content);
 const asideTitleText2 = ref(gameSection.value.title2);
@@ -78,10 +79,10 @@ const asideTitleText_SelectedTab = ref('');
 const asideContentText_SelectedTab = ref('');
 const gameListButton_SelectedTab = ref([]);
 const buttonDesign_SelectedTab = ref('1');
-const title_contentH2Table = ref(content.Sport.Soccer.sectionGameAvailable.title_contentH2Table)
-const title_contentH3Expand = ref(content.Sport.Soccer.sectionGameAvailable.title_contentH3Expand)
-const title2_contentH4Expand = ref(content.Sport.Soccer.sectionGameAvailable.title2_contentH4Expand)
-const title3_contentH4Expand = ref(content.Sport.Soccer.sectionGameAvailable.title3_contentH4Expand)
+const title_contentH2Table = ref(content.value.Sport.Soccer.sectionGameAvailable.title_contentH2Table)
+const title_contentH3Expand = ref(content.value.Sport.Soccer.sectionGameAvailable.title_contentH3Expand)
+const title2_contentH4Expand = ref(content.value.Sport.Soccer.sectionGameAvailable.title2_contentH4Expand)
+const title3_contentH4Expand = ref(content.value.Sport.Soccer.sectionGameAvailable.title3_contentH4Expand)
 
 function selectTabMenu(value: string) {
     if (!value) {

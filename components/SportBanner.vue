@@ -21,7 +21,8 @@
 </template>
 
 <script setup lang="ts">
-import content from '~/assets/script/content.json'
+import { getContent } from '@/composables/generalUtil'
+const content = ref(getContent());
 </script>
 
 <style lang="scss" scoped>

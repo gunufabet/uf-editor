@@ -34,12 +34,13 @@
 
 
 <script setup lang="ts">
-import content from '~/assets/script/content.json'
+import { getContent } from '@/composables/generalUtil'
+const content = ref(getContent());
 import { useSportStore } from "~/stores/sport";
 const { sportCount } = storeToRefs(useSportStore());
 const { t } = useI18n()
-const liveMatchCount = ref(content.Sport.Soccer.sectionLiveSoccerMatch.liveMatchCount)
-const liveMatchLive = ref(content.Sport.Soccer.sectionLiveSoccerMatch.liveMatchList)
+const liveMatchCount = ref(content.value.Sport.Soccer.sectionLiveSoccerMatch.liveMatchCount)
+const liveMatchLive = ref(content.value.Sport.Soccer.sectionLiveSoccerMatch.liveMatchList)
 const asideTitleText = ref('LIGA PORTUGAL 3');
 const asideContentText = ref('Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.');
 

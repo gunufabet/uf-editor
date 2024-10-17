@@ -94,11 +94,12 @@
 
 <script setup lang="ts">
 import type { SportSubContent, SportSubContentList } from "~/types/strapi-model";
-import content from '~/assets/script/content.json'
+import { getContent } from '@/composables/generalUtil'
+const content = ref(getContent());
 import { useSportStore } from "~/stores/sport";
 const { runningLiveScore } = storeToRefs(useSportStore());
 
-const betSportsContent = ref(content.Sport.Soccer.sectionWithMenu1.menuContent.find(
+const betSportsContent = ref(content.value.Sport.Soccer.sectionWithMenu1.menuContent.find(
     (content) => content.menuTabId === 'sport'
 ));
 

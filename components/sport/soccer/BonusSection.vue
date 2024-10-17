@@ -7,9 +7,10 @@
 </template>
 
 <script setup lang="ts">
-import content from '~/assets/script/content.json'
+import { getContent } from '@/composables/generalUtil'
+const content = ref(getContent());
 
-const bonusSection = ref(content.Sport.Soccer.sectionBonus);
+const bonusSection = ref(content.value.Sport.Soccer.sectionBonus);
 const asideTitleText = ref(bonusSection.value.title);
 const asideContentText = ref(bonusSection.value.content);
 const bonusImgSrc = ref(bonusSection.value.imgSrc);
