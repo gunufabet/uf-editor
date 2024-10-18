@@ -56,11 +56,11 @@
 
 <script setup>
 import { ref, onMounted } from "vue";
-import "vanilla-jsoneditor/themes/jse-theme-dark.css";
+import 'vanilla-jsoneditor/themes/jse-theme-dark.css'
 
 const files = ref([]);
 const selectedFile = ref("");
-const fileContent = ref("");
+const fileContent = ref();
 const showModal = ref(false);
 
 const jsonEditorOptions = ref({
@@ -166,7 +166,7 @@ onMounted(fetchFiles);
 
 <style scoped>
 .save-button {
-  background-color: #4caf50; /* Green */
+  background-color: #4caf50; 
   border: none;
   color: white;
   padding: 15px 32px;
