@@ -36,6 +36,7 @@
       <h2>{{ selectedFile }}</h2>
       <button class="save-button" @click="openConfirmModal">Save</button>
       <JsonEditorVue
+        v-bind="attrs"
         v-model="fileContent"
         :options="jsonEditorOptions"
         class="jse-theme-dark"
@@ -63,6 +64,7 @@ const files = ref([]);
 const selectedFile = ref("");
 const fileContent = ref("");
 const showModal = ref(false);
+const attrs = useAttrs();
 
 const jsonEditorOptions = ref({
   mode: "code",
@@ -138,7 +140,7 @@ const duplicateFile = async (file) => {
 };
 
 const renameFile = async (file) => {
-  const newName = prompt('Enter new name for the file:', file);
+  const newName = prompt("Enter new name for the file:", file);
   if (newName && newName.trim() !== "") {
     try {
       await $fetch("/api/file/rename", {
