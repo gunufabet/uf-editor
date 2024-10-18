@@ -112,3 +112,21 @@ html {
     transform: rotate(360deg);
   }
 }
+
+
+@media only screen and (max-width: 475px) {
+  #scrollupBtn {
+    display: block;
+    position: fixed;
+    bottom: 30px;
+    left: 20px;
+    z-index: 99;
+  }
+}
+
+@media (min-width: 476px) {
+  #scrollupBtn {
+    display: none;
+    position: fixed;
+  }
+}

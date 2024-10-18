@@ -71,6 +71,10 @@
     <accordion-h4-style-2 style="margin-left: 1rem;" v-for="(item, index) in content?.section6?.contentListH4"
         :key="index" :section-title="item.title" :section-content="item.content">
     </accordion-h4-style-2>
+
+    <button id="scrollupBtn" @click="topFunction">
+        <img src="/img/icn-scrollup.svg" alt="scroll up">
+    </button>
 </template>
 
 <script setup lang="ts">
@@ -128,4 +132,25 @@ const section2Title = computed(() => {
 
     return title;
 })
+
+onMounted(() => {
+    document.addEventListener("scroll", scrollFunction);
+})
+
+function scrollFunction() {
+    const scrollupBtn = document.getElementById("scrollupBtn");
+    if (scrollupBtn) {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            scrollupBtn.style.display = "block";
+        } else {
+            scrollupBtn.style.display = "none";
+        }
+    }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+    document.body.scrollTop = 0; // For Safari
+    document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+}
 </script>

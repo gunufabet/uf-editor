@@ -1,7 +1,5 @@
 <template>
-    <br>
-
-    <div class="btn-wrapper" style="justify-content: center; gap: 1rem;">
+    <div class="btn-wrapper" style="justify-content: center; gap: 1rem; padding-top: 2rem">
         <custom-button-3 v-for="(button, index) in buttonOption" :key="index" :label="button.text" :id="button.id"
             :isSelected="button.id === selectedBtnId" @click="selectButton(button)"></custom-button-3>
     </div>
@@ -25,9 +23,9 @@
             </sport-soccer-article-container>
         </div>
 
-        <br>
+        <div style="padding-top: 1rem;"></div>
         <custom-button-1 :label="$t('sport.button.viewMoreFootballNews')"></custom-button-1>
-        <br>
+        <div style="padding-top: 1rem;"></div>
 
         <div class="btn-wrapper">
             <custom-button-4 v-for="(button, index) in sportsButtonList" :key="index" :id="button.id"
@@ -54,9 +52,9 @@
             </sport-soccer-event-match-container>
         </div>
 
-        <br>
+        <div style="padding-top: 1rem;"></div>
         <custom-button-1 :label="$t('sport.button.viewMoreFeaturedMatches')"></custom-button-1>
-        <br>
+        <div style="padding-top: 1rem;"></div>
 
         <div class="btn-wrapper">
             <custom-button-4 v-for="(button, index) in sportsButtonList" :key="index" :id="button.id"

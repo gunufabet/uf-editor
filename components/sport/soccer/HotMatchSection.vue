@@ -1,5 +1,8 @@
 <template>
-    <div v-if="hotMatchList.length > 0" :class="isHotMatch ? 'hot-match-bg' : ''">
+    <br v-if="hotMatchList.length > 0">
+    <br v-if="hotMatchList.length > 0">
+    
+    <div v-if="hotMatchList.length > 0" :class="isHotMatch ? 'hot-match-bg' : ''">        
         <div v-if="isHotMatch" class="title-container">
             <div style="display: flex; margin-left: 1.3rem">
                 <!-- <img style="margin-right: 0.3rem;" src="/img/soccer/icn-hot-black.svg" alt="hot matches"> -->

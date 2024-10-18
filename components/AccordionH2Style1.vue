@@ -1,23 +1,44 @@
 <template>
-    <details class="accordion-panel disabled" :open="true">
+    <details class="accordion-panel disabled" :open="true" :class="addPadding ? 'accordion-h2-add-padding' : ''">
         <summary @click.prevent="false">
-            <h3 class="accordion">
-                <span class="accordion-text" :class="openPanel ? 'expand' : ''">{{ props.sectionTitle }}</span>
+            <h2 class="accordion">
+                <span class="accordion-text">{{ props.sectionTitle }}</span>
                 <div v-if="props.sectionTitle" class="accordion-indent"></div>
-            </h3>
+            </h2>
         </summary>
         <!-- Content with shadow effect -->
         <p class="accordion-panel-content" v-html="props.sectionContent" @click="clickPanel"
             :class="openPanel ? 'open' : 'close'"></p>
 
-        <div v-if="openPanel" v-for="(item, index) in h4ContentData" :key="index">
-            <accordion-h4-style-2 v-if="item.design === '2'" style="margin-left: 1rem; margin-bottom: 30px;"
+        <table-summary v-if="openPanel && sectionContentTableHeader" :tableHeader="sectionContentTableHeader"
+            :tableContent="sectionContentTableContent"></table-summary>
+
+        <p v-if="openPanel" class="accordion-panel-content" v-html="props.sectionContent2"></p>
+
+        <div v-if="openPanel" v-for="(item, index) in h3ContentData" :key="index">
+            <accordion-h3-style-2 v-if="item.design === '2'" style="margin-left: 1rem; margin-bottom: 30px;"
                 :section-title="item.title" :section-content="item.content" :with-break-line="false"
+                :h4ContentData="item.contentListH4"></accordion-h3-style-2>
+
+            <accordion-h3 v-else style="margin-top: 1rem;" :section-title="item.title" :section-content="item.content"
+                :h4ContentData="item.contentListH4" :with-break-line="item.designWithUnderline"></accordion-h3>
+        </div>
+
+        <div v-if="openPanel" v-for="(item, index) in h4ContentData" :key="index">
+            <accordion-h4-style-2 v-if="item.design === '2'" style="margin-bottom: 1rem;" :section-title="item.title"
+                :section-content="item.content" :with-break-line="false"
                 :sectionContentTableHeader="item.contentTable?.header"
-                :sectionContentTableContent="item.contentTable?.content"></accordion-h4-style-2>
-            <accordion-h4 v-else style="margin-top: 1rem;" :section-title="item.title" :section-content="item.content"
+                :sectionContentTableContent="item.contentTable?.content"
+                :show-running-match-table-list="item.showRunningMatchTableList"
+                :show-running-match-list="item.showRunningMatchList" :league-id="item.leagueId"
+                :league-id-cigapi="item.leagueId_cigapi"></accordion-h4-style-2>
+
+            <accordion-h4 v-else :section-title="item.title" :section-content="item.content"
                 :sectionContentTableHeader="item.contentTable?.header"
-                :sectionContentTableContent="item.contentTable?.content"></accordion-h4>
+                :sectionContentTableContent="item.contentTable?.content"
+                :show-running-match-table-list="item.showRunningMatchTableList"
+                :show-running-match-list="item.showRunningMatchList" :league-id="item.leagueId"
+                :league-id-cigapi="item.leagueId_cigapi"></accordion-h4>
         </div>
     </details>
 </template>
@@ -34,6 +55,18 @@ const props = defineProps({
         type: String,
         default: ''
     },
+    sectionContent2: {
+        type: String,
+        default: ''
+    },
+    addPadding: {
+        type: Boolean,
+        default: true
+    },
+    h3ContentData: {
+        type: Array,
+        default: []
+    },
     h4ContentData: {
         type: Array,
         default: []
@@ -48,8 +81,11 @@ const props = defineProps({
     }
 });
 
+const emit = defineEmits(['openPanel'])
+
 function clickPanel() {
     openPanel.value = !openPanel.value;
+    emit('openPanel')
 }
 </script>
 
@@ -70,27 +106,21 @@ details.disabled summary {
 .accordion-text {
     margin-left: 1rem;
     padding-right: 1.3rem;
-    color: #CCAB67;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 500;
-
-    &.expand {
-        color: #EBC76E;
-    }
+    color: #EBC76E;
+    font-size: 24px;
+    font-weight: 400;
 }
 
 .accordion-indent {
     position: absolute;
     left: 0;
-    top: 4px;
+    top: 5px;
     background: linear-gradient(180deg, #EBC76E 0%, #85713E 100%);
-    width: 4px;
-    height: 10px;
+    width: 5px;
+    height: 18px;
 }
 
 .accordion-panel {
-    padding: 0 18px;
     background-color: transparent;
     overflow: hidden;
 
@@ -139,15 +169,11 @@ details.disabled summary {
     summary::marker {
         display: none;
     }
-
-    h3 {
-        margin: 0.5rem 0 0.5rem 0;
-    }
 }
 
 .accordion-panel-content {
     color: #D9D9D9;
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 300;
     line-height: 1.5rem;
     margin-top: 1rem;
@@ -159,5 +185,9 @@ details.disabled summary {
     // -webkit-line-clamp: 3;
     /* Limit to 3 lines */
     transition: -webkit-line-clamp 0.5s ease;
+}
+
+.accordion-h2-add-padding {
+    padding: 0 18px;
 }
 </style>

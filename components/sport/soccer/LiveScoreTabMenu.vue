@@ -35,7 +35,9 @@
     <p v-if="!matchOddsList" class="league-title" style="color: #FFF">
         No running match
     </p>
-    <custom-button-1 :label="t('sport.button.viewMore')"></custom-button-1>
+
+    <div v-if="matchOddsList" style="padding-top: 1rem;"></div>
+    <custom-button-1 v-if="matchOddsList" :label="t('sport.button.viewMore')"></custom-button-1>
 </template>
 
 
@@ -86,7 +88,7 @@ const menuTab = ref([
 
 const selectedMenu = ref(menuTab.value[0].id);
 
-onMounted(() => {    
+onMounted(() => {
     mapSportCount()
     selectMenu(menuTab.value[0])
 })

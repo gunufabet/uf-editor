@@ -22,6 +22,9 @@
             <sport-soccer-hot-match-section :key="sectionTitle" v-if="showRunningMatchList" :league-id="leagueId"
                 :leagueId_cigapi="leagueId_cigapi" :is-hot-match="false"
                 :market-type="MarketType.RUNNING"></sport-soccer-hot-match-section>
+
+            <table-summary v-if="sectionContentTableHeader" :tableHeader="sectionContentTableHeader"
+                :tableContent="sectionContentTableContent"></table-summary>
         </div>
     </details>
 </template>
@@ -50,12 +53,20 @@ const props = defineProps({
     },
     leagueId: {
         type: String,
-        default: 92
+        default: ''
     },
     leagueId_cigapi: {
         type: String,
-        default: 55
+        default: ''
     },
+    sectionContentTableHeader: {
+        type: Array,
+        default: []
+    },
+    sectionContentTableContent: {
+        type: Array,
+        default: []
+    }
 });
 
 async function clickPanel() {

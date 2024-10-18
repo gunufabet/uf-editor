@@ -9,10 +9,24 @@
         <!-- Content with shadow effect -->
         <p class="accordion-panel-content" v-html="props.sectionContent" @click="clickPanel"
             :class="openPanel ? 'open' : 'close'"></p>
+
+        <div v-if="openPanel">
+            <sport-soccer-league-match-CIGAPI v-if="showRunningMatchTableList" :league-id="leagueId"
+                :league-id-cigapi="leagueId_cigapi"></sport-soccer-league-match-CIGAPI>
+
+            <sport-soccer-hot-match-section :key="sectionTitle" v-if="showRunningMatchList" :league-id="leagueId"
+                :leagueId_cigapi="leagueId_cigapi" :is-hot-match="false"
+                :market-type="MarketType.RUNNING"></sport-soccer-hot-match-section>
+
+            <table-summary v-if="sectionContentTableHeader" :tableHeader="sectionContentTableHeader"
+                :tableContent="sectionContentTableContent"></table-summary>
+        </div>
     </details>
 </template>
 
 <script setup lang="ts">
+import { MarketType } from "~/enums/market-type.js";
+
 const openPanel = ref(false);
 
 const props = defineProps({
@@ -23,6 +37,30 @@ const props = defineProps({
     sectionContent: {
         type: String,
         default: ''
+    },
+    showRunningMatchTableList: {
+        type: Boolean,
+        default: false
+    },
+    showRunningMatchList: {
+        type: Boolean,
+        default: false
+    },
+    leagueId: {
+        type: String,
+        default: ''
+    },
+    leagueId_cigapi: {
+        type: String,
+        default: ''
+    },
+    sectionContentTableHeader: {
+        type: Array,
+        default: []
+    },
+    sectionContentTableContent: {
+        type: Array,
+        default: []
     }
 });
 
@@ -48,10 +86,10 @@ details.disabled summary {
 .accordion-text {
     margin-left: 1rem;
     padding-right: 1.3rem;
-    color: #CCAB67;    
+    color: #CCAB67;
     font-size: 14px;
     font-style: normal;
-    font-weight: 500;    
+    font-weight: 500;
 
     &.expand {
         color: #EBC76E;
@@ -124,7 +162,7 @@ details.disabled summary {
 }
 
 .accordion-panel-content {
-    color: #D9D9D9;    
+    color: #D9D9D9;
     font-size: 14px;
     font-weight: 300;
     line-height: 1.5rem;

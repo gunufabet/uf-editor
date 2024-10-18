@@ -24,7 +24,6 @@
 </template>
 
 <script setup lang="ts">
-import type { SportSubContent, SportSubContentList } from "~/types/strapi-model";
 import { getContentSoccer } from '@/composables/generalUtil'
 const content = ref(getContentSoccer());
 const sportsContent = ref(content.value.sectionWithMenu1.menuContent.find(

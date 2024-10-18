@@ -1,9 +1,9 @@
 <template>
     <aside class="banner-container">
         <div class="banner-container-wrapper">
-            <div class="banner-container-img">
-                <img class="banner-container-img-item" :alt="imgAlt" :srcset="`${imgSrcMobile} 480w, 
-                    ${imgSrc} 800w, ${imgSrc} 1200w`" :src="imgSrc">
+            <div class="banner-container-img">                
+                <img class="banner-container-img-item" :alt="imgAlt"
+                    :srcset="`${imgSrcMobile} 480w, ${imgSrc} 800w, ${imgSrc} 1200w`" :src="imgSrc" loading="lazy" />
             </div>
         </div>
     </aside>
@@ -29,8 +29,10 @@ const props = defineProps({
 <style lang="scss" scoped>
 .banner-container {
     display: flex;
-    align-items: center;
-    justify-content: center;
+    flex-wrap: nowrap;
+    gap: 1rem;
+    overflow-x: auto;
+    overflow-y: hidden;
 
     &-img {
         border-radius: 10px;

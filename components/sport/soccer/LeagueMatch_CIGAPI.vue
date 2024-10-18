@@ -86,7 +86,7 @@ onMounted(() => {
 })
 
 async function getMatch() {
-    matchOddsList.value = await useSportStore().fetchSportOdds(locale.value, props.marketType, props.leagueId_cigapi, 5)
+    matchOddsList.value = await useSportStore().fetchSportOdds(locale.value, props.marketType, props.leagueId_cigapi, 5)    
 }
 
 function formatDate(matchDate: Date) {

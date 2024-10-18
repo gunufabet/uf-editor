@@ -1,13 +1,12 @@
 <template>
     <main-content :main-title-text="mainTitleText" :main-content-text="mainContentText"></main-content>
 
-    <!-- <sport-banner style="margin-top: 30px;"></sport-banner> -->
+    <div style="padding-top: 2rem;"></div>
 
-    <accordion-h2 style="margin-top: 30px;" :section-title="sectionTitle" :section-content="sectionContent">
-    </accordion-h2>
-    <br>
-    <accordion-h3 style="margin-left: 1rem; margin-bottom: 30px;" v-for="(item, index) in subContentData" :key="index"
-        :section-title="item.title" :section-content="item.content" :with-break-line="false"></accordion-h3>
+    <!-- section 1 -->
+    <accordion-h2-style-1 v-if="section1?.design === '1'" style="margin-top: 1rem;" :section-title="section1?.title"
+        :section-content="section1?.content" :h3-content-data="section1?.contentListH3">
+    </accordion-h2-style-1>
 
     <!-- hot matches -->
     <sport-soccer-hot-match-section></sport-soccer-hot-match-section>
@@ -16,54 +15,52 @@
     <aside-content style="margin-top: 30px;" :key="asideTitleTextLiveMatch" :aside-title-text="asideTitleTextLiveMatch"
         :aside-content-text="asideContentTextLiveMatch"></aside-content>
 
+    <!-- menu -->
+    <div style="padding-top: 2rem;"></div>
     <sport-soccer-live-score-tab-menu></sport-soccer-live-score-tab-menu>
 
-    <br>
+    <div style="padding-top: 2rem;"></div>
     <tab-menu @select-tab-menu="selectTabMenu" :tab-menu-list="tabMenuList"></tab-menu>
-    <br>
+    <accordion-h2-style-1 v-if="selectedMenuContent?.design === '1' && selectedMenuId !== 'sport'"
+        style="margin-top: 1rem" :section-title="selectedMenuContent?.title"
+        :section-content="selectedMenuContent?.content" :h3-content-data="selectedMenuContent?.contentListH3">
+    </accordion-h2-style-1>
+
     <sport-soccer-menu-tab-bet-sports v-if="selectedMenuId === 'sport'"></sport-soccer-menu-tab-bet-sports>
-    <sub-main-content v-else :section-title="sectionTitleTabMenuSelected"
-        :section-content="sectionContentTabMenuSelected" :section-sub-content="subContentDataTabMenuSelected"
-        :section-title-h3="sectionTitleTabMenuSelectedH3" :section-content-h3="sectionContentTabMenuSelectedH3"
-        :section-sub-content-h3="subContentDataTabMenuSelectedH3" :section-title-h4="sectionTitleTabMenuSelectedH4"
-        :section-content-h4="sectionContentTabMenuSelectedH4" :section-sub-content-h4="subContentDataTabMenuSelectedH4"
-        :section-content-h2-table-header="sectionContentH2TableHeader"
-        :section-content-h2-table-content="sectionContentH2TableContent"
-        :section-content-h3-table-header="sectionContentH3TableHeader"
-        :section-content-h3-table-content="sectionContentH3TableContent"
-        :section-content-h4-table-header="sectionContentH4TableHeader"
-        :section-content-h4-table-content="sectionContentH4TableContent"></sub-main-content>
 
-    <br>
+    <!-- menu 2 -->
+    <div style="padding-top: 3rem;"></div>
     <tab-menu @select-tab-menu="selectTabMenu2" :tab-menu-list="tabMenuList2"></tab-menu>
-    <aside-content :key="asideTitleText" :aside-title-text="asideTitleText"
-        :aside-content-text="asideContentText"></aside-content>
 
-    <br>
-    <sport-soccer-bet-boost v-if="asideContentShowBetBoost"></sport-soccer-bet-boost>
+    <sport-soccer-menu-tab-football v-if="selectTabMenu2_MenuTabId === 'football'"></sport-soccer-menu-tab-football>
 
-    
-    <sport-soccer-news-section></sport-soccer-news-section>
-    <br>
+    <div style="padding-top: 2rem;"></div>
 
     <sport-soccer-bonus-section></sport-soccer-bonus-section>
 
-    <br>
+    <div style="padding-top: 2rem;"></div>
 
     <sport-soccer-game-available-section :menu-tab-id="selectTabMenu2_MenuTabId"
         :focus-title="selectTabMenu2_FocusTitle"></sport-soccer-game-available-section>
+
+    <!-- section 2 -->
+    <accordion-h2-style-1 v-if="section2?.design === '1'" style="margin-top: 1rem;" :section-title="section2?.title"
+        :section-content="section2?.content" :h3-content-data="section2?.contentListH3" :h4-content-data="section2?.contentListH4">
+    </accordion-h2-style-1>
 </template>
 
 <script setup lang="ts">
-import type { SportSubContent } from "~/types/strapi-model";
 import { getContent } from '@/composables/generalUtil'
 const content = ref(getContent());
 
 /* main title */
 const mainTitleText = ref(content.value.Sport.Soccer.main.title);
 const mainContentText = ref(content.value.Sport.Soccer.main.content);
+const section1 = ref(content.value.Sport.Soccer.section1);
+const section2 = ref(content.value.Sport.Soccer.section2);
 
 const selectedMenuId = ref('');
+const selectedMenuContent = ref();
 const tabMenuList = ref(content.value.Sport.Soccer.sectionWithMenu1.menuTab);
 const tabMenuList2 = ref(content.value.Sport.Soccer.sectionWithMenu2.menuTab);
 
@@ -73,28 +70,6 @@ const asideContentShowBetBoost = ref(false);
 
 const asideTitleTextLiveMatch = ref(content.value.Sport.Soccer.sectionLiveSoccerMatch.title);
 const asideContentTextLiveMatch = ref(content.value.Sport.Soccer.sectionLiveSoccerMatch.content);
-
-// Ufabet Direct Website
-const sectionTitle = ref(content.value.Sport.Soccer.section1.title);
-const sectionContent = ref(content.value.Sport.Soccer.section1.content);
-const subContentData = ref<SportSubContent[]>([]);
-
-const sectionTitleTabMenuSelected = ref('');
-const sectionContentTabMenuSelected = ref('');
-const subContentDataTabMenuSelected = ref<SportSubContent[]>([]);
-const sectionTitleTabMenuSelectedH3 = ref('');
-const sectionContentTabMenuSelectedH3 = ref('');
-const subContentDataTabMenuSelectedH3 = ref<SportSubContent[]>([]);
-const sectionTitleTabMenuSelectedH4 = ref('');
-const sectionContentTabMenuSelectedH4 = ref('');
-const subContentDataTabMenuSelectedH4 = ref<SportSubContent[]>([]);
-
-const sectionContentH2TableHeader = ref([]);
-const sectionContentH2TableContent = ref([]);
-const sectionContentH3TableHeader = ref([]);
-const sectionContentH3TableContent = ref([]);
-const sectionContentH4TableHeader = ref([]);
-const sectionContentH4TableContent = ref([]);
 
 function selectTabMenu(value: string) {
     if (!value) {
@@ -107,46 +82,7 @@ function selectTabMenu(value: string) {
     );
 
     selectedMenuId.value = selectedMenu?.menuTabId || '';
-
-    sectionTitleTabMenuSelected.value = selectedMenu?.title || '';
-    sectionContentTabMenuSelected.value = selectedMenu?.content || '';
-    if (selectedMenu?.contentList) {
-        subContentDataTabMenuSelected.value = selectedMenu?.contentList.map((item: any) => ({
-            title: item.title,
-            content: item.content
-        }));
-    } else {
-        subContentDataTabMenuSelected.value = selectedMenu?.contentList || [];
-    }
-
-    sectionTitleTabMenuSelectedH3.value = selectedMenu?.titleH3 || '';
-    sectionContentTabMenuSelectedH3.value = selectedMenu?.contentH3 || '';
-    if (selectedMenu?.contentListH3) {
-        subContentDataTabMenuSelectedH3.value = selectedMenu?.contentListH3.map((item: any) => ({
-            title: item.title,
-            content: item.content
-        }));
-    } else {
-        subContentDataTabMenuSelectedH3.value = selectedMenu?.contentListH3 || [];
-    }
-
-    sectionTitleTabMenuSelectedH4.value = selectedMenu?.titleH4 || '';
-    sectionContentTabMenuSelectedH4.value = selectedMenu?.contentH4 || '';
-    if (selectedMenu?.contentListH4) {
-        subContentDataTabMenuSelectedH4.value = selectedMenu?.contentListH4.map((item: any) => ({
-            title: item.title,
-            content: item.content
-        }));
-    } else {
-        subContentDataTabMenuSelectedH4.value = selectedMenu?.contentListH4 || [];
-    }
-
-    sectionContentH2TableHeader.value = selectedMenu?.contentH2Table?.header || [];
-    sectionContentH2TableContent.value = selectedMenu?.contentH2Table?.content || [];
-    sectionContentH3TableHeader.value = selectedMenu?.contentH3Table?.header || [];
-    sectionContentH3TableContent.value = selectedMenu?.contentH3Table?.content || [];
-    sectionContentH4TableHeader.value = selectedMenu?.contentH4Table?.header || [];
-    sectionContentH4TableContent.value = selectedMenu?.contentH4Table?.content || [];
+    selectedMenuContent.value = selectedMenu;
 }
 
 const selectTabMenu2_MenuTabId = ref('');
@@ -170,16 +106,14 @@ function selectTabMenu2(value: string) {
 
     selectTabMenu2_MenuTabId.value = selectedMenu?.menuTabId || '';
     selectTabMenu2_FocusTitle.value = selectedMenu?.focusTitle || false;
+
+    console.log('selectTabMenu2_MenuTabId.value', selectTabMenu2_MenuTabId.value)
+    console.log('selectTabMenu2_FocusTitle.value', selectTabMenu2_FocusTitle.value)
 }
 
 onMounted(() => {
     selectTabMenu('');
     selectTabMenu2('');
-
-    subContentData.value = content.value.Sport.Soccer.section1.section1a.map((item: any) => ({
-        title: item.title,
-        content: item.content
-    }));
 })
 </script>
 

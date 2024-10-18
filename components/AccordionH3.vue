@@ -24,6 +24,23 @@
         <!-- Content with shadow effect -->
         <p class="accordion-panel-content" :class="openPanel ? 'accordion-h3-open' : 'accordion-h3-close'"
             v-html="props.sectionContent"></p>
+
+        <div v-if="openPanel" v-for="(item, index) in h4ContentData" :key="index">
+            <accordion-h4-style-2 v-if="item.design === '2'" style="margin-bottom: 1rem;"
+                :section-title="item.title" :section-content="item.content" :with-break-line="false"
+                :sectionContentTableHeader="item.contentTable?.header"
+                :sectionContentTableContent="item.contentTable?.content"
+                :show-running-match-table-list="item.showRunningMatchTableList"
+                :show-running-match-list="item.showRunningMatchList" :league-id="item.leagueId"
+                :league-id-cigapi="item.leagueId_cigapi"></accordion-h4-style-2>
+
+            <accordion-h4 v-else :section-title="item.title" :section-content="item.content"
+                :sectionContentTableHeader="item.contentTable?.header"
+                :sectionContentTableContent="item.contentTable?.content"
+                :show-running-match-table-list="item.showRunningMatchTableList"
+                :show-running-match-list="item.showRunningMatchList" :league-id="item.leagueId"
+                :league-id-cigapi="item.leagueId_cigapi"></accordion-h4>
+        </div>
     </details>
 </template>
 
@@ -43,9 +60,21 @@ const props = defineProps({
         type: Boolean,
         default: false
     },
-    defaultOpenPanel:{
+    defaultOpenPanel: {
         type: Boolean,
         default: false
+    },
+    h4ContentData: {
+        type: Array,
+        default: []
+    },
+    sectionContentTableHeader: {
+        type: Array,
+        default: []
+    },
+    sectionContentTableContent: {
+        type: Array,
+        default: []
     }
 });
 
@@ -53,8 +82,8 @@ async function clickPanel() {
     openPanel.value = !openPanel.value;
 }
 
-onMounted(() => {  
-  openPanel.value = props.defaultOpenPanel;
+onMounted(() => {
+    openPanel.value = props.defaultOpenPanel;
 })
 </script>
 
@@ -72,7 +101,7 @@ onMounted(() => {
     color: #CCAB67;
     font-size: 14px;
     font-style: normal;
-    font-weight: 500;    
+    font-weight: 500;
 
     &.expand {
         color: #EBC76E;
@@ -109,7 +138,7 @@ onMounted(() => {
 }
 
 .accordion-panel-content {
-    color: #D9D9D9;    
+    color: #D9D9D9;
     font-size: 14px;
     font-weight: 300;
     line-height: 1.5rem;

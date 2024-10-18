@@ -17,6 +17,20 @@
         <!-- Content with shadow effect -->
         <p class="accordion-panel-content" v-html="props.sectionContent" @click="clickPanel"
             :class="openPanel ? 'open' : 'close'"></p>
+
+        <table-summary v-if="openPanel && sectionContentTableHeader" :tableHeader="sectionContentTableHeader"
+            :tableContent="sectionContentTableContent"></table-summary>
+
+        <p v-if="openPanel" class="accordion-panel-content" v-html="props.sectionContent2"></p>
+
+        <div v-if="openPanel" v-for="(item, index) in h3ContentData" :key="index">
+            <accordion-h3-style-2 v-if="item.design === '2'" style="margin-left: 1rem; margin-bottom: 30px;"
+                :section-title="item.title" :section-content="item.content" :with-break-line="false"
+                :h4ContentData="item.contentListH4"></accordion-h3-style-2>
+
+            <accordion-h3 v-else style="margin-top: 1rem;" :section-title="item.title" :section-content="item.content"
+                :h4ContentData="item.contentListH4" :with-break-line="item.designWithUnderline"></accordion-h3>
+        </div>
     </details>
 </template>
 
@@ -31,11 +45,31 @@ const props = defineProps({
     sectionContent: {
         type: String,
         default: ''
+    },
+    sectionContent2: {
+        type: String,
+        default: ''
+    },
+    h3ContentData: {
+        type: Array,
+        default: []
+
+    },
+    sectionContentTableHeader: {
+        type: Array,
+        default: []
+    },
+    sectionContentTableContent: {
+        type: Array,
+        default: []
     }
 });
 
+const emit = defineEmits(['openPanel'])
+
 function clickPanel() {
     openPanel.value = !openPanel.value;
+    emit('openPanel')
 }
 </script>
 
@@ -58,7 +92,7 @@ details.disabled summary {
     padding-right: 1.3rem;
     color: #EBC76E;
     font-size: 24px;
-    font-weight: 400;    
+    font-weight: 400;
 }
 
 .accordion-indent {
@@ -123,9 +157,9 @@ details.disabled summary {
 }
 
 .accordion-panel-content {
-    color: #D9D9D9;    
+    color: #D9D9D9;
     font-size: 14px;
-    font-weight: 300;    
+    font-weight: 300;
     line-height: 1.5rem;
     margin-top: 1rem;
     margin-left: 1rem;
