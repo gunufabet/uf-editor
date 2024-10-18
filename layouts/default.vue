@@ -3,12 +3,12 @@
   <!-- <layout-container /> -->
   <main id="main">
     <NuxtPage />
+    <button id="scrollupBtn" @click="topFunction">
+      <img src="/img/icn-scrollup.svg" alt="scroll up">
+    </button>
   </main>
   <layout-footer id="footer">
   </layout-footer>
-  <button id="scrollupBtn" @click="topFunction">
-    <img src="/img/icn-scrollup.svg" alt="scroll up">
-  </button>
 </template>
 
 <script setup lang="ts">
@@ -29,7 +29,7 @@ useHead({
 })
 
 onMounted(() => {
-  document.addEventListener("scroll", scrollFunction);  
+  document.addEventListener("scroll", scrollFunction);
 })
 
 function scrollFunction() {
@@ -51,8 +51,7 @@ function topFunction() {
 </script>
 
 <style lang="scss" scoped>
-
-#main{
+#main {
   overflow-y: hidden;
 }
 

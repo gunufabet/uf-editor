@@ -32,7 +32,7 @@
         </sport-soccer-live-score-table>
     </div>
 
-    <p v-if="matchOddsList" class="league-title" style="color: #FFF">
+    <p v-if="!matchOddsList" class="league-title" style="color: #FFF">
         No running match
     </p>
     <custom-button-1 :label="t('sport.button.viewMore')"></custom-button-1>
