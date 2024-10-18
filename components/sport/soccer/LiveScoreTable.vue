@@ -6,7 +6,7 @@
                 <tr class="bet-type-header">
                     <th colspan="2" class="score-time-info">
                         <span class="score-tag">{{ props.score }}</span>
-                        <span class="time-tag">{{ props.time }}</span>
+                        <span class="time-tag">{{ getTimeSbApi(props.time) }}</span>
                     </th>
                     <th class="bet-type-col"><span class="col-text">FT. HDP</span></th>
                     <th class="bet-type-col"><span class="col-text">FT. O/U</span></th>
@@ -77,6 +77,8 @@
 </template>
 
 <script setup lang="ts">
+import { getDateSbApi, getTimeSbApi } from '@/composables/generalUtil'
+
 const props = defineProps({
     score: {
         type: String,

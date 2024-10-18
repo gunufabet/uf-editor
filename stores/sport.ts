@@ -324,6 +324,8 @@ export const useSportStore = defineStore("sport", {
                   ? apiOddsItem.runHomeScore + " - " + apiOddsItem.runAwayScore                 
                   : ""
               }`,
+              homeScore: `${apiOddsItem.runHomeScore}`,
+              awayScore: `${apiOddsItem.runAwayScore}`,
               time: `${
                 marketType === MarketType.RUNNING
                   ? `${apiOddsItem.status}H ${apiOddsItem.curMinute}`

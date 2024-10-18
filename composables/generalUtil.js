@@ -31,3 +31,23 @@ export function formatAmount(value) {
     return value
   }
 }
+
+export function getDateSbApi(value) {
+  try {
+      const [date, time] = value.split(' ');
+      return date;
+  } catch (error) {
+
+  }
+  return value
+}
+
+export function getTimeSbApi(value) {
+  try {
+      const [date, time] = value.split(' ');
+      return time;
+  } catch (error) {
+
+  }
+  return value
+}

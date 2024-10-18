@@ -54,6 +54,7 @@ const props = defineProps({
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
 
     gap: 0.3rem;
 }
@@ -80,7 +81,7 @@ const props = defineProps({
 
 .label-text-1 {
     color: #EBC76E;
-    font-size: 11px;
+    font-size: 12px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;

@@ -84,6 +84,8 @@ export interface LiveMatchCount {
 }
 export interface MatchOdds {
   score: string;
+  homeScore: string;
+  awayScore: string;
   time: string;
   leagueName: string;
   homeName: string;

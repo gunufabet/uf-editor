@@ -36,7 +36,10 @@
 <script setup lang="ts">
 import { useSportStore } from "~/stores/sport";
 const { runningLiveScore } = storeToRefs(useSportStore());
-
+const { locale } = useI18n();
+import { MarketType } from "~/enums/market-type.js";
+const { matchOddsList } = storeToRefs(useSportStore());
+useAsyncData('sports', async () => await useSportStore().fetchSportOdds(locale.value, MarketType.RUNNING, '', 5))
 const hotMatchList = ref([]);
 
 onMounted(() => {
@@ -45,22 +48,22 @@ onMounted(() => {
 
 function mapMatch() {
     hotMatchList.value = [];
-    runningLiveScore.value.forEach((item) => {
+    matchOddsList.value.forEach((item) => {
         let record = {
-            tournamentText: item.attributes.leagueName,
-            matchRunningTime: item.attributes.runningMatchMinute,
+            tournamentText: item.leagueName,
+            matchRunningTime: item.time,
             isRunningMatch: true,
-            homeName: item.attributes.homeName,
-            homeScore: item.attributes.homeScore,
-            homeIcon: item.attributes?.homeFlagImg?.data?.attributes?.flag || '',
-            homeIconAlt: item.attributes.homeName,
-            awayName: item.attributes.awayName,
-            awayScore: item.attributes.awayScore,
-            awayIcon: item.attributes?.awayFlagImg?.data?.attributes?.flag || '',
-            awayIconAlt: item.attributes.awayName,
-            homeOdds: "2.05",   // Use dynamic data if available
-            awayOdds: "3.44",   // Use dynamic data if available
-            drawOdds: "2"       // Use dynamic data if available
+            homeName: item.homeName,
+            homeScore: item.homeScore,
+            homeIcon: '',
+            homeIconAlt: item.homeName,
+            awayName: item.awayName,
+            awayScore: item.awayScore,
+            awayIcon: '',
+            awayIconAlt: item.awayName,
+            homeOdds: item.homeOdd_FT_1X2_2,   // Use dynamic data if available
+            awayOdds: item.awayOdd_FT_1X2_2,   // Use dynamic data if available
+            drawOdds: item.odd_FT_1X2_Draw_2       // Use dynamic data if available
         };
 
         hotMatchList.value.push(record);
