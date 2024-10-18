@@ -1,7 +1,7 @@
 <template>
     <main-content :main-title-text="mainTitleText" :main-content-text="mainContentText"></main-content>
 
-    <sport-banner style="margin-top: 30px;"></sport-banner>
+    <!-- <sport-banner style="margin-top: 30px;"></sport-banner> -->
 
     <accordion-h2 style="margin-top: 30px;" :section-title="sectionTitle" :section-content="sectionContent">
     </accordion-h2>

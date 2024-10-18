@@ -1,9 +1,9 @@
 <template>
     <aside-content :key="asideTitleText" :aside-title-text="asideTitleText" :aside-content-text="asideContentText"></aside-content>
 
-    <div class="img-wrapper">
+    <!-- <div class="img-wrapper">
         <bonus-banner :img-src="bonusImgSrc" :img-src-mobile="bonusImgSrcMobile" :img-alt="bonusImgAlt"></bonus-banner>
-    </div>
+    </div> -->
 </template>
 
 <script setup lang="ts">
