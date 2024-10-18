@@ -24,7 +24,7 @@
 
             <custom-button-6 v-if="item.showLeagueButton" :id="item.showLeagueButtonInfo.buttonId"
                 :label="item.showLeagueButtonInfo.buttonLabel"
-                @click="GoToLeague(item.showLeagueButtonInfo.routeUrlName, item.showLeagueButtonInfo.leagueId)"></custom-button-6>
+                @click="GoToLeague(item.showLeagueButtonInfo.routeUrlName, item.showLeagueButtonInfo.leagueId, item.showLeagueButtonInfo.leagueId_cigapi)"></custom-button-6>
         </div>
         <br v-if="item.showRunningMatch">
         <sport-soccer-live-match v-if="item.showRunningMatch"></sport-soccer-live-match>
@@ -50,8 +50,8 @@ async function GoToLeagueSchedule(routeUrlName: any, leagueId: any) {
     return router.push(localePath({ name: 'sports-soccer-schedule-leagueSchedule', params: { leagueSchedule: routeUrlName }, query: { leagueId: leagueId } }));
 }
 
-async function GoToLeague(routeUrlName: any, leagueId: any) {
-    return router.push(localePath({ name: 'sports-soccer-league-league', params: { league: routeUrlName }, query: { leagueId: leagueId } }));
+async function GoToLeague(routeUrlName: any, leagueId: any, leagueId_cigapi: any) {
+    return router.push(localePath({ name: 'sports-soccer-league-league', params: { league: routeUrlName }, query: { leagueId: leagueId, leagueId2: leagueId_cigapi } }));
 }
 </script>
 

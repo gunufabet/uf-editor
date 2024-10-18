@@ -14,10 +14,21 @@
         <!-- Content with shadow effect -->
         <p class="accordion-panel-content" :class="openPanel ? 'accordion-h4-open' : 'accordion-h4-close'"
             v-html="props.sectionContent"></p>
+
+        <div v-if="openPanel">
+            <sport-soccer-league-match-CIGAPI v-if="showRunningMatchTableList" :league-id="leagueId"
+                :league-id-cigapi="leagueId_cigapi"></sport-soccer-league-match-CIGAPI>
+
+            <sport-soccer-hot-match-section :key="sectionTitle" v-if="showRunningMatchList" :league-id="leagueId"
+                :leagueId_cigapi="leagueId_cigapi" :is-hot-match="false"
+                :market-type="MarketType.RUNNING"></sport-soccer-hot-match-section>
+        </div>
     </details>
 </template>
 
 <script setup lang="ts">
+import { MarketType } from "~/enums/market-type.js";
+
 const openPanel = ref(false);
 
 const props = defineProps({
@@ -28,7 +39,23 @@ const props = defineProps({
     sectionContent: {
         type: String,
         default: ''
-    }
+    },
+    showRunningMatchTableList: {
+        type: Boolean,
+        default: false
+    },
+    showRunningMatchList: {
+        type: Boolean,
+        default: false
+    },
+    leagueId: {
+        type: String,
+        default: 92
+    },
+    leagueId_cigapi: {
+        type: String,
+        default: 55
+    },
 });
 
 async function clickPanel() {
@@ -54,7 +81,7 @@ async function clickPanel() {
     color: #CCAB67;
     font-size: 14px;
     font-style: normal;
-    font-weight: 500;    
+    font-weight: 500;
 
     &.expand {
         color: #EBC76E;
@@ -91,7 +118,7 @@ async function clickPanel() {
 }
 
 .accordion-panel-content {
-    color: #D9D9D9;    
+    color: #D9D9D9;
     font-size: 14px;
     font-weight: 300;
     line-height: 1.5rem;

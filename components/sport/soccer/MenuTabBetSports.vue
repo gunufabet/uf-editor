@@ -21,39 +21,10 @@
     </accordion-h3>
 
     <accordion-h4 style="margin-left: 1rem;" v-for="(item, index) in section3ContentListH4" :key="index"
-        :section-title="item.title" :section-content="item.content">
+        :section-title="item.title" :section-content="item.content"
+        :show-running-match-table-list="item.showRunningMatchTableList"
+        :show-running-match-list="item.showRunningMatchList">
     </accordion-h4>
-
-    <br>
-
-    <div v-for="(match, index) in liveMatchLive" :key="index">
-        <sport-soccer-live-score-table v-for="(item, index) in match.matchDetail" :key="index" :score="item.score"
-            :time="item.time" :home-name="item.homeName" :away-name="item.awayName"
-            :has-live-stream="item.hasLiveStream" :has-statistic="item.hasStatistic"
-            :has-more-bet-option="item.hasMoreBetOption" :home-odd_ft_hdp_1="item.homeOdd_FT_HDP_1"
-            :home-odd_ft_hdp_2="item.homeOdd_FT_HDP_2" :home-odd_ft_ou_1="item.homeOdd_FT_OU_1"
-            :home-odd_ft_ou_2="item.homeOdd_FT_OU_2" :home-odd_ft_1x2_1="item.homeOdd_FT_1X2_1"
-            :home-odd_ft_1x2_2="item.homeOdd_FT_1X2_2" :away-odd_ft_hdp_1="item.awayOdd_FT_HDP_1"
-            :away-odd_ft_hdp_2="item.awayOdd_FT_HDP_2" :away-odd_ft_ou_1="item.awayOdd_FT_OU_1"
-            :away-odd_ft_ou_2="item.awayOdd_FT_OU_2" :away-odd_ft_1x2_1="item.awayOdd_FT_1X2_1"
-            :away-odd_ft_1x2_2="item.awayOdd_FT_1X2_2" :odd_ft_1x2_draw_1="item.odd_FT_1X2_Draw_1"
-            :odd_ft_1x2_draw_2="item.odd_FT_1X2_Draw_2">
-        </sport-soccer-live-score-table>
-    </div>
-
-    <br>
-
-    <div style="margin: 0 0 0 1rem;" class="hot-match-container event-match-wrapper">
-        <sport-soccer-event-match-container v-for="(match, index) in eventMatchList" :key="index"
-            :tournamentText="match.tournamentText" :matchRunningTime="match.matchRunningTime"
-            :isRunningMatch="match.isRunningMatch" :homeName="match.homeName" :homeScore="match.homeScore"
-            :homeIcon="match.homeIcon" :homeIconAlt="match.homeIconAlt" :awayName="match.awayName"
-            :awayScore="match.awayScore" :awayIcon="match.awayIcon" :awayIconAlt="match.awayIconAlt"
-            :homeOdds="match.homeOdds" :awayOdds="match.awayOdds" :drawOdds="match.drawOdds">
-        </sport-soccer-event-match-container>
-    </div>
-
-    <br>
 
     <accordion-h4 style="margin-left: 1rem;" v-for="(item, index) in section5ContentListH4" :key="index"
         :section-title="item.title" :section-content="item.content">
@@ -124,11 +95,14 @@ section3ContentListH3.value = betSportsContent.value?.section3?.contentListH3.ma
 const section3ContentListH4 = ref<SportSubContent[]>([]);
 section3ContentListH4.value = betSportsContent.value?.section3?.contentListH4.map((item: any) => ({
     title: item.title,
-    content: item.content
+    content: item.content,
+    leagueId: item.leagueId,
+    leagueId_cigapi: item.leagueId,
+    showRunningMatchTableList: item.showRunningMatchTableList,
+    showRunningMatchList: item.showRunningMatchList
 }));
 
 const eventMatchList = ref([]);
-const liveMatchLive = ref(betSportsContent.value?.section4?.liveMatchList)
 
 const section5ContentListH4 = ref<SportSubContent[]>([]);
 section5ContentListH4.value = betSportsContent.value?.section5?.contentListH4.map((item: any) => ({

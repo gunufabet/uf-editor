@@ -154,6 +154,7 @@ const props = defineProps({
     stroke-width: 1px;
     stroke: #EBC76E;
     border-radius: 10px 8px 10px 8px;
+    padding-bottom: 1rem;
 }
 
 .match-content-container {

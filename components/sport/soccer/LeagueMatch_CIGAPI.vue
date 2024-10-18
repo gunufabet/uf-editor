@@ -1,5 +1,5 @@
 <template>
-    <h2 v-if="content" class="league-match-title">
+    <h2 v-if="matchOddsList" class="league-match-title">
         Matches
     </h2>
     <div v-for="(item, index) in matchOddsList" :key="index" class="match-wrapper">
@@ -50,17 +50,15 @@
         </table>
     </div>
 
-    <custom-button-1 v-if="content" :label="`All Matches`"></custom-button-1>
+    <custom-button-1 v-if="matchOddsList" :label="`All Matches`"></custom-button-1>
 </template>
 
 <script setup lang="ts">
-import callApi from "~/helpers/call-api";
 import { useDateFormat } from "@vueuse/shared";
 import { MarketType } from "~/enums/market-type.js";
 const { locale } = useI18n();
 const { t } = useI18n()
 
-const content = ref();
 const dateFormat = (data: Date, format: string) =>
     useDateFormat(data, format, {
         // locales: locale.value === "th" ? "th-TH" : "en-US",
@@ -69,25 +67,26 @@ const dateFormat = (data: Date, format: string) =>
 const props = defineProps({
     leagueId: {
         type: String,
-        default: 92
+        default: '92'
     },
     leagueId_cigapi: {
         type: String,
-        default: 55
+        default: '55'
+    },
+    marketType: {
+        type: String,
+        default: MarketType.EARLY
     },
 });
-const { matchOddsList } = storeToRefs(useSportStore());
-useAsyncData('sports', async () => await useSportStore().fetchSportOdds(locale.value, MarketType.EARLY, props.leagueId_cigapi, 10))
+
+const matchOddsList = ref()
 
 onMounted(() => {
-    fetchMatch()
+    getMatch()
 })
 
-async function fetchMatch() {
-    const response = await callApi.getFixtures(props.leagueId);
-    if (response.succ) {
-        content.value = response.data
-    }
+async function getMatch() {
+    matchOddsList.value = await useSportStore().fetchSportOdds(locale.value, props.marketType, props.leagueId_cigapi, 5)
 }
 
 function formatDate(matchDate: Date) {

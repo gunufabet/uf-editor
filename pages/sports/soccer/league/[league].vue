@@ -5,17 +5,18 @@
 
     <main-content :main-title-text="mainTitle" :main-content-text="content.main.content"></main-content>
 
-    <br>
+    <!-- <br> -->
 
-    <img style="width: 100%;" :alt="content?.main?.imgAlt" :srcset="`${content?.main?.imgSrcMobile} 480w, 
-        ${content?.main?.imgSrc} 800w, ${content?.main?.imgSrc} 1200w`" :src="content?.main?.imgSrc">
+    <!-- <img style="width: 100%;" :alt="content?.main?.imgAlt" :srcset="`${content?.main?.imgSrcMobile} 480w, 
+        ${content?.main?.imgSrc} 800w, ${content?.main?.imgSrc} 1200w`" :src="content?.main?.imgSrc"> -->
 
-    <br>
-    <br>
+    <!-- <br> -->
+    <!-- <br> -->
     <br>
 
     <!-- <sport-soccer-league-match :league-id="leagueId"></sport-soccer-league-match> -->
-    <sport-soccer-league-match-CIGAPI :league-id="leagueId"></sport-soccer-league-match-CIGAPI>
+    <sport-soccer-league-match-CIGAPI :league-id="leagueId"
+        :league-id-cigapi="leagueId2"></sport-soccer-league-match-CIGAPI>
 
     <br>
     <br>
@@ -72,6 +73,7 @@ if (locale.value === 'th') {
 
 const route = useRoute()
 const leagueId = ref(route.query.leagueId);
+const leagueId2 = ref(route.query.leagueId2);
 const selectedMenuId = ref('');
 const selectedMenuContent = ref();
 

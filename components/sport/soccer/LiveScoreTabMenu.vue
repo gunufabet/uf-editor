@@ -32,7 +32,7 @@
         </sport-soccer-live-score-table>
     </div>
 
-    <p v-if="matchOddsList.length === 0" class="league-title" style="color: #FFF">
+    <p v-if="matchOddsList" class="league-title" style="color: #FFF">
         No running match
     </p>
     <custom-button-1 :label="t('sport.button.viewMore')"></custom-button-1>
@@ -46,8 +46,9 @@ const { locale } = useI18n();
 import { useSportStore } from "~/stores/sport";
 import { useDebounceFn } from '@vueuse/shared'
 const getOddsApiInProgress = ref(false)
-const { sportCount, matchOddsList } = storeToRefs(useSportStore());
+const { sportCount } = storeToRefs(useSportStore());
 const { t } = useI18n()
+const matchOddsList = ref()
 const menuTab = ref([
     {
         id: 'ufabet-soccer-live-matches',
@@ -84,9 +85,8 @@ const menuTab = ref([
 ]);
 
 const selectedMenu = ref(menuTab.value[0].id);
-useAsyncData('sports', async () => await useSportStore().fetchSportOdds(locale.value, menuTab.value[0].marketType, "", 5))
 
-onMounted(() => {
+onMounted(() => {    
     mapSportCount()
     selectMenu(menuTab.value[0])
 })
@@ -117,7 +117,7 @@ const executeSelectMenu = useDebounceFn(async (menu: any) => {
     try {
         getOddsApiInProgress.value = true
         selectedMenu.value = menu.id;
-        useAsyncData('sports', async () => await useSportStore().fetchSportOdds(locale.value, menu.marketType, "", 5))
+        matchOddsList.value = await useSportStore().fetchSportOdds(locale.value, menu.marketType, "", 5)
     } catch (error) {
         getOddsApiInProgress.value = false
     }

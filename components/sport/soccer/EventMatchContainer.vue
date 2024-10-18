@@ -43,12 +43,15 @@
                     <span class="team-text">{{ props.awayName }}</span>
                 </div>
                 <div class="match-content-wrapper-3">
-                    <custom-button-7 :label="`1`" :label2="homeOdds" :designType="`2`"
+                    <!-- <custom-button-7 :label="`1`" :label2="homeOdds" :designType="`2`"
                         :oddsIcon="`/img/soccer/icn-odds-up.svg`"></custom-button-7>
                     <custom-button-7 :label="`X`" :label2="awayOdds" :designType="`2`"
                         :oddsIcon="`/img/soccer/icn-odds-down.svg`"></custom-button-7>
                     <custom-button-7 :label="drawOdds" :labelDisable="true" :designType="`2`"
-                        :oddsIcon="`/img/soccer/icn-odds-lock.svg`"></custom-button-7>
+                        :oddsIcon="`/img/soccer/icn-odds-lock.svg`"></custom-button-7> -->
+                    <custom-button-7 :label="`1`" :label2="homeOdds" :designType="`2`"></custom-button-7>
+                    <custom-button-7 :label="`X`" :label2="awayOdds" :designType="`2`"></custom-button-7>
+                    <custom-button-7 :label="`2`" :designType="``" :label2="drawOdds"></custom-button-7>
                 </div>
             </div>
         </div>
@@ -149,6 +152,7 @@ const props = defineProps({
     stroke-width: 1.5px;
     stroke: rgba(0, 0, 0, 0.00);
     border-radius: 10px 8px 10px 8px;
+    padding-bottom: 1rem;
 }
 
 .match-header-wrapper-bg {

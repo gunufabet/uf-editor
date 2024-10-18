@@ -129,8 +129,14 @@ export const useSportStore = defineStore("sport", {
         };
       }
     },
-    async fetchSportOdds(locale: String, marketType: String, moduleId: String, maxRecords: Number) {
+    async fetchSportOdds(
+      locale: String,
+      marketType: String,
+      moduleId: String,
+      maxRecords: Number
+    ) {
       await this.getSBToken();
+      let matchOddsList = [] as MatchOdds[];
 
       try {
         if (this.sbApiToken) {
@@ -146,8 +152,8 @@ export const useSportStore = defineStore("sport", {
           );
 
           const parsedResponse = JSON.parse(oddsResponse.data.result);
-          this.matchOddsList = [] as MatchOdds[];
-          
+          // this.matchOddsList = [] as MatchOdds[];
+
           for (let i = 0; i < parsedResponse.length && i < maxRecords; i++) {
             const item = parsedResponse[i];
             const itemPrevious = parsedResponse[i - 1];
@@ -317,18 +323,20 @@ export const useSportStore = defineStore("sport", {
               stDatabaseId: item[156],
               info: item[157],
             };
-            
+
             const oddsItem: MatchOdds = {
               score: `${
                 marketType === MarketType.RUNNING
-                  ? apiOddsItem.runHomeScore + " - " + apiOddsItem.runAwayScore                 
+                  ? apiOddsItem.runHomeScore + " - " + apiOddsItem.runAwayScore
                   : ""
               }`,
               homeScore: `${apiOddsItem.runHomeScore}`,
               awayScore: `${apiOddsItem.runAwayScore}`,
               time: `${
                 marketType === MarketType.RUNNING
-                  ? `${apiOddsItem.status}H ${apiOddsItem.curMinute}`
+                  ? apiOddsItem.status === "0" && apiOddsItem.curMinute === "0"
+                    ? ""
+                    : `${apiOddsItem.status}H ${apiOddsItem.curMinute}`
                   : apiOddsItem.matchDate
               }`,
               leagueName:
@@ -394,10 +402,14 @@ export const useSportStore = defineStore("sport", {
                   : "-"
               }`,
             };
-            this.matchOddsList.push(oddsItem);
+            // this.matchOddsList.push(oddsItem);
+            matchOddsList.push(oddsItem);
           }
         }
-      } catch (error) {}
+      } catch (error) {
+      } finally {
+        return matchOddsList;
+      }
     },
   },
   getters: {},
