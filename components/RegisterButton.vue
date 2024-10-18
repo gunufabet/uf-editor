@@ -26,7 +26,7 @@ const props = defineProps({
 
 .btn-type {
     border-radius: 25px;
-    height: 36px !important;
+    min-height: 36px !important;
 }
 
 .btn-text {
