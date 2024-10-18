@@ -36,7 +36,6 @@
       <h2>{{ selectedFile }}</h2>
       <button class="save-button" @click="openConfirmModal">Save</button>
       <JsonEditorVue
-        v-bind="files"
         v-model="fileContent"
         :options="jsonEditorOptions"
         class="jse-theme-dark"
