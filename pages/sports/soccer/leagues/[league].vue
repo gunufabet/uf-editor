@@ -59,7 +59,7 @@ const section1H3 = ref();
 async function getLeagueContent() {
     const response = await callApi.getLeagueContentById(route.query.leagueId);
     if (response.succ) {
-        const leagueContent = response.data[0].attributes
+        const leagueContent = response?.data[0]?.attributes
 
         mainSection.value = leagueContent?.MainSection;
         section1.value = leagueContent?.Section1
@@ -67,7 +67,7 @@ async function getLeagueContent() {
         /* section 1 */
 
         /* H2 */
-        section1H2.value = section1.value.find(
+        section1H2.value = section1?.value.find(
             (item) => item.__component === ContentType.H2
         );
 

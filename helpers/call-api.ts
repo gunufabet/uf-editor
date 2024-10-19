@@ -10,7 +10,8 @@ const SB_API_PW = import.meta.env.NUXT_SB_API_PW || "Qq123456";
 const unewsApi = import.meta.env.VITE_API_URL || "https://content.ufanews.com/";
 const sbApi =
   import.meta.env.NUXT_SB_API_URL || "https://cigapicorsd.bigbull99.com/";
-const shseoApi = import.meta.env.NUXT_SB_API_URL || "http://localhost:1337/";
+const shseoApi =
+  import.meta.env.NUXT_SB_API_URL || "https://staging-api.ufabet.sh/";
 
 const methodHeader = () => {
   let headers: any = {
@@ -342,12 +343,14 @@ export default {
       });
   },
   async getLeagueContentById(leagueId: String) {
+    const { locale } = useI18n();
+
     axiosInstance.defaults.baseURL = shseoApi;
     const dateFormat = (data: Date, format: string) =>
       useDateFormat(data, format, {}).value.replace('"', "");
 
     let leagueIdParam = `filters[leagueId]=${leagueId}`;
-    let langParam = "locale=en";
+    let langParam = `locale=${locale.value}`;
     let populateParam = "populate=deep";
     let param = `${leagueIdParam}&${langParam}&${populateParam}`;
 
