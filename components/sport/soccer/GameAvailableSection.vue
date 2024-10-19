@@ -19,8 +19,10 @@
     <div :id="item.titleId" v-for="(item, index) in selectedMenuContent?.contentListH3" :key="index"
         style="margin-top: 1rem;">
         <accordion-h3 :section-title="item.title" :section-content="item.content" :with-break-line="true"
-            :defaultOpenPanel="item.defaultOpen">
+            :defaultOpenPanel="item.defaultOpen" :img-list="item.imgList">
         </accordion-h3>
+
+        {{ console.log('imgList', item.imgList, item) }}
     </div>
 </template>
 

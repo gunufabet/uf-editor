@@ -4,7 +4,7 @@
 
     <aside class="banner-container">
         <div class="" v-for="(item, index) in bonusSection?.imgList" :key="index">
-            <img class="banner-container-img-item" :alt="imgAlt"
+            <img class="banner-container-img-item" :alt="item.imgAlt"
                 :srcset="`${item.imgSrc} 480w, ${item.imgSrc} 800w, ${item.imgSrc} 1200w`" :src="item.imgSrc"
                 loading="lazy" />
         </div>

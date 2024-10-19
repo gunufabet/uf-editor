@@ -642,64 +642,14 @@
             "title": "1. Slot Games on Ufabet",
             "content": "UFABET’s slot games are a platform highlight, offering a diverse selection that appeals to many players. The platform features a variety of themes, from adventure to classic fruit slots, and ensures high-quality graphics and engaging gameplay. Players enjoy modern video slots with multiple pay lines, interactive bonus features, and progressive jackpots, leading to substantial winnings. <strong>Slot games on Ufabet</strong> are purely depending on chance. They have a set of reels with different symbols and pay lines. Players place a bet and then spin the reels to play. Players receive a payout if the symbols form a winning combination on an active pay line. UFABET enhances the experience with tailored bonuses and promotions, a user-friendly interface, and mobile compatibility, making it easy to play on the go. ",
             "buttonDesign": "1",
-            "defaultOpen": true,
-            "buttonList": [
-              {
-                "id": "x-slot-game",
-                "text": "X Slot",
-                "text2": "Game",
-                "buttonOrder": 1
-              },
-              {
-                "id": "y-slot-game",
-                "text": "Y Slot",
-                "text2": "Game",
-                "buttonOrder": 2
-              },
-              {
-                "id": "z-slot-game",
-                "text": "Z Slot",
-                "text2": "Game",
-                "buttonOrder": 1
-              },
-              {
-                "id": "d-slot-game",
-                "text": "D Slot",
-                "text2": "Game",
-                "buttonOrder": 1
-              },
-              {
-                "id": "e-slot-game",
-                "text": "E Slot",
-                "text2": "Game",
-                "buttonOrder": 1
-              },
-              {
-                "id": "f-slot-game",
-                "text": "F Slot",
-                "text2": "Game",
-                "buttonOrder": 1
-              }
-            ]
+            "defaultOpen": true
           },
           {
             "titleId": "livecasino",
             "title": "2. Live Casino on Ufabet",
             "content": "UFABET’s live casino delivers an immersive gaming experience that replicates the atmosphere of a real casino, at a player fingertips. The gambling platform offers a variety of old-school table games such as blackjack, roulette, baccarat, and poker, all hosted by professional live dealers. Ufabet’s live casino are streamed in real-time from high-quality studios, ensuring a smooth and engaging visual experience. Players interact with dealers and other participants through live chat, adding a social element to the games. The live format enhances transparency and fair play, as all actions unfold in real-time, giving players confidence in the integrity of the outcomes. <strong>Live casino on Ufabet</strong> combines the thrill of a physical casino with the ease of online gaming, making it a popular choice for enthusiasts of live table games.<br/><br/>Ufabet Login for Live Casino provides easy access to a wide variety of live games. Users enjoy a seamless betting experience through the Ufabet Direct website to bet on Live Casino. New players quickly get started with Ufabet Apply (sign up) for Live Casino, ensuring they are set up to play. Ufabet Mobile entrance for Live Casino allows players to bet on the go for convenience. Deposits are made simple with Ufabet Deposit for Live Casino, and winnings are swiftly accessed via Ufabet Withdrawal for Live Casino Betting, making it a smooth and reliable platform for live casino enthusiasts.",
             "buttonDesign": "2",
-            "defaultOpen": true,
-            "buttonList": [
-              {
-                "id": "x-casino-game",
-                "text": "UFABET X Casino Game",
-                "buttonOrder": 1
-              },
-              {
-                "id": "y-casino-game",
-                "text": "UFABET Y Casino Game",
-                "buttonOrder": 2
-              }
-            ]
+            "defaultOpen": true
           }
         ],
         "menuTab": [
@@ -732,7 +682,32 @@
                 "content": "Ufabet offers a seamless experience for slot game enthusiasts, starting with Ufabet Login for Slot Games, allowing users to access a wide range of slot games instantly. The Ufabet Direct website to bet on Slot Games provides a user-friendly platform for both experienced players and newcomers alike. Ufabet Apply (sign up) for Slot Games is a quick and straightforward process that ensures users can begin playing in no time for gamblers looking to get started. Mobile users are catered to with the Ufabet Mobile entrance for Slot Games, offering the convenience of betting from any location. Depositing funds is made easy through Ufabet Deposit for Slot Games, with fast and secure options available. Lastly, Ufabet Withdrawal for Slot Games Betting ensures that any winnings are quickly transferred, providing a reliable and efficient betting experience for all slot game enthusiasts.",
                 "design": "1",
                 "defaultOpen": true,
-                "imgList": [],
+                "imgList": [
+                  {
+                    "imgSrc": "/img/games/slot-game/ufabet-slot-game-1.avif",
+                    "imgAlt": "ufabet casino game 1"
+                  },
+                  {
+                    "imgSrc": "/img/games/slot-game/ufabet-slot-game-2.avif",
+                    "imgAlt": "ufabet casino game 2"
+                  },
+                  {
+                    "imgSrc": "/img/games/slot-game/ufabet-slot-game-3.avif",
+                    "imgAlt": "ufabet casino game 3"
+                  },
+                  {
+                    "imgSrc": "/img/games/slot-game/ufabet-slot-game-4.avif",
+                    "imgAlt": "ufabet casino game 4"
+                  },
+                  {
+                    "imgSrc": "/img/games/slot-game/ufabet-slot-game-5.avif",
+                    "imgAlt": "ufabet casino game 5"
+                  },
+                  {
+                    "imgSrc": "/img/games/slot-game/ufabet-slot-game-6.avif",
+                    "imgAlt": "ufabet casino game 6"
+                  }
+                ],
                 "contentListH4": []
               },
               {
@@ -742,7 +717,32 @@
                 "content": "UFABET’s live casino delivers an immersive gaming experience that replicates the atmosphere of a real casino, at a player fingertips. The gambling platform offers a variety of old-school table games such as blackjack, roulette, baccarat, and poker, all hosted by professional live dealers. Ufabet’s live casino are streamed in real-time from high-quality studios, ensuring a smooth and engaging visual experience. Players interact with dealers and other participants through live chat, adding a social element to the games. The live format enhances transparency and fair play, as all actions unfold in real-time, giving players confidence in the integrity of the outcomes. <strong>Live casino on Ufabet</strong> combines the thrill of a physical casino with the ease of online gaming, making it a popular choice for enthusiasts of live table games.",
                 "design": "1",
                 "defaultOpen": true,
-                "imgList": [],
+                "imgList": [
+                  {
+                    "imgSrc": "/img/games/casino-game/ufabet-casino-game-1.avif",
+                    "imgAlt": "ufabet casino game 1"
+                  },
+                  {
+                    "imgSrc": "/img/games/casino-game/ufabet-casino-game-2.avif",
+                    "imgAlt": "ufabet casino game 2"
+                  },
+                  {
+                    "imgSrc": "/img/games/casino-game/ufabet-casino-game-3.avif",
+                    "imgAlt": "ufabet casino game 3"
+                  },
+                  {
+                    "imgSrc": "/img/games/casino-game/ufabet-casino-game-4.avif",
+                    "imgAlt": "ufabet casino game 4"
+                  },
+                  {
+                    "imgSrc": "/img/games/casino-game/ufabet-casino-game-5.avif",
+                    "imgAlt": "ufabet casino game 5"
+                  },
+                  {
+                    "imgSrc": "/img/games/casino-game/ufabet-casino-game-6.avif",
+                    "imgAlt": "ufabet casino game 6"
+                  }
+                ],
                 "contentListH4": []
               },
               {
