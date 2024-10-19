@@ -1,5 +1,5 @@
 <template>
-    <br>
+    <br><br>
     <accordion-h2 :section-title="sportsContent?.section1?.titleH2"
         :section-content="sportsContent?.section1?.contentH2">
     </accordion-h2>

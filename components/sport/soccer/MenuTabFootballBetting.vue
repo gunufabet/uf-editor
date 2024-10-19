@@ -1,5 +1,5 @@
 <template>
-    <br>
+    <br><br>
     <accordion-h2 :section-title="sportsContent?.section1?.titleH2"
         :section-content="sportsContent?.section1?.contentH2">
     </accordion-h2>
@@ -8,12 +8,12 @@
         :key="index" :section-title="item.title" :section-content="item.content" :with-break-line="false">
     </accordion-h3>
 
-    <br>
+    <br><br>
     <accordion-h2 :section-title="sportsContent?.section2?.titleH2"
         :section-content="sportsContent?.section2?.contentH2">
     </accordion-h2>
 
-    <br>
+    <br><br>
     <accordion-h3 style="margin-left: 1rem;" v-for="(item, index) in sportsContent?.section2?.contentListH3"
         :key="index" :section-title="item.title" :section-content="item.content" :with-break-line="true">
     </accordion-h3>

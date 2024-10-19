@@ -22,7 +22,7 @@
         " :alt="`${item.attributes.homeName}-flag`" class="team-flag-icn" /><span class="team-text">{{
         item.attributes.homeName }}</span>
 
-                        <br>
+                        <br><br>
 
                         <img :src="item.attributes.awayFlagImg?.data?.attributes?.flag
         ? 'data:image/png;base64,' + item.attributes.awayFlagImg?.data?.attributes?.flag
@@ -30,7 +30,7 @@
         " :alt="`${item.attributes.awayName}-flag`" class="team-flag-icn" /><span class="team-text">{{
         item.attributes.awayName }}</span>
 
-                        <br>
+                        <br><br>
 
                         <div class="match-time-row">
                             <span class="match-time-text">{{ item.attributes.matchTime }}</span>

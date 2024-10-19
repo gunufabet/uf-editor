@@ -1,7 +1,7 @@
 <template>
     <footer class="footer">
-        <br>
-        <br>
+        <br><br>
+        <br><br>
         <div class="about-football-bet-container">
             <div class="about-football-bet-title">{{ contentAboutFooterBetInfo.title }}</div>
             <div class="about-football-bet-content">{{ contentAboutFooterBetInfo.content }}</div>
@@ -13,7 +13,7 @@
                 </svg>
             </div>
         </div>
-        <br>
+        <br><br>
 
         <div class="footer-padding">
             <!-- footerMenuLinkList -->
@@ -27,7 +27,7 @@
                         </div>
                     </div>
                 </div>
-                <br>
+                <br><br>
             </div>
 
             <div class="footer-break-line"></div>            
@@ -39,7 +39,7 @@
                 </div>
             </div>
 
-            <br>
+            <br><br>
             <!-- contentFooterInfo -->
             <div class="footer-container">
                 <div><img class="footer-logo" src="/UFABET-LOGO.png" alt="ufabet logo"></div>

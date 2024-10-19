@@ -1,5 +1,5 @@
 <template>
-    <br>
+    <br><br>
     <div class="standing-tab-wrapper">
         <div class="standing-tab">
             <div v-for="(menu, index) in standingOptions" :key="index">

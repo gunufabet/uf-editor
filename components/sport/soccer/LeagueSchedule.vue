@@ -39,7 +39,7 @@
         ? 'data:image/png;base64,' + item.attributes.homeFlagImg?.data?.attributes?.flag
         : '/img/soccer/icn-flag-placeholder.svg'
         " :alt="`${item.attributes.homeName}-flag`" class="team-flag-icn" />{{ item.attributes.homeName }}
-                        <br><br>
+                        <br><br><br><br>
                         <img :src="item.attributes.awayFlagImg?.data?.attributes?.flag
         ? 'data:image/png;base64,' + item.attributes.awayFlagImg?.data?.attributes?.flag
         : '/img/soccer/icn-flag-placeholder.svg'

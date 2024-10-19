@@ -2,7 +2,7 @@
     <!-- sectionWithMenuLeague -->
     <tab-menu v-if="leagueList.length > 0" style="margin-top: 30px;" @select-tab-menu="selectTabMenuLeague"
         :tab-menu-list="leagueList"></tab-menu>
-    <br>
+    <br><br>
     <div style="margin: 0 0 0 1rem;" class="soccer-hot-match-wrapper">
         <sport-soccer-match-container v-for="(match, index) in eventMatchList" :key="index"
             :tournamentText="match.tournamentText" :matchRunningTime="match.matchRunningTime"

@@ -17,20 +17,20 @@
         :section-content="content.section3.contentH2">
     </accordion-h2>
 
-    <br>
+    <br><br>
 
     <!-- section 3 -->
     <accordion-h3 style="margin-left: 1rem;" v-for="(item, index) in content.section3.contentListH3" :key="index"
         :section-title="item.title" :section-content="item.content" :with-break-line="false"
         :default-open-panel="item.defaultExpand"></accordion-h3>
 
-    <br>
+    <br><br>
 
     <!-- section 4 -->
     <accordion-h2 :section-title="content?.section4?.titleH2" :section-content="content?.section4?.contentH2">
     </accordion-h2>
 
-    <br>
+    <br><br>
     <accordion-h3 style="margin-left: 1rem;" v-for="(item, index) in content?.section4?.contentListH3" :key="index"
         :section-title="item.title" :section-content="item.content" :with-break-line="true"
         :default-open-panel="item.defaultExpand">
@@ -41,12 +41,12 @@
     </accordion-h4>
 
     <!-- section 5 -->
-    <br>
+    <br><br>
 
     <accordion-h2 :section-title="content?.section5?.titleH2" :section-content="content?.section5?.contentH2">
     </accordion-h2>
 
-    <br>
+    <br><br>
     <accordion-h3 style="margin-left: 1rem;" v-for="(item, index) in content?.section5?.contentListH3" :key="index"
         :section-title="item.title" :section-content="item.content" :with-break-line="true"
         :default-open-panel="item.defaultExpand">
@@ -57,12 +57,12 @@
     </accordion-h4-style-2>
 
     <!-- section 6 -->
-    <br>
+    <br><br>
 
     <accordion-h2 :section-title="content?.section6?.titleH2" :section-content="content?.section6?.contentH2">
     </accordion-h2>
 
-    <br>
+    <br><br>
     <accordion-h3 style="margin-left: 1rem;" v-for="(item, index) in content?.section6?.contentListH3" :key="index"
         :section-title="item.title" :section-content="item.content" :with-break-line="true"
         :default-open-panel="item.defaultExpand">

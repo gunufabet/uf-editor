@@ -4,19 +4,19 @@
     </breadcrumb>
 
     <main-content :main-title-text="mainTitle" :main-content-text="content.main.content"></main-content>
-    <br>
+    <br><br>
 
     <accordion-h2 :section-title="section1Title">
     </accordion-h2>
     <sport-soccer-league-schedule :league-id="leagueId"></sport-soccer-league-schedule>
-    <br>
-    <br>
+    <br><br>
+    <br><br>
 
     <!-- section 2 -->
     <accordion-h2 :section-title="content?.section2?.titleH2" :section-content="content?.section2?.contentH2">
     </accordion-h2>
 
-    <br>
+    <br><br>
     <accordion-h3 style="margin-left: 1rem;" v-for="(item, index) in content?.section2?.contentListH3" :key="index"
         :section-title="item.title" :section-content="item.content" :with-break-line="true">
     </accordion-h3>
@@ -25,7 +25,7 @@
         :section-title="item.title" :section-content="item.content">
     </accordion-h4>
 
-    <br>
+    <br><br>
 
     <!-- button options -->
     <div class="btn-wrapper" style="justify-content: center; gap: 1rem;">
@@ -34,8 +34,8 @@
             @click="selectButton(button)"></custom-button-3>
     </div>
 
-    <br>
-    <br>
+    <br><br>
+    <br><br>
 
     <!-- selected button content  -->
     <accordion-h2 :section-title="selectedButtonContent?.section1?.titleH2"

@@ -20,13 +20,13 @@
                             class="team-flag-icn" /><span class="team-text">{{
         item.homeName }}</span>
 
-                        <br>
+                        <br><br>
 
                         <img src="/img/soccer/icn-flag-placeholder.svg" :alt="`${item.awayName}-flag`"
                             class="team-flag-icn" /><span class="team-text">{{
         item.awayName }}</span>
 
-                        <br>
+                        <br><br>
 
                         <div class="match-time-row">
                             <span class="match-time-text">{{ getTime(item.time) }}</span>

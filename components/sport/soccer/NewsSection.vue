@@ -4,7 +4,7 @@
             :isSelected="button.id === selectedBtnId" @click="selectButton(button)"></custom-button-3>
     </div>
 
-    <br>
+    <br><br>
     <aside-content :key="asideTitleText" :aside-title-text="asideTitleText"
         :aside-content-text="asideContentText"></aside-content>
 

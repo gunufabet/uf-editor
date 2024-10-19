@@ -5,27 +5,27 @@
 
     <main-content :main-title-text="mainTitle" :main-content-text="content.main.content"></main-content>
 
-    <!-- <br> -->
+    <!-- <br><br> -->
 
     <!-- <img style="width: 100%;" :alt="content?.main?.imgAlt" :srcset="`${content?.main?.imgSrcMobile} 480w, 
         ${content?.main?.imgSrc} 800w, ${content?.main?.imgSrc} 1200w`" :src="content?.main?.imgSrc"> -->
 
-    <!-- <br> -->
-    <!-- <br> -->
-    <br>
+    <!-- <br><br> -->
+    <!-- <br><br> -->
+    <br><br>
 
     <!-- <sport-soccer-league-match :league-id="leagueId"></sport-soccer-league-match> -->
     <sport-soccer-league-match-CIGAPI :league-id="leagueId"
         :league-id-cigapi="leagueId2"></sport-soccer-league-match-CIGAPI>
 
-    <br>
-    <br>
+    <br><br>
+    <br><br>
 
     <!-- section 2 -->
     <accordion-h2 :section-title="content?.section2?.titleH2" :section-content="content?.section2?.contentH2">
     </accordion-h2>
 
-    <br>
+    <br><br>
     <accordion-h3 style="margin-left: 1rem;" v-for="(item, index) in content?.section2?.contentListH3" :key="index"
         :section-title="item.title" :section-content="item.content" :with-break-line="true"
         :defaultOpenPanel="item.defaultExpand">
@@ -35,7 +35,7 @@
         :key="index" :section-title="item.title" :section-content="item.content">
     </accordion-h4-style-2>
 
-    <br>
+    <br><br>
 
     <!-- sectionWithMenu1 -->
     <tab-menu @select-tab-menu="selectTabMenu" :tab-menu-list="content?.sectionWithMenu1.menuTab"
@@ -45,7 +45,7 @@
         :section-content="selectedMenuContent?.section1?.contentH2">
     </accordion-h2>
 
-    <br>
+    <br><br>
 
     <div v-for="(item, index) in selectedMenuContent?.section1?.contentListH3" :key="index">
         <accordion-h3 style="margin-left: 1rem;" :section-title="item.title" :section-content="item.content"
