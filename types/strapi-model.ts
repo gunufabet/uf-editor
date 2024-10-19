@@ -270,3 +270,42 @@ export interface ApiOdds {
   stDatabaseId: number;
   info: string;
 }
+
+export interface SectionContent {
+  id: number;
+  __component: string;
+  title: string | null;
+  content: string;
+  defaultOpen?: boolean;
+  menuId?: string | null;
+}
+
+export interface MenuItem {
+  id: number;
+  menuId: string;
+  menuName: string;
+  menuOrder: number;
+}
+
+export interface League {
+  id: number;
+  leagueId: string;
+  leagueId_cigapi: string;
+  leagueName: string;
+  createdAt: string;
+  updatedAt: string;
+  publishedAt: string;
+  locale: string;
+  MainSection: {
+    id: number;
+    title: string;
+    content: string;
+  };
+  Section1: SectionContent[];
+  SectionWithMenu1: MenuItem[];
+  SectionWithMenu1Content: SectionContent[];
+  Section2: SectionContent[];
+  localizations: {
+    data: any[];
+  };
+}

@@ -7,8 +7,10 @@ const SB_API_KEY =
   "316B25AD31ACEB8D6830E99088B4CDD2C5BBFCCDA193B4038B49B818ACFEFFD5EEF75F23BFC8B6D99403DA737BB8D599DCBED5BD29F1B1966DE753DAFD2A7CA6";
 const SB_API_USERNAME = import.meta.env.NUXT_SB_API_USERNAME || "wwd222cwsy2";
 const SB_API_PW = import.meta.env.NUXT_SB_API_PW || "Qq123456";
-const unewsApi = import.meta.env.VITE_API_URL || 'https://content.ufanews.com/'
-const sbApi = import.meta.env.NUXT_SB_API_URL || "https://cigapicorsd.bigbull99.com/"
+const unewsApi = import.meta.env.VITE_API_URL || "https://content.ufanews.com/";
+const sbApi =
+  import.meta.env.NUXT_SB_API_URL || "https://cigapicorsd.bigbull99.com/";
+const shseoApi = import.meta.env.NUXT_SB_API_URL || "http://localhost:1337/";
 
 const methodHeader = () => {
   let headers: any = {
@@ -32,8 +34,7 @@ export default {
     let leagueIds = [34, 39, 92, 87, 58, 74, 85, 93, 1244]; // top leagues
 
     const dateFormat = (data: Date, format: string) =>
-      useDateFormat(data, format, {        
-      }).value.replace('"', "");
+      useDateFormat(data, format, {}).value.replace('"', "");
 
     let yesterday = new Date();
     yesterday.setDate(yesterday.getDate() - 1);
@@ -138,8 +139,7 @@ export default {
   async getFixtures(leagueId: String) {
     axiosInstance.defaults.baseURL = unewsApi;
     const dateFormat = (data: Date, format: string) =>
-      useDateFormat(data, format, {        
-      }).value.replace('"', "");
+      useDateFormat(data, format, {}).value.replace('"', "");
 
     const totalRecord = 20;
     let leagueIdParam = `filters[leagueId]=${leagueId}`;
@@ -191,7 +191,7 @@ export default {
       });
   },
   async getSportCount(token: String, marketType: String) {
-    axiosInstance.defaults.baseURL = sbApi
+    axiosInstance.defaults.baseURL = sbApi;
 
     const param = JSON.stringify({
       privateKey: SB_API_KEY,
@@ -244,7 +244,7 @@ export default {
     marketType2: String,
     moduleId: String
   ) {
-    axiosInstance.defaults.baseURL = sbApi
+    axiosInstance.defaults.baseURL = sbApi;
 
     const param = JSON.stringify({
       privateKey: SB_API_KEY,
@@ -254,7 +254,7 @@ export default {
       marketType: marketType,
       marketType2: marketType2,
       oddsType: "HK",
-      moduleId: moduleId
+      moduleId: moduleId,
     });
 
     return httpService({
@@ -295,7 +295,7 @@ export default {
       });
   },
   async loginSB() {
-    axiosInstance.defaults.baseURL = sbApi
+    axiosInstance.defaults.baseURL = sbApi;
 
     const param = JSON.stringify({
       privateKey: SB_API_KEY,
@@ -316,6 +316,51 @@ export default {
           return {
             succ: true,
             data: response.data,
+          };
+        }
+        return {
+          succ: false,
+          data: null,
+          msg: "No record found",
+        };
+      })
+      .catch((error) => {
+        let defaultErrorMessage = error.message || "Unknown error";
+        if (error.response) {
+          return {
+            succ: false,
+            data: null,
+            msg: error.response.data.message,
+          };
+        } else {
+          return {
+            succ: false,
+            data: null,
+            msg: defaultErrorMessage,
+          };
+        }
+      });
+  },
+  async getLeagueContentById(leagueId: String) {
+    axiosInstance.defaults.baseURL = shseoApi;
+    const dateFormat = (data: Date, format: string) =>
+      useDateFormat(data, format, {}).value.replace('"', "");
+
+    let leagueIdParam = `filters[leagueId]=${leagueId}`;
+    let langParam = "locale=en";
+    let populateParam = "populate=deep";
+    let param = `${leagueIdParam}&${langParam}&${populateParam}`;
+
+    return httpService({
+      method: CallApiMethod.get,
+      url: "api/leagues?" + param,
+      timeout: 0,
+    })
+      .then((response) => {
+        if (response.data) {
+          return {
+            succ: true,
+            data: response.data.data,
           };
         }
         return {
