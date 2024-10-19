@@ -55,7 +55,7 @@
                 :style="{
                 textDecoration: 'none',
                 color: 'inherit',
-                opacity: route.params.category === category.url ? '1' : '0.5',
+                opacity: routeNameFull === category.menuRoute ? '1' : '0.5',
             }">
                 <div class="category-item">
                     <div><img class="sub-category-icn" :src="category.src" :alt="category.alt"></div>
@@ -72,8 +72,13 @@ const router = useRouter()
 
 const routeName = computed(() => {
     const getRouteName = String(route?.name).split('__')[0].split('-')[0]
+
     bindCategory(getRouteName)
     return getRouteName
+})
+
+const routeNameFull = computed(() => {
+    return String(route?.name).split('__')[0]
 })
 
 const localePath = useLocalePath()
@@ -99,7 +104,7 @@ const categoryItemsSoccer = ref([
         text: 'Soccer',
         url: 'soccer',
         mainMenuRoute: 'sports',
-        menuRoute: 'sports-category',
+        menuRoute: 'sports-soccer',
     },
     {
         id: 'basketball',
@@ -233,7 +238,7 @@ const menuItems = ref([
     }
 ]);
 
-async function menuMainOnClick(menu: any) {
+async function menuMainOnClick(menu: any) {    
     if (menu.menuRoute === 'sports') {
         bindCategory(menu.menuRoute)
         return router.push(localePath({ name: menu.menuRoute }));
@@ -245,7 +250,7 @@ async function menuMainOnClick(menu: any) {
 
 async function menuCategoryOnClick(menu: any) {
     if (menu.url === 'soccer') {
-        return router.push(localePath({ name: menu.menuRoute, params: { category: menu.url } }));
+        return router.push(localePath({ name: menu.menuRoute }));
     }
     else {
         // do nothing

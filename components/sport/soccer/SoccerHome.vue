@@ -106,9 +106,6 @@ function selectTabMenu2(value: string) {
 
     selectTabMenu2_MenuTabId.value = selectedMenu?.menuTabId || '';
     selectTabMenu2_FocusTitle.value = selectedMenu?.focusTitle || false;
-
-    console.log('selectTabMenu2_MenuTabId.value', selectTabMenu2_MenuTabId.value)
-    console.log('selectTabMenu2_FocusTitle.value', selectTabMenu2_FocusTitle.value)
 }
 
 onMounted(() => {

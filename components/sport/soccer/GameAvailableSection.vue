@@ -37,11 +37,9 @@ const props = defineProps({
     }
 });
 
-watch(() => props.menuTabId, (newValue) => {
-    console.log('watch', newValue)
+watch(() => props.menuTabId, (newValue) => {    
     selectTabMenu(newValue);
-    const element = document.getElementById(props.menuTabId);
-    console.log('element', element)
+    const element = document.getElementById(props.menuTabId);    
     if (element) {
         element.focus({ preventScroll: true }); // Focus the element
         element.scrollIntoView({ behavior: 'smooth', block: 'center' })

@@ -97,30 +97,32 @@ export default defineNuxtConfig({
     xslTips: false,
     enabled: true,
     // autoI18n: false,
-    lastmod: new Date().toISOString(), // Set the `lastmod` dynamically
+    lastmod: new Date().toISOString(), // Set the `lastmod` dynamically    
     routes: () => {
       const routes = [];
       const defaultLocale = "en-US";
 
       // Define routes to be included in the sitemap
-      const pages = [{ url: "/sports" }, { url: "/sports/soccer" }];
+      const pages = [
+        { url: '/', lastmod: '2024-10-10', changefreq: 'weekly', priority: 0.8 },
+        { url: '/sports', lastmod: '2024-10-10', changefreq: 'weekly', priority: 0.8 },
+        { url: '/sports/soccer', lastmod: '2024-10-10', changefreq: 'weekly', priority: 0.8 }
+      ];
 
-      // Add localized versions of each route
-      pages.forEach((page) => {
-        i18nConfig.locales.forEach((locale) => {
-          const localizedRoute = `/${locale.code}${page.url}`;
+      i18nConfig.locales.forEach((locale) => {
+        pages.forEach((page) => {
           routes.push({
-            url: locale.code === defaultLocale ? page.url : localizedRoute,
-            lastmod: new Date().toISOString(), // Set the `lastmod` dynamically
-            changefreq: "weekly",
-            priority: 0.8,
+            url: locale.code === defaultLocale ? page.url : `/${locale.code}${page.url}`,
+            lastmod: page.lastmod,
+            changefreq: page.changefreq,
+            priority: page.priority,
           });
         });
       });
 
       return routes;
     },
-    exclude: ["/editor", "/livecasino", "/poker", "/slot", "/virtuals"],
+    exclude: ["/editor", "/games", "/livecasino", "/poker", "/slot", "/virtuals"],    
   },
   i18n: require("./configs/i18n.config.ts"),
   // gtag: {
