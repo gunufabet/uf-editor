@@ -59,13 +59,14 @@
 </template>
 
 <script setup lang="ts">
+import { LanguageType } from "~/enums/lang-code";
 import { useDateFormat } from "@vueuse/shared";
 import source from '~/assets/script/contentLeagueSchedule.json'
 import sourceTH from '~/assets/script/th/contentLeagueSchedule.json'
 const contentSource = ref();
 const { locale } = useI18n()
 
-if (locale.value === 'th') {
+if (locale.value === LanguageType.THAILAND) {
     contentSource.value = sourceTH;
 } else {
     contentSource.value = source;
@@ -86,7 +87,6 @@ const content = computed(() => {
 
 const dateFormat = (data: Date, format: string) =>
     useDateFormat(data, format, {
-        // locales: locale.value === "th" ? "th-TH" : "en-US",
     }).value.replace('"', "");
 
 const getThisYear = computed(() => {

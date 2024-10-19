@@ -18,11 +18,41 @@
 </template>
 
 <script setup lang="ts">
+import { LanguageType } from "~/enums/lang-code";
+
 const { setLocale, t, locale } = useI18n()
 const showDropDown = ref(false);
-const selectedLanguageImg = ref(`/img/lang/${locale.value.toLowerCase()}.svg`);
-const selectedLanguageText = ref(`${locale.value.toUpperCase()}`);
-const selectedLanguageAlt = ref(`${locale.value.toLowerCase()}`);
+
+const languageList = ref([
+    {
+        id: 'en',
+        src: '/img/lang/en.svg',
+        alt: 'English',
+        text: 'English',
+        textShort: 'EN',
+        locale: LanguageType.ENGLISH,
+    },
+    {
+        id: 'th',
+        src: '/img/lang/th.svg',
+        alt: 'ภาษาไทย',
+        text: 'ภาษาไทย',
+        textShort: 'TH',
+        locale: LanguageType.THAILAND,
+    }
+    // ,
+    // {
+    //     id: 'id',
+    //     src: '/img/lang/id.svg',
+    //     alt: 'Indonesia',
+    //     textShort: 'ID',
+    //     text: 'Indonesia',
+    //     locale: LanguageType.ENGLISH,
+    // },
+]);
+const selectedLanguageImg = ref(languageList.value[0].src);
+const selectedLanguageText = ref(languageList.value[0].textShort);
+const selectedLanguageAlt = ref(languageList.value[0].alt);
 
 onMounted(() => {
     document.addEventListener("click", toggleDropdown);
@@ -43,33 +73,6 @@ function changeLanguage(lang: any) {
 
     setLocale(lang.locale)
 }
-
-const languageList = ref([
-    {
-        id: 'en',
-        src: '/img/lang/en.svg',
-        alt: 'English',
-        text: 'English',
-        textShort: 'EN',
-        locale: 'en',
-    },
-    {
-        id: 'th',
-        src: '/img/lang/th.svg',
-        alt: 'ภาษาไทย',
-        text: 'ภาษาไทย',
-        textShort: 'TH',
-        locale: 'th',
-    },
-    {
-        id: 'id',
-        src: '/img/lang/id.svg',
-        alt: 'Indonesia',
-        textShort: 'ID',
-        text: 'Indonesia',
-        locale: 'id',
-    },
-]);
 </script>
 
 <style lang="scss" scoped>

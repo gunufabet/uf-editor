@@ -100,7 +100,7 @@ export default defineNuxtConfig({
     lastmod: new Date().toISOString(), // Set the `lastmod` dynamically
     routes: () => {
       const routes = [];
-      const defaultLocale = "en";
+      const defaultLocale = "en-US";
 
       // Define routes to be included in the sitemap
       const pages = [{ url: "/sports" }, { url: "/sports/soccer" }];

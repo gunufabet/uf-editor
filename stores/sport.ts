@@ -10,6 +10,7 @@ import callApi from "~/helpers/call-api";
 import { GameType1, GameType2 } from "~/enums/game-type.js";
 import { MarketType } from "~/enums/market-type.js";
 import { formatAmount } from "@/composables/generalUtil";
+import { LanguageType } from "~/enums/lang-code";
 
 export const useSportStore = defineStore("sport", {
   state: () => {
@@ -340,11 +341,11 @@ export const useSportStore = defineStore("sport", {
                   : apiOddsItem.matchDate
               }`,
               leagueName:
-                locale === "th"
+                locale === LanguageType.THAILAND
                   ? apiOddsItem.moduleTitleT
                   : apiOddsItem.moduleTitle,
-              homeName: locale === "th" ? apiOddsItem.homeT : apiOddsItem.home,
-              awayName: locale === "th" ? apiOddsItem.awayT : apiOddsItem.away,
+              homeName: locale === LanguageType.THAILAND ? apiOddsItem.homeT : apiOddsItem.home,
+              awayName: locale === LanguageType.THAILAND ? apiOddsItem.awayT : apiOddsItem.away,
               hasLiveStream: apiOddsItem.hasRunning,
               hasStatistic: apiOddsItem.statsId > 0 ? true : false,
               hasMoreBetOption: true,

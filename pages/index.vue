@@ -6,16 +6,30 @@
 </template>
 
 <script setup lang="ts">
+const { locale } = useI18n()
+
 useSeoMeta({
   // will be inferred as the lastmod value in the sitemap
-  articleModifiedTime: '2024-10-19'
+  articleModifiedTime: '2024-10-01'
 })
 
 useHead({
-  title: 'UFABET',
+  title: 'Sports Betting',
   meta: [
-    { name: 'UFABET', content: 'UFABET' }
+    {
+      hid: 'description',
+      name: 'description',
+      content: 'UFABET | Sports Betting'
+    }
   ],
+  link: [
+    {
+      hid: "canonical",
+      rel: "canonical",
+      hreflang: locale.value,
+      href: `/`
+    },
+  ]
 })
 
 onMounted(() => {

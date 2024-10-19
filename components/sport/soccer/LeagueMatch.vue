@@ -65,7 +65,6 @@ const { t } = useI18n()
 const content = ref();
 const dateFormat = (data: Date, format: string) =>
     useDateFormat(data, format, {
-        // locales: locale.value === "th" ? "th-TH" : "en-US",
     }).value.replace('"', "");
 
 const props = defineProps({
@@ -203,7 +202,7 @@ td:nth-child(4) {
     .match-table {
         width: 100%;
 
-        th {         
+        th {
             font-size: 12px;
         }
     }
@@ -220,8 +219,7 @@ td:nth-child(4) {
         font-size: 12px;
     }
 
-    .league-match-title {
-    }
+    .league-match-title {}
 
     .match-time-text {
         font-size: 12px;

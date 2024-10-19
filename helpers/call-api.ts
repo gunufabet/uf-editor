@@ -32,8 +32,7 @@ export default {
     let leagueIds = [34, 39, 92, 87, 58, 74, 85, 93, 1244]; // top leagues
 
     const dateFormat = (data: Date, format: string) =>
-      useDateFormat(data, format, {
-        // locales: locale.value === "th" ? "th-TH" : "en-US",
+      useDateFormat(data, format, {        
       }).value.replace('"', "");
 
     let yesterday = new Date();
@@ -139,8 +138,7 @@ export default {
   async getFixtures(leagueId: String) {
     axiosInstance.defaults.baseURL = unewsApi;
     const dateFormat = (data: Date, format: string) =>
-      useDateFormat(data, format, {
-        // locales: locale.value === "th" ? "th-TH" : "en-US",
+      useDateFormat(data, format, {        
       }).value.replace('"', "");
 
     const totalRecord = 20;

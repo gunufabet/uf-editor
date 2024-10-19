@@ -66,8 +66,7 @@ const { t } = useI18n()
 
 const content = ref();
 const dateFormat = (data: Date, format: string) =>
-    useDateFormat(data, format, {
-        // locales: locale.value === "th" ? "th-TH" : "en-US",
+    useDateFormat(data, format, {        
     }).value.replace('"', "");
 
 const props = defineProps({

@@ -60,9 +60,7 @@ const { locale } = useI18n();
 const { t } = useI18n()
 
 const dateFormat = (data: Date, format: string) =>
-    useDateFormat(data, format, {
-        // locales: locale.value === "th" ? "th-TH" : "en-US",
-    }).value.replace('"', "");
+    useDateFormat(data, format, {}).value.replace('"', "");
 
 const props = defineProps({
     leagueId: {
@@ -86,7 +84,7 @@ onMounted(() => {
 })
 
 async function getMatch() {
-    matchOddsList.value = await useSportStore().fetchSportOdds(locale.value, props.marketType, props.leagueId_cigapi, 5)    
+    matchOddsList.value = await useSportStore().fetchSportOdds(locale.value, props.marketType, props.leagueId_cigapi, 5)
 }
 
 function formatDate(matchDate: Date) {

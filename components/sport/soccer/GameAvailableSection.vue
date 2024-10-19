@@ -16,6 +16,7 @@
     <div style="padding-top: 3rem;"></div>
     <tab-menu @select-tab-menu="selectTabMenu" :tab-menu-list="tabMenuList"></tab-menu>
 
+    <div style="padding-top: 1rem;"></div>
     <accordion-h3 :id="item.titleId" v-for="(item, index) in selectedMenuContent?.contentListH3" :key="index" :section-title="item.title" :section-content="item.content" :with-break-line="true"
         :defaultOpenPanel="item.defaultOpen" :img-list="item.imgList">
     </accordion-h3>
