@@ -180,7 +180,7 @@ onMounted(() => {
     border-bottom: 1px solid #ddd;
     border-bottom-color: rgba(132, 107, 45, 0.52);
     margin-left: 1rem;
-    // margin-bottom: 1.5rem;
+    margin-right: 1rem;
     margin-top: 1.5rem;
 }
 

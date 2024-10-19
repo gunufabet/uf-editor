@@ -53,9 +53,9 @@
         :key="index" :section-title="item.title" :section-content="item.content">
     </accordion-h4>
 
-    <button id="scrollupBtn" @click="topFunction">
+    <!-- <button id="scrollupBtn" @click="topFunction">
         <img src="/img/icn-scrollup.svg" alt="scroll up">
-    </button>
+    </button> -->
 </template>
 
 <script setup lang="ts">
