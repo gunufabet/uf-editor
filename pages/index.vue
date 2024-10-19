@@ -6,11 +6,16 @@
 </template>
 
 <script setup lang="ts">
+useSeoMeta({
+  // will be inferred as the lastmod value in the sitemap
+  articleModifiedTime: '2024-10-19'
+})
+
 useHead({
   title: 'UFABET',
-  // meta: [
-  //   { name: 'description', content: 'My amazing UFABET.' }
-  // ],
+  meta: [
+    { name: 'UFABET', content: 'UFABET' }
+  ],
 })
 
 onMounted(() => {

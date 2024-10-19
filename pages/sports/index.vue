@@ -6,6 +6,11 @@
 </template>
 
 <script setup lang="ts">
+useSeoMeta({
+  // will be inferred as the lastmod value in the sitemap
+  articleModifiedTime: '2024-10-01'
+})
+
 onMounted(() => {
     document.addEventListener("scroll", scrollFunction);
 })
