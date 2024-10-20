@@ -7,8 +7,8 @@ export default defineNuxtConfig({
     "@nuxtjs/i18n",
     "@nuxtjs/strapi",
     "@pinia/nuxt",
-    "json-editor-vue/nuxt",
   ],
+  plugins: ['~/plugins/JsonEditorVue.client'],
   ssr: true,
   app: {
     head: {
