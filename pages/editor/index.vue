@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <h1>JSON Editor</h1>
+  <div style="padding-top: 20px;">
+    <h1>หน้าสำหรับแก้ไขบทความด้วยไฟล์ JSON</h1>
     <table class="file-table">
       <thead>
         <tr>
@@ -15,9 +15,9 @@
           <td>{{ file.lastEdit }}</td>
           <td>
             <div class="action-buttons">
-              <button class="edit-button" @click="selectFile(file.name)">Edit</button>
-              <button class="rename-button" @click="renameFile(file.name)">Rename</button>
-              <button class="duplicate-button" @click="duplicateFile(file.name)">Duplicate</button>
+              <button class="edit-button" @click="selectFile(file.name)">แก้ไข</button>
+              <button class="rename-button" @click="renameFile(file.name)">เปลี่ยนชื่อ</button>
+              <button class="duplicate-button" @click="duplicateFile(file.name)">ทำสำเนา</button>
             </div>
           </td>
         </tr>
@@ -28,12 +28,12 @@
       <div class="header">
         <h2>กำลังแก้ไขไฟล์ [{{ selectedFile }}]</h2>
         <div class="button-group">
-          <button class="save-button" @click="openConfirmModal">Save</button>
+          <button class="save-button" @click="openConfirmModal">บันทึก</button>
         </div>
       </div>
       <JsonEditorVue v-bind="attrs" v-model="fileContent" class="jse-theme-dark"></JsonEditorVue>
       <div class="button-group">
-        <button class="save-button" @click="openConfirmModal">Save</button>
+        <button class="save-button" @click="openConfirmModal">บันทึก</button>
       </div>
     </div>
 
@@ -111,6 +111,7 @@ onMounted(fetchFiles);
 
 <style scoped>
 .file-table {
+  margin-top: 20px;
   width: 100%;
   border-collapse: collapse;
   margin-bottom: 20px;
