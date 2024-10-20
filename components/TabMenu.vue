@@ -24,7 +24,7 @@ const props = defineProps({
     },
     tabMenuList: {
         type: Array as PropType<TabMenu[]>,
-        default: ''
+        default: []
     },
     h2Title: {
         type: Boolean,
@@ -39,6 +39,12 @@ const selectTab = async (menuId: string) => {
     selectedTab.value = menuId;
     emit('select-tab-menu', menuId)
 }
+
+watch(() => props.tabMenuList, (newList) => {
+  if (!selectedTab.value && newList.length > 0) {
+    selectedTab.value = newList[0].id;
+  }
+}, { immediate: true });
 </script>
 
 <style lang="scss" scoped>

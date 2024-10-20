@@ -1,5 +1,5 @@
 <template>
-    <h2 v-if="matchOddsList" class="league-match-title">
+    <h2 v-if="matchOddsList?.length > 0" class="league-match-title">
         Matches
     </h2>
     <div v-for="(item, index) in matchOddsList" :key="index" class="match-wrapper">
@@ -50,7 +50,7 @@
         </table>
     </div>
 
-    <custom-button-1 v-if="matchOddsList" :label="`All Matches`"></custom-button-1>
+    <custom-button-1 v-if="matchOddsList?.length > 0" :label="`All Matches`"></custom-button-1>
 </template>
 
 <script setup lang="ts">
@@ -77,7 +77,7 @@ const props = defineProps({
     },
 });
 
-const matchOddsList = ref()
+const matchOddsList = ref([])
 
 onMounted(() => {
     getMatch()
