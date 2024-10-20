@@ -18,10 +18,11 @@
         <div v-if="openPanel" v-for="(item, index) in h3ContentData" :key="index">
             <accordion-h3-style-2 v-if="item.design === '2'" style="margin-left: 1rem; margin-bottom: 30px;"
                 :section-title="item.title" :section-content="item.content" :with-break-line="false"
-                :h4ContentData="item.contentListH4"></accordion-h3-style-2>
+                :h4ContentData="item.contentListH4" :defaultOpenPanel="item.defaultOpen"></accordion-h3-style-2>
 
             <accordion-h3 v-else style="margin-top: 1rem;" :section-title="item.title" :section-content="item.content"
-                :h4ContentData="item.contentListH4" :with-break-line="item.designWithUnderline"></accordion-h3>
+                :h4ContentData="item.contentListH4" :with-break-line="item.designWithUnderline"
+                :defaultOpenPanel="item.defaultOpen"></accordion-h3>
         </div>
 
         <div v-if="openPanel" v-for="(item, index) in h4ContentData" :key="index">
@@ -31,21 +32,19 @@
                 :sectionContentTableContent="item.contentTable?.content"
                 :show-running-match-table-list="item.showRunningMatchTableList"
                 :show-running-match-list="item.showRunningMatchList" :league-id="item.leagueId"
-                :league-id-cigapi="item.leagueId_cigapi"></accordion-h4-style-2>
+                :league-id-cigapi="item.leagueId_cigapi" :defaultOpenPanel="item.defaultOpen"></accordion-h4-style-2>
 
             <accordion-h4 v-else :section-title="item.title" :section-content="item.content"
                 :sectionContentTableHeader="item.contentTable?.header"
                 :sectionContentTableContent="item.contentTable?.content"
                 :show-running-match-table-list="item.showRunningMatchTableList"
                 :show-running-match-list="item.showRunningMatchList" :league-id="item.leagueId"
-                :league-id-cigapi="item.leagueId_cigapi"></accordion-h4>
+                :league-id-cigapi="item.leagueId_cigapi" :defaultOpenPanel="item.defaultOpen"></accordion-h4>
         </div>
     </details>
 </template>
 
 <script setup lang="ts">
-const openPanel = ref(false);
-
 const props = defineProps({
     sectionTitle: {
         type: String,
@@ -78,9 +77,14 @@ const props = defineProps({
     sectionContentTableContent: {
         type: Array,
         default: []
-    }
+    },
+    defaultOpenPanel: {
+        type: Boolean,
+        default: false
+    },
 });
 
+const openPanel = ref(props.defaultOpenPanel || false);
 const emit = defineEmits(['openPanel'])
 
 function clickPanel() {

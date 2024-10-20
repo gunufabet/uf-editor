@@ -32,7 +32,6 @@
 <script setup lang="ts">
 import callApi from "~/helpers/call-api";
 import { ContentType } from "~/enums/api-schema-type";
-import { useDateFormat } from "@vueuse/shared";
 import { processSection, processSectionWithMenu, processSectionWithMenuContent } from '@/composables/generalUtil'
 
 const { locale } = useI18n()

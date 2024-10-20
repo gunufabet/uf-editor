@@ -14,17 +14,18 @@
             <accordion-h4-style-2 v-if="item.design === '2'" style="margin-left: 1rem; margin-bottom: 30px;"
                 :section-title="item.title" :section-content="item.content" :with-break-line="false"
                 :sectionContentTableHeader="item.contentTable?.header"
-                :sectionContentTableContent="item.contentTable?.content"></accordion-h4-style-2>
+                :sectionContentTableContent="item.contentTable?.content"
+                :defaultOpenPanel="item.defaultOpen"></accordion-h4-style-2>
+
             <accordion-h4 v-else style="margin-top: 1rem;" :section-title="item.title" :section-content="item.content"
                 :sectionContentTableHeader="item.contentTable?.header"
-                :sectionContentTableContent="item.contentTable?.content"></accordion-h4>
+                :sectionContentTableContent="item.contentTable?.content"
+                :defaultOpenPanel="item.defaultOpen"></accordion-h4>
         </div>
     </details>
 </template>
 
 <script setup lang="ts">
-const openPanel = ref(false);
-
 const props = defineProps({
     sectionTitle: {
         type: String,
@@ -45,8 +46,14 @@ const props = defineProps({
     sectionContentTableContent: {
         type: Array,
         default: []
-    }
+    },
+    defaultOpenPanel: {
+        type: Boolean,
+        default: false
+    },
 });
+
+const openPanel = ref(props.defaultOpenPanel || false);
 
 function clickPanel() {
     openPanel.value = !openPanel.value;

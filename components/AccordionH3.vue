@@ -26,31 +26,30 @@
             v-html="props.sectionContent"></p>
 
         <div v-if="openPanel" v-for="(item, index) in h4ContentData" :key="index">
-            <accordion-h4-style-2 v-if="item.design === '2'" style="margin-bottom: 1rem; margin-left: 1rem;" :section-title="item.title"
-                :section-content="item.content" :with-break-line="false"
+            <accordion-h4-style-2 v-if="item.design === '2'" style="margin-bottom: 1rem; margin-left: 1rem;"
+                :section-title="item.title" :section-content="item.content" :with-break-line="false"
                 :sectionContentTableHeader="item.contentTable?.header"
                 :sectionContentTableContent="item.contentTable?.content"
                 :show-running-match-table-list="item.showRunningMatchTableList"
                 :show-running-match-list="item.showRunningMatchList" :league-id="item.leagueId"
-                :league-id-cigapi="item.leagueId_cigapi"></accordion-h4-style-2>
+                :league-id-cigapi="item.leagueId_cigapi" :defaultOpenPanel="item.defaultOpen"></accordion-h4-style-2>
 
             <accordion-h4 v-else :section-title="item.title" :section-content="item.content"
                 :sectionContentTableHeader="item.contentTable?.header"
                 :sectionContentTableContent="item.contentTable?.content"
                 :show-running-match-table-list="item.showRunningMatchTableList"
                 :show-running-match-list="item.showRunningMatchList" :league-id="item.leagueId"
-                :league-id-cigapi="item.leagueId_cigapi"></accordion-h4>
+                :league-id-cigapi="item.leagueId_cigapi" :defaultOpenPanel="item.defaultOpen"></accordion-h4>
         </div>
 
-        <game-banner-list v-if="imgList.length > 0 && openPanel" :img-list="imgList" style="padding-top: 2rem;"></game-banner-list>
+        <game-banner-list v-if="imgList.length > 0 && openPanel" :img-list="imgList"
+            style="padding-top: 2rem;"></game-banner-list>
 
     </details>
 </template>
 
 <script setup lang="ts">
 import GameBannerList from './GameBannerList.vue';
-
-const openPanel = ref(false);
 
 const props = defineProps({
     sectionTitle: {
@@ -86,6 +85,8 @@ const props = defineProps({
         default: []
     }
 });
+
+const openPanel = ref(props.defaultOpenPanel || false);
 
 async function clickPanel() {
     openPanel.value = !openPanel.value;

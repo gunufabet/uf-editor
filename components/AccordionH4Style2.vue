@@ -27,8 +27,6 @@
 <script setup lang="ts">
 import { MarketType } from "~/enums/market-type.js";
 
-const openPanel = ref(false);
-
 const props = defineProps({
     sectionTitle: {
         type: String,
@@ -61,8 +59,14 @@ const props = defineProps({
     sectionContentTableContent: {
         type: Array,
         default: []
-    }
+    },
+    defaultOpenPanel: {
+        type: Boolean,
+        default: false
+    },
 });
+
+const openPanel = ref(props.defaultOpenPanel || false);
 
 function clickPanel() {
     openPanel.value = !openPanel.value;

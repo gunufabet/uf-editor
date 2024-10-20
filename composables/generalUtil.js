@@ -59,7 +59,7 @@ export function processSection(section, type) {
         h4List.push({
           title: itemh4?.title,
           content: itemh4?.content,
-          defaultOpen: itemh4?.defaultOpen,
+          defaultOpen: itemh4?.defaultOpen || false,
           design: itemh4?.deisgn?.data?.attributes?.design,
         });
       });
@@ -67,11 +67,13 @@ export function processSection(section, type) {
       return {
         title: item.title,
         content: item.content,
-        defaultOpen: item.defaultOpen,
+        defaultOpen: item.defaultOpen || false,
         menuId: item.menuId,
         design: item?.deisgn?.data?.attributes?.design,
-        designWithUnderline: item.designUnderline,
+        designWithUnderline: item.designUnderline || false,
         contentListH4: h4List,
+        // showLeagueTable: item.showLeagueTable,
+        // showRunningMatch: item.showRunningMatch,
       };
     });
 }
