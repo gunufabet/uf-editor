@@ -6,11 +6,16 @@
     <main-content :showLoading="showLoading" :main-title-text="mainSection?.title"
         :main-content-text="mainSection?.content"></main-content>
 
+    <div style="padding-top: 2rem;"></div>
+
     <!-- standing table -->
-    <accordion-h2-style-2 v-if="!showLoading" :showLoading="showLoading" style="margin-top: 30px;" :section-title="standingSection?.title"
-        :section-content="standingSection?.content" :showLeagueTable="standingSection?.showLeagueTable"
-        :league-id="leagueId" :league-id-cigapi="leagueId2" :defaultOpenPanel="true">
+    <accordion-h2-style-2 v-if="!showLoading" :showLoading="showLoading" style="margin-top: 30px;"
+        :section-title="standingSection?.title" :section-content="standingSection?.content"
+        :showLeagueTable="standingSection?.showLeagueTable" :league-id="leagueId" :league-id-cigapi="leagueId2"
+        :defaultOpenPanel="true">
     </accordion-h2-style-2>
+
+    <div style="padding-top: 2rem;"></div>
 
     <!-- section 2 -->
     <accordion-h2-style-1 v-if="section2H2?.design === '1'" style="margin-top: 1rem;" :section-title="section2H2?.title"
@@ -18,11 +23,15 @@
         :defaultOpenPanel="section2H2?.defaultOpen">
     </accordion-h2-style-1>
 
+    <div style="padding-top: 2rem;"></div>
+
     <!-- section 3 -->
     <accordion-h2-style-1 v-if="section3H2?.design === '1'" style="margin-top: 1rem;" :section-title="section3H2?.title"
         :section-content="section3H2?.content" :h3-content-data="section3H3"
         :defaultOpenPanel="section3H2?.defaultOpen">
     </accordion-h2-style-1>
+
+    <div style="padding-top: 2rem;"></div>
 
     <!-- section 4 -->
     <accordion-h2-style-1 v-if="section4H2?.design === '1'" style="margin-top: 1rem;" :section-title="section4H2?.title"
@@ -30,11 +39,13 @@
         :defaultOpenPanel="section3H2?.defaultOpen">
     </accordion-h2-style-1>
 
+    <div style="padding-top: 2rem;"></div>
+
     <!-- section 5 -->
     <accordion-h2-style-1 v-if="section5H2?.design === '1'" style="margin-top: 1rem;" :section-title="section5H2?.title"
         :section-content="section5H2?.content" :h3-content-data="section5H3"
         :defaultOpenPanel="section3H2?.defaultOpen">
-    </accordion-h2-style-1>    
+    </accordion-h2-style-1>
 </template>
 
 <script setup lang="ts">
@@ -66,7 +77,6 @@ async function getLeagueStandingContent() {
             const leagueContent = response?.data[0]?.attributes
 
             mainSection.value = leagueContent?.MainSection;
-
 
             standingSection.value = {
                 title: leagueContent.leagueTableTitle,

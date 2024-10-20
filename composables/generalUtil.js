@@ -90,10 +90,30 @@ export function processSectionWithMenu(section) {
 
 export function processSectionWithMenuContent(h2Items, h3Items) {
   return h2Items.map((h2Item) => ({
-      menuTabId: h2Item.menuId,
-      titleH2: h2Item.title,
-      contentH2: h2Item.content,
-      design: h2Item.design,
-      contentListH3: h3Items.filter(h3Item => h3Item.menuId === h2Item.menuId)  // Group H3 items by menuTabId
+    menuTabId: h2Item.menuId,
+    titleH2: h2Item.title,
+    contentH2: h2Item.content,
+    design: h2Item.design,
+    contentListH3: h3Items.filter((h3Item) => h3Item.menuId === h2Item.menuId), // Group H3 items by menuTabId
+  }));
+}
+
+export function processSectionWithButton(section) {
+  return section
+    .map((item) => ({
+      id: item.menuId,
+      text: item.menuName,
+      buttonOrder: item.menuOrder,
+    }))
+    .sort((a, b) => a.buttonOrder - b.buttonOrder); // Sort by menuTabOrder
+}
+
+export function processSectionWithButtonContent(h2Items, h3Items) {
+  return h2Items.map((h2Item) => ({
+    buttonId: h2Item.menuId,
+    titleH2: h2Item.title,
+    contentH2: h2Item.content,
+    design: h2Item.design,
+    contentListH3: h3Items.filter((h3Item) => h3Item.menuId === h2Item.menuId), // Group H3 items by menuTabId
   }));
 }

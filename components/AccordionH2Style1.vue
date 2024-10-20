@@ -2,7 +2,7 @@
     <details class="accordion-panel disabled" :open="true" :class="addPadding ? 'accordion-h2-add-padding' : ''">
         <summary @click.prevent="false">
             <h2 class="accordion">
-                <span class="accordion-text">{{ props.sectionTitle }}</span>
+                <span class="accordion-text" v-html="props.sectionTitle"></span>
                 <div v-if="props.sectionTitle" class="accordion-indent"></div>
             </h2>
         </summary>
@@ -14,6 +14,12 @@
             :tableContent="sectionContentTableContent"></table-summary>
 
         <p v-if="openPanel" class="accordion-panel-content" v-html="props.sectionContent2"></p>
+
+        <sport-soccer-league-table-summary v-if="openPanel && showLeagueTable"
+            :league-id="leagueId"></sport-soccer-league-table-summary>
+
+        <sport-soccer-league-schedule v-if="openPanel && showFixture" :league-id="leagueId"
+            :league-id-cigapi="leagueId_cigapi"></sport-soccer-league-schedule>
 
         <div v-if="openPanel" v-for="(item, index) in h3ContentData" :key="index">
             <accordion-h3-style-2 v-if="item.design === '2'" style="margin-left: 1rem; margin-bottom: 30px;"
@@ -79,11 +85,27 @@ const props = defineProps({
         type: Array,
         default: []
     },
+    showLeagueTable: {
+        type: Boolean,
+        default: false
+    },
+    leagueId: {
+        type: String,
+        default: ''
+    },
+    leagueId_cigapi: {
+        type: String,
+        default: ''
+    },
     defaultOpenPanel: {
         type: Boolean,
         default: false
     },
     showLoading: {
+        type: Boolean,
+        default: false
+    },
+    showFixture: {
         type: Boolean,
         default: false
     }

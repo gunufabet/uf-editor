@@ -436,4 +436,51 @@ export default {
         }
       });
   },
+  async getLeagueScheduleContentById(leagueId: String) {
+    const { locale } = useI18n();
+
+    axiosInstance.defaults.baseURL = shseoApi;
+    const dateFormat = (data: Date, format: string) =>
+      useDateFormat(data, format, {}).value.replace('"', "");
+
+    let leagueIdParam = `filters[leagueId]=${leagueId}`;
+    let langParam = `locale=${locale.value}`;
+    let populateParam = "populate=deep";
+    let param = `${leagueIdParam}&${langParam}&${populateParam}`;
+
+    return httpService({
+      method: CallApiMethod.get,
+      url: "api/league-schedules?" + param,
+      timeout: 0,
+    })
+      .then((response) => {
+        if (response.data) {
+          return {
+            succ: true,
+            data: response.data.data,
+          };
+        }
+        return {
+          succ: false,
+          data: null,
+          msg: "No record found",
+        };
+      })
+      .catch((error) => {
+        let defaultErrorMessage = error.message || "Unknown error";
+        if (error.response) {
+          return {
+            succ: false,
+            data: null,
+            msg: error.response.data.message,
+          };
+        } else {
+          return {
+            succ: false,
+            data: null,
+            msg: defaultErrorMessage,
+          };
+        }
+      });
+  },
 };

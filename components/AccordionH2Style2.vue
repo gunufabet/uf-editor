@@ -21,6 +21,9 @@
         <sport-soccer-league-table-summary v-if="openPanel && showLeagueTable"
             :league-id="leagueId"></sport-soccer-league-table-summary>
 
+        <sport-soccer-league-schedule v-if="openPanel && showFixture" :league-id="leagueId"
+            :league-id-cigapi="leagueId_cigapi"></sport-soccer-league-schedule>
+
         <table-summary v-if="openPanel && sectionContentTableHeader" :tableHeader="sectionContentTableHeader"
             :tableContent="sectionContentTableContent"></table-summary>
 
@@ -35,6 +38,7 @@
                 :h4ContentData="item.contentListH4" :with-break-line="item.designWithUnderline"
                 :defaultOpenPanel="item.defaultOpen"></accordion-h3>
         </div>
+        <loading v-if="showLoading"></loading>
     </details>
 </template>
 
@@ -81,6 +85,14 @@ const props = defineProps({
         type: Boolean,
         default: false
     },
+    showLoading: {
+        type: Boolean,
+        default: false
+    },
+    showFixture: {
+        type: Boolean,
+        default: false
+    }
 });
 
 const openPanel = ref(props.defaultOpenPanel || false);
