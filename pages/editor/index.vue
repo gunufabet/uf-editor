@@ -1,46 +1,40 @@
 <template>
   <div>
     <h1>JSON Editor</h1>
-    <table>
+    <table class="file-table">
       <thead>
         <tr>
-          <th>File Name</th>
-          <th>Actions</th>
+          <th>ชื่อไฟล์</th>
+          <th>แก้ไขล่าสุด</th>
+          <th></th>
         </tr>
       </thead>
       <tbody>
-        <tr v-for="file in files" :key="file">
+        <tr v-for="file in files" :key="file.name">
+          <td>{{ file.name }}</td>
+          <td>{{ file.lastEdit }}</td>
           <td>
-            <button style="color: white" @click="selectFile(file)">
-              {{ file }}
-            </button>
-          </td>
-          <td>
-            <button
-              style="margin-left: 10px; color: white; background-color: #ff9800"
-              @click="renameFile(file)"
-            >
-              Rename
-            </button>
-            <button
-              style="margin-left: 10px; color: white; background-color: #2196f3"
-              @click="duplicateFile(file)"
-            >
-              Duplicate
-            </button>
+            <div class="action-buttons">
+              <button class="edit-button" @click="selectFile(file.name)">Edit</button>
+              <button class="rename-button" @click="renameFile(file.name)">Rename</button>
+              <button class="duplicate-button" @click="duplicateFile(file.name)">Duplicate</button>
+            </div>
           </td>
         </tr>
       </tbody>
     </table>
-    <div v-if="selectedFile">
-      <h2>{{ selectedFile }}</h2>
-      <button class="save-button" @click="openConfirmModal">Save</button>
-      <JsonEditorVue
-        v-bind="attrs"
-        v-model="fileContent"
-        class="jse-theme-dark"
-      ></JsonEditorVue>
-      <button class="save-button" @click="openConfirmModal">Save</button>
+
+    <div v-if="selectedFile" class="editor-container">
+      <div class="header">
+        <h2>กำลังแก้ไขไฟล์ [{{ selectedFile }}]</h2>
+        <div class="button-group">
+          <button class="save-button" @click="openConfirmModal">Save</button>
+        </div>
+      </div>
+      <JsonEditorVue v-bind="attrs" v-model="fileContent" class="jse-theme-dark"></JsonEditorVue>
+      <div class="button-group">
+        <button class="save-button" @click="openConfirmModal">Save</button>
+      </div>
     </div>
 
     <div v-if="showModal" class="modal">
@@ -64,7 +58,11 @@ const showModal = ref(false);
 const attrs = useAttrs();
 
 const fetchFiles = async () => {
-  files.value = await $fetch("/api/files");
+  const fetchedFiles = await $fetch("/api/files");
+  files.value = fetchedFiles.map(file => ({
+    name: file.name,
+    lastEdit: new Date(file.lastEdit).toLocaleString()
+  }));
 };
 
 const selectFile = async (file) => {
@@ -103,75 +101,93 @@ const confirmSave = async () => {
   }
 };
 
-const duplicateFile = async (file) => {
-  const newFileName = prompt(
-    "Enter new filename",
-    `${file.replace(".json", "")}_copy.json`
-  );
-  if (newFileName && newFileName.trim() !== "") {
-    try {
-      const content = await $fetch(
-        `/api/file/${encodeURIComponent(file.replace(".json", ""))}`
-      );
-      await $fetch("/api/file/save", {
-        method: "POST",
-        body: {
-          name: file.replace(".json", ""),
-          content: content,
-          duplicate: newFileName.replace(".json", ""),
-        },
-      });
-      alert("File duplicated successfully");
-      fetchFiles();
-    } catch (error) {
-      console.error("Error duplicating file:", error);
-      alert("Failed to duplicate file. Please try again.");
-    }
-  } else {
-    alert("Invalid file name. Please try again.");
-  }
-};
-
-const renameFile = async (file) => {
-  const newName = prompt("Enter new name for the file:", file);
-  if (newName && newName.trim() !== "") {
-    try {
-      await $fetch("/api/file/rename", {
-        method: "POST",
-        body: {
-          oldName: file.replace(".json", ""),
-          newName: newName.replace(".json", ""),
-        },
-      });
-      alert("File renamed successfully");
-      fetchFiles();
-      if (selectedFile.value === file) {
-        selectedFile.value = newName;
-      }
-    } catch (error) {
-      console.error("Error renaming file:", error);
-      alert("Failed to rename file. Please try again.");
-    }
-  } else {
-    alert("Invalid file name. Please try again.");
-  }
+const editFile = () => {
+  // Add your edit logic here
+  alert("Edit button clicked");
 };
 
 onMounted(fetchFiles);
 </script>
 
 <style scoped>
+.file-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+.file-table th, .file-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+/* .file-table th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+} */
+
+/* .file-table tr:nth-child(even) {
+  background-color: #f9f9f9;
+} */
+
+.file-table tr:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.edit-button {
+  background-color: #4caf50; /* Green */
+  border: none;
+  color: white;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.edit-button:hover {
+  background-color: #45a049;
+}
+
+.rename-button {
+  background-color: #ff9800; /* Orange */
+  border: none;
+  color: white;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.rename-button:hover {
+  background-color: #fb8c00;
+}
+
+.duplicate-button {
+  background-color: #2196f3; /* Blue */
+  border: none;
+  color: white;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.duplicate-button:hover {
+  background-color: #1976d2;
+}
 
 .save-button {
   background-color: #4caf50; /* Green */
   border: none;
   color: white;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
+  padding: 10px 20px;
   cursor: pointer;
   border-radius: 12px;
   transition: background-color 0.3s ease;
@@ -179,6 +195,24 @@ onMounted(fetchFiles);
 
 .save-button:hover {
   background-color: #45a049;
+}
+
+.button-group {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.editor-container {
+  margin-top: 20px;
 }
 
 .modal {
@@ -191,14 +225,12 @@ onMounted(fetchFiles);
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 1000;
 }
 
 .modal-content {
-  background-color: #fff;
+  background-color: white;
   padding: 20px;
   border-radius: 8px;
-  width: 300px;
   text-align: center;
 }
 
@@ -207,26 +239,32 @@ onMounted(fetchFiles);
   border: none;
   color: white;
   padding: 10px 20px;
-  margin: 10px;
   cursor: pointer;
-  border-radius: 8px;
-}
-
-.cancel-button {
-  background-color: #f44336; 
-  border: none;
-  color: white;
-  padding: 10px 20px;
-  margin: 10px;
-  cursor: pointer;
-  border-radius: 8px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
 }
 
 .confirm-button:hover {
   background-color: #45a049;
 }
 
+.cancel-button {
+  background-color: #f44336; /* Red */
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
 .cancel-button:hover {
   background-color: #e53935;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 </style>
