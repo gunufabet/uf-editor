@@ -3,7 +3,7 @@ import path from 'path';
 
 export default defineEventHandler(() => {
     const scriptDir = path.join(process.cwd(), 'assets', 'script');
-    const files: string[] = [];
+    const files: { name: string, lastEdit: string }[] = [];
 
     interface ReadDirectoryRecursively {
         (dir: string, basePath?: string): void;
@@ -20,8 +20,9 @@ export default defineEventHandler(() => {
                 // If the item is a directory, read it recursively
                 readDirectoryRecursively(fullPath, relativePath);
             } else if (item.endsWith('.json')) {
-                // If the item is a JSON file, add it to the list
-                files.push(relativePath);
+                // If the item is a JSON file, add it to the list with last edit datetime
+                const lastEdit = fs.statSync(fullPath).mtime.toISOString();
+                files.push({ name: relativePath, lastEdit });
             }
         });
     };
