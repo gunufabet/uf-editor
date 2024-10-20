@@ -2,7 +2,7 @@
     <details class="accordion-panel disabled" :open="true" :class="addPadding ? 'accordion-h2-add-padding' : ''">
         <summary @click.prevent="false">
             <h2 class="accordion">
-                <span class="accordion-text">{{ props.sectionTitle }}</span>
+                <span class="accordion-text" v-html="props.sectionTitle"></span>
                 <div v-if="props.sectionTitle" class="accordion-indent"></div>
             </h2>
         </summary>

@@ -2,7 +2,7 @@
     <details class="accordion-panel" :open="true">
         <summary @click.prevent="false" @click="clickPanel">
             <h2 class="accordion">
-                <span class="accordion-text">{{ props.sectionTitle }}</span>
+                <span class="accordion-text" v-html="props.sectionTitle"></span>
                 <span class="accordion-icn" :class="openPanel ? 'flip-vertical' : 'flip-vertical-transition'">
                     <svg xmlns="http://www.w3.org/2000/svg" width="23" height="24" viewBox="0 0 23 24" fill="none">
                         <circle cx="11.5" cy="11.5" r="11.5" transform="matrix(1 0 0 -1 0 23.5)" fill="#EBC76E"
