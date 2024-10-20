@@ -3,7 +3,8 @@
         :sub-menu-route="`soccer`" :sub-item="mainSection?.title">
     </breadcrumb>
 
-    <main-content :main-title-text="mainSection?.title" :main-content-text="mainSection?.content"></main-content>
+    <main-content :showLoading="showLoading" :main-title-text="mainSection?.title"
+        :main-content-text="mainSection?.content"></main-content>
 
     <div style="padding-top: 2rem;"></div>
 
@@ -36,6 +37,7 @@ import { processSection, processSectionWithMenu, processSectionWithMenuContent }
 
 const { locale } = useI18n()
 
+const showLoading = ref(false);
 const mainSection = ref();
 const section1H2 = ref();
 const section1H3 = ref();
@@ -43,27 +45,36 @@ const sectionWithMenu1 = ref();
 const sectionWithMenu1Content = ref();
 
 async function getLeagueContent() {
-    const response = await callApi.getLeagueContentById(route.query.leagueId);
-    if (response.succ) {
-        const leagueContent = response?.data[0]?.attributes
+    try {
+        showLoading.value = true
 
-        mainSection.value = leagueContent?.MainSection;
-        const section1 = leagueContent?.Section1
+        const response = await callApi.getLeagueContentById(route.query.leagueId);
+        if (response.succ) {
+            const leagueContent = response?.data[0]?.attributes
 
-        /* section 1 */
-        /* Section 1 - H2 */
-        section1H2.value = processSection(section1, ContentType.H2)[0];
-        /* Section 1 - H3 */
-        section1H3.value = processSection(section1, ContentType.H3);
+            mainSection.value = leagueContent?.MainSection;
+            const section1 = leagueContent?.Section1
 
-        /* Section With Menu1 */
-        sectionWithMenu1.value = processSectionWithMenu(leagueContent.SectionWithMenu1)
+            /* section 1 */
+            /* Section 1 - H2 */
+            section1H2.value = processSection(section1, ContentType.H2)[0];
+            /* Section 1 - H3 */
+            section1H3.value = processSection(section1, ContentType.H3);
 
-        /* Section With Menu1 - Content */
-        const menuContentH2 = processSection(leagueContent.SectionWithMenu1Content, ContentType.H2);
-        const menuContentH3 = processSection(leagueContent.SectionWithMenu1Content, ContentType.H3)
+            /* Section With Menu1 */
+            sectionWithMenu1.value = processSectionWithMenu(leagueContent.SectionWithMenu1)
 
-        sectionWithMenu1Content.value = processSectionWithMenuContent(menuContentH2, menuContentH3)
+            /* Section With Menu1 - Content */
+            const menuContentH2 = processSection(leagueContent.SectionWithMenu1Content, ContentType.H2);
+            const menuContentH3 = processSection(leagueContent.SectionWithMenu1Content, ContentType.H3)
+
+            sectionWithMenu1Content.value = processSectionWithMenuContent(menuContentH2, menuContentH3)
+        }
+    } catch (error) {
+
+    }
+    finally {
+        showLoading.value = false
     }
 }
 
@@ -73,7 +84,7 @@ const leagueId2 = ref(route.query.leagueId2);
 const selectedMenuId = ref('');
 const selectedMenuContent = ref();
 
-function selectTabMenu(value: string) {    
+function selectTabMenu(value: string) {
     if (!value) {
         value = sectionWithMenu1?.value[0]?.id;
         selectedMenuId.value = value;
@@ -83,7 +94,7 @@ function selectTabMenu(value: string) {
         (content) => content.menuTabId === value
     );
 
-    selectedMenuContent.value = selectedMenu;    
+    selectedMenuContent.value = selectedMenu;
 }
 
 onMounted(async () => {

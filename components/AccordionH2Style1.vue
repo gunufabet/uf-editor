@@ -41,6 +41,7 @@
                 :show-running-match-list="item.showRunningMatchList" :league-id="item.leagueId"
                 :league-id-cigapi="item.leagueId_cigapi" :defaultOpenPanel="item.defaultOpen"></accordion-h4>
         </div>
+        <loading v-if="showLoading"></loading>
     </details>
 </template>
 
@@ -82,6 +83,10 @@ const props = defineProps({
         type: Boolean,
         default: false
     },
+    showLoading: {
+        type: Boolean,
+        default: false
+    }
 });
 
 const openPanel = ref(props.defaultOpenPanel || false);

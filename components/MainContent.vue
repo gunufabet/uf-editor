@@ -7,7 +7,7 @@
         ]" v-html="props.mainContentText">
         </p>
 
-        <button id="show-more" :class="showMore ? 'flip-vertical' : 'flip-vertical-transition'" @click="clickShowMore"
+        <button v-if="!showLoading" id="show-more" :class="showMore ? 'flip-vertical' : 'flip-vertical-transition'" @click="clickShowMore"
             tabindex="0">
             <!-- {{ showMore ? 'Show Less' : 'Show More' }} -->
             <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28" fill="none">
@@ -16,6 +16,7 @@
                     fill="#EBC76E" />
             </svg>
         </button>
+        <loading v-if="showLoading"></loading>
     </header>
 </template>
 
@@ -30,6 +31,10 @@ const props = defineProps({
     mainContentText: {
         type: String,
         default: ''
+    },
+    showLoading: {
+        type: Boolean,
+        default: false
     }
 });
 
