@@ -15,7 +15,7 @@
             </h2>
         </summary>
         <!-- Content with shadow effect -->
-        <p class="accordion-panel-content" v-html="props.sectionContent" @click="clickPanel"
+        <p v-if="props.sectionContent" class="accordion-panel-content" v-html="props.sectionContent" @click="clickPanel"
             :class="openPanel ? 'open' : 'close'"></p>
 
         <sport-soccer-league-table-summary v-if="openPanel && showLeagueTable"
@@ -23,6 +23,11 @@
 
         <sport-soccer-league-schedule v-if="openPanel && showFixture" :league-id="leagueId"
             :league-id-cigapi="leagueId_cigapi"></sport-soccer-league-schedule>
+
+        <sport-soccer-live-match-by-league v-if="openPanel && showRunningByLeague"></sport-soccer-live-match-by-league>
+
+        <div v-if="openPanel && showBetBoost" style="padding-top: 2rem;"></div>
+        <sport-soccer-bet-boost v-if="openPanel && showBetBoost"></sport-soccer-bet-boost>
 
         <table-summary v-if="openPanel && sectionContentTableHeader" :tableHeader="sectionContentTableHeader"
             :tableContent="sectionContentTableContent"></table-summary>
@@ -59,7 +64,6 @@ const props = defineProps({
     h3ContentData: {
         type: Array,
         default: []
-
     },
     sectionContentTableHeader: {
         type: Array,
@@ -92,7 +96,19 @@ const props = defineProps({
     showFixture: {
         type: Boolean,
         default: false
-    }
+    },
+    showRunningByLeague: {
+        type: Boolean,
+        default: false
+    },
+    soccerButton: {
+        type: String,
+        default: {}
+    },
+    showBetBoost: {
+        type: Boolean,
+        default: false
+    },
 });
 
 const openPanel = ref(props.defaultOpenPanel || false);

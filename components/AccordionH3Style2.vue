@@ -10,6 +10,17 @@
         <p class="accordion-panel-content" v-html="props.sectionContent" @click="clickPanel"
             :class="openPanel ? 'open' : 'close'"></p>
 
+        <sport-soccer-league-soccer-layout v-if="openPanel" :league-id="soccerButton?.leagueId"
+            :leagueId_cigapi="soccerButton?.leagueId_cigapi" :showLeagueButton="soccerButton?.showLeagueInfo"
+            :showLeagueScheduleButton="soccerButton?.showLeagueSchedule"
+            :showLeagueStandingButton="soccerButton?.showLeagueStanding"
+            :leagueButtonName="soccerButton?.leagueInfoBtnName"
+            :leagueScheduleButtonName="soccerButton?.leagueScheduleBtnName"
+            :leagueStandingButtonName="soccerButton?.leagueStandingBtnName"
+            :leagueUrl="soccerButton?.leagueInfoUrl" :leagueScheduleUrl="soccerButton?.leagueScheduleUrl"
+            :leagueStandingUrl="soccerButton?.leagueStandingUrl" :showBetBoost="soccerSetting?.showBetBoost"
+            :showRunningMatch="soccerSetting?.showRunningMatch"></sport-soccer-league-soccer-layout>
+
         <div v-if="openPanel" v-for="(item, index) in h4ContentData" :key="index">
             <accordion-h4-style-2 v-if="item.design === '2'" style="margin-left: 1rem; margin-bottom: 30px;"
                 :section-title="item.title" :section-content="item.content" :with-break-line="false"
@@ -51,6 +62,14 @@ const props = defineProps({
         type: Boolean,
         default: false
     },
+    soccerButton: {
+        type: String,
+        default: {}
+    },
+    soccerSetting: {
+        type: String,
+        default: {}
+    }
 });
 
 const openPanel = ref(props.defaultOpenPanel || false);

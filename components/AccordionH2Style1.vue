@@ -7,7 +7,7 @@
             </h2>
         </summary>
         <!-- Content with shadow effect -->
-        <p class="accordion-panel-content" v-html="props.sectionContent" @click="clickPanel"
+        <p v-if="props.sectionContent" class="accordion-panel-content" v-html="props.sectionContent" @click="clickPanel"
             :class="openPanel ? 'open' : 'close'"></p>
 
         <table-summary v-if="openPanel && sectionContentTableHeader" :tableHeader="sectionContentTableHeader"
@@ -21,14 +21,20 @@
         <sport-soccer-league-schedule v-if="openPanel && showFixture" :league-id="leagueId"
             :league-id-cigapi="leagueId_cigapi"></sport-soccer-league-schedule>
 
+        <sport-soccer-live-match-by-league v-if="openPanel && showRunningByLeague"></sport-soccer-live-match-by-league>
+
+        <sport-soccer-bet-boost v-if="openPanel && showBetBoost"></sport-soccer-bet-boost>
+
         <div v-if="openPanel" v-for="(item, index) in h3ContentData" :key="index">
             <accordion-h3-style-2 v-if="item.design === '2'" style="margin-left: 1rem; margin-bottom: 30px;"
                 :section-title="item.title" :section-content="item.content" :with-break-line="false"
-                :h4ContentData="item.contentListH4" :defaultOpenPanel="item.defaultOpen"></accordion-h3-style-2>
+                :h4ContentData="item.contentListH4" :defaultOpenPanel="item.defaultOpen" :soccerButton="item.soccerButton"
+                :soccerSetting="item.soccerSetting"></accordion-h3-style-2>
 
             <accordion-h3 v-else style="margin-top: 1rem;" :section-title="item.title" :section-content="item.content"
                 :h4ContentData="item.contentListH4" :with-break-line="item.designWithUnderline"
-                :defaultOpenPanel="item.defaultOpen"></accordion-h3>
+                :defaultOpenPanel="item.defaultOpen" :soccerButton="item.soccerButton"
+                :soccerSetting="item.soccerSetting"></accordion-h3>
         </div>
 
         <div v-if="openPanel" v-for="(item, index) in h4ContentData" :key="index">
@@ -108,7 +114,15 @@ const props = defineProps({
     showFixture: {
         type: Boolean,
         default: false
-    }
+    },
+    showRunningByLeague: {
+        type: Boolean,
+        default: false
+    },
+    showBetBoost: {
+        type: Boolean,
+        default: false
+    },
 });
 
 const openPanel = ref(props.defaultOpenPanel || false);

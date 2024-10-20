@@ -50,7 +50,7 @@ export function getTimeSbApi(value) {
   return value;
 }
 
-export function processSection(section, type) {
+export function processSection(section, type) {  
   return section
     .filter((item) => item.__component === type)
     .map((item) => {
@@ -72,8 +72,8 @@ export function processSection(section, type) {
         design: item?.deisgn?.data?.attributes?.design,
         designWithUnderline: item.designUnderline || false,
         contentListH4: h4List,
-        // showLeagueTable: item.showLeagueTable,
-        // showRunningMatch: item.showRunningMatch,
+        soccerSetting: item?.SoccerSetting || item?.soccerSetting,
+        soccerButton: item?.SoccerButton,
       };
     });
 }
@@ -116,4 +116,16 @@ export function processSectionWithButtonContent(h2Items, h3Items) {
     design: h2Item.design,
     contentListH3: h3Items.filter((h3Item) => h3Item.menuId === h2Item.menuId), // Group H3 items by menuTabId
   }));
+}
+
+export function processSectionSoccer(item) {
+  return {
+    title: item.title,
+    content: item.content,
+    defaultOpen: item.defaultOpen || false,
+    menuId: item.menuId,
+    design: item?.deisgn?.data?.attributes?.design,
+    designWithUnderline: item.designUnderline || false,
+    soccerSetting: item.soccerSetting,
+  };
 }
