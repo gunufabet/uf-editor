@@ -38,7 +38,6 @@
       <JsonEditorVue
         v-bind="attrs"
         v-model="fileContent"
-        :options="jsonEditorOptions"
         class="jse-theme-dark"
       ></JsonEditorVue>
       <button class="save-button" @click="openConfirmModal">Save</button>
@@ -56,19 +55,13 @@
 </template>
 
 <script setup>
-import JsonEditorVue from "json-editor-vue";
 import { ref, onMounted } from "vue";
-import "vanilla-jsoneditor/themes/jse-theme-dark.css";
 
 const files = ref([]);
 const selectedFile = ref("");
 const fileContent = ref("");
 const showModal = ref(false);
 const attrs = useAttrs();
-
-const jsonEditorOptions = ref({
-  mode: "code",
-});
 
 const fetchFiles = async () => {
   files.value = await $fetch("/api/files");
@@ -168,6 +161,7 @@ onMounted(fetchFiles);
 </script>
 
 <style scoped>
+
 .save-button {
   background-color: #4caf50; /* Green */
   border: none;
@@ -219,7 +213,7 @@ onMounted(fetchFiles);
 }
 
 .cancel-button {
-  background-color: #f44336; /* Red */
+  background-color: #f44336; 
   border: none;
   color: white;
   padding: 10px 20px;
