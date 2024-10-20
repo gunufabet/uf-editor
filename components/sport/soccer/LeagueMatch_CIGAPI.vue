@@ -117,8 +117,10 @@ function getOrdinalSuffix(day: Number) {
 
 function getDate(value: String) {
     try {
-        const [date, time] = value.split(' ');
-        return date;
+        if (value.includes(' ')) {
+            const [date, time] = value.split(' ');
+            return date;
+        }
     } catch (error) {
 
     }
@@ -127,8 +129,10 @@ function getDate(value: String) {
 
 function getTime(value: String) {
     try {
-        const [date, time] = value.split(' ');
-        return time;
+        if (value.includes(' ')) {
+            const [date, time] = value.split(' ');
+            return time;
+        }
     } catch (error) {
 
     }
