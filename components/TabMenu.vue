@@ -41,9 +41,9 @@ const selectTab = async (menuId: string) => {
 }
 
 watch(() => props.tabMenuList, (newList) => {
-  if (!selectedTab.value && newList.length > 0) {
-    selectedTab.value = newList[0].id;
-  }
+    if (!selectedTab.value && newList.length > 0) {
+        selectedTab.value = newList[0].id;
+    }
 }, { immediate: true });
 </script>
 
@@ -99,6 +99,12 @@ watch(() => props.tabMenuList, (newList) => {
 @media only screen and (max-width:475px) {
     .tab-menu-item {
         font-size: 16px;
+    }
+
+    .tab-menu-item-h2 {
+        width: auto;
+        text-wrap: pretty;
+        line-height: 1.5rem;
     }
 }
 </style>
