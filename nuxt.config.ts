@@ -112,10 +112,7 @@ export default defineNuxtConfig({
       i18nConfig.locales.forEach((locale) => {
         pages.forEach((page) => {
           routes.push({
-            url: locale.code === defaultLocale ? page.url : `/${locale.code}${page.url}`,
-            lastmod: page.lastmod,
-            changefreq: page.changefreq,
-            priority: page.priority,
+            url: locale.code === defaultLocale ? page.url : `/${locale.code}${page.url}`            
           });
         });
       });
