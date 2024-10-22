@@ -45,7 +45,7 @@
                 :show-running-match-list="item.showRunningMatchList" :league-id="item.leagueId"
                 :league-id-cigapi="item.leagueId_cigapi" :defaultOpenPanel="item.defaultOpen"></accordion-h4-style-2>
 
-            <accordion-h4 v-else :section-title="item.title" :section-content="item.content"
+            <accordion-h4 v-else :section-title="item.title" :section-content="item.content" class="accordion-h4-margin"
                 :sectionContentTableHeader="item.contentTable?.header"
                 :sectionContentTableContent="item.contentTable?.content"
                 :show-running-match-table-list="item.showRunningMatchTableList"
@@ -213,5 +213,11 @@ onMounted(() => {
     transition: max-height 0.5s ease;
     max-height: 0;
     overflow: hidden;
+}
+
+@media only screen and (min-width:475px) {
+    .accordion-h4-margin {
+        margin-left: 2rem;
+    }
 }
 </style>
