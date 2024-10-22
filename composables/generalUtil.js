@@ -50,7 +50,7 @@ export function getTimeSbApi(value) {
   return value;
 }
 
-export function processSection(section, type) {  
+export function processSection(section, type) {
   return section
     .filter((item) => item.__component === type)
     .map((item) => {
@@ -61,12 +61,18 @@ export function processSection(section, type) {
           content: itemh4?.content,
           defaultOpen: itemh4?.defaultOpen || false,
           design: itemh4?.deisgn?.data?.attributes?.design,
+          showTable: itemh4?.showTable || false,
+          contentTable: {
+            header: itemh4?.tableHeader,
+            content: itemh4?.tableContent,
+          },
         });
       });
 
       return {
         title: item.title,
         content: item.content,
+        content2: item.content2,
         defaultOpen: item.defaultOpen || false,
         menuId: item.menuId,
         design: item?.deisgn?.data?.attributes?.design,
@@ -74,6 +80,12 @@ export function processSection(section, type) {
         contentListH4: h4List,
         soccerSetting: item?.SoccerSetting || item?.soccerSetting,
         soccerButton: item?.SoccerButton,
+        showTable: item?.TableContent?.showTable || false,
+        contentTable: {
+          header: item?.TableContent?.tableHeader,
+          content: item?.TableContent?.tableContent,
+        },
+        // imgList2: item?.imgList,
       };
     });
 }
@@ -93,8 +105,11 @@ export function processSectionWithMenuContent(h2Items, h3Items) {
     menuTabId: h2Item.menuId,
     titleH2: h2Item.title,
     contentH2: h2Item.content,
+    content2H2: h2Item.content2,
     design: h2Item.design,
     contentListH3: h3Items.filter((h3Item) => h3Item.menuId === h2Item.menuId), // Group H3 items by menuTabId
+    showTable: h2Item?.showTable || false,
+    contentTable: h2Item?.contentTable,
   }));
 }
 
@@ -113,6 +128,7 @@ export function processSectionWithButtonContent(h2Items, h3Items) {
     buttonId: h2Item.menuId,
     titleH2: h2Item.title,
     contentH2: h2Item.content,
+    content2H2: h2Item.content2,
     design: h2Item.design,
     contentListH3: h3Items.filter((h3Item) => h3Item.menuId === h2Item.menuId), // Group H3 items by menuTabId
   }));

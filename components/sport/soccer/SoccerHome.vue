@@ -26,7 +26,7 @@
         :section-content="selectedMenuContent?.content" :h3-content-data="selectedMenuContent?.contentListH3">
     </accordion-h2-style-1>
 
-    <sport-soccer-menu-tab-bet-sports v-if="selectedMenuId === 'sport'"></sport-soccer-menu-tab-bet-sports>
+    <!-- <sport-soccer-menu-tab-bet-sports v-if="selectedMenuId === 'sport'"></sport-soccer-menu-tab-bet-sports> -->
 
     <!-- menu 2 -->
     <div style="padding-top: 3rem;"></div>

@@ -1,5 +1,7 @@
 <template>
-  <sport-soccer-home></sport-soccer-home>
+  <sport-soccer-home-2 v-if="withCmsPage"></sport-soccer-home-2>
+  <sport-soccer-home v-else></sport-soccer-home>
+  const withCmsPage = ref(route.query.cms || false)
   <!-- <button id="scrollupBtn" @click="topFunction">
     <img src="/img/icn-scrollup.svg" alt="scroll up">
   </button> -->
@@ -7,6 +9,8 @@
 
 <script setup lang="ts">
 const { locale } = useI18n()
+const route = useRoute()
+const withCmsPage = ref(route.query.cms || false)
 
 useSeoMeta({
   // will be inferred as the lastmod value in the sitemap
