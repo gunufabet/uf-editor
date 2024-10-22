@@ -14,30 +14,6 @@ const pageTitle = route.params.category
 const pageDescription = 'Welcome to UFA - ' + route.params.category
 const mainContentText = ref('');
 
-useSeoMeta({
-  // will be inferred as the lastmod value in the sitemap
-  articleModifiedTime: '2024-10-01'
-})
-
-useHead({
-  title: pageTitle,
-  meta: [
-    {
-      hid: 'description',
-      name: 'description',
-      content: pageDescription
-    }
-  ],
-  link: [
-    {
-      hid: "canonical",
-      rel: "canonical",
-      hreflang: locale.value,
-      href: `/sports/soccer/${route.params}`
-    },
-  ]
-})
-
 onMounted(() => {
   document.addEventListener("scroll", scrollFunction);
 })

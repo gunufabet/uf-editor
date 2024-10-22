@@ -8,25 +8,36 @@
 </template>
 
 <script setup lang="ts">
+import { SiteMenu } from "~/enums/site-menu.js";
+import { useSportStore } from "~/stores/sport";
+const { pageMetaInfo } = storeToRefs(useSportStore());
 const { locale } = useI18n()
 const route = useRoute()
-const pageTitle = route.params.category
-const pageDescription = 'Welcome to UFA - ' + route.params.category
-const mainContentText = ref('');
 const withCmsPage = ref(route.query.cms || false)
+
+const pageMeta = ref(pageMetaInfo.value?.find(
+    (content) => content.siteMenu === SiteMenu.SPORTS_BETTING
+));
 
 useSeoMeta({
   // will be inferred as the lastmod value in the sitemap
-  articleModifiedTime: '2024-10-01'
+  articleModifiedTime: '2024-10-01',
+  title: pageMeta.value.title || 'UFABET',
+  ogTitle: pageMeta.value.title || 'UFABET',
+  description: pageMeta.value.description || 'Sports Betting',
+  ogDescription: pageMeta.value.description || 'Sports Betting',
+  ogImage: pageMeta.value.ogImageUrl || 'https://staging.d3udvztif3rxu4.amplifyapp.com/img/ubet-logo.png',
+  twitterCard: 'summary_large_image',
+  ogUrl: pageMeta.value.ogUrl
 })
 
 useHead({
-  title: pageTitle,
+  title: pageMeta.value.title || 'UFABET',
   meta: [
     {
       hid: 'description',
       name: 'description',
-      content: pageDescription
+      content: pageMeta.value.description || 'Soccer'
     }
   ],
   link: [
@@ -34,8 +45,28 @@ useHead({
       hid: "canonical",
       rel: "canonical",
       hreflang: locale.value,
-      href: `/sports/soccer/${route.params}`
+      href: pageMeta.value?.ogUrl
     },
+    {
+      hid: 'og:url',
+      property: 'og:url',
+      content: pageMeta.value?.ogUrl
+    },
+    {
+      hid: 'og:title',
+      property: 'og:title',
+      content: pageMeta.value?.title
+    },
+    {
+      hid: 'og:description',
+      property: 'og:description',
+      content: pageMeta.value?.description 
+    },
+    {
+      hid: 'og:image',
+      property: 'og:image',
+      content: pageMeta.value?.ogImage
+    }
   ]
 })
 

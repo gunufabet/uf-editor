@@ -612,4 +612,47 @@ export default {
         }
       });
   },
+  async getPageMetaContent() {
+    const { locale } = useI18n();
+    axiosInstance.defaults.baseURL = shseoApi;
+
+    let langParam = `locale=${locale.value}`;
+    let populateParam = "populate=deep";
+    let param = `${langParam}&${populateParam}`;
+
+    return httpService({
+      method: CallApiMethod.get,
+      url: "api/page-metas?" + param,
+      timeout: 0,
+    })
+      .then((response) => {
+        if (response.data) {
+          return {
+            succ: true,
+            data: response.data.data,
+          };
+        }
+        return {
+          succ: false,
+          data: null,
+          msg: "No record found",
+        };
+      })
+      .catch((error) => {
+        let defaultErrorMessage = error.message || "Unknown error";
+        if (error.response) {
+          return {
+            succ: false,
+            data: null,
+            msg: error.response.data.message,
+          };
+        } else {
+          return {
+            succ: false,
+            data: null,
+            msg: defaultErrorMessage,
+          };
+        }
+      });
+  },
 };

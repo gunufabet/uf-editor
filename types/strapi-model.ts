@@ -315,3 +315,14 @@ export interface FooterContent {
   aboutUsContent: string;
   siteFooterInfo: string;
 }
+
+export interface PageMetaContent {
+  siteMenu: string;
+  title: string;
+  ogTitle: string;
+  description: string;
+  ogDescription: string;
+  ogImageUrl: string;
+  ogUrl: string;
+  siteMenuName: string;
+}

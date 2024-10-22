@@ -4,6 +4,7 @@ import {
   MatchOdds,
   ApiOdds,
   FooterContent,
+  PageMetaContent,
   type LiveScore,
 } from "~/types/strapi-model";
 import { Strapi4ResponseData } from "@nuxtjs/strapi/dist/runtime/types/v4";
@@ -24,6 +25,7 @@ export const useSportStore = defineStore("sport", {
       matchOddsList: [] as MatchOdds[],
       sbApiToken: "",
       siteFooter: {} as FooterContent,
+      pageMetaInfo: [] as PageMetaContent[],
     };
   },
   actions: {
@@ -429,6 +431,29 @@ export const useSportStore = defineStore("sport", {
           aboutUsContent: response?.data?.attributes?.aboutUsContent,
           siteFooterInfo: response?.data?.attributes?.siteFooterInfo,
         };
+      }
+    },
+    async getPageMetaContent() {
+      const response = await callApi.getPageMetaContent();
+
+      this.pageMetaInfo = [];
+      if (response.succ) {
+        response.data.forEach((item) => {
+          let metaData = {
+            siteMenu:
+              item?.attributes?.siteMenu?.data?.attributes?.siteMenuPage,
+            title: item?.attributes?.title,
+            ogTitle: item?.attributes?.ogTitle,
+            description: item?.attributes?.description,
+            ogDescription: item?.attributes?.ogDescription,
+            ogImageUrl: item?.attributes?.ogImageUrl,
+            ogUrl: item?.attributes?.ogUrl,
+            siteMenuName:
+              item?.attributes?.siteMenu?.data?.attributes?.siteMenuPage,
+          };
+
+          this.pageMetaInfo.push(metaData);
+        });
       }
     },
   },

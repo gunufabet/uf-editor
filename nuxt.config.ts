@@ -12,8 +12,7 @@ export default defineNuxtConfig({
   ssr: true,
   app: {
     head: {
-      title: "UFABET",
-      titleTemplate: "UFABET | %s",
+      title: "UFABET | ",
       viewport: "width=device-width, initial-scale=1",
       meta: [
         { charset: "utf-8" },

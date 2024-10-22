@@ -14,17 +14,7 @@ useAsyncData('sports', async () => await useSportStore().fetchRunningMatch())
 useAsyncData('sports', async () => await useSportStore().fetchRunningMatchByLeague())
 useAsyncData('sports', async () => await useSportStore().fetchSportCount())
 useAsyncData('sports', async () => await useSportStore().getFooterContent())
-
-useHead({
-  title: 'UFABET',
-  // meta: [
-  //   {
-  //     hid: 'description',
-  //     name: 'description',
-  //     content: 'Welcome to UFABET'
-  //   }
-  // ]
-})
+useAsyncData('sports', async () => await useSportStore().getPageMetaContent())
 </script>
 
 <style lang="scss" scoped>

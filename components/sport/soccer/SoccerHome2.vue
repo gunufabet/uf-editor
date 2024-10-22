@@ -281,8 +281,7 @@ function selectTabMenu(value: string) {
     }
 }
 
-function selectTabMenu2(value: string) {
-    console.log('value', value)
+function selectTabMenu2(value: string) {    
     if (!value) {
         value = sectionWithMenu2?.value[0]?.id;
     }
