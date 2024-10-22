@@ -54,7 +54,7 @@
         </div>
 
         <game-banner-list v-if="imgList.length > 0 && openPanel" :img-list="imgList"
-            style="padding-top: 2rem;"></game-banner-list>
+            style="padding-top: 2rem; padding-bottom: 2rem;"></game-banner-list>
 
     </details>
 </template>

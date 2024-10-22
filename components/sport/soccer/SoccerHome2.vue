@@ -43,42 +43,55 @@
     </accordion-h2-style-2>
 
     <!-- menu 2 -->
-    <div style="padding-top: 2rem;"></div>
+    <div style="padding-top: 3rem;"></div>
     <tab-menu @select-tab-menu="selectTabMenu2" :tab-menu-list="sectionWithMenu2"></tab-menu>
     <accordion-h2-style-1 v-if="selectedMenu2Content?.design === '1'" style="margin-top: 1rem;"
         :section-title="selectedMenu2Content?.titleH2" :section-content="selectedMenu2Content?.contentH2"
         :section-content-2="selectedMenu2Content?.content2H2" :h3-content-data="selectedMenu2Content?.contentListH3"
         :sectionContentTableHeader="selectedMenu2Content?.contentTable?.header"
-        :sectionContentTableContent="selectedMenu2Content?.contentTable?.content">
+        :sectionContentTableContent="selectedMenu2Content?.contentTable?.content"
+        :showBetBoost="selectedMenu2Content?.soccerSetting?.showBetBoost"
+        :showNewsSection="selectedMenu2Content?.soccerSetting?.showNews">
     </accordion-h2-style-1>
     <accordion-h2-style-2 v-if="selectedMenu2Content?.design === '2'" style="margin-top: 1rem;"
         :section-title="selectedMenu2Content?.titleH2" :section-content="selectedMenu2Content?.contentH2"
         :section-content-2="selectedMenu2Content?.content2H2" :h3-content-data="selectedMenu2Content?.contentListH3"
         :sectionContentTableHeader="selectedMenu2Content?.contentTable?.header"
-        :sectionContentTableContent="selectedMenu2Content?.contentTable?.content">
+        :sectionContentTableContent="selectedMenu2Content?.contentTable?.content"
+        :showBetBoost="selectedMenu2Content?.soccerSetting?.showBetBoost"
+        :showNewsSection="selectedMenu2Content?.soccerSetting?.showNews">
     </accordion-h2-style-2>
 
-    <!-- menu 3 -->
+    <!-- bonus section -->
     <div style="padding-top: 2rem;"></div>
+    <sport-soccer-bonus-section :title="sectionBonusH2?.title" :content="sectionBonusH2?.content"
+        :imgList="sectionBonusH2?.imgList" :useCms="true"></sport-soccer-bonus-section>
+
+    <!-- menu 3 -->
+    <div style="padding-top: 3rem;"></div>
     <tab-menu @select-tab-menu="selectTabMenu3" :tab-menu-list="sectionWithMenu3"></tab-menu>
-    <accordion-h2-style-1 v-if="selectedMenu3Content?.design === '1'" style="margin-top: 1rem;"
-        :section-title="selectedMenu3Content?.titleH2" :section-content="selectedMenu3Content?.contentH2"
-        :section-content-2="selectedMenu3Content?.content2H2" :h3-content-data="selectedMenu3Content?.contentListH3"
-        :sectionContentTableHeader="selectedMenu3Content?.contentTable?.header"
-        :sectionContentTableContent="selectedMenu3Content?.contentTable?.content">
+    <div style="padding-top: 2rem;"></div>
+    <accordion-h3 :id="item.titleId" v-for="(item, index) in selectedMenu3Content?.contentListH3" :key="index"
+        :section-title="item.title" :section-content="item.content" :with-break-line="item.designWithUnderline"
+        :defaultOpenPanel="item.defaultOpen" :img-list="item.imgList">
+    </accordion-h3>
+
+    <!-- section 2 -->
+    <div style="padding-top: 2rem;"></div>
+    <accordion-h2-style-1 v-if="section2H2?.design === '1'" style="margin-top: 1rem;" :section-title="section2H2?.title"
+        :section-content="section2H2?.content" :h3-content-data="section2H3" :defaultOpenPanel="section2H2?.defaultOpen"
+        :h4-content-data="section2H2?.contentListH4">
     </accordion-h2-style-1>
-    <accordion-h2-style-2 v-if="selectedMenu3Content?.design === '2'" style="margin-top: 1rem;"
-        :section-title="selectedMenu3Content?.titleH2" :section-content="selectedMenu3Content?.contentH2"
-        :section-content-2="selectedMenu3Content?.content2H2" :h3-content-data="selectedMenu3Content?.contentListH3"
-        :sectionContentTableHeader="selectedMenu3Content?.contentTable?.header"
-        :sectionContentTableContent="selectedMenu3Content?.contentTable?.content">
+    <accordion-h2-style-2 v-if="section2H2?.design === '2'" style="margin-top: 1rem;" :section-title="section2H2?.title"
+        :section-content="section2H2?.content" :h3-content-data="section2H3" :defaultOpenPanel="section2H2?.defaultOpen"
+        :h4-content-data="section2H2?.contentListH4">
     </accordion-h2-style-2>
 </template>
 
 <script setup lang="ts">
 import callApi from "~/helpers/call-api";
 import { ContentType } from "~/enums/api-schema-type";
-import { processSection, processSectionSoccer, processSectionWithButton, processSectionWithButtonContent } from '@/composables/generalUtil'
+import { processSection, processSectionSoccer, processSectionBonus, processSectionWithButton, processSectionWithButtonContent } from '@/composables/generalUtil'
 
 const showLoading = ref(false);
 const mainSection = ref();
@@ -107,7 +120,6 @@ const section2H2 = ref();
 const section2H3 = ref();
 
 const sectionBonusH2 = ref();
-const sectionBonusH3 = ref();
 
 onMounted(async () => {
     await getContent()
@@ -125,73 +137,13 @@ async function getContent() {
             const content = response?.data?.attributes
             mainSection.value = content?.MainSection;
 
-            /* Section 1 */
-            const section1 = content?.Section1
+            section1(content)
+            section2(content)
 
-
-            /* Section 1 - H2 */
-            section1H2.value = processSection(section1, ContentType.H2)[0];
-            /* Section 2 - H3 */
-            section1H3.value = processSection(section1, ContentType.H3);
-
-
-            /* section 2 */
-            const section2 = content?.Section2
-
-            /* Section 2 - H2 */
-            section2H2.value = processSectionSoccer(section2);
-            /* Section 2 - H3 */
-            section2H3.value = processSection(section2, ContentType.H3);            
-
-            /* Section With Menu1 */
-            sectionWithMenu1.value = processSectionWithMenu(content.SectionWithMenu1)
-
-            /* Section With Menu1 - Content */
-            const menuContentH2 = processSection(content.SectionWithMenu1Content, ContentType.H2);
-            const menuContentH3 = processSection(content.SectionWithMenu1Content, ContentType.H3)
-
-            sectionWithMenu1Content.value = processSectionWithMenuContent(menuContentH2, menuContentH3)
-
-
-            /* Section With Menu2 */
-            sectionWithMenu2.value = processSectionWithMenu(content.SectionWithMenu2)
-
-            /* Section With Menu1 - Content */
-            const menu2ContentH2 = processSection(content.SectionWithMenu2Content, ContentType.H2);
-            const menu2ContentH3 = processSection(content.SectionWithMenu2Content, ContentType.H3)
-
-            sectionWithMenu2Content.value = processSectionWithMenuContent(menu2ContentH2, menu2ContentH3)
-
-
-            /* Section With Menu3 */
-            sectionWithMenu3.value = processSectionWithMenu(content.SectionWithMenu3)
-
-            /* Section With Menu1 - Content */
-            const menu3ContentH2 = processSection(content.SectionWithMenu3Content, ContentType.H2);
-            const menu3ContentH3 = processSection(content.SectionWithMenu3Content, ContentType.H3)
-
-            sectionWithMenu2Content.value = processSectionWithMenuContent(menu3ContentH2, menu3ContentH3)
-
-            // /* section 3 */
-            // const section3 = content?.Section3
-
-            // /* Section 3 - H2 */
-            // section3H2.value = processSection(section3, ContentType.H2)[0];
-
-            // /* Section 3 - H3 */
-            // section3H3.value = processSection(section3, ContentType.H3);
-
-
-            /* section bonus */
-            // const sectionBonus = content?.SectionBonus
-
-            // /* Section Bonus - H2 */
-            // sectionBonusH2.value = processSection(sectionBonus);
-            // /* Section Bonus - H3 */
-            // sectionBonusH3.value = processSection(sectionBonus, ContentType.H3);
-
-            // console.log('sectionBonusH2', sectionBonusH2.value)
-            // console.log('sectionBonus', sectionBonus)
+            section1WithMenu1(content)
+            section1WithMenu2(content)
+            section1WithMenu3(content)
+            sectionBonus(content)
         }
     } catch (error) {
 
@@ -199,6 +151,81 @@ async function getContent() {
     finally {
         showLoading.value = false
     }
+}
+
+function section1(content) {
+    try {
+        /* Section 1 */
+        const section1 = content?.Section1
+
+        /* Section 1 - H2 */
+        section1H2.value = processSection(section1, ContentType.H2)[0];
+        /* Section 2 - H3 */
+        section1H3.value = processSection(section1, ContentType.H3);
+    } catch (error) {
+
+    }
+}
+
+function section2(content) {
+    try {
+        /* section 2 */
+        const section2 = content?.Section2
+
+        // /* Section 2 - H2 */
+        section2H2.value = processSectionH2H4(section2);        
+    } catch (error) {
+
+    }
+}
+
+function sectionBonus(content) {
+    try {
+        /* section bonus */
+        const sectionBonus = content?.SectionBonus
+
+        // /* Section Bonus - H2 */
+        sectionBonusH2.value = processSectionBonus(sectionBonus);
+    } catch (error) {
+
+    }
+}
+
+function section1WithMenu1(content) {
+    try {
+        /* Section With Menu1 */
+        sectionWithMenu1.value = processSectionWithMenu(content.SectionWithMenu1)
+
+        /* Section With Menu1 - Content */
+        const menuContentH2 = processSection(content.SectionWithMenu1Content, ContentType.H2);
+        const menuContentH3 = processSection(content.SectionWithMenu1Content, ContentType.H3)
+
+        sectionWithMenu1Content.value = processSectionWithMenuContent(menuContentH2, menuContentH3)
+    } catch (error) {
+
+    }
+}
+
+function section1WithMenu2(content) {
+    /* Section With Menu2 */
+    sectionWithMenu2.value = processSectionWithMenu(content.SectionWithMenu2)
+
+    /* Section With Menu1 - Content */
+    const menu2ContentH2 = processSection(content.SectionWithMenu2Content, ContentType.H2);
+    const menu2ContentH3 = processSection(content.SectionWithMenu2Content, ContentType.H3)
+
+    sectionWithMenu2Content.value = processSectionWithMenuContent(menu2ContentH2, menu2ContentH3)
+}
+
+function section1WithMenu3(content) {
+    /* Section With Menu3 */
+    sectionWithMenu3.value = processSectionWithMenu(content.SectionWithMenu3)
+
+    /* Section With Menu1 - Content */
+    const menu3ContentH2 = processSection(content.SectionWithMenu3Content, ContentType.H2);
+    const menu3ContentH3 = processSection(content.SectionWithMenu3Content, ContentType.H3)
+
+    sectionWithMenu3Content.value = processSectionWithMenuContent(menu3ContentH2, menu3ContentH3)
 }
 
 function selectTabMenu(value: string) {
@@ -236,68 +263,8 @@ function selectTabMenu3(value: string) {
     );
     selectedMenu3Content.value = selectedMenu;
 }
-
-// const content = ref(getContent());
-
-/* main title */
-// const mainTitleText = ref(content.value.Sport.Soccer.main.title);
-// const mainContentText = ref(content.value.Sport.Soccer.main.content);
-// const section1 = ref(content.value.Sport.Soccer.section1);
-// const section2 = ref(content.value.Sport.Soccer.section2);
-
-// const selectedMenuId = ref('');
-// const selectedMenuContent = ref();
-// const tabMenuList = ref(content.value.Sport.Soccer.sectionWithMenu1.menuTab);
-// const tabMenuList2 = ref(content.value.Sport.Soccer.sectionWithMenu2.menuTab);
-
-// const asideTitleText = ref('');
-// const asideContentText = ref('');
-// const asideContentShowBetBoost = ref(false);
-
 const asideTitleTextLiveMatch = ref('UFABET Live Soccer Matches');
 const asideContentTextLiveMatch = ref('The Ufabet Live Soccer Matches are listed on the table below.');
-
-// function selectTabMenu(value: string) {
-//     if (!value) {
-//         value = content.value.Sport.Soccer.sectionWithMenu1.menuTab[0].id;
-//         selectedMenuId.value = value;
-//     }
-
-//     const selectedMenu = content.value.Sport.Soccer.sectionWithMenu1.menuContent.find(
-//         (content) => content.menuTabId === value
-//     );
-
-//     selectedMenuId.value = selectedMenu?.menuTabId || '';
-//     selectedMenuContent.value = selectedMenu;
-// }
-
-// const selectTabMenu2_MenuTabId = ref('');
-// const selectTabMenu2_FocusTitle = ref(false);
-
-// function selectTabMenu2(value: string) {
-//     if (!value) {
-//         value = content.value.Sport.Soccer.sectionWithMenu2.menuTab[0].id;
-//     }
-
-//     const selectedMenu = content.value.Sport.Soccer.sectionWithMenu2.menuContent.find(
-//         (content) => content.menuTabId === value
-//     );
-
-//     //"menuTabId": "football",
-//     if (value === 'football') {
-//         asideTitleText.value = selectedMenu?.title || '';
-//         asideContentText.value = selectedMenu?.content || '';
-//         asideContentShowBetBoost.value = selectedMenu?.showBetBoost || false;
-//     }
-
-//     selectTabMenu2_MenuTabId.value = selectedMenu?.menuTabId || '';
-//     selectTabMenu2_FocusTitle.value = selectedMenu?.focusTitle || false;
-// }
-
-// onMounted(() => {
-//     selectTabMenu('');
-//     selectTabMenu2('');
-// })
 </script>
 
 <style lang="scss" scoped>

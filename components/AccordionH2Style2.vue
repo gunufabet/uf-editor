@@ -34,6 +34,8 @@
 
         <p v-if="openPanel" class="accordion-panel-content" v-html="props.sectionContent2"></p>
 
+        <sport-soccer-news-section v-if="openPanel && showNewsSection"></sport-soccer-news-section>
+
         <div v-if="openPanel" v-for="(item, index) in h3ContentData" :key="index">
             <accordion-h3-style-2 v-if="item.design === '2'" style="margin-left: 1rem; margin-bottom: 30px;"
                 :section-title="item.title" :section-content="item.content" :with-break-line="false"
@@ -109,6 +111,10 @@ const props = defineProps({
         type: Boolean,
         default: false
     },
+    showNewsSection: {
+        type: Boolean,
+        default: false
+    }
 });
 
 const openPanel = ref(props.defaultOpenPanel || false);

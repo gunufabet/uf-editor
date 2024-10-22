@@ -74,9 +74,9 @@ export function processSection(section, type) {
         content: item.content,
         content2: item.content2,
         defaultOpen: item.defaultOpen || false,
-        menuId: item.menuId,
+        menuId: item?.menuId,
         design: item?.deisgn?.data?.attributes?.design,
-        designWithUnderline: item.designUnderline || false,
+        designWithUnderline: item?.designUnderline || false,
         contentListH4: h4List,
         soccerSetting: item?.SoccerSetting || item?.soccerSetting,
         soccerButton: item?.SoccerButton,
@@ -85,7 +85,47 @@ export function processSection(section, type) {
           header: item?.TableContent?.tableHeader,
           content: item?.TableContent?.tableContent,
         },
-        // imgList2: item?.imgList,
+        imgList: mapImgList(item?.ImgLIst?.imgList),
+      };
+    });
+}
+
+export function processSection2(section, type) {
+  return section
+    .filter((item) => item.__component === type)
+    .map((item) => {
+      let h4List = [];
+      item?.contentListH4?.forEach((itemh4) => {
+        h4List.push({
+          title: itemh4?.title,
+          content: itemh4?.content,
+          defaultOpen: itemh4?.defaultOpen || false,
+          design: itemh4?.deisgn?.data?.attributes?.design,
+          showTable: itemh4?.showTable || false,
+          contentTable: {
+            header: itemh4?.tableHeader,
+            content: itemh4?.tableContent,
+          },
+        });
+      });
+
+      return {
+        title: item.title,
+        content: item.content,
+        content2: item.content2,
+        defaultOpen: item.defaultOpen || false,
+        menuId: item?.menuId,
+        design: item?.deisgn?.data?.attributes?.design,
+        designWithUnderline: item?.designUnderline || false,
+        contentListH4: h4List,
+        soccerSetting: item?.SoccerSetting || item?.soccerSetting,
+        soccerButton: item?.SoccerButton,
+        showTable: item?.TableContent?.showTable || false,
+        contentTable: {
+          header: item?.TableContent?.tableHeader,
+          content: item?.TableContent?.tableContent,
+        },
+        imgList: mapImgList(item?.ImgLIst?.imgList),
       };
     });
 }
@@ -110,6 +150,7 @@ export function processSectionWithMenuContent(h2Items, h3Items) {
     contentListH3: h3Items.filter((h3Item) => h3Item.menuId === h2Item.menuId), // Group H3 items by menuTabId
     showTable: h2Item?.showTable || false,
     contentTable: h2Item?.contentTable,
+    soccerSetting: h2Item?.soccerSetting,
   }));
 }
 
@@ -131,6 +172,7 @@ export function processSectionWithButtonContent(h2Items, h3Items) {
     content2H2: h2Item.content2,
     design: h2Item.design,
     contentListH3: h3Items.filter((h3Item) => h3Item.menuId === h2Item.menuId), // Group H3 items by menuTabId
+    soccerSetting: h3Items.soccerSetting,
   }));
 }
 
@@ -144,4 +186,53 @@ export function processSectionSoccer(item) {
     designWithUnderline: item.designUnderline || false,
     soccerSetting: item.soccerSetting,
   };
+}
+
+export function processSectionBonus(item) {
+  return {
+    title: item.title,
+    content: item.content,
+    defaultOpen: item.defaultOpen || false,
+    menuId: item.menuId,
+    design: item?.deisgn?.data?.attributes?.design,
+    designWithUnderline: item.designUnderline || false,
+    soccerSetting: item.soccerSetting,
+    imgList: mapImgList(item.imgList)
+  };
+}
+
+export function processSectionH2H4(item) {  
+  let h4List = [];
+  item?.contentListH4?.forEach((itemh4) => {
+    h4List.push({
+      title: itemh4?.title,
+      content: itemh4?.content,
+      defaultOpen: itemh4?.defaultOpen || false,
+      design: itemh4?.deisgn?.data?.attributes?.design,
+      showTable: itemh4?.showTable || false,
+      contentTable: {
+        header: itemh4?.tableHeader,
+        content: itemh4?.tableContent,
+      },
+    });
+  });
+
+  return {
+    title: item.title,
+    content: item.content,
+    defaultOpen: item.defaultOpen || false,
+    menuId: item.menuId,
+    design: item?.deisgn?.data?.attributes?.design,
+    designWithUnderline: item.designUnderline || false,
+    soccerSetting: item.soccerSetting,
+    imgList: mapImgList(item.imgList),
+    contentListH4: h4List,
+  };
+}
+
+export function mapImgList(imgSection) {
+  return imgSection?.data?.map((item) => ({
+    imgSrc: item?.attributes?.url,
+    imgAlt: item?.attributes?.alternativeText,
+  }));
 }
