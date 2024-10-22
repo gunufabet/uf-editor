@@ -5,10 +5,10 @@
             showMore ? 'main-content-detail-open' : 'main-content-detail-close',
             { 'remove-after': showMore }
         ]" v-html="props.mainContentText">
-        </p>
+        </p>        
 
-        <button v-if="!showLoading && mainContentText" id="show-more" :class="showMore ? 'flip-vertical' : 'flip-vertical-transition'" @click="clickShowMore"
-            tabindex="0">
+        <button v-if="!showLoading && mainContentText" id="show-more"
+            :class="showMore ? 'flip-vertical' : 'flip-vertical-transition'" @click="clickShowMore" tabindex="0">
             <!-- {{ showMore ? 'Show Less' : 'Show More' }} -->
             <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28" fill="none">
                 <path

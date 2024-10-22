@@ -92,7 +92,7 @@ html {
   line-height: 1.5rem;
 }
 
-.page-loader {  
+.page-loader {
   width: 48px;
   height: 48px;
   border: 1px solid #fbdeb2;
@@ -113,7 +113,6 @@ html {
   }
 }
 
-
 @media only screen and (max-width: 475px) {
   #scrollupBtn {
     display: block;
@@ -129,4 +128,14 @@ html {
     display: none;
     position: fixed;
   }
+}
+
+.site-img-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.site-img-wrapper-size {
+  max-width: 356px;
+  max-height: 165.07px;
 }

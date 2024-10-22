@@ -82,6 +82,7 @@ export interface LiveMatchCount {
   todaySoccerOutright: number;
   earlySoccerOutright: number;
 }
+
 export interface MatchOdds {
   score: string;
   homeScore: string;
@@ -108,7 +109,6 @@ export interface MatchOdds {
   odd_FT_1X2_Draw_1: string;
   odd_FT_1X2_Draw_2: string;
 }
-
 
 export interface ApiOdds {
   socOddsId: number;
@@ -308,4 +308,10 @@ export interface League {
   localizations: {
     data: any[];
   };
+}
+
+export interface FooterContent {
+  aboutUsTitle: string;
+  aboutUsContent: string;
+  siteFooterInfo: string;
 }

@@ -3,6 +3,7 @@ import {
   LiveMatchCount,
   MatchOdds,
   ApiOdds,
+  FooterContent,
   type LiveScore,
 } from "~/types/strapi-model";
 import { Strapi4ResponseData } from "@nuxtjs/strapi/dist/runtime/types/v4";
@@ -22,6 +23,7 @@ export const useSportStore = defineStore("sport", {
       sportCount: {} as LiveMatchCount,
       matchOddsList: [] as MatchOdds[],
       sbApiToken: "",
+      siteFooter: {} as FooterContent,
     };
   },
   actions: {
@@ -344,8 +346,14 @@ export const useSportStore = defineStore("sport", {
                 locale === LanguageType.THAILAND
                   ? apiOddsItem.moduleTitleT
                   : apiOddsItem.moduleTitle,
-              homeName: locale === LanguageType.THAILAND ? apiOddsItem.homeT : apiOddsItem.home,
-              awayName: locale === LanguageType.THAILAND ? apiOddsItem.awayT : apiOddsItem.away,
+              homeName:
+                locale === LanguageType.THAILAND
+                  ? apiOddsItem.homeT
+                  : apiOddsItem.home,
+              awayName:
+                locale === LanguageType.THAILAND
+                  ? apiOddsItem.awayT
+                  : apiOddsItem.away,
               hasLiveStream: apiOddsItem.hasRunning,
               hasStatistic: apiOddsItem.statsId > 0 ? true : false,
               hasMoreBetOption: true,
@@ -410,6 +418,17 @@ export const useSportStore = defineStore("sport", {
       } catch (error) {
       } finally {
         return matchOddsList;
+      }
+    },
+    async getFooterContent() {
+      const response = await callApi.getFooterContent();
+
+      if (response.succ) {
+        this.siteFooter = {
+          aboutUsTitle: response?.data?.attributes?.aboutUsTitle,
+          aboutUsContent: response?.data?.attributes?.aboutUsContent,
+          siteFooterInfo: response?.data?.attributes?.siteFooterInfo,
+        };
       }
     },
   },
