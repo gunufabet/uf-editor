@@ -69,14 +69,18 @@
 
     <!-- SectionGameAvailable -->
     <div style="padding-top: 2rem;"></div>
-    <accordion-h2-style-1 v-if="sectionGameAvailableH2?.design === '1'" style="margin-top: 1rem;" :section-title="sectionGameAvailableH2?.title"
-        :section-content="sectionGameAvailableH2?.content" :h3-content-data="section2H3" :defaultOpenPanel="sectionGameAvailableH2?.defaultOpen"
-        :h4-content-data="sectionGameAvailableH2?.contentListH4" :sectionContentTableHeader="sectionGameAvailableH2?.contentTable?.header"
+    <accordion-h2-style-1 v-if="sectionGameAvailableH2?.design === '1'" style="margin-top: 1rem;"
+        :section-title="sectionGameAvailableH2?.title" :section-content="sectionGameAvailableH2?.content"
+        :h3-content-data="section2H3" :defaultOpenPanel="sectionGameAvailableH2?.defaultOpen"
+        :h4-content-data="sectionGameAvailableH2?.contentListH4"
+        :sectionContentTableHeader="sectionGameAvailableH2?.contentTable?.header"
         :sectionContentTableContent="sectionGameAvailableH2?.contentTable?.content">
     </accordion-h2-style-1>
-    <accordion-h2-style-2 v-if="sectionGameAvailableH2?.design === '2'" style="margin-top: 1rem;" :section-title="sectionGameAvailableH2?.title"
-        :section-content="sectionGameAvailableH2?.content" :h3-content-data="section2H3" :defaultOpenPanel="sectionGameAvailableH2?.defaultOpen"
-        :h4-content-data="sectionGameAvailableH2?.contentListH4" :sectionContentTableHeader="sectionGameAvailableH2?.contentTable?.header"
+    <accordion-h2-style-2 v-if="sectionGameAvailableH2?.design === '2'" style="margin-top: 1rem;"
+        :section-title="sectionGameAvailableH2?.title" :section-content="sectionGameAvailableH2?.content"
+        :h3-content-data="section2H3" :defaultOpenPanel="sectionGameAvailableH2?.defaultOpen"
+        :h4-content-data="sectionGameAvailableH2?.contentListH4"
+        :sectionContentTableHeader="sectionGameAvailableH2?.contentTable?.header"
         :sectionContentTableContent="sectionGameAvailableH2?.contentTable?.content">
     </accordion-h2-style-2>
 
@@ -114,19 +118,16 @@ const section1H3 = ref();
 /* menu 1 */
 const sectionWithMenu1 = ref();
 const sectionWithMenu1Content = ref();
-const selectedMenuId = ref('');
 const selectedMenuContent = ref();
 
 /* menu 2 */
 const sectionWithMenu2 = ref();
 const sectionWithMenu2Content = ref();
-const selectedMenu2Id = ref('');
 const selectedMenu2Content = ref();
 
 /* menu 3 */
 const sectionWithMenu3 = ref();
 const sectionWithMenu3Content = ref();
-const selectedMenu3Id = ref('');
 const selectedMenu3Content = ref();
 
 const section2H2 = ref();
@@ -259,37 +260,74 @@ function section1WithMenu3(content) {
 function selectTabMenu(value: string) {
     if (!value) {
         value = sectionWithMenu1?.value[0]?.id;
-        selectedMenuId.value = value;
     }
+
+    const selectedMenuObj = sectionWithMenu1.value?.find(
+        (content) => content.id === value
+    );
 
     const selectedMenu = sectionWithMenu1Content.value?.find(
         (content) => content.menuTabId === value
     );
-    selectedMenuContent.value = selectedMenu;
+
+    if (selectedMenuObj?.focusTab?.focusTitle) {
+        const element = document.getElementById(selectedMenuObj?.focusTab?.focusTitleElementId);
+        if (element) {
+            element.focus({ preventScroll: true }); // Focus the element
+            element.scrollIntoView({ behavior: 'smooth', block: 'center' })
+        }
+    } else {
+        selectedMenuContent.value = selectedMenu;
+    }
 }
 
 function selectTabMenu2(value: string) {
+    console.log('value', value)
     if (!value) {
         value = sectionWithMenu2?.value[0]?.id;
-        selectedMenu2Id.value = value;
     }
+
+    const selectedMenuObj = sectionWithMenu2.value?.find(
+        (content) => content.id === value
+    );
 
     const selectedMenu = sectionWithMenu2Content.value?.find(
         (content) => content.menuTabId === value
     );
-    selectedMenu2Content.value = selectedMenu;
+
+    if (selectedMenuObj?.focusTab?.focusTitle) {
+        const element = document.getElementById(selectedMenuObj?.focusTab?.focusTitleElementId);
+        if (element) {
+            element.focus({ preventScroll: true }); // Focus the element
+            element.scrollIntoView({ behavior: 'smooth', block: 'center' })
+        }
+    } else {
+        selectedMenu2Content.value = selectedMenu;
+    }
 }
 
 function selectTabMenu3(value: string) {
     if (!value) {
         value = sectionWithMenu3?.value[0]?.id;
-        selectedMenu3Id.value = value;
     }
+
+    const selectedMenuObj = sectionWithMenu3.value?.find(
+        (content) => content.id === value
+    );
 
     const selectedMenu = sectionWithMenu3Content.value?.find(
         (content) => content.menuTabId === value
     );
-    selectedMenu3Content.value = selectedMenu;
+
+    if (selectedMenuObj?.focusTab?.focusTitle) {
+        const element = document.getElementById(selectedMenuObj?.focusTab?.focusTitleElementId);
+        if (element) {
+            element.focus({ preventScroll: true }); // Focus the element
+            element.scrollIntoView({ behavior: 'smooth', block: 'center' })
+        }
+    } else {
+        selectedMenu3Content.value = selectedMenu;
+    }
 }
 const asideTitleTextLiveMatch = ref('UFABET Live Soccer Matches');
 const asideContentTextLiveMatch = ref('The Ufabet Live Soccer Matches are listed on the table below.');

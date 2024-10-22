@@ -136,6 +136,7 @@ export function processSectionWithMenu(section) {
       id: item.menuId,
       text: item.menuName,
       menuTabOrder: item.menuOrder,
+      focusTab: item.focustTab,
     }))
     .sort((a, b) => a.menuTabOrder - b.menuTabOrder); // Sort by menuTabOrder
 }
@@ -197,11 +198,11 @@ export function processSectionBonus(item) {
     design: item?.deisgn?.data?.attributes?.design,
     designWithUnderline: item.designUnderline || false,
     soccerSetting: item.soccerSetting,
-    imgList: mapImgList(item.imgList)
+    imgList: mapImgList(item.imgList),
   };
 }
 
-export function processSectionH2H4(item) {  
+export function processSectionH2H4(item) {
   let h4List = [];
   item?.contentListH4?.forEach((itemh4) => {
     h4List.push({

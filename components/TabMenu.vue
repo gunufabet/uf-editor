@@ -1,13 +1,13 @@
 <template>
     <div v-if="h2Title" class="tab-menu-container">
         <h2 v-for="(menu, index) in props.tabMenuList" :key="index">
-            <div @click="selectTab(menu.id)" class="tab-menu-item" :class="[menu.id === selectedTab ? 'tab-highlight' : '',
+            <div :id="menu.id" @click="selectTab(menu.id)" class="tab-menu-item" :class="[menu.id === selectedTab ? 'tab-highlight' : '',
     h2Title ? 'tab-menu-item-h2' : '']">{{ menu.text }}</div>
         </h2>
     </div>
     <div v-else class="tab-menu-container">
         <div v-for="(menu, index) in props.tabMenuList" :key="index">
-            <div @click="selectTab(menu.id)" class="tab-menu-item"
+            <div :id="menu.id" @click="selectTab(menu.id)" class="tab-menu-item"
                 :class="menu.id === selectedTab ? 'tab-highlight' : ''">{{ menu.text }}</div>
         </div>
     </div>
