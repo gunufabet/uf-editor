@@ -67,6 +67,19 @@
     <sport-soccer-bonus-section :title="sectionBonusH2?.title" :content="sectionBonusH2?.content"
         :imgList="sectionBonusH2?.imgList" :useCms="true"></sport-soccer-bonus-section>
 
+    <!-- SectionGameAvailable -->
+    <div style="padding-top: 2rem;"></div>
+    <accordion-h2-style-1 v-if="sectionGameAvailableH2?.design === '1'" style="margin-top: 1rem;" :section-title="sectionGameAvailableH2?.title"
+        :section-content="sectionGameAvailableH2?.content" :h3-content-data="section2H3" :defaultOpenPanel="sectionGameAvailableH2?.defaultOpen"
+        :h4-content-data="sectionGameAvailableH2?.contentListH4" :sectionContentTableHeader="sectionGameAvailableH2?.contentTable?.header"
+        :sectionContentTableContent="sectionGameAvailableH2?.contentTable?.content">
+    </accordion-h2-style-1>
+    <accordion-h2-style-2 v-if="sectionGameAvailableH2?.design === '2'" style="margin-top: 1rem;" :section-title="sectionGameAvailableH2?.title"
+        :section-content="sectionGameAvailableH2?.content" :h3-content-data="section2H3" :defaultOpenPanel="sectionGameAvailableH2?.defaultOpen"
+        :h4-content-data="sectionGameAvailableH2?.contentListH4" :sectionContentTableHeader="sectionGameAvailableH2?.contentTable?.header"
+        :sectionContentTableContent="sectionGameAvailableH2?.contentTable?.content">
+    </accordion-h2-style-2>
+
     <!-- menu 3 -->
     <div style="padding-top: 3rem;"></div>
     <tab-menu @select-tab-menu="selectTabMenu3" :tab-menu-list="sectionWithMenu3"></tab-menu>
@@ -119,6 +132,8 @@ const selectedMenu3Content = ref();
 const section2H2 = ref();
 const section2H3 = ref();
 
+const sectionGameAvailableH2 = ref();
+
 const sectionBonusH2 = ref();
 
 onMounted(async () => {
@@ -139,6 +154,7 @@ async function getContent() {
 
             section1(content)
             section2(content)
+            sectionGameAvailable(content)
 
             section1WithMenu1(content)
             section1WithMenu2(content)
@@ -173,7 +189,19 @@ function section2(content) {
         const section2 = content?.Section2
 
         // /* Section 2 - H2 */
-        section2H2.value = processSectionH2H4(section2);        
+        section2H2.value = processSectionH2H4(section2);
+    } catch (error) {
+
+    }
+}
+
+function sectionGameAvailable(content) {
+    try {
+        /* section 2 */
+        const section = content?.SectionGameAvailable
+
+        // /* Section 2 - H2 */
+        sectionGameAvailableH2.value = processSection(section, ContentType.H2)[0];
     } catch (error) {
 
     }
