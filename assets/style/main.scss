@@ -113,6 +113,11 @@ html {
   }
 }
 
+.site-img-wrapper-size {
+  max-width: 541px;
+  max-height: 266px;
+}
+
 @media only screen and (max-width: 475px) {
   #scrollupBtn {
     display: block;
@@ -120,6 +125,11 @@ html {
     bottom: 30px;
     left: 20px;
     z-index: 99;
+  }
+
+  .site-img-wrapper-size {
+    max-width: 356px;
+    max-height: 165.07px;
   }
 }
 
@@ -133,9 +143,4 @@ html {
 .site-img-wrapper {
   display: flex;
   justify-content: center;
-}
-
-.site-img-wrapper-size {
-  max-width: 356px;
-  max-height: 165.07px;
 }
