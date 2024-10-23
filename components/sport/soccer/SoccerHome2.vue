@@ -90,7 +90,8 @@
     <div style="padding-top: 2rem;"></div>
     <accordion-h3 :id="item.titleId" v-for="(item, index) in selectedMenu3Content?.contentListH3" :key="index"
         :section-title="item.title" :section-content="item.content" :with-break-line="item.designWithUnderline"
-        :defaultOpenPanel="item.defaultOpen" :img-list="item.imgList">
+        :defaultOpenPanel="item.defaultOpen" :img-list="item.imgList"
+        :h4-content-data="item?.contentListH4">
     </accordion-h3>
 
     <!-- section 2 -->
@@ -243,7 +244,7 @@ function section1WithMenu2(content) {
     const menu2ContentH2 = processSection(content.SectionWithMenu2Content, ContentType.H2);
     const menu2ContentH3 = processSection(content.SectionWithMenu2Content, ContentType.H3)
 
-    sectionWithMenu2Content.value = processSectionWithMenuContent(menu2ContentH2, menu2ContentH3)
+    sectionWithMenu2Content.value = processSectionWithMenuContent(menu2ContentH2, menu2ContentH3) 
 }
 
 function section1WithMenu3(content) {
