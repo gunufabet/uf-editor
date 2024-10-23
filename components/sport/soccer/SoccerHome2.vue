@@ -71,14 +71,14 @@
     <div style="padding-top: 2rem;"></div>
     <accordion-h2-style-1 v-if="sectionGameAvailableH2?.design === '1'" style="margin-top: 1rem;"
         :section-title="sectionGameAvailableH2?.title" :section-content="sectionGameAvailableH2?.content"
-        :section-content-2="sectionGameAvailableH2?.content2H2" :h3-content-data="section2H3"
+        :section-content-2="sectionGameAvailableH2?.content2" :h3-content-data="section2H3"
         :defaultOpenPanel="sectionGameAvailableH2?.defaultOpen" :h4-content-data="sectionGameAvailableH2?.contentListH4"
         :sectionContentTableHeader="sectionGameAvailableH2?.contentTable?.header"
         :sectionContentTableContent="sectionGameAvailableH2?.contentTable?.content">
     </accordion-h2-style-1>
     <accordion-h2-style-2 v-if="sectionGameAvailableH2?.design === '2'" style="margin-top: 1rem;"
         :section-title="sectionGameAvailableH2?.title" :section-content="sectionGameAvailableH2?.content"
-        :section-content-2="sectionGameAvailableH2?.content2H2" :h3-content-data="section2H3"
+        :section-content-2="sectionGameAvailableH2?.content2" :h3-content-data="section2H3"
         :defaultOpenPanel="sectionGameAvailableH2?.defaultOpen" :h4-content-data="sectionGameAvailableH2?.contentListH4"
         :sectionContentTableHeader="sectionGameAvailableH2?.contentTable?.header"
         :sectionContentTableContent="sectionGameAvailableH2?.contentTable?.content">
